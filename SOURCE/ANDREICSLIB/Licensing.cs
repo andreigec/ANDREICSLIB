@@ -21,8 +21,7 @@ namespace ANDREICSLIB
         public static bool ShowingAbout;
         public static bool ShowingHelp;
 
-
-        private static ToolStripMenuItem GetItem(String text,MenuStrip ms)
+        private static ToolStripMenuItem GetItem(String text, MenuStrip ms)
         {
             ToolStripMenuItem helpToolStripItem = null;
 
@@ -46,7 +45,7 @@ namespace ANDREICSLIB
         {
             var helpitem = new ToolStripMenuItem("H&elp");
             helpitem.Click += Helpbox;
-            helpParent.DropDownItems.Add(helpitem); 
+            helpParent.DropDownItems.Add(helpitem);
         }
 
         /// <summary>
@@ -208,6 +207,7 @@ namespace ANDREICSLIB
             var buffer = new byte[4096]; // 4K is optimum
             //we need the exe file for later execution
             String exefile = "";
+            string exefolder = "";
 
             try
             {
@@ -237,21 +237,39 @@ namespace ANDREICSLIB
 
             try
             {
-                var zf = new ZipFile(localfile);
-
-                //2.1: Get exe name
-                foreach (ZipEntry ze in zf)
-                {
-                    if (ze.IsFile == false)
-                        continue;
-                    if (ze.Name.Contains(".exe"))
-                        exefile = ze.Name;
-                }
-                zf.Close();
-
-                //2.2 unpack
+                var myname = AppDomain.CurrentDomain.FriendlyName;
+                //remove .vshost for testing
+                if (myname.Contains(".vshost."))
+                    myname = myname.Replace(".vshost.", ".");
+               
+                //2.1 unpack
                 Zip.ExtractZipFile(localfile, folder);
-                
+
+                //2.2 find exe
+                foreach (var f in FileUpdates.LoopThroughFilesRecursive(folder))
+                {
+                    if (f.Contains(".exe"))
+                        exefile = f;
+
+                    if (f.EndsWith(myname))
+                        break;
+                }
+
+                var br = "\\";
+                exefolder = "";
+                //ignore everything above this dir
+                while (exefile.Length > 0)
+                {
+                    int c = StringUpdates.ContainsSubStringCount(exefile, br);
+                    if (c > 0)
+                    {
+                        var s = exefile.Substring(0, exefile.IndexOf(br));
+                        exefolder += s + br;
+                        exefile = exefile.Substring(exefile.IndexOf(br) + 1);
+                    }
+                    else
+                        break;
+                }
             }
             catch (Exception ex)
             {
@@ -263,8 +281,15 @@ namespace ANDREICSLIB
             OperatingSystem osInfo = Environment.OSVersion;
             try
             {
-                String operations = "move /Y \"" + folder + "\"\\* . & del /Q \"" + localfile + "\" & rmdir /Q /S \"" + folder +
-                                    "\" & start \"\" \"" + exefile + "\" ";
+                //move folder/* to the local dir
+                //delete the zip file
+                //delete folder remnants
+                //start the exefile we found before
+
+                String operations = "move /Y \"" + exefolder + "\"\\* . " +
+                                    "& del /Q \"" + localfile + "\" " +
+                                    "& rmdir /Q /S \"" + folder + "\" " +
+                                    "& start \"\" \"" + exefile + "\" ";
 
                 if (osInfo.Platform == PlatformID.Win32NT && osInfo.Version.Major > 5)
                 {

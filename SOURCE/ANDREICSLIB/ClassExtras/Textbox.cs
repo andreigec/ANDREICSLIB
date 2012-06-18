@@ -42,7 +42,7 @@ namespace ANDREICSLIB
         /// </summary>
         /// <param name="IT">the input type</param>
         /// <param name="keyValue">e.Item1Value/KeyChar</param>
-        /// <param name="tb">ref to the textbox</param>
+        /// <param name="tb">ref to the textbox for ctrl+a keys</param>
         /// <returns>e.Handled</returns>
         public static bool HandleInput(InputType IT, char keyValue, ref TextBox tb)
         {

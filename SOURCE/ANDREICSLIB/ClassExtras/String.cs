@@ -25,7 +25,13 @@ namespace ANDREICSLIB
             return new Tuple<int, int>(int.Parse(x.Item1), int.Parse(x.Item2));
 		}
 
-		public static int containsSubStringCount(String instr,String substring)
+        /// <summary>
+        /// count how many occurences of a substring occur in a string
+        /// </summary>
+        /// <param name="instr"></param>
+        /// <param name="substring"></param>
+        /// <returns></returns>
+		public static int ContainsSubStringCount(String instr,String substring)
 		{
 			int count = 0;
 
