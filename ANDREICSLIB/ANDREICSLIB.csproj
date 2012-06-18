@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{469B8120-B6D8-48BD-97C4-AFAB63AEE304}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ANDREICSLIB</RootNamespace>
+    <AssemblyName>ANDREICSLIB</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release With Debug|AnyCPU'">
+    <OutputPath>bin\Release With Debug\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\CSHARPLIBRARY.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;K:\Program Files\VS\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;K:\Program Files\VS\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>.\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClassExtras\Bitmap.cs" />
+    <Compile Include="Networking.cs" />
+    <Compile Include="NewControls\ColorListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ClassExtras\Colour.cs" />
+    <Compile Include="NewControls\growingLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NewControls\growingLabel.Designer.cs">
+      <DependentUpon>growingLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dataClasses.cs" />
+    <Compile Include="ClassExtras\Device.cs" />
+    <Compile Include="ClassReplacements\Dictionary.cs" />
+    <Compile Include="NewControls\DragBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewControls\DragBar.Designer.cs">
+      <DependentUpon>DragBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassExtras\EmbeddedResources.cs" />
+    <Compile Include="ClassExtras\File.cs" />
+    <Compile Include="FormConfigRestore.cs" />
+    <Compile Include="NewControls\getStringBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewControls\getStringBox.designer.cs">
+      <DependentUpon>getStringBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewControls\aboutScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewControls\aboutScreen.Designer.cs">
+      <DependentUpon>aboutScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewControls\helpScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewControls\helpScreen.Designer.cs">
+      <DependentUpon>helpScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Licensing.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassReplacements\List.cs" />
+    <Compile Include="MatrixOps.cs" />
+    <Compile Include="NewControls\multipleMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewControls\multipleMessageBox.Designer.cs">
+      <DependentUpon>multipleMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassReplacements\Panel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ClassExtras\SaveFileDialog.cs" />
+    <Compile Include="NewControls\selectItemFromListBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewControls\selectItemFromListBox.Designer.cs">
+      <DependentUpon>selectItemFromListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassExtras\Textbox.cs" />
+    <Compile Include="ClassExtras\TimeZone.cs" />
+    <Compile Include="NewControls\UnselectableRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ClassReplacements\ListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ClassReplacements\Object.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ClassExtras\Math.cs" />
+    <Compile Include="ClassExtras\String.cs" />
+    <Compile Include="ClassReplacements\TreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ClassExtras\Net.cs" />
+    <Compile Include="ClassExtras\Zip.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="NewControls\DragBar.resx">
+      <DependentUpon>DragBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewControls\getStringBox.resx">
+      <DependentUpon>getStringBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewControls\aboutScreen.resx">
+      <DependentUpon>aboutScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewControls\helpScreen.resx">
+      <DependentUpon>helpScreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewControls\multipleMessageBox.resx">
+      <DependentUpon>multipleMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewControls\selectItemFromListBox.resx">
+      <DependentUpon>selectItemFromListBox.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
