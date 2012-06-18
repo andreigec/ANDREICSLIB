@@ -23,7 +23,7 @@ namespace ANDREICSLIB
 		    {
                 response = webRequestObject.GetResponse();
 		    }
-		    catch (Exception e)
+		    catch (Exception ex)
 		    {
 		        return null;
 		    }
