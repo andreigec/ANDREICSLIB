@@ -91,7 +91,7 @@
       <DependentUpon>growingLabel.cs</DependentUpon>
     </Compile>
     <Compile Include="dataClasses.cs" />
-    <Compile Include="ClassExtras\Device.cs" />
+    <Compile Include="Device.cs" />
     <Compile Include="ClassReplacements\Dictionary.cs" />
     <Compile Include="NewControls\DragBar.cs">
       <SubType>UserControl</SubType>
@@ -99,7 +99,7 @@
     <Compile Include="NewControls\DragBar.Designer.cs">
       <DependentUpon>DragBar.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClassExtras\EmbeddedResources.cs" />
+    <Compile Include="EmbeddedResources.cs" />
     <Compile Include="ClassExtras\File.cs" />
     <Compile Include="FormConfigRestore.cs" />
     <Compile Include="NewControls\getStringBox.cs">

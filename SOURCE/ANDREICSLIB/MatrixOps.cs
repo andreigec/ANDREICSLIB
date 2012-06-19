@@ -8,9 +8,9 @@ namespace ANDREICSLIB
 		{
 			var outm = CreateMatrix<T>(widthI, heightI);
 
-			for (int y = 0; y < heightI; y++)
+			for (var y = 0; y < heightI; y++)
 			{
-				for (int x = 0; x < widthI; x++)
+				for (var x = 0; x < widthI; x++)
 				{
 					outm[y][x] = gridIN[y][x];
 				}
@@ -22,10 +22,10 @@ namespace ANDREICSLIB
 		{
 			var outm = new T[heightI][];
 
-			for (int y = 0; y < heightI; y++)
+			for (var y = 0; y < heightI; y++)
 			{
 				outm[y] = new T[widthI];
-				for (int x=0;x<widthI;x++)
+				for (var x=0;x<widthI;x++)
 				{
 					outm[y][x] = new T();
 				}
@@ -35,10 +35,10 @@ namespace ANDREICSLIB
 
 		public static String SerialiseMatrix<T>(T[][] matrix, int width,int height,String rowsep=",",String linesep="\r\n")
 		{
-			String ret = "";
-			for (int y = 0; y < height; y++)
+			var ret = "";
+			for (var y = 0; y < height; y++)
 			{
-				for (int x = 0; x < width; x++)
+				for (var x = 0; x < width; x++)
 				{
 					ret += matrix[y][x].ToString() + rowsep;
 				}

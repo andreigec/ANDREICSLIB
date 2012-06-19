@@ -16,7 +16,7 @@ namespace ANDREICSLIB
 		public static CustomTimeZones getMyTimeZone()
 		{
 			var TZ= TimeZone.CurrentTimeZone;
-			String idstr = TZ.StandardName;
+			var idstr = TZ.StandardName;
 			if (TZ.IsDaylightSavingTime(DateTime.Now))
 			{
 				idstr = TZ.DaylightName;
@@ -26,11 +26,11 @@ namespace ANDREICSLIB
 
 		public new string ToString()
 		{
-			String sign = "+";
+			var sign = "+";
 			if (UTCoffset.CompareTo(new TimeSpan(0,0,0)) < 0)
 				sign = "";
-			int min = Math.Abs(UTCoffset.Minutes);
-			String mins = min.ToString();
+			var min = Math.Abs(UTCoffset.Minutes);
+			var mins = min.ToString();
 			if (mins == "0")
 				mins = "00";
 			return "(UTC"+sign+UTCoffset.Hours + ":" + mins + ")" + " " + name;

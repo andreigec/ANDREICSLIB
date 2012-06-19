@@ -19,16 +19,16 @@ namespace ANDREICSLIB
 			if (C == null)
 				return;
 
-			ToolTip TT = new ToolTip();
+			var TT = new ToolTip();
 			TT.SetToolTip(C, text);
 		}
 
         public static object CloneObject(object o)
         {
-            Type t = o.GetType();
-            PropertyInfo[] properties = t.GetProperties();
+            var t = o.GetType();
+            var properties = t.GetProperties();
 
-            Object p = t.InvokeMember("", System.Reflection.BindingFlags.CreateInstance, null, o, null);
+            var p = t.InvokeMember("", System.Reflection.BindingFlags.CreateInstance, null, o, null);
 
             if (o is ComboBox)
             {
@@ -63,7 +63,7 @@ namespace ANDREICSLIB
                 ((Control)o).Parent = null;
             }
 
-            foreach (PropertyInfo pi in properties)
+            foreach (var pi in properties)
             {
                 try
                 {

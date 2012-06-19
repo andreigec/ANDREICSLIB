@@ -23,7 +23,7 @@ namespace ANDREICSLIB.controls
 			try
 			{
 				mGrowing = true;
-				Size sz = new Size(this.Width, Int32.MaxValue);
+				var sz = new Size(this.Width, Int32.MaxValue);
 				sz = TextRenderer.MeasureText(this.Text, this.Font, sz, TextFormatFlags.WordBreak);
 				this.Height = sz.Height;
 			}

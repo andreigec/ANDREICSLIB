@@ -93,13 +93,13 @@ namespace ANDREICSLIB
 		/// </summary>
 		public static void fitPanel(Control resize,Control checkControls,int extrawidth=0,int extraheight=0)
 		{
-			int maxx = -1;
-			int maxy = -1;
+			var maxx = -1;
+			var maxy = -1;
 
 			foreach (Control c in checkControls.Controls)
 			{
-				int w = c.Location.X + c.Width;
-				int h = c.Location.Y + c.Height;
+				var w = c.Location.X + c.Width;
+				var h = c.Location.Y + c.Height;
 				if (maxx == -1 || w > maxx)
 					maxx = w;
 				if (maxy == -1 || h > maxy)
@@ -113,9 +113,9 @@ namespace ANDREICSLIB
 		{
 			//remove control
 			Control rem = null;
-			int index = -1;
-			int a = 0;
-			foreach (Control C in controlStack)
+			var index = -1;
+			var a = 0;
+			foreach (var C in controlStack)
 			{
 				if (C.Name.Equals(name))
 				{
@@ -128,8 +128,8 @@ namespace ANDREICSLIB
 			if (rem == null)
 				return;
 
-			int controlW = rem.Size.Width;
-			int controlH = rem.Size.Height;
+			var controlW = rem.Size.Width;
+			var controlH = rem.Size.Height;
 			//bool islast = (index == (controlStack.Count - 1));
 
 			if (lastX > 0)
@@ -152,12 +152,12 @@ namespace ANDREICSLIB
 			//shift all controls down
 
 			a = 0;
-			foreach (Control C in controlStack)
+			foreach (var C in controlStack)
 			{
 				if (a >= index)
 				{
-					int nx = C.Location.X - (controlW + gap);
-					int ny = C.Location.Y - (controlH + gap);
+					var nx = C.Location.X - (controlW + gap);
+					var ny = C.Location.Y - (controlH + gap);
 
 					if (nx < 0)
 						nx = 0;
@@ -184,14 +184,14 @@ namespace ANDREICSLIB
 
 		public void switchControlLocations(int indexone, int indextwo)
 		{
-			Control one = Controls[indexone];
-			Control two = Controls[indextwo];
+			var one = Controls[indexone];
+			var two = Controls[indextwo];
 
 			controlStack.Swap(indexone, indextwo);
 
 			//switch the control locs
-			int x = one.Location.X;
-			int y = one.Location.Y;
+			var x = one.Location.X;
+			var y = one.Location.Y;
 			one.Location = new Point(two.Location.X, two.Location.Y);
 			two.Location = new Point(x, y);
 
@@ -201,8 +201,8 @@ namespace ANDREICSLIB
 
 		public void swapControls(Control one, Control two)
 		{
-			int alphaIndex = Controls.IndexOf(one);
-			int betaIndex = Controls.IndexOf(two);
+			var alphaIndex = Controls.IndexOf(one);
+			var betaIndex = Controls.IndexOf(two);
 			Controls.SetChildIndex(one, betaIndex);
 			Controls.SetChildIndex(two, alphaIndex);
 		}
@@ -215,7 +215,7 @@ namespace ANDREICSLIB
 			
 			C.Location = new Point(C.Location.X + lastX, C.Location.Y + lastY);
 			//make sure it has a unique name
-			int rnext = 1;
+			var rnext = 1;
 			rnext += Controls.Count;
 
 			if (C.Name.Length == 0)
@@ -254,7 +254,7 @@ namespace ANDREICSLIB
 			if (controlStack.Count == 0)
 				return;
 
-			Control last = controlStack[controlStack.Count - 1];
+			var last = controlStack[controlStack.Count - 1];
 			controlStack.RemoveAt(controlStack.Count - 1);
 			Controls.Remove(last);
 

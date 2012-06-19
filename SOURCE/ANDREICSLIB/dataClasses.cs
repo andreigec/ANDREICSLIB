@@ -41,7 +41,7 @@ namespace ANDREICSLIB
 			public void removeChild(T nameC)
 			{
 			redo:
-				for (int a = 0; a < children.Count; a++)
+				for (var a = 0; a < children.Count; a++)
 				{
 					if (children[a].name.Equals(nameC))
 					{

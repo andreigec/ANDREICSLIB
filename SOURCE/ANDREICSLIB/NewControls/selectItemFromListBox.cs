@@ -41,7 +41,7 @@ namespace ANDREICSLIB
 			label2.Text = labelText;
 
 			listBox1.Items.Clear();
-			int a = 0;
+			var a = 0;
 			foreach (var v in listBoxItems)
 			{
 				listBox1.Items.Add(v.text);

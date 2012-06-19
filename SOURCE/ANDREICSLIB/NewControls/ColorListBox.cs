@@ -37,7 +37,7 @@ namespace ANDREICSLIB
             else
                 sb = new SolidBrush(colours[e.Index]);
 
-            Font f = new Font(FontFamily.GenericSansSerif,
+            var f = new Font(FontFamily.GenericSansSerif,
                               8, FontStyle.Bold);
 			e.Graphics.DrawString(Items[e.Index].ToString() ,f,sb,e.Bounds);
 		}

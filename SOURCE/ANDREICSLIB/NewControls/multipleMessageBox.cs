@@ -21,13 +21,13 @@ namespace ANDREICSLIB
 
 			Text = windowText;
 			textarea.Text = labelText;
-			int count = 0;
-			foreach (String s in Buttons)
+			var count = 0;
+			foreach (var s in Buttons)
 			{
 				var b = new Button {Text = s};
 				b.Click += buttonpress;
 				buttonpanel.addControl(b, true);
-				Control last = buttonpanel.controlStack[buttonpanel.controlStack.Count - 1];
+				var last = buttonpanel.controlStack[buttonpanel.controlStack.Count - 1];
 				count++;
 				if (count > 3)
 				{

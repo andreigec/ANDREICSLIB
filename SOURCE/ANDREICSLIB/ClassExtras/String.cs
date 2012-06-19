@@ -11,8 +11,8 @@ namespace ANDREICSLIB
 
 		public static Tuple<String,String> splitTwo(String instr,char sep)
 		{
-			char[] sep2 = new char[] {sep};
-			String[] sep3 = instr.Split(sep2);
+			var sep2 = new char[] {sep};
+			var sep3 = instr.Split(sep2);
 			if (sep3.Count() != 2)
 				return null;
 
@@ -33,11 +33,11 @@ namespace ANDREICSLIB
         /// <returns></returns>
 		public static int ContainsSubStringCount(String instr,String substring)
 		{
-			int count = 0;
+			var count = 0;
 
-			int c = instr.Length;
-			int c1 = substring.Length;
-			for (int a = 0; a < c;a++ )
+			var c = instr.Length;
+			var c1 = substring.Length;
+			for (var a = 0; a < c;a++ )
 			{
 				if (instr.Substring(a,c1).Equals(substring))
 				{
@@ -56,13 +56,13 @@ namespace ANDREICSLIB
 		/// <returns></returns>
 		public static List<string> splitstrings(String instr, int max)
 		{
-			String line = "";
-			List<string> ls = new List<string>();
+			var line = "";
+			var ls = new List<string>();
 
-			int count = 0;
-			char[] splitchar = new char[] { ' ' };
-			String[] splitspace = instr.Split(splitchar);
-			foreach (String s in splitspace)
+			var count = 0;
+			var splitchar = new char[] { ' ' };
+			var splitspace = instr.Split(splitchar);
+			foreach (var s in splitspace)
 			{
 				if (String.IsNullOrEmpty(s))
 					continue;
@@ -74,7 +74,7 @@ namespace ANDREICSLIB
 					count = 0;
 				}
 
-				String z = s + " ";
+				var z = s + " ";
 				count += z.Length;
 				line += z;
 			}
@@ -93,9 +93,9 @@ namespace ANDREICSLIB
 		/// <returns></returns>
 		public static String padString(String instr, int maxlen)
 		{
-			String ret = "";
-			int len = instr.Length;
-			for (int a = 0; a < maxlen; a++)
+			var ret = "";
+			var len = instr.Length;
+			for (var a = 0; a < maxlen; a++)
 			{
 				if (a < len)
 					ret += instr[a];
@@ -120,8 +120,8 @@ namespace ANDREICSLIB
 			else if (String.IsNullOrEmpty(origString))
 				return null;
 
-			String bef = origString.Substring(0, position);
-			String af = origString.Substring(position + 1);
+			var bef = origString.Substring(0, position);
+			var af = origString.Substring(position + 1);
 			return bef + newChar.ToString() + af;
 		}
 
@@ -183,10 +183,10 @@ namespace ANDREICSLIB
 		retry:
 			if (origString.Length == 0)
 				return "";
-			char start = origString[0];
-			char end = origString[origString.Length - 1];
+			var start = origString[0];
+			var end = origString[origString.Length - 1];
 
-			foreach (char b in bad)
+			foreach (var b in bad)
 			{
 				if (start == b)
 				{
@@ -201,7 +201,7 @@ namespace ANDREICSLIB
 			}
 
 			//remove duplicate whitespace
-			bool change = true;
+			var change = true;
 			int len;
 			while (change)
 			{
@@ -243,11 +243,11 @@ namespace ANDREICSLIB
 
 			try
 			{
-				String outstr = origString.ToLower();
+				var outstr = origString.ToLower();
 				//dj/mc
 
-				List<char> openbracket = new List<char>();
-				List<char> closebracket = new List<char>();
+				var openbracket = new List<char>();
+				var closebracket = new List<char>();
 
 				openbracket.Add('(');
 				closebracket.Add(')');
@@ -258,7 +258,7 @@ namespace ANDREICSLIB
 				openbracket.Add('<');
 				closebracket.Add('>');				
 				
-				List<char> capitalAfter = new List<char>();
+				var capitalAfter = new List<char>();
 				capitalAfter.AddRange(openbracket);
 				capitalAfter.AddRange(closebracket);
 				capitalAfter.Add('/');
@@ -266,14 +266,14 @@ namespace ANDREICSLIB
 				capitalAfter.Add(',');
 				capitalAfter.Add('.');
 
-				for (int a = 0; a < outstr.Length; a++)
+				for (var a = 0; a < outstr.Length; a++)
 				{
-					char x = outstr[a];
+					var x = outstr[a];
 
 					if (char.IsLetter(x))
 					{
 						//capitalised words
-						foreach (String CWS in capitaliseWordString)
+						foreach (var CWS in capitaliseWordString)
 						{
 							if ((a + CWS.Length) < outstr.Length && outstr.Substring(a, CWS.Length).Equals(CWS))
 							{
@@ -281,9 +281,9 @@ namespace ANDREICSLIB
 
 								if (((a + CWS.Length) > outstr.Length) || (char.IsWhiteSpace(outstr[a + CWS.Length])) || (capitalAfter.Contains(outstr[a + CWS.Length])))
 								{
-									for (int a1 = a; a1 < a + CWS.Length; a1++)
+									for (var a1 = a; a1 < a + CWS.Length; a1++)
 									{
-										char x1 = outstr[a1];
+										var x1 = outstr[a1];
 										x1 = char.ToUpper(x1);
 										outstr = StringUpdates.replaceCharAtPosition(outstr, x1, a1);
 									}

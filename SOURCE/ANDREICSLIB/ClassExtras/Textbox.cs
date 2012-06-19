@@ -41,46 +41,58 @@ namespace ANDREICSLIB
         /// Quick keyboard handling of fields - Connect to keyboard-keypress event. Pass in KeyChar, and make the return value = e.Handled
         /// </summary>
         /// <param name="IT">the input type</param>
-        /// <param name="keyValue">KeyChar</param>
-        /// <param name="tb">ref to the textbox for ctrl+a keys, not required</param>
+        /// <param name="keyChar">KeyChar</param>
+        /// <param name="c">ref to the textbox/combobox for ctrl+a keys, not required</param>
         /// <returns>e.Handled</returns>
-        public static bool HandleInput(InputType IT, char keyValue, TextBox tb)
+        public static bool HandleInput(InputType IT, char keyChar, Control c=null)
         {
          //ctrl+a
-            if (tb!=null&&keyValue==1)
+            if (c!=null&&keyChar==1)
             {
-                tb.SelectionStart = 0;
-                tb.SelectionLength = tb.Text.Length;
+                if (c is TextBox)
+                {
+                    var tb = c as TextBox;
+                    tb.SelectionStart = 0;
+                    tb.SelectionLength = tb.Text.Length;
+                }
+
+                else if (c is ComboBox)
+                {
+                    var cb = c as ComboBox;
+                    cb.SelectionStart = 0;
+                    cb.SelectionLength = cb.Text.Length;
+                }
+               
                 return false;
             }
 
-            if (keyValue <= 31)//control chars
+            if (keyChar <= 31)//control chars
                 return false;
 
-            bool hit = false;
+            var hit = false;
             
-            if ((keyValue >= 65 && keyValue <= 90) || (keyValue >= 97 && keyValue <= 122))
+            if ((keyChar >= 65 && keyChar <= 90) || (keyChar >= 97 && keyChar <= 122))
             {
                 if (IT.AllowChars == false)
                     return true;
                 hit = true;
             }
 
-            if (keyValue >= 48 && keyValue <= 57)
+            if (keyChar >= 48 && keyChar <= 57)
             {
                 if (IT.AllowNumbers == false)
                     return true;
                 hit = true;
             }
 
-            if (keyValue == '.')
+            if (keyChar == '.')
             {
                 if (IT.AllowDot == false)
                     return true;
                 hit = true;
             }
 
-            if (keyValue == ' ' || keyValue == '\t' || keyValue == '\n')
+            if (keyChar == ' ' || keyChar == '\t' || keyChar == '\n')
             {
                 if (IT.AllowWhiteSpace == false)
                     return true;

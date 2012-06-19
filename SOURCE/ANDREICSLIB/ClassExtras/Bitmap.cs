@@ -8,8 +8,8 @@ namespace ANDREICSLIB
 	{
         public static void drawLine(Bitmap b, Color c, Tuple<int, int> one, Tuple<int, int> two)
 		{
-			int x = one.Item1;
-			int y = one.Item2;
+			var x = one.Item1;
+			var y = one.Item2;
 			while (x!=two.Item1||y!=two.Item2)
 			{
 				if (x < 0 || y < 0 || x >= b.Width || y >= b.Height)

@@ -13,7 +13,7 @@ namespace ANDREICSLIB
 		{
 			var result = new ListViewItem.ListViewSubItem[lvsic.Count];
 
-			int count = -1;
+			var count = -1;
 			foreach (ListViewItem.ListViewSubItem LVSI in lvsic)
 			{
 				count++;
@@ -59,13 +59,13 @@ namespace ANDREICSLIB
 
 		private void AutoResizeListViewColumn(ColumnHeader ch)
 		{
-			int headerWidth = ch.Text.Length;
+			var headerWidth = ch.Text.Length;
 
-			bool changeHeader = true;
+			var changeHeader = true;
 
 			foreach (ListViewItem LVI in Items)
 			{
-				int temp = ch.Index == 0 ? LVI.Text.Length : LVI.SubItems[ch.Index].Text.Length;
+				var temp = ch.Index == 0 ? LVI.Text.Length : LVI.SubItems[ch.Index].Text.Length;
 
 				if (temp > headerWidth)
 				{
@@ -102,7 +102,7 @@ namespace ANDREICSLIB
 				return;
 
 			Columns.Clear();
-			foreach (String s in columnList)
+			foreach (var s in columnList)
 			{
 				Columns.Add(s, s);
 			}
@@ -127,7 +127,7 @@ namespace ANDREICSLIB
 		/// <returns>the index of the column, -1 if not found</returns>
 		public int GetColumnNumber(String columnName)
 		{
-			int count = -1;
+			var count = -1;
 			foreach (ColumnHeader CH in Columns)
 			{
 				count++;
@@ -140,26 +140,26 @@ namespace ANDREICSLIB
 
 		public void CopyClassToListView<T>(T from)
 		{
-			Type t = from.GetType();
-			PropertyInfo[] pi = t.GetProperties();
-			FieldInfo[] fi = t.GetFields();
+			var t = from.GetType();
+			var pi = t.GetProperties();
+			var fi = t.GetFields();
 
 			foreach (var prop in pi)
 			{
-				object o = prop.GetValue(from, null);
+				var o = prop.GetValue(from, null);
 				AddItemToListView(prop.Name, o);
 			}
 
 			foreach (var field in fi)
 			{
-				object o = field.GetValue(from);
+				var o = field.GetValue(from);
 				AddItemToListView(field.Name, o);
 			}
 		}
 
 		private void AddItemToListView(String key, object value)
 		{
-			String key2 = key;
+			var key2 = key;
 			String value2;
 			if (value == null)
 				value2 = "";

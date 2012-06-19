@@ -21,12 +21,16 @@ namespace ANDREICSLIB
             else if (C is ListBox)
             {
                 var lb = C as ListBox;
-                String o = lb.Name + separator + "Items" + separator;
+                var o = lb.Name + separator + "Items" + separator;
                 foreach (var i in lb.Items)
                 {
                     o += i + "|";
                 }
                 SW.WriteLine(o);
+            }
+            else
+            {
+                SW.WriteLine(C.Name + separator + "Text" + separator + C.Text);
             }
         }
 
@@ -39,37 +43,59 @@ namespace ANDREICSLIB
             }
         }
 
-        private static void LoadProperty(object C, String propertyName, object value)
+        /// <summary>
+        /// set the value of the control object
+        /// </summary>
+        /// <param name="C"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="value"></param>
+        private static bool LoadProperty(object C, String propertyName, object value)
         {
-            Type t = C.GetType();
-            PropertyInfo p = t.GetProperty(propertyName);
-            Type t2 = p.PropertyType;
+            //manually resolve first if possible
+            var ok = LoadPropertyManual(C, propertyName, value);
+            if (ok)
+                return true;
+
+            var t = C.GetType();
+            var p = t.GetProperty(propertyName);
+            var t2 = p.PropertyType;
             try
             {
                 p.SetValue(C, Convert.ChangeType(value, t2), null);
+                return true;
             }
             catch
             {
-                //try to manually resolve
-                LoadPropertyManual(C, propertyName, value);
-                return;
+                return false;
             }
         }
 
-        private static void LoadPropertyManual(object C, String propertyName, object value)
+        private static bool LoadPropertyManual(object C, String propertyName, object value)
         {
-            if (C is ListBox && propertyName.Equals("Items") && value != null)
+            if (value == null)
+                return false;
+
+            if (C is ListBox && propertyName.Equals("Items"))
             {
                 var lb = C as ListBox;
-                var s = new [] {'|'};
-                var v = value.ToString().Split(s,StringSplitOptions.RemoveEmptyEntries);
+                var s = new[] { '|' };
+                var v = value.ToString().Split(s, StringSplitOptions.RemoveEmptyEntries);
                 foreach (var v2 in v)
                 {
                     lb.Items.Add(v2);
                 }
+                return true;
             }
+            return false;
         }
 
+        /// <summary>
+        /// find the matching control for the name given
+        /// </summary>
+        /// <param name="baseform"></param>
+        /// <param name="name"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="value"></param>
         private static void LoadProperty(Form baseform, String name, String propertyName, object value = null)
         {
             foreach (Control C in baseform.Controls)
@@ -172,7 +198,7 @@ namespace ANDREICSLIB
                 {
                     if (String.IsNullOrEmpty(s))
                         continue;
-                    string[] split = s.Split(f, StringSplitOptions.RemoveEmptyEntries);
+                    var split = s.Split(f, StringSplitOptions.RemoveEmptyEntries);
                     String v = null;
                     if (split.Length >= 3)
                         v = split[2];
@@ -206,14 +232,14 @@ namespace ANDREICSLIB
 
                 var FS = new FileStream(filename, FileMode.CreateNew);
                 var SW = new StreamWriter(FS);
-                foreach (Control C in saveControls)
+                foreach (var C in saveControls)
                 {
                     SaveProperty(SW, C);
                 }
 
                 if (saveToolStripItems != null)
                 {
-                    foreach (ToolStripItem TSI in saveToolStripItems)
+                    foreach (var TSI in saveToolStripItems)
                     {
                         SaveProperty(SW, TSI);
                     }

@@ -16,7 +16,7 @@ namespace ANDREICSLIB
 		/// <returns></returns>
         public static String createFilter(List<Tuple<String, String>> descAndExt)
 		{
-			String ret = "";
+			var ret = "";
 			foreach (var v in descAndExt)
 			{
 				ret += sep + createFilter(v.Item1, v.Item2);

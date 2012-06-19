@@ -28,7 +28,7 @@ namespace ANDREICSLIB
             //see if a help item exists
             foreach (ToolStripMenuItem i in ms.Items)
             {
-                string t = i.Text;
+                var t = i.Text;
                 t = t.ToLower();
                 t = t.Replace("&", "");
 
@@ -76,7 +76,7 @@ namespace ANDREICSLIB
 
             ToolStripMenuItem helpToolStripItem;
 
-            bool existed = false;
+            var existed = false;
             const string help = "&Help";
 
             helpToolStripItem = GetItem(help, ms);
@@ -143,13 +143,13 @@ namespace ANDREICSLIB
 
         private static void UpdateApplication(object sender, EventArgs e)
         {
-            DialogResult dr1 =
+            var dr1 =
                 MessageBox.Show(Title + " will now connect to the internet to find  the newest version.\nDo you wish to continue?",
                                 "Notification", MessageBoxButtons.YesNo);
             if (dr1 == DialogResult.No)
                 return;
 
-            string result = Net.DownloadWebPage(VersionPath);
+            var result = Net.DownloadWebPage(VersionPath);
             if (String.IsNullOrEmpty(result))
             {
                 MessageBox.Show("Error while getting new version file:" + VersionPath);
@@ -167,7 +167,7 @@ namespace ANDREICSLIB
                 return;
             }
 
-            String versionS = "Your version of " + Title + ":" + Version.ToString() + "\nNewest version online:" +
+            var versionS = "Your version of " + Title + ":" + Version.ToString() + "\nNewest version online:" +
                               newV.ToString();
 
             if (Version >= newV)
@@ -177,7 +177,7 @@ namespace ANDREICSLIB
                 return;
             }
 
-            String changelog = Net.DownloadWebPage(ChangelogPath);
+            var changelog = Net.DownloadWebPage(ChangelogPath);
             if (String.IsNullOrEmpty(changelog) == false)
             {
                 changelog = StringUpdates.applyTrim(changelog, true, 500);
@@ -189,7 +189,7 @@ namespace ANDREICSLIB
                 return;
             }
 
-            DialogResult dr =
+            var dr =
                 MessageBox.Show(
                     versionS +
                     "\n\nDo you wish to update to this version? \n(Be aware that this program will restart; please save your data beforehand)",
@@ -206,8 +206,8 @@ namespace ANDREICSLIB
             String localfile;
             var buffer = new byte[4096]; // 4K is optimum
             //we need the exe file for later execution
-            String exefile = "";
-            string exefolder = "";
+            var exefile = "";
+            var exefolder = "";
 
             try
             {
@@ -260,7 +260,7 @@ namespace ANDREICSLIB
                 //ignore everything above this dir
                 while (exefile.Length > 0)
                 {
-                    int c = StringUpdates.ContainsSubStringCount(exefile, br);
+                    var c = StringUpdates.ContainsSubStringCount(exefile, br);
                     if (c > 0)
                     {
                         var s = exefile.Substring(0, exefile.IndexOf(br));
@@ -278,7 +278,7 @@ namespace ANDREICSLIB
             }
 
             //3: Run async cmd prompt to move unpacked files and remove the folder in a second, and rerun the exe
-            OperatingSystem osInfo = Environment.OSVersion;
+            var osInfo = Environment.OSVersion;
             try
             {
                 //move folder/* to the local dir
@@ -286,7 +286,7 @@ namespace ANDREICSLIB
                 //delete folder remnants
                 //start the exefile we found before
 
-                String operations = "move /Y \"" + exefolder + "\"\\* . " +
+                var operations = "move /Y \"" + exefolder + "\"\\* . " +
                                     "& del /Q \"" + localfile + "\" " +
                                     "& rmdir /Q /S \"" + folder + "\" " +
                                     "& start \"\" \"" + exefile + "\" ";

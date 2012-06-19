@@ -18,7 +18,7 @@ namespace ANDREICSLIB
 			foreach (var kvp in origDict)
 			{
 				var lvi = new ListViewItem {Text = kvp.Key, Name = kvp.Key};
-				foreach (String s in kvp.Value)
+				foreach (var s in kvp.Value)
 					lvi.SubItems.Add(s);
 				lvil.Add(lvi);
 			}

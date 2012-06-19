@@ -98,21 +98,21 @@ namespace ANDREICSLIB
 
         private int getFontSize()
         {
-            int len = MaximumValue.ToString().Length;
+            var len = MaximumValue.ToString().Length;
 
             return (int)Font.Size * len + 5;
         }
 
         private void drawpanel_Paint(object sender, PaintEventArgs e)
         {
-            Graphics G = e.Graphics;
+            var G = e.Graphics;
             G.Clear(BackColour);
             Brush b1 = new SolidBrush(BarColour);
 
             if (BarMaximumValue > BarMinimumValue)
             {
-                int v1 = scales.Where(item => item.number == BarMinimumValue).First().xval;
-                int v2 = scales.Where(item => item.number == BarMaximumValue).First().xval;
+                var v1 = scales.Where(item => item.number == BarMinimumValue).First().xval;
+                var v2 = scales.Where(item => item.number == BarMaximumValue).First().xval;
                 var R = new Rectangle(v1, 0, v2 - v1, drawpanel.Height);
                 G.FillRectangle(b1, R);
                 barX = v1;
@@ -121,13 +121,13 @@ namespace ANDREICSLIB
             else
             {
                 //start part
-                int v2 = scales.Where(item => item.number == BarMaximumValue).First().xval;
+                var v2 = scales.Where(item => item.number == BarMaximumValue).First().xval;
                 var R = new Rectangle(0, 0, v2, drawpanel.Height);
                 G.FillRectangle(b1, R);
 
                 //end part
-                int v1 = scales.Where(item => item.number == BarMinimumValue).First().xval;
-                int v3 = drawpanel.Width - v1;
+                var v1 = scales.Where(item => item.number == BarMinimumValue).First().xval;
+                var v3 = drawpanel.Width - v1;
                 R = new Rectangle(v1, 0, v3, drawpanel.Height);
                 G.FillRectangle(b1, R);
 
@@ -156,21 +156,21 @@ namespace ANDREICSLIB
         private void InitScale()
         {
             scales = new List<scale>();
-            int width = getFontSize();
+            var width = getFontSize();
             //int count = 23;
-            int count = listpanel.Width / width;
+            var count = listpanel.Width / width;
             if (count >= MaximumValue) count = MaximumValue;
             width = (listpanel.Width) / MaximumValue;
             scaleWidth = width;
 
-            for (int a = 0; a <= MaximumValue; a++)
+            for (var a = 0; a <= MaximumValue; a++)
             {
                 scales.Add(new scale() { number = a, xval = width * a });
             }
 
-            for (int a = 0; a < count; a++)
+            for (var a = 0; a < count; a++)
             {
-                int val = (int)(((float)a / (float)count) * (float)MaximumValue);
+                var val = (int)(((float)a / (float)count) * (float)MaximumValue);
                 scales[val].shownOnScale = true;
             }
         }
@@ -179,7 +179,7 @@ namespace ANDREICSLIB
         {
             if (DrawScale == false)
                 return;
-            Graphics G = e.Graphics;
+            var G = e.Graphics;
             G.Clear(ScaleColour);
             Brush b1 = new HatchBrush(HatchStyle.DarkHorizontal, ForeColor);
 
@@ -280,8 +280,8 @@ namespace ANDREICSLIB
             if (mouseResizeBar == false && mouseMoveBar == false)
                 return;
 
-            int dif = 0;
-            bool forward = true;
+            var dif = 0;
+            var forward = true;
             if (e.X == mouseDownX)
                 return;
             if (e.X > mouseDownX)
@@ -295,9 +295,9 @@ namespace ANDREICSLIB
             if (dif < scaleWidth)
                 return;
 
-            double dif2 = (double)dif / drawpanel.Width;
+            var dif2 = (double)dif / drawpanel.Width;
 
-            int amount = (int)((double)MaximumValue * (double)dif2);
+            var amount = (int)((double)MaximumValue * (double)dif2);
             if (amount == 0)
                 return;
             if (forward == false)

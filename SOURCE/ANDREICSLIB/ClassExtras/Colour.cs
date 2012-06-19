@@ -22,24 +22,24 @@ namespace ANDREICSLIB
 			if (colourcache.ContainsKey(p))
 				return colourcache[p];
 
-			int r = 0;
-			int g = 0;
-			int b = 0;
+			var r = 0;
+			var g = 0;
+			var b = 0;
 			if (p < 0)
 			{
-				int rv = p;
+				var rv = p;
 				if (rv < min)
 					rv = min;
 				r = ((int)(((float)rv / (float)min) * 255.0));
 			}
 			else if (p > 0)
 			{
-				int gv = p;
+				var gv = p;
 				if (gv > max)
 					gv = max;
 				g = ((int)(((float)gv / (float)max) * 255.0));
 			}
-			Color ret = Color.FromArgb(r, g, b);
+			var ret = Color.FromArgb(r, g, b);
 			colourcache.Add(p, ret);
 			return ret;
 		}

@@ -9,15 +9,15 @@ namespace ANDREICSLIB
 	{
 		public void Swap(int index1, int index2)
 		{
-			T temp = this[index1];
+			var temp = this[index1];
 			this[index1] = this[index2];
 			this[index2] = temp;
 		}
 
 		public String Serialise(String sep = ", ")
 		{
-			String ret = "";
-			foreach (T v in this)
+			var ret = "";
+			foreach (var v in this)
 			{
 				if (ret.Length == 0)
 					ret = v.ToString();

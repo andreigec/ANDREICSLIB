@@ -40,7 +40,7 @@ namespace ANDREICSLIB
             var fs = new FileStream(filename, FileMode.Create);
             var sw = new StreamWriter(fs);
 
-            String ret = "";
+            var ret = "";
             SaveTree(root, ref ret, 0, levelSeparator);
             sw.Write(ret);
 
@@ -59,7 +59,7 @@ namespace ANDREICSLIB
             {
                 foreach (var c in node.children)
                 {
-                    for (int a = 0; a < level; a++)
+                    for (var a = 0; a < level; a++)
                         ret += levelSeparator;
                     SaveTree(c, ref ret, level + 1, levelSeparator);
                 }
@@ -79,12 +79,12 @@ namespace ANDREICSLIB
                 var fs = new FileStream(filename, FileMode.OpenOrCreate);
                 var SR = new StreamReader(fs);
 
-                String line = SR.ReadLine();
-                DataClasses.Btree<string> parentT = root;
-                int currentlevel = 0;
+                var line = SR.ReadLine();
+                var parentT = root;
+                var currentlevel = 0;
                 while (line != null)
                 {
-                    int level = StringUpdates.ContainsSubStringCount(line, levelSeparator);
+                    var level = StringUpdates.ContainsSubStringCount(line, levelSeparator);
                     if (level > (currentlevel + 1))
                     {
                         return false;
@@ -148,7 +148,7 @@ namespace ANDREICSLIB
             FileUpdates.CreateDirectory(based);
 
             var mergefiles = Directory.GetFiles(merge, "*.*", SearchOption.AllDirectories).ToList();
-            foreach (string file in mergefiles)
+            foreach (var file in mergefiles)
             {
                 var mFile = new FileInfo(file);
                 if (mFile.Directory == null)
@@ -210,18 +210,18 @@ namespace ANDREICSLIB
         public static IEnumerable<string> LoopThroughFilesRecursive(string sourceDir)
         {
             // Process the list of files found in the directory.
-            string[] fileEntries = Directory.GetFiles(sourceDir);
-            foreach (string fileName in fileEntries)
+            var fileEntries = Directory.GetFiles(sourceDir);
+            foreach (var fileName in fileEntries)
             {
                 // do something with fileName
                 yield return fileName;
             }
 
             // Recurse into subdirectories of this directory.
-            string[] subdirEntries = Directory.GetDirectories(sourceDir);
+            var subdirEntries = Directory.GetDirectories(sourceDir);
             
             var ret = new List<string>();
-            foreach (string subdir in subdirEntries)
+            foreach (var subdir in subdirEntries)
             {
                 // Do not iterate through reparse points
                 if ((File.GetAttributes(subdir) &

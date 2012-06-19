@@ -15,8 +15,8 @@ namespace ANDREICSLIB
 			{
 				foreach (ManagementObject item in searcher.Get())
 				{
-					string desc = item["Description"].ToString();
-					string deviceId = item["DeviceID"].ToString();
+					var desc = item["Description"].ToString();
+					var deviceId = item["DeviceID"].ToString();
 
 					if (desc.Contains(description))
 					{
