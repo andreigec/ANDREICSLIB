@@ -41,10 +41,10 @@ namespace ANDREICSLIB
         /// Quick keyboard handling of fields - Connect to keyboard-keypress event. Pass in KeyChar, and make the return value = e.Handled
         /// </summary>
         /// <param name="IT">the input type</param>
-        /// <param name="keyValue">e.Item1Value/KeyChar</param>
-        /// <param name="tb">ref to the textbox for ctrl+a keys</param>
+        /// <param name="keyValue">KeyChar</param>
+        /// <param name="tb">ref to the textbox for ctrl+a keys, not required</param>
         /// <returns>e.Handled</returns>
-        public static bool HandleInput(InputType IT, char keyValue, ref TextBox tb)
+        public static bool HandleInput(InputType IT, char keyValue, TextBox tb)
         {
          //ctrl+a
             if (tb!=null&&keyValue==1)
