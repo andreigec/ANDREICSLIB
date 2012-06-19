@@ -72,14 +72,18 @@ namespace ANDREICSLIB
         /// <param name="filename"></param>
         /// <param name="root"></param>
         /// <param name="levelSeparator"></param>
-        public static bool LoadFileIntoTree(string filename, DataClasses.Btree<string> root, String levelSeparator = "\t")
+        public static void LoadFileIntoTree(string filename, DataClasses.Btree<string> root, String levelSeparator = "\t",bool RecreateFileIfInvalid=true)
         {
+            root.children = new List<tree>();
+
+            FileStream fs=null;
+            StreamReader sr = null;
             try
             {
-                var fs = new FileStream(filename, FileMode.OpenOrCreate);
-                var SR = new StreamReader(fs);
+                fs = new FileStream(filename, FileMode.OpenOrCreate);
+                sr = new StreamReader(fs);
 
-                var line = SR.ReadLine();
+                var line = sr.ReadLine();
                 var parentT = root;
                 var currentlevel = 0;
                 while (line != null)
@@ -87,7 +91,7 @@ namespace ANDREICSLIB
                     var level = StringUpdates.ContainsSubStringCount(line, levelSeparator);
                     if (level > (currentlevel + 1))
                     {
-                        return false;
+                        throw new Exception();
                     }
                     if (level == 0)
                     {
@@ -110,21 +114,32 @@ namespace ANDREICSLIB
                     parentT = t;
                     currentlevel = level;
                 redo:
-                    line = SR.ReadLine();
+                    line = sr.ReadLine();
                     if (line != null && line.Length == 0)
                         goto redo;
                 }
 
-                SR.Close();
+                sr.Close();
                 fs.Close();
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show("Error opening file:\n" + ex.ToString());
-                return false;
+                if (sr!=null)
+                    sr.Close();
+
+                if (fs!=null)
+                    fs.Close();
+
+					if (RecreateFileIfInvalid)
+					{
+						if (File.Exists(filename))
+							File.Delete(filename);
+						File.Create(filename);
+					}
+
+                root.children = new List<tree>();
             }
-            return true;
         }
 
         private static void CreateDirectoryTree(string[] dirs, string basedir)
