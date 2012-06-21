@@ -9,7 +9,7 @@ namespace ANDREICSLIB
 	public static class StringUpdates
 	{
 
-		public static Tuple<String,String> splitTwo(String instr,char sep)
+		public static Tuple<string, string> splitTwo(String instr,char sep)
 		{
 			var sep2 = new char[] {sep};
 			var sep3 = instr.Split(sep2);
@@ -22,7 +22,7 @@ namespace ANDREICSLIB
         public static Tuple<int, int> splitTwoInt(String instr, char sep)
 		{
 			var x = splitTwo(instr, sep);
-            return new Tuple<int, int>(int.Parse(x.Item1), int.Parse(x.Item2));
+            return new Tuple<int, int>(Int32.Parse(x.Item1), Int32.Parse(x.Item2));
 		}
 
         /// <summary>
@@ -236,7 +236,7 @@ namespace ANDREICSLIB
 		/// <param name="origString">The string to change</param>
 		/// <param name="capitaliseInitial">Should the first letter be capitalised?</param>
 		/// <returns>the auto capitalised string</returns>
-		public static String ToCamelCase(String origString, Boolean capitaliseInitial, List<String> capitaliseWordString=null,bool spaceAfter = true)
+		public static String ToCamelCase(String origString, Boolean capitaliseInitial, List<string> capitaliseWordString=null,bool spaceAfter = true)
 		{
 			if (origString == null || origString.Length == 0)
 				return null;
@@ -270,7 +270,7 @@ namespace ANDREICSLIB
 				{
 					var x = outstr[a];
 
-					if (char.IsLetter(x))
+					if (Char.IsLetter(x))
 					{
 						//capitalised words
 						foreach (var CWS in capitaliseWordString)
@@ -279,34 +279,34 @@ namespace ANDREICSLIB
 							{
 								//only if the following char is blank or end of line, or a special char is after
 
-								if (((a + CWS.Length) > outstr.Length) || (char.IsWhiteSpace(outstr[a + CWS.Length])) || (capitalAfter.Contains(outstr[a + CWS.Length])))
+								if (((a + CWS.Length) > outstr.Length) || (Char.IsWhiteSpace(outstr[a + CWS.Length])) || (capitalAfter.Contains(outstr[a + CWS.Length])))
 								{
 									for (var a1 = a; a1 < a + CWS.Length; a1++)
 									{
 										var x1 = outstr[a1];
-										x1 = char.ToUpper(x1);
-										outstr = StringUpdates.replaceCharAtPosition(outstr, x1, a1);
+										x1 = Char.ToUpper(x1);
+										outstr = replaceCharAtPosition(outstr, x1, a1);
 									}
 								}
 							}
 						}
 
 						//cap if first, or after space (camel case), or bracket
-						if ((a == 0 && capitaliseInitial) || char.IsWhiteSpace(outstr[a - 1]) || capitalAfter.Contains(outstr[a - 1]))
-							outstr = StringUpdates.replaceCharAtPosition(outstr, char.ToUpper(x), a);
+						if ((a == 0 && capitaliseInitial) || Char.IsWhiteSpace(outstr[a - 1]) || capitalAfter.Contains(outstr[a - 1]))
+							outstr = replaceCharAtPosition(outstr, Char.ToUpper(x), a);
 					}
 
 					//space after comma and close bracket
 					if (spaceAfter)
 					{
 						if (((a + 1) < outstr.Length) &&
-						    ((outstr[a] == ',' || closebracket.Contains(outstr[a])) && char.IsWhiteSpace(outstr[a + 1]) == false))
+						    ((outstr[a] == ',' || closebracket.Contains(outstr[a])) && Char.IsWhiteSpace(outstr[a + 1]) == false))
 						{
 							outstr = outstr.Insert(a + 1, " ");
 						}
 
 						//space before openbracket
-						if (((a - 1) > 0) && (openbracket.Contains(outstr[a])) && (char.IsWhiteSpace(outstr[a - 1]) == false))
+						if (((a - 1) > 0) && (openbracket.Contains(outstr[a])) && (Char.IsWhiteSpace(outstr[a - 1]) == false))
 						{
 							outstr = outstr.Insert(a, " ");
 						}
@@ -320,5 +320,26 @@ namespace ANDREICSLIB
 				return origString;
 			}
 		}
+
+	    public static bool StringIsNumber(string s)
+	    {
+	        try
+	        {
+	            Double.Parse(s);
+	            return true;
+	        }
+	        catch (Exception)
+	        {
+	            return false;
+	        }
+	    }
+
+	    public static bool StringStartsWithLetter(String s)
+	    {
+	        if (s.Length == 0)
+	            return false;
+
+	        return ((s[0] >= 65 && s[0] <= 90) || (s[0] >= 97 && s[0] <= 122));
+	    }
 	}
 }

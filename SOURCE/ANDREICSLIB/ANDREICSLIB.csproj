@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassExtras\Bitmap.cs" />
+    <Compile Include="ListViewSorter.cs" />
     <Compile Include="Networking.cs" />
     <Compile Include="NewControls\ColorListBox.cs">
       <SubType>Component</SubType>

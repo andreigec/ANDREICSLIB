@@ -4,6 +4,26 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB
 {
+    public class DictionaryUpdates
+    {
+        public static void MergeTwoDictionaries<T, Y>(ref Dictionary<T, Y> keep, Dictionary<T, Y> mergein, bool overwriteExisting = true)
+        {
+            lock (mergein)
+            {
+                foreach (var kvp in mergein)
+                {
+                    if (keep.ContainsKey(kvp.Key) == false)
+                        keep.Add(kvp.Key, kvp.Value);
+                    else
+                    {
+                        if (overwriteExisting)
+                            keep[kvp.Key] = kvp.Value;
+                    }
+                }  
+            }
+        }  
+    }
+
 	public class DictionaryUpdates<TKey, TValue> : Dictionary<TKey, TValue>
 	{
 		/// <summary>
@@ -41,5 +61,7 @@ namespace ANDREICSLIB
 			}
 			return DictToListOfListViewItems(result);
 		}
+
+       
 	}
 }
