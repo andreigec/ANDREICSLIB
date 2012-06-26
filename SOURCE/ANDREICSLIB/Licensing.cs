@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 using System.Windows.Forms;
+using ANDREICSLIB.ClassExtras;
 using ICSharpCode.SharpZipLib.Core;
 using ICSharpCode.SharpZipLib.Zip;
 
@@ -11,15 +12,21 @@ namespace ANDREICSLIB
 {
     public static class Licensing
     {
-        public static String Title = "";
-        public static double Version;
-        public static String OtherText = "";
-        public static String VersionPath = "";
-        public static String UpdatePath = "";
-        public static String ChangelogPath = "";
-        public static String HelpText = "";
-        public static bool ShowingAbout;
-        public static bool ShowingHelp;
+        private static String Title = "";
+        private static double Version;
+        private static String OtherText = "";
+        private static String VersionPath = "";
+        private static String UpdatePath = "";
+        private static String ChangelogPath = "";
+        private static String HelpText = "";
+        /// <summary>
+        /// so we dont allow 2 instances of the about dialog
+        /// </summary>
+        internal static bool ShowingAbout;
+        /// <summary>
+        /// so we dont allow 2 instances of the help dialog
+        /// </summary>
+        internal static bool ShowingHelp;
 
         private static ToolStripMenuItem GetItem(String text, MenuStrip ms)
         {
@@ -41,7 +48,7 @@ namespace ANDREICSLIB
             return helpToolStripItem;
         }
 
-        public static void AddHelpOption(String helptext, ToolStripMenuItem helpParent)
+        private static void AddHelpOption(String helptext, ToolStripMenuItem helpParent)
         {
             var helpitem = new ToolStripMenuItem("H&elp");
             helpitem.Click += Helpbox;
@@ -246,7 +253,7 @@ namespace ANDREICSLIB
                 Zip.ExtractZipFile(localfile, folder);
 
                 //2.2 find exe
-                foreach (var f in FileUpdates.LoopThroughFilesRecursive(folder))
+                foreach (var f in DirectoryUpdates.GetFilesRecursive(folder))
                 {
                     if (f.Contains(".exe"))
                         exefile = f;

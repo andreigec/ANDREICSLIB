@@ -48,6 +48,20 @@ namespace ANDREICSLIB
 			return ret;
 		}
 
+        public static void SetAll<T>(T[][] matrix,T val)
+        {
+            int h = matrix.Length;
+            int w = matrix[0].Length;
+
+            for (int y=0;y<h;y++)
+            {
+                for (int x=0;x<w;x++)
+                {
+                    matrix[y][x] = val;
+                }
+            }
+        }
+
 
 	}
 }

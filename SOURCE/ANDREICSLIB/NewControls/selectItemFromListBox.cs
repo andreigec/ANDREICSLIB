@@ -6,56 +6,59 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using ANDREICSLIB.NewControls;
 
 namespace ANDREICSLIB
 {
 	public partial class selectItemFromListBox : Form
 	{
-
-		public class listboxitem:IComparable
-		{
-			public string text="";
-			public bool preselected=false;
-			int IComparable.CompareTo(object obj)
-			{
-				return String.Compare(text,((listboxitem)obj).text);
-			}
-		}
+        /// <summary>
+        /// call from static showdialog
+        /// </summary>
+        private selectItemFromListBox()
+        {
+            InitializeComponent();
+        }
 
 		private int mustSelectCount=0;
 
-		public selectItemFromListBox()
-		{
-			InitializeComponent();
-		}
-
 		private List<string> returnvalues = new List<string>();
 
-		public List<string> ShowDialog(String labelText, String title, List<listboxitem> listBoxItems, bool multiselect,int mustSelectCountIN)
-		{
-			mustSelectCount = mustSelectCountIN;
+        /// <summary>
+        /// return selected values after dialog closes. if canceled, will return null
+        /// </summary>
+        /// <param name="labelText"></param>
+        /// <param name="title"></param>
+        /// <param name="listBoxItems"></param>
+        /// <param name="multiselect"></param>
+        /// <param name="mustSelectCountIN"></param>
+        /// <returns></returns>
+		public static List<string> ShowDialog(String labelText, String title, List<SelectItem> listBoxItems, bool multiselect,int mustSelectCountIN=-1)
+        {
+            var s = new selectItemFromListBox();
+			s.mustSelectCount = mustSelectCountIN;
 			if (multiselect)
-				listBox1.SelectionMode= SelectionMode.MultiExtended;
+                s.listBox1.SelectionMode = SelectionMode.MultiExtended;
 
-			Text = title;
-			label2.Text = labelText;
+            s.Text = title;
+            s.label2.Text = labelText;
 
-			listBox1.Items.Clear();
+            s.listBox1.Items.Clear();
 			var a = 0;
 			foreach (var v in listBoxItems)
 			{
-				listBox1.Items.Add(v.text);
-					listBox1.SetSelected(a,v.preselected);
+                s.listBox1.Items.Add(v.text);
+                s.listBox1.SetSelected(a, v.preselected);
 				a++;
 			}
 
-			ShowDialog();
-			return returnvalues;
+            s.ShowDialog();
+            return s.returnvalues;
 		}
 
 		private void okbutton_Click(object sender, EventArgs e)
 		{
-			if (listBox1.SelectedItems.Count < mustSelectCount)
+			if (listBox1.SelectedItems.Count < mustSelectCount&&mustSelectCount!=-1)
 			{
 				MessageBox.Show("You must select at least "+mustSelectCount.ToString()+" items");
 				return;

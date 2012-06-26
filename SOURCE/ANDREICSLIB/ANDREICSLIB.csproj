@@ -79,6 +79,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassExtras\Bitmap.cs" />
+    <Compile Include="ClassExtras\CheckedListBoxUpdates.cs" />
+    <Compile Include="ClassExtras\DirectoryUpdates.cs" />
     <Compile Include="ListViewSorter.cs" />
     <Compile Include="Networking.cs" />
     <Compile Include="NewControls\ColorListBox.cs">
@@ -134,6 +136,13 @@
     </Compile>
     <Compile Include="ClassReplacements\Panel.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NewControls\SelectItem.cs" />
+    <Compile Include="NewControls\SelectItemsFromCheckBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewControls\SelectItemsFromCheckBox.Designer.cs">
+      <DependentUpon>SelectItemsFromCheckBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -201,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewControls\selectItemFromListBox.resx">
       <DependentUpon>selectItemFromListBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewControls\SelectItemsFromCheckBox.resx">
+      <DependentUpon>SelectItemsFromCheckBox.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

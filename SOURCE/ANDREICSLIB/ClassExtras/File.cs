@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 using ANDREICSLIB;
+using ANDREICSLIB.ClassExtras;
 using tree = ANDREICSLIB.DataClasses.Btree<System.String>;
 
 namespace ANDREICSLIB
@@ -222,32 +224,41 @@ namespace ANDREICSLIB
             }
         }
 
-        public static IEnumerable<string> LoopThroughFilesRecursive(string sourceDir)
+        public static string TrimFileName(String fn,bool basepath,bool filename,bool extension)
         {
-            // Process the list of files found in the directory.
-            var fileEntries = Directory.GetFiles(sourceDir);
-            foreach (var fileName in fileEntries)
-            {
-                // do something with fileName
-                yield return fileName;
-            }
+            int i1=fn.LastIndexOf('\\') + 1;
+            int i2 = fn.LastIndexOf('.');
+            String bp = fn.Substring(0, i1);
+            string fin = fn.Substring(i1, i2-i1);
+            string ex = fn.Substring(i2);
+            string ret = "";
+            if (basepath)
+                ret = bp;
+            if (filename)
+                ret += fin;
+            if (extension)
+                ret += ex;
 
-            // Recurse into subdirectories of this directory.
-            var subdirEntries = Directory.GetDirectories(sourceDir);
-            
-            var ret = new List<string>();
-            foreach (var subdir in subdirEntries)
-            {
-                // Do not iterate through reparse points
-                if ((File.GetAttributes(subdir) &
-                     FileAttributes.ReparsePoint) !=
-                         FileAttributes.ReparsePoint)
-                    
-                    ret.AddRange(LoopThroughFilesRecursive(subdir));
-            }
+            return ret;
+        }
 
-            foreach (var r in ret)
-                yield return r;
+        /// <summary>
+        /// get the matching file for a substring of the file name
+        /// </summary>
+        /// <param name="partialFN">a part of the file name to look for</param>
+        /// <param name="basedir"></param>
+        /// <returns></returns>
+        public static string GetAbsoluteFilePath(String partialFN,String basedir)
+        {
+            var f = DirectoryUpdates.GetFilesRecursive(basedir);
+
+            foreach(var f2 in f)
+            {
+                var f3 = TrimFileName(f2, false, true, false);
+                if (f3.Contains(partialFN))
+                    return f2;
+            }
+            return null;
         }
     }
 }

@@ -17,7 +17,7 @@ namespace ANDREICSLIB
 
 		private void closebutton_Click(object sender, EventArgs e)
 		{
-			this.Close();
+			Close();
 		}
 
 		private void otherapptext_LinkClicked(object sender, LinkClickedEventArgs e)

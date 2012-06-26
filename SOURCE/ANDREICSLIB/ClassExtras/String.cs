@@ -8,10 +8,15 @@ namespace ANDREICSLIB
 {
 	public static class StringUpdates
 	{
-
+        public static string[] SplitString(String instr,String split)
+        {
+            var s = new string[1];
+            s[0] = split;
+            return instr.Split(s, StringSplitOptions.RemoveEmptyEntries);
+        }
 		public static Tuple<string, string> splitTwo(String instr,char sep)
 		{
-			var sep2 = new char[] {sep};
+			var sep2 = new [] {sep};
 			var sep3 = instr.Split(sep2);
 			if (sep3.Count() != 2)
 				return null;
