@@ -18,7 +18,14 @@ namespace ANDREICSLIB
 
         public Dictionary<IPAddress, long> cachedips = new Dictionary<IPAddress, long>();
 
-        public static void ColumnSort(ListViewSorter LVS, ListView LV, int column)
+        /// <summary>
+        /// call this from column click. 
+        /// </summary>
+        /// <param name="LVS">an instance of listviewsorter</param>
+        /// <param name="LV"></param>
+        /// <param name="column"></param>
+        /// <param name="forceorder">if set to a value, will sort by that all the time, otherwise will sort as normal</param>
+        public static void ColumnSort(ListViewSorter LVS, ListView LV, int column, SortOrder? forceorder = null)
         {
             try
             {
@@ -32,11 +39,18 @@ namespace ANDREICSLIB
                 return;
             }
 
-            if (LV.Sorting == SortOrder.Ascending)
-                LV.Sorting = SortOrder.Descending;
+            if (forceorder != null)
+            {
+                LV.Sorting = (SortOrder)forceorder;
+            }
             else
-                LV.Sorting = SortOrder.Ascending;
+            {
 
+                if (LV.Sorting == SortOrder.Ascending)
+                    LV.Sorting = SortOrder.Descending;
+                else
+                    LV.Sorting = SortOrder.Ascending;
+            }
             LVS.ByColumn = column;
 
             LV.Sort();
@@ -44,9 +58,9 @@ namespace ANDREICSLIB
 
         public int Compare(object o1, object o2)
         {
-            if (o1==null||!(o1 is ListViewItem))
+            if (o1 == null || !(o1 is ListViewItem))
                 return (0);
-            if (o2==null||!(o2 is ListViewItem))
+            if (o2 == null || !(o2 is ListViewItem))
                 return (0);
 
             var lvi1 = (ListViewItem)o2;
@@ -55,13 +69,13 @@ namespace ANDREICSLIB
             var str2 = lvi2.SubItems[ByColumn].Text;
             int result = 0;
 
-            IPAddress ip1=null;
+            IPAddress ip1 = null;
             IPAddress ip2 = null;
 
             //starts with a letter
             if (StringUpdates.StringStartsWithLetter(str1) && StringUpdates.StringStartsWithLetter(str2))
             {
-                if (lvi1.ListView.Sorting == SortOrder.Ascending)
+                if (lvi1.ListView.Sorting == SortOrder.Descending)
                     result = String.Compare(str1, str2);
                 else
                     result = String.Compare(str2, str1);
@@ -71,17 +85,17 @@ namespace ANDREICSLIB
             {
                 var s1 = double.Parse(str1);
                 var s2 = double.Parse(str2);
-                if (lvi1.ListView.Sorting == SortOrder.Ascending)
+                if (lvi1.ListView.Sorting == SortOrder.Descending)
                     result = s1.CompareTo(s2);
                 else
                     result = s2.CompareTo(s1);
             }
             //ip address
-            else if (IPAddress.TryParse(str1,out ip1)&&IPAddress.TryParse(str2,out ip2))
+            else if (IPAddress.TryParse(str1, out ip1) && IPAddress.TryParse(str2, out ip2))
             {
                 long s1 = GetCachedIP(ip1);
                 long s2 = GetCachedIP(ip2);
-                if (lvi1.ListView.Sorting == SortOrder.Ascending)
+                if (lvi1.ListView.Sorting == SortOrder.Descending)
                     result = s1.CompareTo(s2);
                 else
                     result = s2.CompareTo(s1);
@@ -89,7 +103,7 @@ namespace ANDREICSLIB
             //by default, string again
             else
             {
-                if (lvi1.ListView.Sorting == SortOrder.Ascending)
+                if (lvi1.ListView.Sorting == SortOrder.Descending)
                     result = String.Compare(str1, str2);
                 else
                     result = String.Compare(str2, str1);
@@ -103,9 +117,9 @@ namespace ANDREICSLIB
         {
             if (cachedips.ContainsKey(ip))
                 return cachedips[ip];
-            
+
             var val = Net.GetAddressAsNumber(ip);
-            cachedips.Add(ip,val);
+            cachedips.Add(ip, val);
             return val;
         }
 

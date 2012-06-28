@@ -1,11 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ANDREICSLIB
 {
     public class DictionaryUpdates
     {
+        public static T GetKeyByValue<T,Y>(Dictionary<T,Y> dict,Y val)
+        {
+            var bc = dict.Where(s => s.Value.Equals(val));
+            if (bc.Count() == 0)
+                return default(T);
+            
+            return bc.First().Key;
+        }
+        
         public static void MergeTwoDictionaries<T, Y>(ref Dictionary<T, Y> keep, Dictionary<T, Y> mergein, bool overwriteExisting = true)
         {
             lock (mergein)
