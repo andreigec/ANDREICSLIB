@@ -34,7 +34,6 @@ namespace ANDREICSLIB
                 return null;
             }
 
-
             // Open data stream:
             var webStream = response.GetResponseStream();
 

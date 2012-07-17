@@ -162,7 +162,7 @@ namespace ANDREICSLIB
         /// <param name="merge">directory to moverge into dest</param>
         public static void MergeDirectories(String based, string merge)
         {
-            FileUpdates.CreateDirectory(based);
+            CreateDirectory(based);
 
             var mergefiles = Directory.GetFiles(merge, "*.*", SearchOption.AllDirectories).ToList();
             foreach (var file in mergefiles)
@@ -200,6 +200,25 @@ namespace ANDREICSLIB
                     Thread.Sleep(100);
                     continue;
                 }
+            }
+        }
+
+        /// <summary>
+        /// create a file and then close the stream
+        /// </summary>
+        /// <param name="filepath"></param>
+        /// <returns></returns>
+        public static bool CreateFile(String filepath)
+        {
+            try
+            {
+                var fs = new FileStream(filepath, FileMode.CreateNew);
+                fs.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
 

@@ -8,11 +8,11 @@ namespace ANDREICSLIB
 {
 	public static class StringUpdates
 	{
-        public static string[] SplitString(String instr,String split)
+        public static string[] SplitString(String instr,String split,bool removeempty=true)
         {
             var s = new string[1];
             s[0] = split;
-            return instr.Split(s, StringSplitOptions.RemoveEmptyEntries);
+            return instr.Split(s, removeempty?StringSplitOptions.RemoveEmptyEntries:StringSplitOptions.None);
         }
 		public static Tuple<string, string> splitTwo(String instr,char sep)
 		{
@@ -153,22 +153,27 @@ namespace ANDREICSLIB
 			return origString.Replace(replaceThis, withThis);
 		}
 
-		/// <summary>
-		/// Trim a string of a certain number of chars, either from the start or the end
-		/// </summary>
-		/// <param name="origString"></param>
-		/// <param name="isFront"></param>
-		/// <param name="length"></param>
-		/// <returns></returns>
-		public static String applyTrim(String origString, bool isFront, int length)
+
+        /// <summary>
+        /// Trim a string of a certain number of chars, either from the start or the end
+        /// </summary>
+        /// <param name="origString"></param>
+        /// <param name="isFront"></param>
+        /// <param name="length"></param>
+        /// <param name="relativeStart">front=true, start=relativestart. front=end, start=end-relativestart</param>
+        /// <returns></returns>
+        public static String ApplyTrim(String origString, bool isFront, int length,int relativeStart=0)
 		{
-			if (length > origString.Length)
+            //relative start is bad or length is more than the entire length, then cancel
+            if (relativeStart<0||
+                (isFront&&(relativeStart+length) > origString.Length)|| 
+                (isFront==false && (origString.Length-relativeStart + length) > origString.Length))
 				return origString;
 
-			if (isFront)
-				return origString.Substring(length);
-			else
-				return origString.Substring(0, origString.Length - length);
+			if (isFront==false)
+			    relativeStart = origString.Length - relativeStart;
+         
+            return origString.Remove(relativeStart, length);
 		}
 
 

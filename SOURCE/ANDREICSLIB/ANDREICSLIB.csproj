@@ -82,6 +82,7 @@
     <Compile Include="ClassExtras\Bitmap.cs" />
     <Compile Include="ClassExtras\CheckedListBoxUpdates.cs" />
     <Compile Include="ClassExtras\DirectoryUpdates.cs" />
+    <Compile Include="ClassExtras\TabPage.cs" />
     <Compile Include="ListViewSorter.cs" />
     <Compile Include="Networking.cs" />
     <Compile Include="NewControls\ColorListBox.cs">
@@ -112,19 +113,19 @@
     <Compile Include="NewControls\getStringBox.designer.cs">
       <DependentUpon>getStringBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewControls\aboutScreen.cs">
+    <Compile Include="Licensing\aboutScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewControls\aboutScreen.Designer.cs">
+    <Compile Include="Licensing\aboutScreen.Designer.cs">
       <DependentUpon>aboutScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewControls\helpScreen.cs">
+    <Compile Include="Licensing\helpScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewControls\helpScreen.Designer.cs">
+    <Compile Include="Licensing\helpScreen.Designer.cs">
       <DependentUpon>helpScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Licensing.cs">
+    <Compile Include="Licensing\Licensing.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ClassReplacements\List.cs" />
@@ -180,6 +181,8 @@
     </Compile>
     <Compile Include="ClassExtras\Net.cs" />
     <Compile Include="ClassExtras\Zip.cs" />
+    <Compile Include="Reflection.cs" />
+    <Compile Include="Time.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -205,10 +208,10 @@
     <EmbeddedResource Include="NewControls\getStringBox.resx">
       <DependentUpon>getStringBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewControls\aboutScreen.resx">
+    <EmbeddedResource Include="Licensing\aboutScreen.resx">
       <DependentUpon>aboutScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewControls\helpScreen.resx">
+    <EmbeddedResource Include="Licensing\helpScreen.resx">
       <DependentUpon>helpScreen.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>

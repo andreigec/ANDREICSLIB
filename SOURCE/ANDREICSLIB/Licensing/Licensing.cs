@@ -187,7 +187,7 @@ namespace ANDREICSLIB
             var changelog = Net.DownloadWebPage(ChangelogPath);
             if (String.IsNullOrEmpty(changelog) == false)
             {
-                changelog = StringUpdates.applyTrim(changelog, true, 500);
+                changelog = StringUpdates.ApplyTrim(changelog, true, 500);
                 versionS += "\n\nCHANGELOG:\n" + changelog;
             }
             else

@@ -37,17 +37,61 @@ namespace ANDREICSLIB
             }
         }
 
-        /// <summary>
-        /// Quick keyboard handling of fields - Connect to keyboard-keypress event. Pass in KeyChar, and make the return value = e.Handled
-        /// </summary>
-        /// <param name="IT">the input type</param>
-        /// <param name="keyChar">KeyChar</param>
-        /// <param name="c">ref to the textbox/combobox for ctrl+a keys, not required</param>
-        /// <returns>e.Handled</returns>
-        public static bool HandleInput(InputType IT, char keyChar, Control c=null)
+        private static Tuple<int, int> GetSelection(Control c)
         {
-         //ctrl+a
-            if (c!=null&&keyChar==1)
+            int start = 0;
+            int length = 0;
+            if (c is TextBox)
+            {
+                var tb = c as TextBox;
+                start = tb.SelectionStart;
+                length = tb.SelectionLength;
+
+            }
+            else if (c is ComboBox)
+            {
+                var cb = c as ComboBox;
+                start = cb.SelectionStart;
+                length = cb.SelectionLength;
+            }
+
+            return new Tuple<int, int>(start, length);
+        }
+
+        public static string GetFutureTextBoxAfterKeyPress(char keyChar, Control c)
+        {
+            String t = c.Text;
+
+            var l = GetSelection(c);
+
+            if (l.Item2 > 0)
+                t = StringUpdates.ApplyTrim(t, true, l.Item2, l.Item1);
+
+            t = t.Insert(l.Item1, keyChar.ToString());
+            return t;
+        }
+
+        /// <summary>
+        /// quick handle for floats - Connect to keyboard-keypress event. Pass in KeyChar, and make the return value = e.Handled
+        /// </summary>
+        /// <param name="c">e.KeyChar</param>
+        /// <returns>e.Handled</returns>
+        public static bool HandleInputAsFloat(char keyChar, Control c)
+        {
+            if (IsSpecial(keyChar, c))
+                return false;
+
+            var t = GetFutureTextBoxAfterKeyPress(keyChar, c);
+            float r;
+
+            //since we are eventually passing back to event.ishandle, we need the inverse
+            return !float.TryParse(t, out r);
+        }
+
+        public static bool IsSpecial(char keyChar, Control c = null)
+        {
+            //ctrl+a
+            if (c != null && keyChar == 1)
             {
                 if (c is TextBox)
                 {
@@ -62,15 +106,30 @@ namespace ANDREICSLIB
                     cb.SelectionStart = 0;
                     cb.SelectionLength = cb.Text.Length;
                 }
-               
-                return false;
+
+                return true;
             }
 
             if (keyChar <= 31)//control chars
+                return true;
+
+            return false;
+        }
+
+        /// <summary>
+        /// Quick keyboard handling of fields - Connect to keyboard-keypress event. Pass in KeyChar, and make the return value = e.Handled
+        /// </summary>
+        /// <param name="IT">the input type</param>
+        /// <param name="keyChar">e.KeyChar</param>
+        /// <param name="c">ref to the textbox/combobox for ctrl+a keys, not required</param>
+        /// <returns>e.Handled</returns>
+        public static bool HandleInput(InputType IT, char keyChar, Control c = null)
+        {
+            if (IsSpecial(keyChar, c))
                 return false;
 
             var hit = false;
-            
+
             if ((keyChar >= 65 && keyChar <= 90) || (keyChar >= 97 && keyChar <= 122))
             {
                 if (IT.AllowChars == false)

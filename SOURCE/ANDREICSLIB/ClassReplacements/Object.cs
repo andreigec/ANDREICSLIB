@@ -76,7 +76,6 @@ namespace ANDREICSLIB
                 {
 
                 }
-
             }
 
             if (o is Control)
