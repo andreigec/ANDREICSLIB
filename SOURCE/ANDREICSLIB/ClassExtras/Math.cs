@@ -31,6 +31,12 @@ namespace ANDREICSLIB
                              (float)MediaMatrix.OffsetY);
             return ret;
         }
+
+        public static double Truncate(double inval,int length=2)
+        {
+            return double.Parse(inval.ToString("F"+length.ToString()));
+
+        }
 	}
 
 }

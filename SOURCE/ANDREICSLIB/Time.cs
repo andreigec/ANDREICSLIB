@@ -7,12 +7,27 @@ namespace ANDREICSLIB
 {
     public static class TimeUpdates
     {
-        public static string TimeInWords(int totalsecondsin)
+        public static double GetHours(double totalsecondsin)
         {
-            int seconds = totalsecondsin % 60;
-            int minutes = (totalsecondsin / 60) % 60;
-            int hours = (totalsecondsin / 3600) % 24;
-            int days = MathUpdates.Floor((totalsecondsin / 3600)/24);
+            return (totalsecondsin / 3600.0) % 24;
+        }
+
+        public static double GetMinutes(double totalsecondsin)
+        {
+            return (totalsecondsin / 60.0) % 60;
+        }
+
+        public static double GetDays(double totalsecondsin)
+        {
+            return ((totalsecondsin / 3600.0) / 24.0);
+        }
+
+        public static string TimeInWords(double totalsecondsin)
+        {
+            var seconds = (int)(totalsecondsin % 60);
+            var minutes = (int)Math.Floor(GetMinutes(totalsecondsin));
+            var hours = (int)Math.Floor(GetHours(totalsecondsin));
+            var days = (int)Math.Floor(GetDays(totalsecondsin));
 
             string ret = "";
             if (days != 0)

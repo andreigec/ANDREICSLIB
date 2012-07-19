@@ -32,11 +32,8 @@ namespace ANDREICSLIB
                 }  
             }
         }  
-    }
-
-	public class DictionaryUpdates<TKey, TValue> : Dictionary<TKey, TValue>
-	{
-		/// <summary>
+    
+        /// <summary>
 		/// Convert a dictionary of key/value to a list of listviewitems
 		/// </summary>
 		/// <param name="origDict">Input Dictionary, string as the key for the text/name, and a list of strings in the value, for subitems</param>

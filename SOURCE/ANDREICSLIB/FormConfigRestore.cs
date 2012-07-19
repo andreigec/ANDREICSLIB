@@ -8,14 +8,16 @@ namespace ANDREICSLIB
 {
     public class FormConfigRestore
     {
-        private const char separator = '\f';
+        private const string separator = "\f";
+        private const string typesep = "\b";
+        private const string newline = "\r\n";
 
-        private static void SaveProperty(StreamWriter SW, Control C)
+        private static void SaveProperty(ref string output, Control C)
         {
             if (C is CheckBox)
             {
                 var V = (CheckBox)C;
-                SW.WriteLine(V.Name + separator + "Checked" + separator + V.Checked);
+                output += V.Name + separator + "Checked" + separator + V.Checked + newline;
             }
 
             else if (C is ListBox)
@@ -26,20 +28,20 @@ namespace ANDREICSLIB
                 {
                     o += i + "|";
                 }
-                SW.WriteLine(o);
+                output += o + newline;
             }
             else
             {
-                SW.WriteLine(C.Name + separator + "Text" + separator + C.Text);
+                output += C.Name + separator + "Text" + separator + C.Text + newline;
             }
         }
 
-        private static void SaveProperty(StreamWriter SW, ToolStripItem TSI)
+        private static void SaveProperty(ref string output, ToolStripItem TSI)
         {
             if (TSI is ToolStripMenuItem)
             {
                 var V = (ToolStripMenuItem)TSI;
-                SW.WriteLine(V.Name + separator + "Checked" + separator + V.Checked);
+                output += V.Name + separator + "Checked" + separator + V.Checked + newline;
             }
         }
 
@@ -180,73 +182,105 @@ namespace ANDREICSLIB
             return false;
         }
 
-        public static bool LoadConfig(Form baseform, String filename)
+        /// <summary>
+        /// load a saved config file
+        /// </summary>
+        /// <param name="baseform">pass the base form</param>
+        /// <param name="filename">the saved config flename</param>
+        /// <returns>returns null on error, and a list of tuples of saved literal strings otherwise</returns>
+        public static List<Tuple<String, String>> LoadConfig(Form baseform, String filename)
         {
-            FileStream FS = null;
-            StreamReader SR = null;
-            var f = new char[] { separator };
+            var ret = new List<Tuple<String, String>>();
             try
             {
                 if (File.Exists(filename) == false)
-                    return false;
+                    return null;
 
-                FS = new FileStream(filename, FileMode.Open);
-                SR = new StreamReader(FS);
+                var f = FileUpdates.LoadFile(filename);
 
-                String s = null;
-                while ((s = SR.ReadLine()) != null)
+                var parts = StringUpdates.SplitString(f, typesep);
+
+                //first part is controls and stuff
+                var controls = StringUpdates.SplitString(parts[0], newline);
+
+                foreach (var line in controls)
                 {
-                    if (String.IsNullOrEmpty(s))
+                    var split = StringUpdates.SplitString(line, separator);
+                    if (split.Length < 2)
                         continue;
-                    var split = s.Split(f, StringSplitOptions.RemoveEmptyEntries);
+
                     String v = null;
                     if (split.Length >= 3)
                         v = split[2];
+
                     LoadProperty(baseform, split[0], split[1], v);
                 }
 
-                SR.Close();
-                FS.Close();
+                //second part is literal strings
+                if (parts.Length >= 2)
+                {
+                    var strings = StringUpdates.SplitString(parts[1], newline);
+                    foreach (var line in strings)
+                    {
+                        var split = StringUpdates.SplitString(line, separator);
+                        if (split.Length < 2)
+                            continue;
+
+                        ret.Add(new Tuple<string, string>(split[0], split[1]));
+                    }
+                }
+
+                return ret;
             }
             catch (Exception ex)
             {
-                if (SR != null)
-                    SR.Close();
-                if (FS != null)
-                    FS.Close();
-                //on error delete config
-                if (File.Exists(filename))
+                //on error, delete the config
+                try
+                {
                     File.Delete(filename);
-                return false;
+                }
+                catch (Exception)
+                {
+                }
+                return null;
             }
-            return true;
         }
 
-        public static bool SaveConfig(Form baseform, String filename, List<Control> saveControls,
-                                      List<ToolStripItem> saveToolStripItems = null)
+        public static bool SaveConfig(Form baseform, String filename, List<Control> saveControls = null, List<ToolStripItem> saveToolStripItems = null, List<Tuple<String, String>> LiteralStrings = null)
         {
             try
             {
                 if (File.Exists(filename))
                     File.Delete(filename);
 
-                var FS = new FileStream(filename, FileMode.CreateNew);
-                var SW = new StreamWriter(FS);
-                foreach (var C in saveControls)
+                String output = "";
+                if (saveControls != null)
                 {
-                    SaveProperty(SW, C);
+                    foreach (var C in saveControls)
+                    {
+                        SaveProperty(ref output, C);
+                    }
                 }
 
                 if (saveToolStripItems != null)
                 {
                     foreach (var TSI in saveToolStripItems)
                     {
-                        SaveProperty(SW, TSI);
+                        SaveProperty(ref output, TSI);
                     }
                 }
 
-                SW.Close();
-                FS.Close();
+                output += typesep;
+
+                if (LiteralStrings != null)
+                {
+                    foreach (var s in LiteralStrings)
+                    {
+                        output += s.Item1 + separator + s.Item2 + newline;
+                    }
+                }
+
+                FileUpdates.SaveToFile(filename, output);
             }
             catch (Exception ex)
             {

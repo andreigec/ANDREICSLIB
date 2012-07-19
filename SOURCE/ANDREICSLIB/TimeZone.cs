@@ -10,7 +10,6 @@ namespace ANDREICSLIB
 		public TimeZoneInfo id;
 		public string name;
 		public TimeSpan UTCoffset;
-
 		public static List<CustomTimeZones> zones = new List<CustomTimeZones>();
 
 		public static CustomTimeZones getMyTimeZone()

@@ -4,10 +4,11 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using ANDREICSLIB.ClassExtras;
 
 namespace ANDREICSLIB
 {
-	public class PanelUpdates : Panel
+	public class PanelReplacement : Panel
 	{
 		#region border painting
 		public Color borderColour = Color.Black;
@@ -32,7 +33,7 @@ namespace ANDREICSLIB
 			}
 		}
 
-		public PanelUpdates()
+        public PanelReplacement()
 		{
 			Paint += paintEvent;
 		}
@@ -80,7 +81,7 @@ namespace ANDREICSLIB
 		
 		public static int gap = 1;
 
-		public ListUpdates<Control> controlStack = new ListUpdates<Control>();
+        public List<Control> controlStack = new List<Control>();
 		private int lastX;
 		private int lastY;
 
@@ -187,7 +188,7 @@ namespace ANDREICSLIB
 			var one = Controls[indexone];
 			var two = Controls[indextwo];
 
-			controlStack.Swap(indexone, indextwo);
+			ListUpdates.Swap(ref controlStack,indexone, indextwo);
 
 			//switch the control locs
 			var x = one.Location.X;
@@ -207,7 +208,7 @@ namespace ANDREICSLIB
 			Controls.SetChildIndex(two, alphaIndex);
 		}
 
-		public Control addControl(Control C, bool nextItemOnSameLine = false,int manualYAdd=0,int manualXAdd=0)
+		public Control addControl(Control C, bool nextItemOnSameLine,int manualYAdd=0,int manualXAdd=0)
 		{
 			int gapy=gap,gapx=gap;
 			lastX += manualXAdd;
@@ -240,9 +241,9 @@ namespace ANDREICSLIB
 			return controlStack.FirstOrDefault(c => c.Name.Equals(name));
 		}
 
-		public PanelUpdates Clone()
+		public PanelReplacement Clone()
 		{
-			var O = new PanelUpdates();
+			var O = new PanelReplacement();
 			O.Width = Width;
 			O.Height = Height;
 			O.BackColor = BackColor;

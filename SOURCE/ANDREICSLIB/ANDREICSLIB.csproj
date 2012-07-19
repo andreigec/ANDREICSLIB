@@ -82,6 +82,7 @@
     <Compile Include="ClassExtras\Bitmap.cs" />
     <Compile Include="ClassExtras\CheckedListBoxUpdates.cs" />
     <Compile Include="ClassExtras\DirectoryUpdates.cs" />
+    <Compile Include="ClassExtras\List.cs" />
     <Compile Include="ClassExtras\TabPage.cs" />
     <Compile Include="ListViewSorter.cs" />
     <Compile Include="Networking.cs" />
@@ -97,7 +98,7 @@
     </Compile>
     <Compile Include="dataClasses.cs" />
     <Compile Include="Device.cs" />
-    <Compile Include="ClassReplacements\Dictionary.cs" />
+    <Compile Include="ClassExtras\Dictionary.cs" />
     <Compile Include="NewControls\DragBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -128,13 +129,18 @@
     <Compile Include="Licensing\Licensing.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ClassReplacements\List.cs" />
     <Compile Include="MatrixOps.cs" />
     <Compile Include="NewControls\ImageDraw.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="NewControls\ImageDraw.Designer.cs">
       <DependentUpon>ImageDraw.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewControls\MassVariableEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewControls\MassVariableEdit.Designer.cs">
+      <DependentUpon>MassVariableEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="NewControls\multipleMessageBox.cs">
       <SubType>Form</SubType>
@@ -165,14 +171,12 @@
       <DependentUpon>selectItemFromListBox.cs</DependentUpon>
     </Compile>
     <Compile Include="ClassExtras\Textbox.cs" />
-    <Compile Include="ClassExtras\TimeZone.cs" />
+    <Compile Include="TimeZone.cs" />
     <Compile Include="NewControls\UnselectableRichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ClassReplacements\ListView.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ClassReplacements\Object.cs" />
+    <Compile Include="ClassExtras\ListView.cs" />
+    <Compile Include="ClassExtras\Object.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ClassExtras\Math.cs" />
     <Compile Include="ClassExtras\String.cs" />
@@ -217,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewControls\ImageDraw.resx">
       <DependentUpon>ImageDraw.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewControls\MassVariableEdit.resx">
+      <DependentUpon>MassVariableEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewControls\multipleMessageBox.resx">
       <DependentUpon>multipleMessageBox.cs</DependentUpon>

@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace ANDREICSLIB
 {
-	public abstract class ObjectUpdates : Object
+	public abstract class ObjectUpdates
 	{
 		/// <summary>
 		/// Add a tooltip to a control

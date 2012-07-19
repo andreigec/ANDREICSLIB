@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.textarea = new System.Windows.Forms.TextBox();
-			this.buttonpanel = new PanelUpdates();
+            this.buttonpanel = new PanelReplacement();
 			this.SuspendLayout();
 			// 
 			// textarea
@@ -68,7 +68,7 @@
 
 		#endregion
 
-		private PanelUpdates buttonpanel;
+        private PanelReplacement buttonpanel;
 		private System.Windows.Forms.TextBox textarea;
 	}
 }
