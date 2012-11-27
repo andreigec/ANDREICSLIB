@@ -20,7 +20,6 @@ namespace ANDREICSLIB
         /// <returns>variable name</returns>
         public static string GetFieldName(Expression<Func<object>> memberExpression)
         {
-            String name="";
             MemberExpression me=null;
             if (memberExpression.Body is MemberExpression)
                 me = ((MemberExpression) memberExpression.Body);

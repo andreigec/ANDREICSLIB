@@ -20,21 +20,36 @@ namespace ANDREICSLIB
         /// <param name="filename"></param>
         public static string LoadFile(String filename)
         {
-            var fs = new FileStream(filename, FileMode.Open);
-            var sr = new StreamReader(fs);
-            var filestr = sr.ReadToEnd();
-            sr.Close();
-            fs.Close();
-            return filestr;
+            try
+            {
+                var fs = new FileStream(filename, FileMode.Open);
+                var sr = new StreamReader(fs);
+                var filestr = sr.ReadToEnd();
+                sr.Close();
+                fs.Close();
+                return filestr;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
 
-        public static void SaveToFile(String filename, String text)
+        public static bool SaveToFile(String filename, String text)
         {
-            var fs = new FileStream(filename, FileMode.Create);
-            var sw = new StreamWriter(fs);
-            sw.Write(text);
-            sw.Close();
-            fs.Close();
+            try
+            {
+                var fs = new FileStream(filename, FileMode.Create);
+                var sw = new StreamWriter(fs);
+                sw.Write(text);
+                sw.Close();
+                fs.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+            }
+            return false;
         }
 
         public static void SaveFileIntoTree(String filename, DataClasses.Btree<string> root, String levelSeparator = "\t")

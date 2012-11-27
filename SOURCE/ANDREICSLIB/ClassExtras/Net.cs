@@ -79,7 +79,6 @@ namespace ANDREICSLIB
         {
             var he = Dns.GetHostEntry(hostName);
 
-            IPAddress ip = null;
             try
             {
                 foreach (var i in he.AddressList)

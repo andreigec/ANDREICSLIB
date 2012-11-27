@@ -202,12 +202,12 @@ namespace ANDREICSLIB
                     "\n\nDo you wish to update to this version? \n(Be aware that this program will restart; please save your data beforehand)",
                     "Do you wish to update?", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
-                UpdateApplication(newV);
+                UpdateApplication();
         }
 
 
 
-        private static void UpdateApplication(double newVersion)
+        private static void UpdateApplication()
         {
             String folder;
             String localfile;
@@ -221,7 +221,7 @@ namespace ANDREICSLIB
                 //0: reset current directory in case it was changed
                 Directory.SetCurrentDirectory(Application.StartupPath);
                 //1: Get the online files
-                folder = Title + "v" + newVersion.ToString();
+                folder = Title + "v" + DateTime.Now.ToShortTimeString();
                 Directory.CreateDirectory(folder);
             }
             catch (Exception ex)

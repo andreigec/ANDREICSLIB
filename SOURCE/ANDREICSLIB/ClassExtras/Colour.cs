@@ -34,13 +34,19 @@ namespace ANDREICSLIB
               255 - inColour.G, 255 - inColour.B);
         }
 
-        private static Dictionary<int, Color> colourcache;
+        private static Dictionary<Tuple<int, int>, Dictionary<int, Color>> colourCache; 
         public static Color getColourFromInt(int p, int min = -100, int max = 100)
         {
-            if (colourcache == null)
-                colourcache = new Dictionary<int, Color>();
-            if (colourcache.ContainsKey(p))
-                return colourcache[p];
+            if (colourCache == null)
+                colourCache = new Dictionary<Tuple<int, int>, Dictionary<int, Color>>();
+           
+            //minmax tuple key
+            var tk = new Tuple<int, int>(min, max);
+            if (colourCache.ContainsKey(tk)==false)
+                colourCache.Add(tk,new Dictionary<int, Color>());
+
+            if (colourCache.ContainsKey(tk)&&colourCache[tk].ContainsKey(p))
+                return colourCache[tk][p];
 
             var r = 0;
             var g = 0;
@@ -60,7 +66,7 @@ namespace ANDREICSLIB
                 g = ((int)(((float)gv / (float)max) * 255.0));
             }
             var ret = Color.FromArgb(r, g, b);
-            colourcache.Add(p, ret);
+            colourCache[tk].Add(p, ret);
             return ret;
         }
 

@@ -110,6 +110,17 @@ namespace ANDREICSLIB
 			return ret;
 		}
 
+        public static string Truncate(String instr,int maxlen,string trucatedend="...")
+        {
+            String outstr = instr;
+            if (outstr.Length>maxlen)
+            {
+                outstr = outstr.Substring(0, maxlen);
+                outstr += trucatedend;
+            }
+            return outstr;
+        }
+
 		/// <summary>
 		/// Replace a char in a string with another
 		/// </summary>
@@ -153,6 +164,36 @@ namespace ANDREICSLIB
 			return origString.Replace(replaceThis, withThis);
 		}
 
+        public static String RemoveAllNonAlphabetChars(String origString)
+        {
+            String outstr = "";
+            for (int a = 0; a < origString.Length; a++)
+            {
+                char c = origString[a];
+
+                if (char.IsLetter(c) == false&&char.IsWhiteSpace(c)==false)
+                    continue;
+
+                outstr += c;
+            }
+            return outstr;
+
+        }
+
+        public static String ReplaceAllChars(String origString, String replaceTheseChars, char withThis)
+        {
+            String outstr="";
+            for (int a = 0; a < origString.Length; a++)
+            {
+                char c = origString[a];
+                if (replaceTheseChars.Contains(c))
+                    c = withThis;
+
+                outstr += c;
+            }
+            return outstr;
+        }
+
 
         /// <summary>
         /// Trim a string of a certain number of chars, either from the start or the end
@@ -160,18 +201,18 @@ namespace ANDREICSLIB
         /// <param name="origString"></param>
         /// <param name="isFront"></param>
         /// <param name="length"></param>
-        /// <param name="relativeStart">front=true, start=relativestart. front=end, start=end-relativestart</param>
+        /// <param name="relativeStart">front=true, start=relativestart. front=end, start=end-length+relativestart</param>
         /// <returns></returns>
-        public static String ApplyTrim(String origString, bool isFront, int length,int relativeStart=0)
+        public static String ApplyTrim(String origString, bool isFront, int length, int relativeStart = 0)
 		{
             //relative start is bad or length is more than the entire length, then cancel
             if (relativeStart<0||
                 (isFront&&(relativeStart+length) > origString.Length)|| 
-                (isFront==false && (origString.Length-relativeStart + length) > origString.Length))
+                (isFront==false && (origString.Length+relativeStart - length) > origString.Length))
 				return origString;
 
 			if (isFront==false)
-			    relativeStart = origString.Length - relativeStart;
+			    relativeStart = origString.Length - length+ relativeStart;
          
             return origString.Remove(relativeStart, length);
 		}

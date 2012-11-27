@@ -9,6 +9,7 @@ namespace ANDREICSLIB
     public class FormConfigRestore
     {
         private const string separator = "\f";
+        private const string listseparator = "\a";
         private const string typesep = "\b";
         private const string newline = "\r\n";
 
@@ -26,7 +27,21 @@ namespace ANDREICSLIB
                 var o = lb.Name + separator + "Items" + separator;
                 foreach (var i in lb.Items)
                 {
-                    o += i + "|";
+                    o += i + listseparator;
+                }
+                output += o + newline;
+            }
+            else if (C is ListView)
+            {
+                var lv = C as ListView;
+                var o = lv.Name + separator + "Items" + separator;
+                foreach(ListViewItem i in lv.Items)
+                {
+                    string name = i.Name;
+                    if (string.IsNullOrWhiteSpace(name))
+                    name = i.Text;
+
+                    o += name + listseparator + i.Text + listseparator;
                 }
                 output += o + newline;
             }
@@ -80,11 +95,25 @@ namespace ANDREICSLIB
             if (C is ListBox && propertyName.Equals("Items"))
             {
                 var lb = C as ListBox;
-                var s = new[] { '|' };
+                var s = new[] { listseparator };
                 var v = value.ToString().Split(s, StringSplitOptions.RemoveEmptyEntries);
                 foreach (var v2 in v)
                 {
                     lb.Items.Add(v2);
+                }
+                return true;
+            }
+            if (C is ListView && propertyName.Equals("Items"))
+            {
+                var lv = C as ListView;
+                var s = new[] { listseparator };
+                var v = value.ToString().Split(s, StringSplitOptions.RemoveEmptyEntries);
+                if (v.Length % 2 == 0)
+                {
+                    for (int a = 0; a < v.Length; a += 2)
+                    {
+                        lv.Items.Add(v[a + 1]).Name = v[a];
+                    }
                 }
                 return true;
             }
@@ -183,7 +212,7 @@ namespace ANDREICSLIB
         }
 
         /// <summary>
-        /// load a saved config file
+        /// load the saved config file. will automatically load all the control values, and return the manual strings
         /// </summary>
         /// <param name="baseform">pass the base form</param>
         /// <param name="filename">the saved config flename</param>
@@ -246,7 +275,17 @@ namespace ANDREICSLIB
             }
         }
 
-        public static bool SaveConfig(Form baseform, String filename, List<Control> saveControls = null, List<ToolStripItem> saveToolStripItems = null, List<Tuple<String, String>> LiteralStrings = null)
+        /// <summary>
+        /// save controls, tool strips, and manually saved strings
+        /// call this on form load
+        /// </summary>
+        /// <param name="baseform"></param>
+        /// <param name="filename"></param>
+        /// <param name="saveControls">a list of form controlls to save, except tool strip items</param>
+        /// <param name="saveToolStripItems">list of tool strip menu items which the checked value should be saved for</param>
+        /// <param name="LiteralStrings">a list of tuple string/strings to manually save</param>
+        /// <returns></returns>
+        public static bool SaveConfig(Form baseform, String filename, IEnumerable<Control> saveControls = null, IEnumerable<ToolStripItem> saveToolStripItems = null, IEnumerable<Tuple<string, string>> LiteralStrings = null)
         {
             try
             {
