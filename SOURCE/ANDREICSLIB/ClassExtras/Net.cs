@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB
 {
-    public abstract class Net
+    public abstract class NetUpdates
     {
         public static string DownloadWebPage(string url)
         {
@@ -75,8 +75,13 @@ namespace ANDREICSLIB
             return true;
         }
 
-        public static IPAddress GetCurrentIPAddress(string hostName, bool asIPV4 = true)
+        public static IPAddress GetIPFromHostname(string hostName, bool asIPV4 = true)
         {
+            IPAddress ret;
+
+            if (IPAddress.TryParse(hostName, out ret))
+                return ret;
+
             var he = Dns.GetHostEntry(hostName);
 
             try
@@ -115,7 +120,7 @@ namespace ANDREICSLIB
         #region mac address
         [DllImport("iphlpapi.dll", ExactSpelling = true)]
         private static extern int SendARP(int DestIP, int SrcIP, byte[] pMacAddr, ref uint PhyAddrLen);
-
+        #endregion mac address
         public static String GetMAC(IPAddress ip)
         {
             try
@@ -147,7 +152,6 @@ namespace ANDREICSLIB
                 return null;
             }
         }
-        #endregion mac address
 
         #region netbios info
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
@@ -201,6 +205,7 @@ namespace ANDREICSLIB
             return (WKSTA_INFO_100)Marshal.PtrToStructure(pBuffer, typeof(WKSTA_INFO_100));
         }
 
+        #endregion netbios info
         public static NetBiosInfo GetNetBiosInfo(IPAddress ip)
         {
             var wk = getMachineNetBiosInfo(ip);
@@ -211,8 +216,7 @@ namespace ANDREICSLIB
 
             return nbi;
         }
-        #endregion netbios info
-
+        
         //admin rights required
         public static Dictionary<String, String> GetRemoteInfo(IPAddress ip, String hostname, int extraInfoTimeout)
         {
@@ -304,5 +308,31 @@ namespace ANDREICSLIB
             return results;
         }
 
+        #region udp
+        public static byte[] SendUDPPacketGetBlockingResponse(IPAddress address, int port, byte[] data)
+        {
+            var ep = new IPEndPoint(address, port);
+            var S = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+
+            S.SendTo(data, ep);
+
+            var rec = new byte[10000];
+            rec[0] = 0;
+            S.Blocking = true;
+            S.ReceiveTimeout = 500;
+            S.SendTimeout = 500;
+
+            try
+            {
+                S.Receive(rec);
+            }
+            catch
+            {
+                return null;
+            }
+
+            return rec;
+        }
+        #endregion udp
     }
 }

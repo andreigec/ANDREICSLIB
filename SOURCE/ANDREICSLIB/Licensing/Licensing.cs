@@ -156,7 +156,7 @@ namespace ANDREICSLIB
             if (dr1 == DialogResult.No)
                 return;
 
-            var result = Net.DownloadWebPage(VersionPath);
+            var result = NetUpdates.DownloadWebPage(VersionPath);
             if (String.IsNullOrEmpty(result))
             {
                 MessageBox.Show("Error while getting new version file:" + VersionPath);
@@ -184,7 +184,7 @@ namespace ANDREICSLIB
                 return;
             }
 
-            var changelog = Net.DownloadWebPage(ChangelogPath);
+            var changelog = NetUpdates.DownloadWebPage(ChangelogPath);
             if (String.IsNullOrEmpty(changelog) == false)
             {
                 changelog = StringUpdates.ApplyTrim(changelog, true, 500);
