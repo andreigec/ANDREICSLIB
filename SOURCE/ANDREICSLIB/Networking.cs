@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 
 namespace ANDREICSLIB
 {
     public class Networking
     {
-        public UdpClient UDPListener =null;
+        public UdpClient UDPListener = null;
         public List<UdpClient> UDPSenders = null;
 
-        public void AddUDPClient(int udpPort, String ip = null, int receiveTimeout=2000)
+        public void AddUDPClient(int udpPort, String ip = null, int receiveTimeout = 2000)
         {
             UdpClient udpClient = null;
             if (ip != null)
@@ -22,9 +21,9 @@ namespace ANDREICSLIB
 
             SetUDPTimeout(udpClient, receiveTimeout);
 
-            if (ip==null)
+            if (ip == null)
             {
-                if (UDPListener!=null)
+                if (UDPListener != null)
                     StopUDPClient(UDPListener);
                 UDPListener = udpClient;
             }
@@ -35,7 +34,7 @@ namespace ANDREICSLIB
             UDPSenders.Add(udpClient);
         }
 
-        private static Tuple<string,int> GetSocketInfo(UdpClient uc)
+        private static Tuple<string, int> GetSocketInfo(UdpClient uc)
         {
             var lep = ((IPEndPoint) uc.Client.LocalEndPoint);
             return new Tuple<string, int>(lep.Address.ToString(), lep.Port);
@@ -57,9 +56,9 @@ namespace ANDREICSLIB
         public void StopAllUDP()
         {
             StopUDPClient(UDPListener);
-            if (UDPSenders!=null)
+            if (UDPSenders != null)
             {
-                foreach( var u in UDPSenders)
+                foreach (UdpClient u in UDPSenders)
                 {
                     StopUDPClient(u);
                 }

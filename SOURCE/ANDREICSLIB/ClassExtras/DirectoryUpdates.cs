@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace ANDREICSLIB.ClassExtras
@@ -16,7 +13,7 @@ namespace ANDREICSLIB.ClassExtras
 
         public static void SetCurrentDirectoryToDefault()
         {
-            var p = GetExePath();
+            string p = GetExePath();
             Directory.SetCurrentDirectory(p);
         }
 
@@ -28,28 +25,28 @@ namespace ANDREICSLIB.ClassExtras
         public static IEnumerable<string> GetFilesRecursive(string absolutePath)
         {
             // Process the list of files found in the directory.
-            var fileEntries = Directory.GetFiles(absolutePath);
-            foreach (var fileName in fileEntries)
+            string[] fileEntries = Directory.GetFiles(absolutePath);
+            foreach (string fileName in fileEntries)
             {
                 // do something with fileName
                 yield return fileName;
             }
 
             // Recurse into subdirectories of this directory.
-            var subdirEntries = Directory.GetDirectories(absolutePath);
+            string[] subdirEntries = Directory.GetDirectories(absolutePath);
 
             var ret = new List<string>();
-            foreach (var subdir in subdirEntries)
+            foreach (string subdir in subdirEntries)
             {
                 // Do not iterate through reparse points
                 if ((File.GetAttributes(subdir) &
                      FileAttributes.ReparsePoint) !=
-                         FileAttributes.ReparsePoint)
+                    FileAttributes.ReparsePoint)
 
                     ret.AddRange(GetFilesRecursive(subdir));
             }
 
-            foreach (var r in ret)
+            foreach (string r in ret)
                 yield return r;
         }
     }

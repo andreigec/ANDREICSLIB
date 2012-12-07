@@ -4,14 +4,13 @@ using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using System.Text;
 
 namespace ANDREICSLIB
 {
     public static class Reflection
     {
-        public static char separator = '\f';
-        public static string newline = "\r\n";
+        public static char Separator = '\f';
+        public static string Newline = "\r\n";
 
         /// <summary>
         /// get the name of a passed parameter
@@ -20,7 +19,7 @@ namespace ANDREICSLIB
         /// <returns>variable name</returns>
         public static string GetFieldName(Expression<Func<object>> memberExpression)
         {
-            MemberExpression me=null;
+            MemberExpression me = null;
             if (memberExpression.Body is MemberExpression)
                 me = ((MemberExpression) memberExpression.Body);
             else if (memberExpression.Body is UnaryExpression)
@@ -44,14 +43,14 @@ namespace ANDREICSLIB
         public static object GetFieldValue(object classInstance, String fieldname)
         {
             object ret = null;
-            var ty = classInstance.GetType();
-            var field = ty.GetField(fieldname);
-            var field2 = ty.GetProperty(fieldname);
+            Type ty = classInstance.GetType();
+            FieldInfo field = ty.GetField(fieldname);
+            PropertyInfo field2 = ty.GetProperty(fieldname);
 
             if (field != null)
                 ret = field.GetValue(classInstance);
             else if (field2 != null)
-                ret = field2.GetValue(classInstance,null);
+                ret = field2.GetValue(classInstance, null);
             return ret;
         }
 
@@ -62,15 +61,15 @@ namespace ANDREICSLIB
         /// <returns></returns>
         public static List<Tuple<string, object>> GetFieldNamesAndValues(object classInstance)
         {
-            var ty = classInstance.GetType();
-            var fields = ty.GetFields();
+            Type ty = classInstance.GetType();
+            FieldInfo[] fields = ty.GetFields();
 
             return fields.Select(v => new Tuple<string, object>(v.Name, v.GetValue(classInstance))).ToList();
         }
 
         public static List<string> GetFieldNames(Type ty)
         {
-            var fields = ty.GetFields();
+            FieldInfo[] fields = ty.GetFields();
 
             return fields.Select(v => v.Name).ToList();
         }
@@ -86,7 +85,7 @@ namespace ANDREICSLIB
             if (File.Exists(filename) == false)
                 FileUpdates.CreateFile(filename);
 
-            var r = SerialiseObject(classInstance);
+            string r = SerialiseObject(classInstance);
 
             FileUpdates.SaveToFile(filename, r);
             return true;
@@ -100,11 +99,11 @@ namespace ANDREICSLIB
         public static string SerialiseObject(object classInstance)
         {
             String r = "";
-            var ol = GetFieldNamesAndValues(classInstance);
+            List<Tuple<string, object>> ol = GetFieldNamesAndValues(classInstance);
 
             foreach (var o in ol)
             {
-                r += o.Item1 + separator + o.Item2 + newline;
+                r += o.Item1 + Separator + o.Item2 + Newline;
             }
             return r;
         }
@@ -121,12 +120,12 @@ namespace ANDREICSLIB
             if (File.Exists(filename) == false)
                 return null;
 
-            var s = FileUpdates.LoadFile(filename);
+            string s = FileUpdates.LoadFile(filename);
 
             if (string.IsNullOrEmpty(s))
                 return null;
 
-            var instance = DeserialiseObject(objectType, s, ignoreErrors);
+            object instance = DeserialiseObject(objectType, s, ignoreErrors);
             return instance;
         }
 
@@ -139,12 +138,12 @@ namespace ANDREICSLIB
         /// <returns></returns>
         public static object DeserialiseObject(Type objectType, String serialisedObjectString, bool ignoreErrors = true)
         {
-            var s2 = StringUpdates.SplitString(serialisedObjectString, newline);
+            string[] s2 = StringUpdates.SplitString(serialisedObjectString, Newline);
 
             var tl = new List<Tuple<string, String>>();
-            foreach (var s3 in s2)
+            foreach (string s3 in s2)
             {
-                var s4 = StringUpdates.SplitString(s3, separator.ToString());
+                string[] s4 = StringUpdates.SplitString(s3, Separator.ToString());
                 if (s4.Length != 2)
                 {
                     if (ignoreErrors)
@@ -152,12 +151,12 @@ namespace ANDREICSLIB
                     return null;
                 }
 
-                var fieldname = s4[0];
-                var fieldval = s4[1];
+                string fieldname = s4[0];
+                string fieldval = s4[1];
 
                 tl.Add(new Tuple<string, string>(fieldname, fieldval));
             }
-            var instance = DeserialiseObject(objectType, tl, ignoreErrors);
+            object instance = DeserialiseObject(objectType, tl, ignoreErrors);
             return instance;
         }
 
@@ -169,19 +168,19 @@ namespace ANDREICSLIB
         /// <param name="ignoreErrors"></param>
         /// <returns></returns>
         public static object DeserialiseObject(Type objectType, List<Tuple<String, String>> objectFieldNameAndValues,
-                                         bool ignoreErrors = true)
+                                               bool ignoreErrors = true)
         {
-            var instance = Activator.CreateInstance(objectType);
+            object instance = Activator.CreateInstance(objectType);
             foreach (var t in objectFieldNameAndValues)
             {
-                var field = objectType.GetField(t.Item1);
+                FieldInfo field = objectType.GetField(t.Item1);
                 if (field == null)
                 {
                     if (ignoreErrors)
                         continue;
                     return null;
                 }
-                
+
                 try
                 {
                     field.SetValue(instance, Convert.ChangeType(t.Item2, field.FieldType));
@@ -192,7 +191,6 @@ namespace ANDREICSLIB
                         continue;
                     return null;
                 }
-                
             }
             return instance;
         }

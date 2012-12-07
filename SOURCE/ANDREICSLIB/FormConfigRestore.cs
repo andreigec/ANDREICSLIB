@@ -8,107 +8,107 @@ namespace ANDREICSLIB
 {
     public class FormConfigRestore
     {
-        private const string separator = "\f";
-        private const string listseparator = "\a";
-        private const string typesep = "\b";
-        private const string newline = "\r\n";
+        private const string Separator = "\f";
+        private const string ListSeparator = "\a";
+        private const string TypeSep = "\b";
+        private const string NewLine = "\r\n";
 
         private static void SaveProperty(ref string output, Control C)
         {
             if (C is CheckBox)
             {
-                var V = (CheckBox)C;
-                output += V.Name + separator + "Checked" + separator + V.Checked + newline;
+                var V = (CheckBox) C;
+                output += V.Name + Separator + "Checked" + Separator + V.Checked + NewLine;
             }
 
             else if (C is ListBox)
             {
                 var lb = C as ListBox;
-                var o = lb.Name + separator + "Items" + separator;
-                foreach (var i in lb.Items)
+                string o = lb.Name + Separator + "Items" + Separator;
+                foreach (object i in lb.Items)
                 {
-                    o += i + listseparator;
+                    o += i + ListSeparator;
                 }
-                output += o + newline;
+                output += o + NewLine;
             }
             else if (C is ListView)
             {
                 var lv = C as ListView;
-                var o = lv.Name + separator + "Items" + separator;
-                foreach(ListViewItem i in lv.Items)
+                string o = lv.Name + Separator + "Items" + Separator;
+                foreach (ListViewItem i in lv.Items)
                 {
                     string name = i.Name;
                     if (string.IsNullOrWhiteSpace(name))
-                    name = i.Text;
+                        name = i.Text;
 
-                    o += name + listseparator + i.Text + listseparator;
+                    o += name + ListSeparator + i.Text + ListSeparator;
                 }
-                output += o + newline;
+                output += o + NewLine;
             }
             else
             {
-                output += C.Name + separator + "Text" + separator + C.Text + newline;
+                output += C.Name + Separator + "Text" + Separator + C.Text + NewLine;
             }
         }
 
-        private static void SaveProperty(ref string output, ToolStripItem TSI)
+        private static void SaveProperty(ref string output, ToolStripItem tsi)
         {
-            if (TSI is ToolStripMenuItem)
+            if (tsi is ToolStripMenuItem)
             {
-                var V = (ToolStripMenuItem)TSI;
-                output += V.Name + separator + "Checked" + separator + V.Checked + newline;
+                var v = (ToolStripMenuItem) tsi;
+                output += v.Name + Separator + "Checked" + Separator + v.Checked + NewLine;
             }
         }
 
         /// <summary>
         /// set the value of the control object
         /// </summary>
-        /// <param name="C"></param>
+        /// <param name="c"></param>
         /// <param name="propertyName"></param>
         /// <param name="value"></param>
-        private static bool LoadProperty(object C, String propertyName, object value)
+        private static bool LoadProperty(object c, String propertyName, object value)
         {
             //manually resolve first if possible
-            var ok = LoadPropertyManual(C, propertyName, value);
+            bool ok = LoadPropertyManual(c, propertyName, value);
             if (ok)
                 return true;
 
-            var t = C.GetType();
-            var p = t.GetProperty(propertyName);
-            var t2 = p.PropertyType;
+            Type t = c.GetType();
+            PropertyInfo p = t.GetProperty(propertyName);
+            Type t2 = p.PropertyType;
             try
             {
-                p.SetValue(C, Convert.ChangeType(value, t2), null);
+                p.SetValue(c, Convert.ChangeType(value, t2), null);
                 return true;
             }
             catch
             {
-                return false;
             }
+            return false;
         }
 
-        private static bool LoadPropertyManual(object C, String propertyName, object value)
+        private static bool LoadPropertyManual(object c, String propertyName, object value)
         {
             if (value == null)
                 return false;
 
-            if (C is ListBox && propertyName.Equals("Items"))
+            if (c is ListBox && propertyName.Equals("Items"))
             {
-                var lb = C as ListBox;
-                var s = new[] { listseparator };
-                var v = value.ToString().Split(s, StringSplitOptions.RemoveEmptyEntries);
-                foreach (var v2 in v)
+                var lb = c as ListBox;
+                var s = new[] {ListSeparator};
+                string[] v = value.ToString().Split(s, StringSplitOptions.RemoveEmptyEntries);
+                foreach (string v2 in v)
                 {
                     lb.Items.Add(v2);
                 }
                 return true;
             }
-            if (C is ListView && propertyName.Equals("Items"))
+            if (c is ListView && propertyName.Equals("Items"))
             {
-                var lv = C as ListView;
-                var s = new[] { listseparator };
-                var v = value.ToString().Split(s, StringSplitOptions.RemoveEmptyEntries);
-                if (v.Length % 2 == 0)
+                var lv = c as ListView;
+                var s = new[] {ListSeparator};
+                string[] v = value.ToString().Split(s, StringSplitOptions.RemoveEmptyEntries);
+                if (v.Length%2 == 0)
                 {
                     for (int a = 0; a < v.Length; a += 2)
                     {
@@ -129,28 +129,28 @@ namespace ANDREICSLIB
         /// <param name="value"></param>
         private static void LoadProperty(Form baseform, String name, String propertyName, object value = null)
         {
-            foreach (Control C in baseform.Controls)
+            foreach (Control c in baseform.Controls)
             {
-                if (C.Name.Equals(name))
+                if (c.Name.Equals(name))
                 {
-                    LoadProperty(C, propertyName, value);
+                    LoadProperty(c, propertyName, value);
                     return;
                 }
 
-                if (C is MenuStrip)
+                if (c is MenuStrip)
                 {
-                    var MS = (MenuStrip)C;
-                    foreach (ToolStripItem TSI in MS.Items)
+                    var ms = (MenuStrip) c;
+                    foreach (ToolStripItem tsi in ms.Items)
                     {
-                        if (LoadProperty(name, propertyName, TSI, value))
+                        if (LoadProperty(name, propertyName, tsi, value))
                             return;
                     }
                 }
                 else
                 {
-                    if (C.Controls.Count > 0)
+                    if (c.Controls.Count > 0)
                     {
-                        if (LoadProperty(name, propertyName, C, value))
+                        if (LoadProperty(name, propertyName, c, value))
                             return;
                     }
                 }
@@ -159,18 +159,18 @@ namespace ANDREICSLIB
 
         private static bool LoadProperty(String name, String propertyName, Control checkthis, object value)
         {
-            foreach (Control C in checkthis.Controls)
+            foreach (Control c in checkthis.Controls)
             {
-                if (C.Name.Equals(name))
+                if (c.Name.Equals(name))
                 {
-                    LoadProperty(C, propertyName, value);
+                    LoadProperty(c, propertyName, value);
                     return true;
                 }
 
-                if (C is MenuStrip)
+                if (c is MenuStrip)
                 {
-                    var MS = (MenuStrip)C;
-                    foreach (ToolStripItem TSI in MS.Items)
+                    var ms = (MenuStrip) c;
+                    foreach (ToolStripItem TSI in ms.Items)
                     {
                         if (LoadProperty(name, propertyName, TSI, value))
                             return true;
@@ -178,9 +178,9 @@ namespace ANDREICSLIB
                 }
                 else
                 {
-                    if (C.Controls.Count > 0)
+                    if (c.Controls.Count > 0)
                     {
-                        if (LoadProperty(name, propertyName, C, value))
+                        if (LoadProperty(name, propertyName, c, value))
                             return true;
                     }
                 }
@@ -193,11 +193,11 @@ namespace ANDREICSLIB
         {
             if (checkthis is ToolStripMenuItem)
             {
-                var TSMI = (ToolStripMenuItem)checkthis;
+                var tsmi = (ToolStripMenuItem) checkthis;
 
-                foreach (ToolStripItem TSI in TSMI.DropDownItems)
+                foreach (ToolStripItem tsi in tsmi.DropDownItems)
                 {
-                    if (LoadProperty(name, propertyName, TSI, value))
+                    if (LoadProperty(name, propertyName, tsi, value))
                         return true;
                 }
             }
@@ -225,16 +225,16 @@ namespace ANDREICSLIB
                 if (File.Exists(filename) == false)
                     return null;
 
-                var f = FileUpdates.LoadFile(filename);
+                string f = FileUpdates.LoadFile(filename);
 
-                var parts = StringUpdates.SplitString(f, typesep);
+                string[] parts = StringUpdates.SplitString(f, TypeSep);
 
                 //first part is controls and stuff
-                var controls = StringUpdates.SplitString(parts[0], newline);
+                string[] controls = StringUpdates.SplitString(parts[0], NewLine);
 
-                foreach (var line in controls)
+                foreach (string line in controls)
                 {
-                    var split = StringUpdates.SplitString(line, separator);
+                    string[] split = StringUpdates.SplitString(line, Separator);
                     if (split.Length < 2)
                         continue;
 
@@ -248,10 +248,10 @@ namespace ANDREICSLIB
                 //second part is literal strings
                 if (parts.Length >= 2)
                 {
-                    var strings = StringUpdates.SplitString(parts[1], newline);
-                    foreach (var line in strings)
+                    string[] strings = StringUpdates.SplitString(parts[1], NewLine);
+                    foreach (string line in strings)
                     {
-                        var split = StringUpdates.SplitString(line, separator);
+                        string[] split = StringUpdates.SplitString(line, Separator);
                         if (split.Length < 2)
                             continue;
 
@@ -261,14 +261,14 @@ namespace ANDREICSLIB
 
                 return ret;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //on error, delete the config
                 try
                 {
                     File.Delete(filename);
                 }
-                catch (Exception)
+                catch
                 {
                 }
                 return null;
@@ -283,9 +283,11 @@ namespace ANDREICSLIB
         /// <param name="filename"></param>
         /// <param name="saveControls">a list of form controlls to save, except tool strip items</param>
         /// <param name="saveToolStripItems">list of tool strip menu items which the checked value should be saved for</param>
-        /// <param name="LiteralStrings">a list of tuple string/strings to manually save</param>
+        /// <param name="literalStrings">a list of tuple string/strings to manually save</param>
         /// <returns></returns>
-        public static bool SaveConfig(Form baseform, String filename, IEnumerable<Control> saveControls = null, IEnumerable<ToolStripItem> saveToolStripItems = null, IEnumerable<Tuple<string, string>> LiteralStrings = null)
+        public static bool SaveConfig(Form baseform, String filename, IEnumerable<Control> saveControls = null,
+                                      IEnumerable<ToolStripItem> saveToolStripItems = null,
+                                      IEnumerable<Tuple<string, string>> literalStrings = null)
         {
             try
             {
@@ -295,39 +297,37 @@ namespace ANDREICSLIB
                 String output = "";
                 if (saveControls != null)
                 {
-                    foreach (var C in saveControls)
+                    foreach (Control c in saveControls)
                     {
-                        SaveProperty(ref output, C);
+                        SaveProperty(ref output, c);
                     }
                 }
 
                 if (saveToolStripItems != null)
                 {
-                    foreach (var TSI in saveToolStripItems)
+                    foreach (ToolStripItem tsi in saveToolStripItems)
                     {
-                        SaveProperty(ref output, TSI);
+                        SaveProperty(ref output, tsi);
                     }
                 }
 
-                output += typesep;
+                output += TypeSep;
 
-                if (LiteralStrings != null)
+                if (literalStrings != null)
                 {
-                    foreach (var s in LiteralStrings)
+                    foreach (var s in literalStrings)
                     {
-                        output += s.Item1 + separator + s.Item2 + newline;
+                        output += s.Item1 + Separator + s.Item2 + NewLine;
                     }
                 }
 
                 FileUpdates.SaveToFile(filename, output);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
                 return false;
             }
             return true;
         }
     }
-
 }

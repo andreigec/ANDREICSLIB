@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace ANDREICSLIB
 {
@@ -9,25 +6,25 @@ namespace ANDREICSLIB
     {
         public static double GetHours(double totalsecondsin)
         {
-            return (totalsecondsin / 3600.0) % 24;
+            return (totalsecondsin/3600.0)%24;
         }
 
         public static double GetMinutes(double totalsecondsin)
         {
-            return (totalsecondsin / 60.0) % 60;
+            return (totalsecondsin/60.0)%60;
         }
 
         public static double GetDays(double totalsecondsin)
         {
-            return ((totalsecondsin / 3600.0) / 24.0);
+            return ((totalsecondsin/3600.0)/24.0);
         }
 
         public static string TimeInWords(double totalsecondsin)
         {
-            var seconds = (int)(totalsecondsin % 60);
-            var minutes = (int)Math.Floor(GetMinutes(totalsecondsin));
-            var hours = (int)Math.Floor(GetHours(totalsecondsin));
-            var days = (int)Math.Floor(GetDays(totalsecondsin));
+            var seconds = (int) (totalsecondsin%60);
+            var minutes = (int) Math.Floor(GetMinutes(totalsecondsin));
+            var hours = (int) Math.Floor(GetHours(totalsecondsin));
+            var days = (int) Math.Floor(GetDays(totalsecondsin));
 
             string ret = "";
             if (days != 0)
@@ -43,7 +40,7 @@ namespace ANDREICSLIB
 
         public static string Pluralise(String word, int val)
         {
-            var ret = word;
+            string ret = word;
             if (val != 1)
             {
                 if (ret.EndsWith("s") == false)

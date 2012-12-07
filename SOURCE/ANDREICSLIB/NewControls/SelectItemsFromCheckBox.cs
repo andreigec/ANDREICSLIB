@@ -1,17 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace ANDREICSLIB.NewControls
 {
     public partial class SelectItemsFromCheckBox : Form
     {
-        private int mustSelectCount = 0;
+        private int mustSelectCount;
         private List<string> returnvalues = new List<string>();
 
         private SelectItemsFromCheckBox()
@@ -21,20 +16,20 @@ namespace ANDREICSLIB.NewControls
 
         private void SelectItemsFromCheckBox_Load(object sender, EventArgs e)
         {
-
         }
 
-        public static List<String> ShowDialog(String labelText, String title, List<SelectItem> listBoxItems, int mustSelectCountIN=-1)
+        public static List<String> ShowDialog(String labelText, String title, List<SelectItem> listBoxItems,
+                                              int mustSelectCountIN = -1)
         {
             var s = new SelectItemsFromCheckBox();
             s.mustSelectCount = mustSelectCountIN;
 
             s.Text = title;
             s.label1.Text = labelText;
-            
+
             s.checkedListBox1.Items.Clear();
-            var a = 0;
-            foreach (var v in listBoxItems)
+            int a = 0;
+            foreach (SelectItem v in listBoxItems)
             {
                 s.checkedListBox1.Items.Add(v.text);
                 s.checkedListBox1.SetSelected(a, v.preselected);
@@ -47,12 +42,12 @@ namespace ANDREICSLIB.NewControls
 
         private void okbutton_Click(object sender, EventArgs e)
         {
-            if (checkedListBox1.SelectedItems.Count < mustSelectCount&&mustSelectCount!=-1)
+            if (checkedListBox1.SelectedItems.Count < mustSelectCount && mustSelectCount != -1)
             {
                 MessageBox.Show("You must select at least " + mustSelectCount.ToString() + " items");
                 return;
             }
-            foreach (var v in checkedListBox1.SelectedItems)
+            foreach (object v in checkedListBox1.SelectedItems)
             {
                 returnvalues.Add(v.ToString());
             }

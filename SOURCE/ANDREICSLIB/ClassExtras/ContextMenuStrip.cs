@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace ANDREICSLIB.ClassExtras
@@ -35,8 +32,6 @@ namespace ANDREICSLIB.ClassExtras
             }
 
 
-            
-
             object ret = null;
             try
             {
@@ -45,7 +40,6 @@ namespace ANDREICSLIB.ClassExtras
             }
             catch (Exception)
             {
-
             }
 
             return null;

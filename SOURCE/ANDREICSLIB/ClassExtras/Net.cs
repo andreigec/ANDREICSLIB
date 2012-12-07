@@ -7,7 +7,6 @@ using System.Net;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Windows.Forms;
 
 namespace ANDREICSLIB
 {
@@ -16,7 +15,7 @@ namespace ANDREICSLIB
         public static string DownloadWebPage(string url)
         {
             // Open a connection
-            var webRequestObject = (HttpWebRequest)WebRequest.Create(url);
+            var webRequestObject = (HttpWebRequest) WebRequest.Create(url);
 
             // You can also specify additional header values like 
             // the user agent or the referer:
@@ -35,7 +34,7 @@ namespace ANDREICSLIB
             }
 
             // Open data stream:
-            var webStream = response.GetResponseStream();
+            Stream webStream = response.GetResponseStream();
 
             // Create reader object:
             if (webStream != null)
@@ -43,7 +42,7 @@ namespace ANDREICSLIB
                 var reader = new StreamReader(webStream);
 
                 // Read the entire stream content:
-                var pageContent = reader.ReadToEnd();
+                string pageContent = reader.ReadToEnd();
 
                 // Cleanup
                 reader.Close();
@@ -82,13 +81,14 @@ namespace ANDREICSLIB
             if (IPAddress.TryParse(hostName, out ret))
                 return ret;
 
-            var he = Dns.GetHostEntry(hostName);
+            IPHostEntry he = Dns.GetHostEntry(hostName);
 
             try
             {
-                foreach (var i in he.AddressList)
+                foreach (IPAddress i in he.AddressList)
                 {
-                    if ((i.AddressFamily == AddressFamily.InterNetwork && asIPV4 || (i.AddressFamily == AddressFamily.InterNetworkV6 && asIPV4 == false)))
+                    if ((i.AddressFamily == AddressFamily.InterNetwork && asIPV4 ||
+                         (i.AddressFamily == AddressFamily.InterNetworkV6 && asIPV4 == false)))
                     {
                         return IPAddress.Parse(i.ToString());
                     }
@@ -103,42 +103,38 @@ namespace ANDREICSLIB
 
         public static long GetAddressAsNumber(IPAddress ip)
         {
-            var ab = ip.GetAddressBytes();
+            byte[] ab = ip.GetAddressBytes();
 
-            if (ip.AddressFamily== AddressFamily.InterNetwork)
+            if (ip.AddressFamily == AddressFamily.InterNetwork)
             {
-                var a=BitConverter.ToInt32(ab, 0);
+                int a = BitConverter.ToInt32(ab, 0);
                 return a;
             }
-            
-            if (ip.AddressFamily== AddressFamily.InterNetworkV6)
-            return BitConverter.ToInt64(ab, 0);
+
+            if (ip.AddressFamily == AddressFamily.InterNetworkV6)
+                return BitConverter.ToInt64(ab, 0);
 
             return 0;
         }
 
-        #region mac address
-        [DllImport("iphlpapi.dll", ExactSpelling = true)]
-        private static extern int SendARP(int DestIP, int SrcIP, byte[] pMacAddr, ref uint PhyAddrLen);
-        #endregion mac address
         public static String GetMAC(IPAddress ip)
         {
             try
             {
-                var hostEntry = Dns.GetHostEntry(ip);
+                IPHostEntry hostEntry = Dns.GetHostEntry(ip);
 
                 if (hostEntry.AddressList.Length == 0)
                     return null;
 
-                var intAddress = (int)GetAddressAsNumber(ip);
+                var intAddress = (int) GetAddressAsNumber(ip);
                 var macAddr = new byte[6];
-                var macAddrLen = (uint)macAddr.Length;
+                var macAddrLen = (uint) macAddr.Length;
 
                 if (SendARP(intAddress, 0, macAddr, ref macAddrLen) != 0)
                     return null;
 
                 var macAddressString = new StringBuilder();
-                for (var i = 0; i < macAddr.Length; i++)
+                for (int i = 0; i < macAddr.Length; i++)
                 {
                     if (macAddressString.Length > 0)
                         macAddressString.Append(":");
@@ -153,70 +149,17 @@ namespace ANDREICSLIB
             }
         }
 
-        #region netbios info
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
-        public struct WKSTA_INFO_100
-        {
-            public int wki100_platform_id;
-            [MarshalAs(UnmanagedType.LPWStr)]
-            public string wki100_computername;
-            [MarshalAs(UnmanagedType.LPWStr)]
-            public string wki100_langroup;
-            public int wki100_ver_major;
-            public int wki100_ver_minor;
-        }
-
-        public class NetBiosInfo
-        {
-            public int PlatformID;
-            public string ComputerName;
-            public string LANGroup;
-            public int VerMajor;
-            public int VerMinor;
-
-            public NetBiosInfo(WKSTA_INFO_100 w)
-            {
-                PlatformID = w.wki100_platform_id;
-                ComputerName = w.wki100_computername;
-                LANGroup = w.wki100_langroup;
-                VerMajor = w.wki100_ver_major;
-                VerMinor = w.wki100_ver_minor;
-            }
-        }
-
-        //group name/domain name/work group/ whatever its called
-        [DllImport("netapi32.dll", CharSet = CharSet.Auto)]
-        private static extern int NetWkstaGetInfo(string server,
-                                                  int level,
-                                                  out IntPtr info);
-        private static WKSTA_INFO_100? getMachineNetBiosInfo(IPAddress ip)
-        {
-            var hostEntry = Dns.GetHostEntry(ip);
-
-            if (hostEntry.AddressList.Length == 0)
-                return null;
-
-            var pBuffer = IntPtr.Zero;
-
-            var retval = NetWkstaGetInfo(ip.ToString(), 100, out pBuffer);
-            if (retval != 0)
-                return null;
-
-            return (WKSTA_INFO_100)Marshal.PtrToStructure(pBuffer, typeof(WKSTA_INFO_100));
-        }
-
-        #endregion netbios info
         public static NetBiosInfo GetNetBiosInfo(IPAddress ip)
         {
-            var wk = getMachineNetBiosInfo(ip);
+            WKSTA_INFO_100? wk = getMachineNetBiosInfo(ip);
             if (wk == null)
                 return null;
 
-            var nbi = new NetBiosInfo((WKSTA_INFO_100)wk);
+            var nbi = new NetBiosInfo((WKSTA_INFO_100) wk);
 
             return nbi;
         }
-        
+
         //admin rights required
         public static Dictionary<String, String> GetRemoteInfo(IPAddress ip, String hostname, int extraInfoTimeout)
         {
@@ -224,17 +167,17 @@ namespace ANDREICSLIB
             options.Impersonation = ImpersonationLevel.Impersonate;
             options.Authentication = AuthenticationLevel.None;
 
-            var s = extraInfoTimeout;
+            int s = extraInfoTimeout;
 
-            var H = s * 3600;
-            s -= H * 3600;
+            int H = s*3600;
+            s -= H*3600;
 
-            var M = s / 60;
-            s -= M * 60;
+            int M = s/60;
+            s -= M*60;
 
-            var S = s;
+            int S = s;
 
-            var startTime = DateTime.Now;
+            DateTime startTime = DateTime.Now;
 
 
             options.Timeout = new TimeSpan(H, M, S);
@@ -263,12 +206,12 @@ namespace ANDREICSLIB
 
             var results = new Dictionary<string, string>();
 
-            foreach (var envVar in searcher.Get())
+            foreach (ManagementBaseObject envVar in searcher.Get())
             {
-                foreach (var PD in envVar.Properties)
+                foreach (PropertyData PD in envVar.Properties)
                 {
-                    var currentTime = DateTime.Now;
-                    var TS = currentTime - startTime;
+                    DateTime currentTime = DateTime.Now;
+                    TimeSpan TS = currentTime - startTime;
 
                     if (TS.TotalSeconds > extraInfoTimeout)
                     {
@@ -278,7 +221,7 @@ namespace ANDREICSLIB
                     if (PD.Name != null && PD.Value != null && results.ContainsKey(PD.Name) == false)
                     {
                         string val = PD.Value.ToString();
-                        if (PD.Value.GetType() == typeof(string[]))
+                        if (PD.Value.GetType() == typeof (string[]))
                         {
                             var ss = PD.Value as string[];
                             val = ss.Aggregate("", (current, ss2) => current + (ss2 + "|"));
@@ -289,17 +232,17 @@ namespace ANDREICSLIB
                 }
             }
 
-            foreach (var envVar in searcher1.Get())
+            foreach (ManagementBaseObject envVar in searcher1.Get())
             {
-                var currentTime = DateTime.Now;
-                var TS = currentTime - startTime;
+                DateTime currentTime = DateTime.Now;
+                TimeSpan TS = currentTime - startTime;
 
                 if (TS.TotalSeconds > extraInfoTimeout)
                 {
                     return results;
                 }
 
-                foreach (var PD in envVar.Properties)
+                foreach (PropertyData PD in envVar.Properties)
                 {
                     if (PD.Name != null && PD.Value != null && results.ContainsKey(PD.Name) == false)
                         results.Add(PD.Name, PD.Value.ToString());
@@ -309,6 +252,7 @@ namespace ANDREICSLIB
         }
 
         #region udp
+
         public static byte[] SendUDPPacketGetBlockingResponse(IPAddress address, int port, byte[] data)
         {
             var ep = new IPEndPoint(address, port);
@@ -333,6 +277,76 @@ namespace ANDREICSLIB
 
             return rec;
         }
+
         #endregion udp
+
+        #region netbios info
+
+        //group name/domain name/work group/ whatever its called
+        [DllImport("netapi32.dll", CharSet = CharSet.Auto)]
+        private static extern int NetWkstaGetInfo(string server,
+                                                  int level,
+                                                  out IntPtr info);
+
+        private static WKSTA_INFO_100? getMachineNetBiosInfo(IPAddress ip)
+        {
+            IPHostEntry hostEntry = Dns.GetHostEntry(ip);
+
+            if (hostEntry.AddressList.Length == 0)
+                return null;
+
+            IntPtr pBuffer = IntPtr.Zero;
+
+            int retval = NetWkstaGetInfo(ip.ToString(), 100, out pBuffer);
+            if (retval != 0)
+                return null;
+
+            return (WKSTA_INFO_100) Marshal.PtrToStructure(pBuffer, typeof (WKSTA_INFO_100));
+        }
+
+        #region Nested type: NetBiosInfo
+
+        public class NetBiosInfo
+        {
+            public string ComputerName;
+            public string LANGroup;
+            public int PlatformID;
+            public int VerMajor;
+            public int VerMinor;
+
+            public NetBiosInfo(WKSTA_INFO_100 w)
+            {
+                PlatformID = w.wki100_platform_id;
+                ComputerName = w.wki100_computername;
+                LANGroup = w.wki100_langroup;
+                VerMajor = w.wki100_ver_major;
+                VerMinor = w.wki100_ver_minor;
+            }
+        }
+
+        #endregion
+
+        #region Nested type: WKSTA_INFO_100
+
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+        public struct WKSTA_INFO_100
+        {
+            public int wki100_platform_id;
+            [MarshalAs(UnmanagedType.LPWStr)] public string wki100_computername;
+            [MarshalAs(UnmanagedType.LPWStr)] public string wki100_langroup;
+            public int wki100_ver_major;
+            public int wki100_ver_minor;
+        }
+
+        #endregion
+
+        #endregion netbios info
+
+        #region mac address
+
+        [DllImport("iphlpapi.dll", ExactSpelling = true)]
+        private static extern int SendARP(int DestIP, int SrcIP, byte[] pMacAddr, ref uint PhyAddrLen);
+
+        #endregion mac address
     }
 }

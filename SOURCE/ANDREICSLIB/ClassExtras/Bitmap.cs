@@ -13,7 +13,7 @@ namespace ANDREICSLIB
             {
                 var fs = new FileStream(filename, FileMode.Open);
 
-                var s = Image.FromStream(fs);
+                Image s = Image.FromStream(fs);
                 var b = new Bitmap(s);
 
                 return BitmapToColorMatrix(b);
@@ -26,8 +26,8 @@ namespace ANDREICSLIB
 
         private static Color[][] BitmapToColorMatrix(Bitmap b)
         {
-            var w = b.Width;
-            var h = b.Height;
+            int w = b.Width;
+            int h = b.Height;
 
             var ret = new Color[h][];
 
@@ -36,7 +36,7 @@ namespace ANDREICSLIB
                 ret[y] = new Color[w];
                 for (int x = 0; x < w; x++)
                 {
-                    var p = b.GetPixel(x, y);
+                    Color p = b.GetPixel(x, y);
                     ret[y][x] = Color.FromArgb(p.R, p.G, p.B);
                 }
             }
@@ -46,8 +46,8 @@ namespace ANDREICSLIB
 
         public static void drawLine(Bitmap b, Color c, Tuple<int, int> one, Tuple<int, int> two)
         {
-            var x = one.Item1;
-            var y = one.Item2;
+            int x = one.Item1;
+            int y = one.Item2;
             while (x != two.Item1 || y != two.Item2)
             {
                 if (x < 0 || y < 0 || x >= b.Width || y >= b.Height)

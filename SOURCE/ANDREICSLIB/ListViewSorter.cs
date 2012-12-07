@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Windows.Forms;
 
 namespace ANDREICSLIB
@@ -18,46 +16,6 @@ namespace ANDREICSLIB
 
         #region IComparer Members
 
-        public Dictionary<IPAddress, long> cachedips = new Dictionary<IPAddress, long>();
-
-        /// <summary>
-        /// call this from column click. 
-        /// </summary>
-        /// <param name="LVS">an instance of listviewsorter</param>
-        /// <param name="LV"></param>
-        /// <param name="column"></param>
-        /// <param name="forceorder">if set to a value, will sort by that all the time, otherwise will sort as normal</param>
-        public static void ColumnSort(ListViewSorter LVS, ListView LV, int column, SortOrder? forceorder = null)
-        {
-            try
-            {
-                LV.ListViewItemSorter = LVS;
-                if (!(LV.ListViewItemSorter is ListViewSorter))
-                    return;
-                LVS = (ListViewSorter)LV.ListViewItemSorter;
-            }
-            catch (Exception ex)
-            {
-                return;
-            }
-
-            if (forceorder != null)
-            {
-                LV.Sorting = (SortOrder)forceorder;
-            }
-            else
-            {
-
-                if (LV.Sorting == SortOrder.Ascending)
-                    LV.Sorting = SortOrder.Descending;
-                else
-                    LV.Sorting = SortOrder.Ascending;
-            }
-            LVS.ByColumn = column;
-
-            LV.Sort();
-        }
-
         public int Compare(object o1, object o2)
         {
             if (Enabled == false)
@@ -69,21 +27,56 @@ namespace ANDREICSLIB
                 return (0);
 
             var lvi1 = (ListViewItem)o2;
-            var str1 = lvi1.SubItems[ByColumn].Text;
+            string str1 = lvi1.SubItems[ByColumn].Text;
             var lvi2 = (ListViewItem)o1;
-            var str2 = lvi2.SubItems[ByColumn].Text;
+            string str2 = lvi2.SubItems[ByColumn].Text;
 
-            var r = CompareNatural(str1, str2);
+            int r = CompareNatural(str1, str2);
 
             if (lvi1.ListView.Sorting == SortOrder.Descending)
                 return r;
-            else
-            {
-                return r== -1 ? 1 : -1;
-            }
+
+            return r == -1 ? 1 : -1;
         }
 
-        private static int CompareNatural(String x,String y)
+        #endregion
+
+        /// <summary>
+        /// call this from column click. 
+        /// </summary>
+        /// <param name="lvs">an instance of listviewsorter</param>
+        /// <param name="lv"></param>
+        /// <param name="column"></param>
+        /// <param name="forceorder">if set to a value, will sort by that all the time, otherwise will sort as normal</param>
+        public static void ColumnSort(ListViewSorter lvs, ListView lv, int column, SortOrder? forceorder = null)
+        {
+            try
+            {
+                lv.ListViewItemSorter = lvs;
+                if (!(lv.ListViewItemSorter is ListViewSorter))
+                    return;
+                lvs = (ListViewSorter)lv.ListViewItemSorter;
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
+            if (forceorder != null)
+            {
+                lv.Sorting = (SortOrder)forceorder;
+            }
+            else
+            {
+                //invert sorting
+                lv.Sorting = lv.Sorting == SortOrder.Ascending ? SortOrder.Descending : SortOrder.Ascending;
+            }
+            lvs.ByColumn = column;
+
+            lv.Sort();
+        }
+
+        private static int CompareNatural(String x, String y)
         {
             if (x == null && y == null) return 0;
             if (x == null) return -1;
@@ -111,9 +104,7 @@ namespace ANDREICSLIB
                     return x[mx] > y[my] ? 1 : -1;
             }
 
-            return lx - ly; 
+            return lx - ly;
         }
-
-        #endregion
     }
 }

@@ -4,7 +4,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 
 namespace ANDREICSLIB
 {
@@ -17,10 +16,10 @@ namespace ANDREICSLIB
         /// <returns></returns>
         public static Image ReadEmbeddedImage(string filename)
         {
-            var rs = GetResourceStream(filename, Assembly.GetCallingAssembly());
+            StreamReader rs = GetResourceStream(filename, Assembly.GetCallingAssembly());
             if (rs == null)
                 return null;
-            var s = Image.FromStream(rs.BaseStream);
+            Image s = Image.FromStream(rs.BaseStream);
             rs.Close();
             return s;
         }
@@ -32,10 +31,10 @@ namespace ANDREICSLIB
         /// <returns></returns>
         public static string ReadEmbeddedResource(String filename)
         {
-            var rs = GetResourceStream(filename, Assembly.GetCallingAssembly());
+            StreamReader rs = GetResourceStream(filename, Assembly.GetCallingAssembly());
             if (rs == null)
                 return null;
-            var s = rs.ReadToEnd();
+            string s = rs.ReadToEnd();
             rs.Close();
             return s;
         }
@@ -53,14 +52,17 @@ namespace ANDREICSLIB
 
             try
             {
-                var n = a.GetManifestResourceNames();
-                var n1 = n.Where(s => s.EndsWith(filename));
+                string[] n = a.GetManifestResourceNames();
+                IEnumerable<string> n1 = n.Where(s => s.EndsWith(filename));
                 if (n1.Count() == 1)
                 {
-                    var s1 = n1.First();
-                    var s2 = a.GetManifestResourceStream(s1);
-                    var s3 = new StreamReader(s2);
-                    return s3;
+                    string s1 = n1.First();
+                    Stream s2 = a.GetManifestResourceStream(s1);
+                    if (s2 != null)
+                    {
+                        var s3 = new StreamReader(s2);
+                        return s3;
+                    }
                 }
                 return null;
             }

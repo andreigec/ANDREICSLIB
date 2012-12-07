@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace ANDREICSLIB.ClassExtras
 {
@@ -12,18 +11,18 @@ namespace ANDREICSLIB.ClassExtras
             return inlist.Select(o => o as TNewType).ToList();
         }
 
-        public static List<List<T>> GetAllCombinations<T>(List<T> inlist,int minlength=1,int maxlength=-1)
+        public static List<List<T>> GetAllCombinations<T>(List<T> inlist, int minlength = 1, int maxlength = -1)
         {
             var ret = new List<List<T>>();
 
             //gradually take more and more items
-            for (int takesize=minlength;takesize<=inlist.Count;takesize++)
+            for (int takesize = minlength; takesize <= inlist.Count; takesize++)
             {
-                if (takesize > maxlength&&maxlength>-1)
+                if (takesize > maxlength && maxlength > -1)
                     return ret;
 
                 bool breaktime = false;
-                for (int take=0;take<inlist.Count;take++)
+                for (int take = 0; take < inlist.Count; take++)
                 {
                     var concat = new List<T>();
                     for (int take2 = 0; take2 < takesize; take2++)
@@ -34,31 +33,31 @@ namespace ANDREICSLIB.ClassExtras
                             break;
                         }
 
-                        if (concat.Contains(inlist[take + take2])==false)
-                        concat.Add(inlist[take + take2]);
+                        if (concat.Contains(inlist[take + take2]) == false)
+                            concat.Add(inlist[take + take2]);
                     }
 
                     if (breaktime)
                         break;
-                   
+
                     ret.Add(concat);
                 }
             }
 
             return ret;
-        } 
+        }
 
-        public static void Swap<T>(ref List<T> list,  int index1, int index2)
+        public static void Swap<T>(ref List<T> list, int index1, int index2)
         {
-            var temp = list[index1];
+            T temp = list[index1];
             list[index1] = list[index2];
             list[index2] = temp;
         }
 
         public static String Serialise(List<object> list, String sep = ", ")
         {
-            var ret = "";
-            foreach (var v in list)
+            string ret = "";
+            foreach (object v in list)
             {
                 if (ret.Length == 0)
                     ret = v.ToString();

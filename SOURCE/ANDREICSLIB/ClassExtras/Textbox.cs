@@ -1,42 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace ANDREICSLIB
 {
     public static class TextboxUpdates
     {
-        public class InputType
-        {
-            public bool AllowChars = false;
-            public bool AllowNumbers = false;
-            public bool AllowDot = false;
-            public bool AllowWhiteSpace = false;
-
-            public static InputType Create(bool AllowChars = false, bool AllowNumbers = false, bool AllowDot = false, bool AllowWhiteSpace = false)
-            {
-                var it = new InputType();
-                it.AllowChars = AllowChars;
-                it.AllowNumbers = AllowNumbers;
-                it.AllowDot = AllowDot;
-                it.AllowWhiteSpace = AllowWhiteSpace;
-                return it;
-            }
-
-            /// <summary>
-            /// set all types to input param
-            /// </summary>
-            /// <param name="allType"></param>
-            public static InputType CreateAllTrue()
-            {
-                var it = new InputType();
-                it.AllowChars = it.AllowNumbers = it.AllowDot = it.AllowWhiteSpace = true;
-                return it;
-            }
-        }
-
         private static Tuple<int, int> GetSelection(Control c)
         {
             int start = 0;
@@ -46,7 +14,6 @@ namespace ANDREICSLIB
                 var tb = c as TextBox;
                 start = tb.SelectionStart;
                 length = tb.SelectionLength;
-
             }
             else if (c is ComboBox)
             {
@@ -62,7 +29,7 @@ namespace ANDREICSLIB
         {
             String t = c.Text;
 
-            var l = GetSelection(c);
+            Tuple<int, int> l = GetSelection(c);
 
             if (l.Item2 > 0)
                 t = StringUpdates.ApplyTrim(t, true, l.Item2, l.Item1);
@@ -81,7 +48,7 @@ namespace ANDREICSLIB
             if (IsSpecial(keyChar, c))
                 return false;
 
-            var t = GetFutureTextBoxAfterKeyPress(keyChar, c);
+            string t = GetFutureTextBoxAfterKeyPress(keyChar, c);
             float r;
 
             //since we are eventually passing back to event.ishandle, we need the inverse
@@ -110,7 +77,7 @@ namespace ANDREICSLIB
                 return true;
             }
 
-            if (keyChar <= 31)//control chars
+            if (keyChar <= 31) //control chars
                 return true;
 
             return false;
@@ -128,7 +95,7 @@ namespace ANDREICSLIB
             if (IsSpecial(keyChar, c))
                 return false;
 
-            var hit = false;
+            bool hit = false;
 
             if ((keyChar >= 65 && keyChar <= 90) || (keyChar >= 97 && keyChar <= 122))
             {
@@ -162,5 +129,38 @@ namespace ANDREICSLIB
             return (hit == false);
         }
 
+        #region Nested type: InputType
+
+        public class InputType
+        {
+            public bool AllowChars = false;
+            public bool AllowDot = false;
+            public bool AllowNumbers = false;
+            public bool AllowWhiteSpace = false;
+
+            public static InputType Create(bool AllowChars = false, bool AllowNumbers = false, bool AllowDot = false,
+                                           bool AllowWhiteSpace = false)
+            {
+                var it = new InputType();
+                it.AllowChars = AllowChars;
+                it.AllowNumbers = AllowNumbers;
+                it.AllowDot = AllowDot;
+                it.AllowWhiteSpace = AllowWhiteSpace;
+                return it;
+            }
+
+            /// <summary>
+            /// set all types to input param
+            /// </summary>
+            /// <param name="allType"></param>
+            public static InputType CreateAllTrue()
+            {
+                var it = new InputType();
+                it.AllowChars = it.AllowNumbers = it.AllowDot = it.AllowWhiteSpace = true;
+                return it;
+            }
+        }
+
+        #endregion
     }
 }

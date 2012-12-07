@@ -2,40 +2,31 @@
 using System.Diagnostics;
 using System.IO;
 using System.Net;
-using System.Text;
 using System.Windows.Forms;
 using ANDREICSLIB.ClassExtras;
-using ICSharpCode.SharpZipLib.Core;
-using ICSharpCode.SharpZipLib.Zip;
 
 namespace ANDREICSLIB
 {
     public static class Licensing
     {
-        private static String Title = "";
-        private static double Version;
-        private static String OtherText = "";
-        private static String VersionPath = "";
-        private static String UpdatePath = "";
-        private static String ChangelogPath = "";
-        private static String HelpText = "";
+        private static SolutionDetails _sd;
+
         /// <summary>
         /// so we dont allow 2 instances of the about dialog
         /// </summary>
         internal static bool ShowingAbout;
+
         /// <summary>
         /// so we dont allow 2 instances of the help dialog
         /// </summary>
         internal static bool ShowingHelp;
 
-        private static ToolStripMenuItem GetItem(String text, MenuStrip ms)
+        private static ToolStripMenuItem GetItem(MenuStrip ms)
         {
-            ToolStripMenuItem helpToolStripItem = null;
-
             //see if a help item exists
             foreach (ToolStripMenuItem i in ms.Items)
             {
-                var t = i.Text;
+                string t = i.Text;
                 t = t.ToLower();
                 t = t.Replace("&", "");
 
@@ -45,10 +36,10 @@ namespace ANDREICSLIB
                 }
             }
 
-            return helpToolStripItem;
+            return null;
         }
 
-        private static void AddHelpOption(String helptext, ToolStripMenuItem helpParent)
+        private static void AddHelpOption(ToolStripMenuItem helpParent)
         {
             var helpitem = new ToolStripMenuItem("H&elp");
             helpitem.Click += Helpbox;
@@ -60,47 +51,32 @@ namespace ANDREICSLIB
         /// Inserts about tab on menu strip
         /// </summary>
         /// <param name="baseform"></param>
-        /// <param name="helptext"></param>
-        /// <param name="newFormTitle"></param>
-        /// <param name="appVersion"></param>
-        /// <param name="aboutScreenOtherText"></param>
-        /// <param name="versionPath"></param>
-        /// <param name="applicationZIPFileLocation"></param>
-        /// <param name="changelogPath"></param>
-        /// <param name="ms"></param>
-        public static void CreateLicense(Form baseform, String helptext, String newFormTitle, double appVersion, String aboutScreenOtherText,
-                         String versionPath, String applicationZIPFileLocation, String changelogPath, MenuStrip ms)
+        /// <param name="newsd"></param>
+        /// <param name="existingMenuStrip"></param>
+        public static void CreateLicense(Form baseform, SolutionDetails newsd, MenuStrip existingMenuStrip)
         {
-            Title = newFormTitle;
-            Version = appVersion;
-            OtherText = aboutScreenOtherText;
-            VersionPath = versionPath;
-            UpdatePath = applicationZIPFileLocation;
-            ChangelogPath = changelogPath;
-            HelpText = helptext;
+            _sd = newsd;
 
-            baseform.Text = Title + " Version:" + Version;
+            baseform.Text = _sd.FormTitle + " Version:" + _sd.AppVersion;
 
-            ToolStripMenuItem helpToolStripItem;
-
-            var existed = false;
+            bool existed = false;
             const string help = "&Help";
 
-            helpToolStripItem = GetItem(help, ms);
+            ToolStripMenuItem helpToolStripItem = GetItem(existingMenuStrip);
             if (helpToolStripItem != null)
                 existed = true;
             else
-            //if it doesnt, create
+                //if it doesnt, create
             {
-                ms.Items.Add(new ToolStripMenuItem(help));
+                existingMenuStrip.Items.Add(new ToolStripMenuItem(help));
                 //should always be set now
-                helpToolStripItem = GetItem(help, ms);
+                helpToolStripItem = GetItem(existingMenuStrip);
             }
 
             //add the help window
-            if (HelpText.Length > 0)
+            if (!string.IsNullOrEmpty(newsd.HelpText))
             {
-                AddHelpOption(helptext, helpToolStripItem);
+                AddHelpOption(helpToolStripItem);
             }
 
             //check for updates button
@@ -110,25 +86,25 @@ namespace ANDREICSLIB
 
             //about item
             var aboutitem = new ToolStripMenuItem("&About");
-            aboutitem.Click += aboutbox;
+            aboutitem.Click += Aboutbox;
             helpToolStripItem.DropDownItems.Add(aboutitem);
 
             //add all the items to the menu if help didnt exist
             if (existed == false)
             {
-                ms.Items.Add(helpToolStripItem);
+                existingMenuStrip.Items.Add(helpToolStripItem);
             }
         }
 
-        private static void aboutbox(object sender, EventArgs e)
+        private static void Aboutbox(object sender, EventArgs e)
         {
             var AS = new aboutScreen
-                        {
-                            Text = "About " + Title,
-                            appversionlabel = { Text = "Version " + Version },
-                            apptitlelabel = { Text = Title },
-                            otherapptext = { Text = OtherText }
-                        };
+                         {
+                             Text = "About " + _sd.FormTitle,
+                             appversionlabel = {Text = "Version " + _sd.AppVersion},
+                             apptitlelabel = {Text = _sd.FormTitle},
+                             otherapptext = {Text = _sd.AboutScreenOtherText}
+                         };
 
             if (ShowingAbout == false)
             {
@@ -139,7 +115,7 @@ namespace ANDREICSLIB
 
         private static void Helpbox(object sender, EventArgs e)
         {
-            var hs = new helpScreen { Text = Title + " Help", helpbox = { Text = HelpText } };
+            var hs = new helpScreen {Text = _sd.FormTitle + " Help", helpbox = {Text = _sd.HelpText}};
 
             if (ShowingHelp == false)
             {
@@ -150,16 +126,18 @@ namespace ANDREICSLIB
 
         private static void UpdateApplication(object sender, EventArgs e)
         {
-            var dr1 =
-                MessageBox.Show(Title + " will now connect to the internet to find  the newest version.\nDo you wish to continue?",
-                                "Notification", MessageBoxButtons.YesNo);
+            DialogResult dr1 =
+                MessageBox.Show(
+                    _sd.FormTitle +
+                    " will now connect to the internet to find  the newest version.\nDo you wish to continue?",
+                    "Notification", MessageBoxButtons.YesNo);
             if (dr1 == DialogResult.No)
                 return;
 
-            var result = NetUpdates.DownloadWebPage(VersionPath);
+            string result = NetUpdates.DownloadWebPage(_sd.VersionPath);
             if (String.IsNullOrEmpty(result))
             {
-                MessageBox.Show("Error while getting new version file:" + VersionPath);
+                MessageBox.Show("Error while getting new version file:" + _sd.VersionPath);
                 return;
             }
 
@@ -170,21 +148,23 @@ namespace ANDREICSLIB
             }
             catch
             {
-                MessageBox.Show("Online file:" + VersionPath + " has an invalid version:" + result);
+                MessageBox.Show("Online file:" + _sd.VersionPath + " has an invalid version:" + result);
                 return;
             }
 
-            var versionS = "Your version of " + Title + ":" + Version.ToString() + "\nNewest version online:" +
-                              newV.ToString();
+            string versionS = "Your version of " + _sd.FormTitle + ":" + _sd.AppVersion +
+                              "\nNewest version online:" +
+                              newV;
 
-            if (Version >= newV)
+            if (_sd.AppVersion >= newV)
             {
-                MessageBox.Show(versionS + "\n\nNo update required, you already have an up to date version of " + Title,
-                                "No action required");
+                MessageBox.Show(
+                    versionS + "\n\nNo update required, you already have an up to date version of " + _sd.FormTitle,
+                    "No action required");
                 return;
             }
 
-            var changelog = NetUpdates.DownloadWebPage(ChangelogPath);
+            string changelog = NetUpdates.DownloadWebPage(_sd.ChangelogPath);
             if (String.IsNullOrEmpty(changelog) == false)
             {
                 changelog = StringUpdates.ApplyTrim(changelog, true, 500);
@@ -196,7 +176,7 @@ namespace ANDREICSLIB
                 return;
             }
 
-            var dr =
+            DialogResult dr =
                 MessageBox.Show(
                     versionS +
                     "\n\nDo you wish to update to this version? \n(Be aware that this program will restart; please save your data beforehand)",
@@ -206,22 +186,20 @@ namespace ANDREICSLIB
         }
 
 
-
         private static void UpdateApplication()
         {
             String folder;
             String localfile;
-            var buffer = new byte[4096]; // 4K is optimum
             //we need the exe file for later execution
-            var exefile = "";
-            var exefolder = "";
+            string exefile = "";
+            string exefolder;
 
             try
             {
                 //0: reset current directory in case it was changed
                 Directory.SetCurrentDirectory(Application.StartupPath);
                 //1: Get the online files
-                folder = Title + "v" + DateTime.Now.ToShortTimeString();
+                folder = _sd.FormTitle + "v" + DateTime.Now.ToShortTimeString();
                 Directory.CreateDirectory(folder);
             }
             catch (Exception ex)
@@ -233,8 +211,8 @@ namespace ANDREICSLIB
             try
             {
                 var client = new WebClient();
-                localfile = UpdatePath.Substring(UpdatePath.LastIndexOf('/') + 1);
-                client.DownloadFile(UpdatePath, localfile);
+                localfile = _sd.ApplicationZipFileLocation.Substring(_sd.ApplicationZipFileLocation.LastIndexOf('/') + 1);
+                client.DownloadFile(_sd.ApplicationZipFileLocation, localfile);
             }
             catch (Exception ex)
             {
@@ -244,16 +222,16 @@ namespace ANDREICSLIB
 
             try
             {
-                var myname = AppDomain.CurrentDomain.FriendlyName;
+                string myname = AppDomain.CurrentDomain.FriendlyName;
                 //remove .vshost for testing
                 if (myname.Contains(".vshost."))
                     myname = myname.Replace(".vshost.", ".");
-               
+
                 //2.1 unpack
                 Zip.ExtractZipFile(localfile, folder);
 
                 //2.2 find exe
-                foreach (var f in DirectoryUpdates.GetFilesRecursive(folder))
+                foreach (string f in DirectoryUpdates.GetFilesRecursive(folder))
                 {
                     if (f.Contains(".exe"))
                         exefile = f;
@@ -262,17 +240,17 @@ namespace ANDREICSLIB
                         break;
                 }
 
-                var br = "\\";
+                const string br = "\\";
                 exefolder = "";
                 //ignore everything above this dir
                 while (exefile.Length > 0)
                 {
-                    var c = StringUpdates.ContainsSubStringCount(exefile, br);
+                    int c = StringUpdates.ContainsSubStringCount(exefile, br);
                     if (c > 0)
                     {
-                        var s = exefile.Substring(0, exefile.IndexOf(br));
+                        string s = exefile.Substring(0, exefile.IndexOf(br, StringComparison.Ordinal));
                         exefolder += s + br;
-                        exefile = exefile.Substring(exefile.IndexOf(br) + 1);
+                        exefile = exefile.Substring(exefile.IndexOf(br, StringComparison.Ordinal) + 1);
                     }
                     else
                         break;
@@ -285,7 +263,7 @@ namespace ANDREICSLIB
             }
 
             //3: Run async cmd prompt to move unpacked files and remove the folder in a second, and rerun the exe
-            var osInfo = Environment.OSVersion;
+            OperatingSystem osInfo = Environment.OSVersion;
             try
             {
                 //move folder/* to the local dir
@@ -293,7 +271,7 @@ namespace ANDREICSLIB
                 //delete folder remnants
                 //start the exefile we found before
 
-                var operations = "move /Y \"" + exefolder + "\"\\* . " +
+                string operations = "move /Y \"" + exefolder + "\"\\* . " +
                                     "& del /Q \"" + localfile + "\" " +
                                     "& rmdir /Q /S \"" + folder + "\" " +
                                     "& start \"\" \"" + exefile + "\" ";
@@ -344,5 +322,33 @@ namespace ANDREICSLIB
             //4: Kill process			
             Application.Exit();
         }
+
+        #region Nested type: SolutionDetails
+
+        public class SolutionDetails
+        {
+            public String AboutScreenOtherText;
+            public double AppVersion;
+            public String ApplicationZipFileLocation;
+            public String ChangelogPath;
+            public String FormTitle;
+            public String HelpText;
+            public String VersionPath;
+
+            public SolutionDetails(string helpText = null, string formTitle = null, double appVersion = -1,
+                                   string aboutScreenOtherText = null, string versionPath = null,
+                                   string applicationZipFileLocation = null, string changelogPath = null)
+            {
+                HelpText = helpText;
+                FormTitle = formTitle;
+                AppVersion = appVersion;
+                AboutScreenOtherText = aboutScreenOtherText;
+                VersionPath = versionPath;
+                ApplicationZipFileLocation = applicationZipFileLocation;
+                ChangelogPath = changelogPath;
+            }
+        }
+
+        #endregion
     }
 }

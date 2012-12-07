@@ -2,61 +2,53 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Drawing.Drawing2D;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace ANDREICSLIB
 {
     public partial class DragBar : UserControl
     {
-        private int mouseDownX;
-        private bool mouseDownButton;
-        //dont set these
-        private bool mouseResizeBar;
-        private bool mouseMoveBar;
-        private bool resizeleft;
-        ////////////////
-        private class scale
-        {
-            public int number;
-            public int xval;
-            public bool shownOnScale = false;
+        #region Delegates
 
-            public scale()
-            {
+        public delegate void BarEvent(DragBar entry);
 
-            }
-        }
+        #endregion
 
-        private List<scale> scales;
-        private int scaleWidth;
-        /// <summary>
-        /// x value for the start of the bar (set on paint)
-        /// </summary>
-        private int barX;
         /// <summary>
         /// x value for the end of the bar (set on paint)
         /// </summary>
         private int barEndX;
 
-        //BAR CHANGE EVENT
-        //the new event type
-        public delegate void BarEvent(DragBar entry);
+        /// <summary>
+        /// x value for the start of the bar (set on paint)
+        /// </summary>
+        private int barX;
 
-        [Category("Action")]
-        [Description("Triggers when the bar value changes")]
-        public event BarEvent BarValueChange;
+        private bool mouseDownButton;
+        private int mouseDownX;
+        //dont set these
+        private bool mouseMoveBar;
+        private bool mouseResizeBar;
+        private bool resizeleft;
+        ////////////////
+        private int scaleWidth;
+        private List<scale> scales;
 
-        protected virtual void OnBarValueChange()
+        public DragBar()
         {
-            if (BarValueChange != null)
-            {
-                BarValueChange(this);  // Notify Subscribers
-            }
+            BarColour = Color.Tomato;
+            ScaleColour = Color.White;
+            BackColour = Color.WhiteSmoke;
+            DrawScale = true;
+            BarMaximumValue = 6;
+            BarMinimumValue = 4;
+            MaximumValue = 10;
+            MinimumValue = 0;
+            InitializeComponent();
         }
+
         /////////////////
 
         [Description("The value the left of the control will be")]
@@ -83,36 +75,35 @@ namespace ANDREICSLIB
         [Description("The colour of the bar")]
         public Color BarColour { get; set; }
 
-        public DragBar()
+        [Category("Action")]
+        [Description("Triggers when the bar value changes")]
+        public event BarEvent BarValueChange;
+
+        protected virtual void OnBarValueChange()
         {
-            BarColour = Color.Tomato;
-            ScaleColour = Color.White;
-            BackColour = Color.WhiteSmoke;
-            DrawScale = true;
-            BarMaximumValue = 6;
-            BarMinimumValue = 4;
-            MaximumValue = 10;
-            MinimumValue = 0;
-            InitializeComponent();
+            if (BarValueChange != null)
+            {
+                BarValueChange(this); // Notify Subscribers
+            }
         }
 
         private int getFontSize()
         {
-            var len = MaximumValue.ToString().Length;
+            int len = MaximumValue.ToString().Length;
 
-            return (int)Font.Size * len + 5;
+            return (int) Font.Size*len + 5;
         }
 
         private void drawpanel_Paint(object sender, PaintEventArgs e)
         {
-            var G = e.Graphics;
+            Graphics G = e.Graphics;
             G.Clear(BackColour);
             Brush b1 = new SolidBrush(BarColour);
 
             if (BarMaximumValue > BarMinimumValue)
             {
-                var v1 = scales.Where(item => item.number == BarMinimumValue).First().xval;
-                var v2 = scales.Where(item => item.number == BarMaximumValue).First().xval;
+                int v1 = scales.Where(item => item.number == BarMinimumValue).First().xval;
+                int v2 = scales.Where(item => item.number == BarMaximumValue).First().xval;
                 var R = new Rectangle(v1, 0, v2 - v1, drawpanel.Height);
                 G.FillRectangle(b1, R);
                 barX = v1;
@@ -121,13 +112,13 @@ namespace ANDREICSLIB
             else
             {
                 //start part
-                var v2 = scales.Where(item => item.number == BarMaximumValue).First().xval;
+                int v2 = scales.Where(item => item.number == BarMaximumValue).First().xval;
                 var R = new Rectangle(0, 0, v2, drawpanel.Height);
                 G.FillRectangle(b1, R);
 
                 //end part
-                var v1 = scales.Where(item => item.number == BarMinimumValue).First().xval;
-                var v3 = drawpanel.Width - v1;
+                int v1 = scales.Where(item => item.number == BarMinimumValue).First().xval;
+                int v3 = drawpanel.Width - v1;
                 R = new Rectangle(v1, 0, v3, drawpanel.Height);
                 G.FillRectangle(b1, R);
 
@@ -139,10 +130,9 @@ namespace ANDREICSLIB
 
             Brush b2 = new SolidBrush(Color.Black);
             //draw number bars
-            foreach (var s in scales)
+            foreach (scale s in scales)
             {
                 G.FillRectangle(b2, s.xval, drawpanel.Height - 5, 2, 5);
-
             }
         }
 
@@ -156,21 +146,21 @@ namespace ANDREICSLIB
         private void InitScale()
         {
             scales = new List<scale>();
-            var width = getFontSize();
+            int width = getFontSize();
             //int count = 23;
-            var count = listpanel.Width / width;
+            int count = listpanel.Width/width;
             if (count >= MaximumValue) count = MaximumValue;
-            width = (listpanel.Width) / MaximumValue;
+            width = (listpanel.Width)/MaximumValue;
             scaleWidth = width;
 
-            for (var a = 0; a <= MaximumValue; a++)
+            for (int a = 0; a <= MaximumValue; a++)
             {
-                scales.Add(new scale() { number = a, xval = width * a });
+                scales.Add(new scale {number = a, xval = width*a});
             }
 
-            for (var a = 0; a < count; a++)
+            for (int a = 0; a < count; a++)
             {
-                var val = (int)(((float)a / (float)count) * (float)MaximumValue);
+                var val = (int) ((a/(float) count)*MaximumValue);
                 scales[val].shownOnScale = true;
             }
         }
@@ -179,11 +169,11 @@ namespace ANDREICSLIB
         {
             if (DrawScale == false)
                 return;
-            var G = e.Graphics;
+            Graphics G = e.Graphics;
             G.Clear(ScaleColour);
             Brush b1 = new HatchBrush(HatchStyle.DarkHorizontal, ForeColor);
 
-            foreach (var v in scales.Where(item => item.shownOnScale))
+            foreach (scale v in scales.Where(item => item.shownOnScale))
             {
                 G.DrawString(v.number.ToString(), Font, b1, v.xval, 0);
             }
@@ -280,8 +270,8 @@ namespace ANDREICSLIB
             if (mouseResizeBar == false && mouseMoveBar == false)
                 return;
 
-            var dif = 0;
-            var forward = true;
+            int dif = 0;
+            bool forward = true;
             if (e.X == mouseDownX)
                 return;
             if (e.X > mouseDownX)
@@ -295,9 +285,9 @@ namespace ANDREICSLIB
             if (dif < scaleWidth)
                 return;
 
-            var dif2 = (double)dif / drawpanel.Width;
+            double dif2 = (double) dif/drawpanel.Width;
 
-            var amount = (int)((double)MaximumValue * (double)dif2);
+            var amount = (int) (MaximumValue*dif2);
             if (amount == 0)
                 return;
             if (forward == false)
@@ -312,7 +302,8 @@ namespace ANDREICSLIB
 
             else if (mouseResizeBar)
             {
-                if (((BarMinimumValue + amount) != BarMaximumValue && resizeleft) || ((BarMaximumValue + amount) != BarMinimumValue && resizeleft == false))
+                if (((BarMinimumValue + amount) != BarMaximumValue && resizeleft) ||
+                    ((BarMaximumValue + amount) != BarMinimumValue && resizeleft == false))
                 {
                     if (resizeleft)
                         BarMinimumValue += amount;
@@ -328,5 +319,16 @@ namespace ANDREICSLIB
             mouseDownX = e.X;
             drawpanel.Invalidate();
         }
+
+        #region Nested type: scale
+
+        private class scale
+        {
+            public int number;
+            public bool shownOnScale;
+            public int xval;
+        }
+
+        #endregion
     }
 }

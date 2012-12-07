@@ -1,56 +1,53 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Reflection;
+using System.Windows.Forms;
 
 namespace ANDREICSLIB
 {
-	public abstract class ObjectUpdates
-	{
-		/// <summary>
-		/// Add a tooltip to a control
-		/// </summary>
-		/// <param name="C">the control to add the tooltip to</param>
-		/// <param name="text">the tooltip text</param>
-		public static void AddToolTip(Control C, String text)
-		{
-			if (C == null)
-				return;
+    public abstract class ObjectUpdates
+    {
+        /// <summary>
+        /// Add a tooltip to a control
+        /// </summary>
+        /// <param name="C">the control to add the tooltip to</param>
+        /// <param name="text">the tooltip text</param>
+        public static void AddToolTip(Control C, String text)
+        {
+            if (C == null)
+                return;
 
-			var TT = new ToolTip();
-			TT.SetToolTip(C, text);
-		}
+            var TT = new ToolTip();
+            TT.SetToolTip(C, text);
+        }
 
         public static object CloneObject(object o)
         {
-            var t = o.GetType();
-            var properties = t.GetProperties();
+            Type t = o.GetType();
+            PropertyInfo[] properties = t.GetProperties();
 
-            var p = t.InvokeMember("", System.Reflection.BindingFlags.CreateInstance, null, o, null);
+            object p = t.InvokeMember("", BindingFlags.CreateInstance, null, o, null);
 
             if (o is ComboBox)
             {
-                foreach (String s in ((ComboBox)o).Items)
+                foreach (String s in ((ComboBox) o).Items)
                 {
-                    ((ComboBox)p).Items.Add(s);
+                    ((ComboBox) p).Items.Add(s);
                 }
             }
 
             else if (o is ListBox)
             {
-                foreach (String s in ((ListBox)o).Items)
+                foreach (String s in ((ListBox) o).Items)
                 {
-                    ((ListBox)p).Items.Add(s);
+                    ((ListBox) p).Items.Add(s);
                 }
             }
 
             else if (o is ListView)
             {
-                foreach (ListViewItem s in ((ListView)o).Items)
+                foreach (ListViewItem s in ((ListView) o).Items)
                 {
-                    ((ListView)p).Items.Add(s);
+                    ((ListView) p).Items.Add(s);
                 }
             }
 
@@ -59,11 +56,11 @@ namespace ANDREICSLIB
             Control oparent = null;
             if (o is Control)
             {
-                oparent = ((Control)o).Parent;
-                ((Control)o).Parent = null;
+                oparent = ((Control) o).Parent;
+                ((Control) o).Parent = null;
             }
 
-            foreach (var pi in properties)
+            foreach (PropertyInfo pi in properties)
             {
                 try
                 {
@@ -74,16 +71,15 @@ namespace ANDREICSLIB
                 }
                 catch (Exception)
                 {
-
                 }
             }
 
             if (o is Control)
             {
-                ((Control)o).Parent = oparent;
+                ((Control) o).Parent = oparent;
             }
 
             return p;
         }
-	}
+    }
 }
