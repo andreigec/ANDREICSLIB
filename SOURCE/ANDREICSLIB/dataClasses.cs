@@ -81,7 +81,7 @@ namespace ANDREICSLIB
                     int currentlevel = 0;
                     while (line != null)
                     {
-                        int level = StringUpdates.ContainsSubStringCount(line, levelSeparator);
+                        int level = StringExtras.ContainsSubStringCount(line, levelSeparator);
                         if (level > (currentlevel + 1))
                         {
                             throw new Exception();
@@ -99,7 +99,7 @@ namespace ANDREICSLIB
                             }
                         }
 
-                        string rc = StringUpdates.replaceAllChars(line, levelSeparator, "");
+                        string rc = StringExtras.ReplaceAllChars(line, levelSeparator, "");
 
                         var t = new Btree<T> {Name = addfunc(rc), Parent = parentT};
                         if (parentT.Children == null)

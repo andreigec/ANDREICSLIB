@@ -3,11 +3,71 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading;
 
 namespace ANDREICSLIB
 {
     public class Networking
     {
+        #region tcp
+
+        public static void STUNServer(int listenPort=801,int sleepMS=100)
+        {
+            var tcpl = new TcpListener(IPAddress.Any, listenPort);
+            tcpl.Start();
+
+            var pending = new List<TcpClient>();
+
+            //get two connections
+            while (pending.Count<2)
+            {
+                if (tcpl.Pending())
+                {
+                    var c = tcpl.AcceptTcpClient();
+
+                    if (!pending.Any(x=>x.Client.RemoteEndPoint.Equals(c.Client.RemoteEndPoint)))
+                    pending.Add(c);
+                }
+
+                Thread.Sleep(sleepMS);
+            }
+
+
+
+        }
+
+
+
+        #endregion tcp
+        #region udp1
+
+        public static byte[] SendUDPPacketGetBlockingResponse(IPAddress address, int port, byte[] data)
+        {
+            var ep = new IPEndPoint(address, port);
+            var S = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+
+            S.SendTo(data, ep);
+
+            var rec = new byte[10000];
+            rec[0] = 0;
+            S.Blocking = true;
+            S.ReceiveTimeout = 500;
+            S.SendTimeout = 500;
+
+            try
+            {
+                S.Receive(rec);
+            }
+            catch
+            {
+                return null;
+            }
+
+            return rec;
+        }
+
+
+
         public UdpClient UDPListener = null;
         public List<UdpClient> UDPSenders = null;
 
@@ -36,7 +96,7 @@ namespace ANDREICSLIB
 
         private static Tuple<string, int> GetSocketInfo(UdpClient uc)
         {
-            var lep = ((IPEndPoint) uc.Client.LocalEndPoint);
+            var lep = ((IPEndPoint)uc.Client.LocalEndPoint);
             return new Tuple<string, int>(lep.Address.ToString(), lep.Port);
         }
 
@@ -70,5 +130,7 @@ namespace ANDREICSLIB
             uc.Client.ReceiveTimeout = timeout;
             uc.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReceiveTimeout, timeout);
         }
+
+        #endregion udp
     }
 }

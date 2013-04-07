@@ -4,7 +4,7 @@ using System.Drawing;
 
 namespace ANDREICSLIB
 {
-    public class ColorUpdates
+    public class ColorExtras
     {
         private static Dictionary<Tuple<int, int>, Dictionary<int, Color>> colourCache;
 

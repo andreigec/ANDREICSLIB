@@ -9,7 +9,7 @@ using ANDREICSLIB.ClassExtras;
 
 namespace ANDREICSLIB
 {
-    public abstract class FileUpdates
+    public abstract class FileExtras
     {
         /// <summary>
         /// load a file from a path into a string
@@ -173,7 +173,7 @@ namespace ANDREICSLIB
         /// <returns></returns>
         public static string GetAbsoluteFilePath(String partialFN, String basedir)
         {
-            IEnumerable<string> f = DirectoryUpdates.GetFilesRecursive(basedir);
+            IEnumerable<string> f = DirectoryExtras.GetFilesRecursive(basedir);
 
             foreach (string f2 in f)
             {

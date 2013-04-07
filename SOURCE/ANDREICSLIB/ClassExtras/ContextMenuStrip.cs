@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB.ClassExtras
 {
-    public static class ContextMenuStripUpdates
+    public static class ContextMenuStripExtras
     {
         /// <summary>
         /// get the parent of a context menu, either opening up, or a tool strip right click

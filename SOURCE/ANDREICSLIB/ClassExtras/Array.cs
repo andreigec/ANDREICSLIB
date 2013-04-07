@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace ANDREICSLIB.ClassExtras
+{
+    public class ArrayExtras
+    {
+        public static T[][] InstantiateArray<T>(int width, int height) where T : new()
+        {
+            var ret = new T[height][];
+            for (int y = 0; y < height; y++)
+            {
+                ret[y] = new T[width];
+            }
+            return ret;
+        }
+
+        public static T[][] RotateArray<T>(T[][] inarr, int width,int height) where T:new()
+        {
+            var newArray = InstantiateArray<T>(width, height);
+            
+            for (int y=0;y<height;y++)
+            {
+                for (int x=0;x<width;x++)
+                {
+                    newArray[x][y] = inarr[y][x];
+                }
+            }
+
+            return newArray;
+        }
+    }
+}

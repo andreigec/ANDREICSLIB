@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB
 {
-    public static class TextboxUpdates
+    public static class TextboxExtras
     {
         private static Tuple<int, int> GetSelection(Control c)
         {
@@ -32,7 +32,7 @@ namespace ANDREICSLIB
             Tuple<int, int> l = GetSelection(c);
 
             if (l.Item2 > 0)
-                t = StringUpdates.ApplyTrim(t, true, l.Item2, l.Item1);
+                t = StringExtras.ApplyTrim(t, true, l.Item2, l.Item1);
 
             t = t.Insert(l.Item1, keyChar.ToString());
             return t;

@@ -34,19 +34,21 @@ namespace ANDREICSLIB.NewControls
             InitializeComponent();
         }
 
-        public static List<Tuple<String, String>> ShowDialogStatic(String FormText, object classInstance,
+        public static List<Tuple<String, String>> ShowDialogStatic(String formText, object classInstance,
                                                                    List<TextBoxItems> overload = null)
         {
             var mve = new MassVariableEdit();
-            return mve.ShowDialog(FormText, classInstance, overload);
+            return mve.ShowDialog(formText, classInstance, overload);
         }
 
         /// <summary>
         /// populate with the variable names from a class. will also copy the instances values as preset text by default
         /// </summary>
-        /// <param name="items"></param>
+        /// <param name="formText"> </param>
+        /// <param name="classInstance"> </param>
+        /// <param name="overload"> </param>
         /// <returns></returns>
-        public List<Tuple<String, String>> ShowDialog(String FormText, object classInstance,
+        public List<Tuple<String, String>> ShowDialog(String formText, object classInstance,
                                                       List<TextBoxItems> overload = null)
         {
             Type ty = classInstance.GetType();
@@ -57,7 +59,7 @@ namespace ANDREICSLIB.NewControls
             {
                 object ob = Reflection.GetFieldValue(classInstance, f);
                 string preval = ob == null ? "" : ob.ToString();
-                k.Add(TextBoxItems.Create(f, preval));
+                k.Add(new TextBoxItems(f, preval));
             }
 
             if (overload != null)
@@ -80,7 +82,7 @@ namespace ANDREICSLIB.NewControls
                 }
             }
 
-            return ShowDialog(FormText, k);
+            return ShowDialog(formText, k);
         }
 
         /// <summary>
@@ -88,30 +90,30 @@ namespace ANDREICSLIB.NewControls
         /// </summary>
         /// <param name="items">list of items to add. param name,preset value,keypress validation</param>
         /// <returns></returns>
-        public static List<Tuple<String, String>> ShowDialog(String FormText, List<TextBoxItems> items)
+        public List<Tuple<String, String>> ShowDialog(String formText, List<TextBoxItems> items)
         {
-            var mve = new MassVariableEdit();
-            mve.Text = FormText;
-            mve.textboxes = new List<TextBox>();
+            Text = formText;
+            textboxes = new List<TextBox>();
             foreach (TextBoxItems k in items)
             {
                 var l = new Label();
+                l.Width = this.Width-50;
                 l.Text = k.LabelText;
-                mve.itemspanel.addControl(l, true);
+                itemspanel.addControl(l, false);
 
                 var tb = new TextBox();
                 tb.Name = k.TextBoxName;
                 tb.Text = k.TextBoxPreSetText;
                 tb.Tag = k;
                 tb.KeyPress += tb_KeyPress;
-                mve.textboxes.Add(tb);
+                textboxes.Add(tb);
 
-                mve.itemspanel.addControl(tb, false);
+                itemspanel.addControl(tb, false);
             }
 
-            mve.ShowDialog();
+            ShowDialog();
 
-            return mve.ReturnValues;
+            return ReturnValues;
         }
 
         private static void tb_KeyPress(object sender, KeyPressEventArgs e)
@@ -119,7 +121,7 @@ namespace ANDREICSLIB.NewControls
             var tb = sender as TextBox;
             if (tb == null || tb.Tag == null)
                 return;
-            var h = (TextBoxItems) tb.Tag;
+            var h = (TextBoxItems)tb.Tag;
             if (h.handleKeyPress == null)
                 return;
 
@@ -130,7 +132,7 @@ namespace ANDREICSLIB.NewControls
         {
             foreach (TextBox tb in textboxes)
             {
-                var h = (TextBoxItems) tb.Tag;
+                var h = (TextBoxItems)tb.Tag;
                 if (h == null)
                     continue;
 
@@ -154,43 +156,37 @@ namespace ANDREICSLIB.NewControls
 
         public class TextBoxItems
         {
-            /// <summary>
-            /// will get shown in a dialog if the acceptfinaltext delegate fails
-            /// </summary>
             public string FinalTextError;
 
-            /// <summary>
-            /// label text before text box
-            /// </summary>
             public string LabelText;
 
-            /// <summary>
-            /// must be unique
-            /// </summary>
             public string TextBoxName;
 
-            /// <summary>
-            /// pre set text box test, empty by default
-            /// </summary>
             public string TextBoxPreSetText;
 
             public AcceptFinalTextBoxText acceptFinalText;
             public HandleKeyPress handleKeyPress;
 
-            public static TextBoxItems Create(String fieldname, string presetvalue = "",
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="fieldname">label text before text box & field name. must be unique</param>
+            /// <param name="presetvalue">pre set text box test, empty by default</param>
+            /// <param name="handleKeyPressH">will get called on textbox.keypress if set</param>
+            /// <param name="acceptFinalTextBoxTextH"> will get called to do final validations on textbox text before accepting </param>
+            /// <param name="errortext">will get shown in a dialog if the acceptfinaltext delegate fails</param>
+            public TextBoxItems(String fieldname, string presetvalue = "",
                                               HandleKeyPress handleKeyPressH = null,
                                               AcceptFinalTextBoxText acceptFinalTextBoxTextH = null,
                                               string errortext = "")
             {
-                return new TextBoxItems
-                           {
-                               acceptFinalText = acceptFinalTextBoxTextH,
-                               FinalTextError = errortext,
-                               handleKeyPress = handleKeyPressH,
-                               LabelText = fieldname,
-                               TextBoxName = fieldname,
-                               TextBoxPreSetText = presetvalue
-                           };
+
+                acceptFinalText = acceptFinalTextBoxTextH;
+                FinalTextError = errortext;
+                handleKeyPress = handleKeyPressH;
+                LabelText = fieldname;
+                TextBoxName = fieldname;
+                TextBoxPreSetText = presetvalue;
             }
         }
 

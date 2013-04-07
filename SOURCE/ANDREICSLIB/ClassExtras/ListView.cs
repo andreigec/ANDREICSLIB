@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -7,7 +8,7 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB
 {
-    public static class ListViewUpdate
+    public static class ListViewExtras
     {
         private static ListViewItem.ListViewSubItem[] SubItemCollectionToRange(
             ListViewItem.ListViewSubItemCollection lvsic)
@@ -30,6 +31,7 @@ namespace ANDREICSLIB
         /// <summary>
         /// swap two rows given by their index
         /// </summary>
+        /// <param name="lv"> </param>
         /// <param name="index1">First Index to Swap</param>
         /// <param name="index2">Second Index to Swap</param>
         public static void SwapIndicies(ListView lv, int index1, int index2)

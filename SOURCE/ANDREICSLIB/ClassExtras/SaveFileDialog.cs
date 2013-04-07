@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ANDREICSLIB
 {
-    public static class SaveFileDialogUpdates
+    public static class SaveFileDialogExtras
     {
         private const char sep = '|';
 

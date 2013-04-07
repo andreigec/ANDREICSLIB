@@ -4,18 +4,19 @@ using System.IO;
 using System.Linq;
 using System.Management;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
 
 namespace ANDREICSLIB
 {
-    public abstract class NetUpdates
+    public abstract class NetExtras
     {
         public static string DownloadWebPage(string url)
         {
             // Open a connection
-            var webRequestObject = (HttpWebRequest) WebRequest.Create(url);
+            var webRequestObject = (HttpWebRequest)WebRequest.Create(url);
 
             // You can also specify additional header values like 
             // the user agent or the referer:
@@ -61,6 +62,49 @@ namespace ANDREICSLIB
             return Dns.GetHostEntry(externalIP).HostName;
         }
 
+        public static bool IsLanIP(IPAddress address)
+        {
+            var interfaces = NetworkInterface.GetAllNetworkInterfaces();
+            foreach (var iface in interfaces)
+            {
+                var properties = iface.GetIPProperties();
+                foreach (var ifAddr in properties.UnicastAddresses)
+                {
+                    if (ifAddr.IPv4Mask != null &&
+                        ifAddr.Address.AddressFamily == AddressFamily.InterNetwork &&
+                        CheckMask(ifAddr.Address, ifAddr.IPv4Mask, address))
+                        return true;
+                }
+            }
+            return false;
+        }
+
+        private static bool CheckMask(IPAddress address, IPAddress mask, IPAddress target)
+        {
+            if (mask == null)
+                return false;
+
+            var ba = address.GetAddressBytes();
+            var bm = mask.GetAddressBytes();
+            var bb = target.GetAddressBytes();
+
+            if (ba.Length != bm.Length || bm.Length != bb.Length)
+                return false;
+
+            for (var i = 0; i < ba.Length; i++)
+            {
+                int m = bm[i];
+
+                int a = ba[i] & m;
+                int b = bb[i] & m;
+
+                if (a != b)
+                    return false;
+            }
+
+            return true;
+        }
+
         public static bool IsIPAddress(String s)
         {
             try
@@ -74,7 +118,7 @@ namespace ANDREICSLIB
             return true;
         }
 
-        public static IPAddress GetIPFromHostname(string hostName, bool asIPV4 = true)
+        public static IPAddress HostnameToIP(string hostName, bool asIPV4 = true)
         {
             IPAddress ret;
 
@@ -101,7 +145,45 @@ namespace ANDREICSLIB
             return null;
         }
 
-        public static long GetAddressAsNumber(IPAddress ip)
+        public static string GetExternalDefaultLocalAddress(string WebCheckIPURL=null)
+        {
+            string ret = WebCheckIPURL == null ? GetExternalAddress() : GetExternalAddress(WebCheckIPURL);
+
+            if (ret == null)
+                ret = GetLocalAddress();
+
+            return ret;
+        }
+
+        public static string GetLocalAddress()
+        {
+            IPHostEntry host= Dns.GetHostEntry(Dns.GetHostName());
+            return (from ip in host.AddressList where ip.AddressFamily == AddressFamily.InterNetwork select ip.ToString()).FirstOrDefault();
+        }
+
+        public static string GetExternalAddress(string WebCheckIPURL = "http://checkip.dyndns.org")
+        {
+            try
+            {
+                String addr = DownloadWebPage(WebCheckIPURL);
+                if (string.IsNullOrEmpty(addr) == false)
+                {
+                    //remove up to :
+                    addr = addr.Substring(addr.IndexOf(':') + 2);
+                    //remove html
+                    addr = addr.Substring(0, addr.IndexOf('<'));
+
+                    return addr;
+                }
+                return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public static long IPToLong(IPAddress ip)
         {
             byte[] ab = ip.GetAddressBytes();
 
@@ -126,9 +208,9 @@ namespace ANDREICSLIB
                 if (hostEntry.AddressList.Length == 0)
                     return null;
 
-                var intAddress = (int) GetAddressAsNumber(ip);
+                var intAddress = (int)IPToLong(ip);
                 var macAddr = new byte[6];
-                var macAddrLen = (uint) macAddr.Length;
+                var macAddrLen = (uint)macAddr.Length;
 
                 if (SendARP(intAddress, 0, macAddr, ref macAddrLen) != 0)
                     return null;
@@ -155,7 +237,7 @@ namespace ANDREICSLIB
             if (wk == null)
                 return null;
 
-            var nbi = new NetBiosInfo((WKSTA_INFO_100) wk);
+            var nbi = new NetBiosInfo((WKSTA_INFO_100)wk);
 
             return nbi;
         }
@@ -169,11 +251,11 @@ namespace ANDREICSLIB
 
             int s = extraInfoTimeout;
 
-            int H = s*3600;
-            s -= H*3600;
+            int H = s * 3600;
+            s -= H * 3600;
 
-            int M = s/60;
-            s -= M*60;
+            int M = s / 60;
+            s -= M * 60;
 
             int S = s;
 
@@ -218,10 +300,10 @@ namespace ANDREICSLIB
                         return results;
                     }
 
-                    if (PD.Name != null && PD.Value != null && results.ContainsKey(PD.Name) == false)
+                    if (PD.Value != null && results.ContainsKey(PD.Name) == false)
                     {
                         string val = PD.Value.ToString();
-                        if (PD.Value.GetType() == typeof (string[]))
+                        if (PD.Value.GetType() == typeof(string[]))
                         {
                             var ss = PD.Value as string[];
                             val = ss.Aggregate("", (current, ss2) => current + (ss2 + "|"));
@@ -244,43 +326,14 @@ namespace ANDREICSLIB
 
                 foreach (PropertyData PD in envVar.Properties)
                 {
-                    if (PD.Name != null && PD.Value != null && results.ContainsKey(PD.Name) == false)
+                    if (PD.Value != null && results.ContainsKey(PD.Name) == false)
                         results.Add(PD.Name, PD.Value.ToString());
                 }
             }
             return results;
         }
 
-        #region udp
-
-        public static byte[] SendUDPPacketGetBlockingResponse(IPAddress address, int port, byte[] data)
-        {
-            var ep = new IPEndPoint(address, port);
-            var S = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-
-            S.SendTo(data, ep);
-
-            var rec = new byte[10000];
-            rec[0] = 0;
-            S.Blocking = true;
-            S.ReceiveTimeout = 500;
-            S.SendTimeout = 500;
-
-            try
-            {
-                S.Receive(rec);
-            }
-            catch
-            {
-                return null;
-            }
-
-            return rec;
-        }
-
-        #endregion udp
-
-        #region netbios info
+     #region netbios info
 
         //group name/domain name/work group/ whatever its called
         [DllImport("netapi32.dll", CharSet = CharSet.Auto)]
@@ -301,7 +354,7 @@ namespace ANDREICSLIB
             if (retval != 0)
                 return null;
 
-            return (WKSTA_INFO_100) Marshal.PtrToStructure(pBuffer, typeof (WKSTA_INFO_100));
+            return (WKSTA_INFO_100)Marshal.PtrToStructure(pBuffer, typeof(WKSTA_INFO_100));
         }
 
         #region Nested type: NetBiosInfo
@@ -332,8 +385,10 @@ namespace ANDREICSLIB
         public struct WKSTA_INFO_100
         {
             public int wki100_platform_id;
-            [MarshalAs(UnmanagedType.LPWStr)] public string wki100_computername;
-            [MarshalAs(UnmanagedType.LPWStr)] public string wki100_langroup;
+            [MarshalAs(UnmanagedType.LPWStr)]
+            public string wki100_computername;
+            [MarshalAs(UnmanagedType.LPWStr)]
+            public string wki100_langroup;
             public int wki100_ver_major;
             public int wki100_ver_minor;
         }

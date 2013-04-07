@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace ANDREICSLIB
 {
-    public static class StringUpdates
+    public static class StringExtras
     {
         public static string[] SplitString(String instr, String split, bool removeempty = true)
         {
@@ -13,7 +14,7 @@ namespace ANDREICSLIB
             return instr.Split(s, removeempty ? StringSplitOptions.RemoveEmptyEntries : StringSplitOptions.None);
         }
 
-        public static Tuple<string, string> splitTwo(String instr, char sep)
+        public static Tuple<string, string> SplitTwo(String instr, char sep)
         {
             var sep2 = new[] {sep};
             string[] sep3 = instr.Split(sep2);
@@ -23,9 +24,9 @@ namespace ANDREICSLIB
             return new Tuple<string, string>(sep3[0], sep3[1]);
         }
 
-        public static Tuple<int, int> splitTwoInt(String instr, char sep)
+        public static Tuple<int, int> SplitTwoInt(String instr, char sep)
         {
-            Tuple<string, string> x = splitTwo(instr, sep);
+            Tuple<string, string> x = SplitTwo(instr, sep);
             return new Tuple<int, int>(Int32.Parse(x.Item1), Int32.Parse(x.Item2));
         }
 
@@ -59,7 +60,7 @@ namespace ANDREICSLIB
         /// <param name="instr"></param>
         /// <param name="max"></param>
         /// <returns></returns>
-        public static List<string> splitstrings(String instr, int max)
+        public static List<string> SplitStrings(String instr, int max)
         {
             string line = "";
             var ls = new List<string>();
@@ -74,7 +75,7 @@ namespace ANDREICSLIB
 
                 if ((count + s.Length) > max)
                 {
-                    ls.Add(padString(line, max));
+                    ls.Add(PadString(line, max));
                     line = "";
                     count = 0;
                 }
@@ -85,7 +86,7 @@ namespace ANDREICSLIB
             }
             if (count != 0)
             {
-                ls.Add(padString(line, max));
+                ls.Add(PadString(line, max));
             }
             return ls;
         }
@@ -96,7 +97,7 @@ namespace ANDREICSLIB
         /// <param name="instr"></param>
         /// <param name="maxlen"></param>
         /// <returns></returns>
-        public static String padString(String instr, int maxlen)
+        public static String PadString(String instr, int maxlen)
         {
             string ret = "";
             int len = instr.Length;
@@ -124,21 +125,21 @@ namespace ANDREICSLIB
         /// <summary>
         /// Replace a char in a string with another
         /// </summary>
-        /// <param name="origString">The string to change a character in</param>
+        /// <param name="str">The string to change a character in</param>
         /// <param name="newChar">The new character to be used</param>
         /// <param name="position">The position to use the new character</param>
         /// <returns>a string with the character replaced</returns>
-        public static String replaceCharAtPosition(String origString, char newChar, int position)
+        public static void ReplaceCharAtPosition(ref String str, char newChar, int position)
         {
             if (position < 0)
-                return origString;
+                return;
 
-            else if (String.IsNullOrEmpty(origString))
-                return null;
+            if (String.IsNullOrEmpty(str))
+                return;
 
-            string bef = origString.Substring(0, position);
-            string af = origString.Substring(position + 1);
-            return bef + newChar.ToString() + af;
+            string bef = str.Substring(0, position);
+            string af = str.Substring(position + 1);
+            str= bef + newChar.ToString(CultureInfo.InvariantCulture) + af;
         }
 
         /// <summary>
@@ -148,7 +149,7 @@ namespace ANDREICSLIB
         /// <param name="replaceThis"></param>
         /// <param name="withThis"></param>
         /// <returns></returns>
-        public static String replaceAllChars(String origString, char replaceThis, char withThis)
+        public static String ReplaceAllChars(String origString, char replaceThis, char withThis)
         {
             if (String.IsNullOrEmpty(origString))
                 return origString;
@@ -156,7 +157,7 @@ namespace ANDREICSLIB
             return origString.Replace(replaceThis, withThis);
         }
 
-        public static String replaceAllChars(String origString, String replaceThis, String withThis)
+        public static String ReplaceAllChars(String origString, String replaceThis, String withThis)
         {
             if (String.IsNullOrEmpty(origString))
                 return origString;
@@ -215,46 +216,95 @@ namespace ANDREICSLIB
 
             return origString.Remove(relativeStart, length);
         }
+        /*
+          public static string[] SplitAtArgument(string s1)
+        {
 
+            var ret = new List<string>();
+            string str = s1;
+            int colonloc = 0;
+            //find next colon
+            while ((colonloc=str.IndexOf(":"))!=-1)
+            {
+                //go back to next space
+                int spaceloc = colonloc;
+                while (spaceloc > 0 && str[spaceloc] != ' ')
+                {
+                    spaceloc--;
+                }
+
+                //get next colon or end
+                int nextcolonloc = str.IndexOf(":", colonloc+1);
+                //get previous space
+                int nextspaceloc = nextcolonloc;
+                while (nextspaceloc > 0 && str[nextspaceloc] != ' ')
+                {
+                    nextspaceloc--;
+                }
+
+                //get arg name/val
+                string argname = str.Substring(spaceloc, colonloc - spaceloc);
+                string argval = "";
+                if (nextspaceloc!=-1)
+                argval= str.Substring(colonloc+1, nextspaceloc - colonloc);
+                //remove up to next space loc
+                str=str.Remove(spaceloc, nextspaceloc - spaceloc);
+                argname = CleanString(argname);
+                argval=CleanString(argval);
+                ret.Add(argname);
+                ret.Add(argval);
+            }
+
+            return ret.ToArray();
+        }
+         * */
 
         /// <summary>
         /// removes \n \r and \0 from the start and end of a string
         /// </summary>
         /// <param name="origString"></param>
         /// <returns>the 'cleaned' string</returns>
-        public static String cleanString(String origString)
+        private static String CleanString(String origString)
         {
             if (String.IsNullOrEmpty(origString))
                 return origString;
 
-            char[] bad = {'\n', '\r', '\0', ' '};
+            char[] bad = { '\n', '\r', '\0', ' ' };
 
-            retry:
-            if (origString.Length == 0)
-                return "";
-            char start = origString[0];
-            char end = origString[origString.Length - 1];
-
-            foreach (char b in bad)
+            //keep going while changes have been made
+            bool change = true;
+            while (change)
             {
-                if (start == b)
+                change = false;
+                if (origString.Length == 0)
+                    return "";
+                char start = origString[0];
+                char end = origString[origString.Length - 1];
+
+
+                foreach (char b in bad)
                 {
-                    origString = origString.Remove(0, 1);
-                    goto retry;
-                }
-                else if (end == b)
-                {
-                    origString = origString.Remove(origString.Length - 1, 1);
-                    goto retry;
+                    if (start == b)
+                    {
+                        origString = origString.Remove(0, 1);
+                        change = true;
+                    }
+                    if (end == b)
+                    {
+                        origString = origString.Remove(origString.Length - 1, 1);
+                        change = true;
+                    }
+
+                    if (change)
+                        break;
                 }
             }
 
             //remove duplicate whitespace
-            bool change = true;
-            int len;
+            change = true;
             while (change)
             {
-                len = origString.Length;
+                int len = origString.Length;
                 origString = origString.Replace("  ", " ");
                 if (origString.Length == len)
                     change = false;
@@ -270,7 +320,7 @@ namespace ANDREICSLIB
         /// <param name="addText"></param>
         /// <param name="isFront"></param>
         /// <returns></returns>
-        public static String addText(String origString, String addText, bool isFront)
+        public static String AddText(String origString, String addText, bool isFront)
         {
             if (isFront)
                 return addText + origString;
@@ -284,11 +334,12 @@ namespace ANDREICSLIB
         /// </summary>
         /// <param name="origString">The string to change</param>
         /// <param name="capitaliseInitial">Should the first letter be capitalised?</param>
+        /// <param name="capitaliseWordString"> </param>
         /// <returns>the auto capitalised string</returns>
         public static String ToCamelCase(String origString, Boolean capitaliseInitial,
                                          List<string> capitaliseWordString = null, bool spaceAfter = true)
         {
-            if (origString == null || origString.Length == 0)
+            if (string.IsNullOrEmpty(origString))
                 return null;
 
             try
@@ -336,7 +387,7 @@ namespace ANDREICSLIB
                                     {
                                         char x1 = outstr[a1];
                                         x1 = Char.ToUpper(x1);
-                                        outstr = replaceCharAtPosition(outstr, x1, a1);
+                                        ReplaceCharAtPosition(ref outstr, x1, a1);
                                     }
                                 }
                             }
@@ -345,7 +396,7 @@ namespace ANDREICSLIB
                         //cap if first, or after space (camel case), or bracket
                         if ((a == 0 && capitaliseInitial) || Char.IsWhiteSpace(outstr[a - 1]) ||
                             capitalAfter.Contains(outstr[a - 1]))
-                            outstr = replaceCharAtPosition(outstr, Char.ToUpper(x), a);
+                            ReplaceCharAtPosition(ref outstr, Char.ToUpper(x), a);
                     }
 
                     //space after comma and close bracket

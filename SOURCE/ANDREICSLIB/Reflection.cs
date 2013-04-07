@@ -83,11 +83,11 @@ namespace ANDREICSLIB
         public static bool SerialiseObject(object classInstance, string filename)
         {
             if (File.Exists(filename) == false)
-                FileUpdates.CreateFile(filename);
+                FileExtras.CreateFile(filename);
 
             string r = SerialiseObject(classInstance);
 
-            FileUpdates.SaveToFile(filename, r);
+            FileExtras.SaveToFile(filename, r);
             return true;
         }
 
@@ -120,7 +120,7 @@ namespace ANDREICSLIB
             if (File.Exists(filename) == false)
                 return null;
 
-            string s = FileUpdates.LoadFile(filename);
+            string s = FileExtras.LoadFile(filename);
 
             if (string.IsNullOrEmpty(s))
                 return null;
@@ -138,12 +138,12 @@ namespace ANDREICSLIB
         /// <returns></returns>
         public static object DeserialiseObject(Type objectType, String serialisedObjectString, bool ignoreErrors = true)
         {
-            string[] s2 = StringUpdates.SplitString(serialisedObjectString, Newline);
+            string[] s2 = StringExtras.SplitString(serialisedObjectString, Newline);
 
             var tl = new List<Tuple<string, String>>();
             foreach (string s3 in s2)
             {
-                string[] s4 = StringUpdates.SplitString(s3, Separator.ToString());
+                string[] s4 = StringExtras.SplitString(s3, Separator.ToString());
                 if (s4.Length != 2)
                 {
                     if (ignoreErrors)

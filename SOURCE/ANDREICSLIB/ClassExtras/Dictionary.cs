@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB
 {
-    public class DictionaryUpdates
+    public class DictionaryExtras
     {
         public static T GetKeyByValue<T, Y>(Dictionary<T, Y> dict, Y val)
         {

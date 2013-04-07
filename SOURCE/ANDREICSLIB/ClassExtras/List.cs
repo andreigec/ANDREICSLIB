@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace ANDREICSLIB.ClassExtras
 {
-    public static class ListUpdates
+    public static class ListExtras
     {
         public static List<TNewType> ChangeListTyping<TNewType>(List<object> inlist) where TNewType : class
         {

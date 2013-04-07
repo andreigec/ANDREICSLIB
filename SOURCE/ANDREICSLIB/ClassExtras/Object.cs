@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB
 {
-    public abstract class ObjectUpdates
+    public abstract class ObjectExtras
     {
         /// <summary>
         /// Add a tooltip to a control

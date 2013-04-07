@@ -23,7 +23,7 @@ namespace ANDREICSLIB.NewControls
         {
             //get actual image end pos
             var v21 = new Vector(c.BackgroundImage.Width, c.BackgroundImage.Height);
-            System.Windows.Media.Matrix mm2 = MathUpdates.ConvertMatrix(GetMatrix(c));
+            System.Windows.Media.Matrix mm2 = MathExtras.ConvertMatrix(GetMatrix(c));
             Vector v22 = Vector.Multiply(v21, mm2);
 
             //if cursor is outside, ignore

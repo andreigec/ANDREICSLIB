@@ -49,7 +49,7 @@ namespace ANDREICSLIB
             else
             {
                 if (ret.EndsWith("s"))
-                    ret = StringUpdates.ApplyTrim(ret, false, 1);
+                    ret = StringExtras.ApplyTrim(ret, false, 1);
             }
             return ret;
         }

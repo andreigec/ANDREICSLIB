@@ -134,7 +134,7 @@ namespace ANDREICSLIB
             if (dr1 == DialogResult.No)
                 return;
 
-            string result = NetUpdates.DownloadWebPage(_sd.VersionPath);
+            string result = NetExtras.DownloadWebPage(_sd.VersionPath);
             if (String.IsNullOrEmpty(result))
             {
                 MessageBox.Show("Error while getting new version file:" + _sd.VersionPath);
@@ -164,10 +164,10 @@ namespace ANDREICSLIB
                 return;
             }
 
-            string changelog = NetUpdates.DownloadWebPage(_sd.ChangelogPath);
+            string changelog = NetExtras.DownloadWebPage(_sd.ChangelogPath);
             if (String.IsNullOrEmpty(changelog) == false)
             {
-                changelog = StringUpdates.ApplyTrim(changelog, true, 500);
+                changelog = StringExtras.ApplyTrim(changelog, true, 500);
                 versionS += "\n\nCHANGELOG:\n" + changelog;
             }
             else
@@ -199,7 +199,7 @@ namespace ANDREICSLIB
                 //0: reset current directory in case it was changed
                 Directory.SetCurrentDirectory(Application.StartupPath);
                 //1: Get the online files
-                folder = _sd.FormTitle + "v" + DateTime.Now.ToShortTimeString();
+                folder = _sd.FormTitle + "v" + DateTime.Now.Ticks;
                 Directory.CreateDirectory(folder);
             }
             catch (Exception ex)
@@ -223,15 +223,16 @@ namespace ANDREICSLIB
             try
             {
                 string myname = AppDomain.CurrentDomain.FriendlyName;
+                const string vshost = ".vshost.";
                 //remove .vshost for testing
-                if (myname.Contains(".vshost."))
-                    myname = myname.Replace(".vshost.", ".");
+                if (myname.Contains(vshost))
+                    myname = myname.Replace(vshost, ".");
 
                 //2.1 unpack
-                Zip.ExtractZipFile(localfile, folder);
+                ZipExtras.ExtractZipFile(localfile, folder);
 
                 //2.2 find exe
-                foreach (string f in DirectoryUpdates.GetFilesRecursive(folder))
+                foreach (string f in DirectoryExtras.GetFilesRecursive(folder))
                 {
                     if (f.Contains(".exe"))
                         exefile = f;
@@ -245,7 +246,7 @@ namespace ANDREICSLIB
                 //ignore everything above this dir
                 while (exefile.Length > 0)
                 {
-                    int c = StringUpdates.ContainsSubStringCount(exefile, br);
+                    int c = StringExtras.ContainsSubStringCount(exefile, br);
                     if (c > 0)
                     {
                         string s = exefile.Substring(0, exefile.IndexOf(br, StringComparison.Ordinal));

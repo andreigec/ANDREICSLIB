@@ -1,12 +1,70 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 
 namespace ANDREICSLIB
 {
-    public class BitmapUpdates
+    public class BitmapExtras
     {
+        public static Bitmap InitBitmap(int width,int height,Color c)
+        {
+            var b = new Bitmap(width, height);
+            for (int y = 0; y < b.Height; y++)
+            {
+                for (int x = 0; x < b.Width; x++)
+                {
+                    b.SetPixel(x,y,c);
+                }
+            }
+            return b;
+        }
+
+        public static Bitmap NonWhiteToBlack(Bitmap b, Color c)
+        {
+            for (int y=0;y<b.Height;y++)
+            {
+                for (int x=0;x<b.Width;x++)
+                {
+                    var p = b.GetPixel(x, y);
+                    bool white = !(p.R != 255 || p.G != 255 || p.B != 255);
+                    b.SetPixel(x,y,white?Color.White:Color.Black);
+                }
+            }
+            return b;
+        }
+
+        /// <summary>
+        /// replace all colours apart from the one passed in with white, and the passed in colour as black
+        /// </summary>
+        /// <param name="Bmp"></param>
+        /// <param name="r"></param>
+        /// <param name="g"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        public static Bitmap OnlyAllowBlackAndColour(Bitmap Bmp, int r, int g, int b)
+        {
+            //int rgb;
+            Color c;
+
+            for (int y = 0; y < Bmp.Height; y++)
+                for (int x = 0; x < Bmp.Width; x++)
+                {
+                    c = Bmp.GetPixel(x, y);
+                    int rgb = 255;
+                    const int blackd = 50;
+                    if ((c.R <= blackd && c.G <= blackd && c.B <= blackd) || (c.R == r && c.G == g && c.B == b))
+                    {
+                        rgb = 0;
+                    }
+                    //rgb = (int)((c.R + c.G + c.B) / 3);
+                    Bmp.SetPixel(x, y, Color.FromArgb(rgb, rgb, rgb));
+                }
+            return Bmp;
+        }
+
         public static Color[][] ImageFileToColorMatrix(String filename)
         {
             try
@@ -23,6 +81,25 @@ namespace ANDREICSLIB
                 return null;
             }
         }
+
+        public static Bitmap StretchBitmap(Bitmap sourceBMP, int width, int height)
+        {
+            var ret = new Bitmap(sourceBMP,width, height);
+            return ret;
+        }
+
+
+        public static Bitmap ResizeBitmap(Bitmap sourceBMP, int width, int height, bool antiAlias = false)
+        {
+            var bmp = new Bitmap(width, height);
+            var graph = Graphics.FromImage(bmp);
+            graph.InterpolationMode = antiAlias ? InterpolationMode.High : InterpolationMode.NearestNeighbor;
+            graph.CompositingQuality = antiAlias ? CompositingQuality.HighQuality : CompositingQuality.Default;
+            graph.SmoothingMode = antiAlias ? SmoothingMode.AntiAlias : SmoothingMode.None;
+            graph.DrawImage(sourceBMP, new Rectangle(0, 0, width, height));
+            return bmp;
+        }
+
 
         private static Color[][] BitmapToColorMatrix(Bitmap b)
         {
@@ -44,7 +121,7 @@ namespace ANDREICSLIB
             return ret;
         }
 
-        public static void drawLine(Bitmap b, Color c, Tuple<int, int> one, Tuple<int, int> two)
+        public static void DrawLine(Bitmap b, Color c, Tuple<int, int> one, Tuple<int, int> two)
         {
             int x = one.Item1;
             int y = one.Item2;
@@ -65,9 +142,105 @@ namespace ANDREICSLIB
             }
         }
 
-        public static void lockBitmap(Bitmap b, bool doLock)
+        public static void LockBitmap(Bitmap b, bool doLock)
         {
             b.LockBits(new Rectangle(0, 0, b.Width, b.Height), ImageLockMode.WriteOnly, b.PixelFormat);
+        }
+
+        /// <summary>
+        /// crop the image based on a new width and height
+        /// </summary>
+        /// <param name="inbit">in image</param>
+        /// <param name="newWidth">a size, or -1 for the input size</param>
+        /// <param name="newHeight">a size, or -1 for the input size</param>
+        /// <param name="startx"> </param>
+        /// <param name="starty"> </param>
+        /// <returns></returns>
+        public static Bitmap Crop(Bitmap inbit, int newWidth = -1, int newHeight = -1, int startx = 0, int starty = 0)
+        {
+            int w = newWidth == -1 ? inbit.Width : newWidth;
+            int h = newHeight == -1 ? inbit.Height : newHeight;
+            var rect = new Rectangle(startx, starty, w, h);
+
+            return inbit.Clone(rect, PixelFormat.DontCare);
+        }
+
+        public static bool RowOrColIsWhite(Bitmap b, int value, bool isRow)
+        {
+            int w = b.Width;
+            int h = b.Height;
+            int to = isRow ? w : h;
+
+            for (int v = 0; v < to; v++)
+            {
+                Color c;
+                if (isRow)
+                    c = b.GetPixel(v, value);
+                else
+                    c = b.GetPixel(value, v);
+
+
+                if (c.R != 255 || c.G != 255 || c.B != 255)
+                    return false;
+            }
+            return true;
+        }
+
+        public static Bitmap RemoveExcessWhitespace(Bitmap b, bool keepPureWhite = true,int padx=0,int pady=0)
+        {
+            //remove rows of white
+            int starty = -1;
+            int endy = -1;
+            int startx = -1;
+            int endx = -1;
+            for (int y = 0; y < b.Height; y++)
+            {
+                if (starty == -1)
+                {
+                    if (RowOrColIsWhite(b, y, true)==false)
+                        starty = y;
+                }
+
+                if (endy==-1)
+                {
+                    var ey = (b.Height - 1) - y;
+                    if (RowOrColIsWhite(b, ey, true) == false)
+                        endy = ey;
+                }
+
+                if (starty != -1 && endy != -1)
+                    break;
+            }
+
+            for (int x = 0; x < b.Width; x++)
+            {
+                if (startx == -1)
+                {
+                    if (RowOrColIsWhite(b, x, false) == false)
+                        startx = x;
+                }
+
+                if (endx == -1)
+                {
+                    var ex = (b.Width - 1) - x;
+                    if (RowOrColIsWhite(b, ex,false) == false)
+                        endx = ex;
+                }
+
+                if (startx != -1 && endx != -1)
+                    break;
+            }
+
+            if (starty==-1||startx==-1||endy==-1||endx==-1)
+            {
+                if (keepPureWhite)
+                    return b;
+                throw new Exception("error resizing");
+            }
+
+            var nb = Crop(b, endx - startx, endy - starty, startx, starty);
+
+            return nb;
         }
     }
 }

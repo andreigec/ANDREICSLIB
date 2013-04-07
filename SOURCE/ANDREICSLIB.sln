@@ -1,7 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ANDREICSLIB", "ANDREICSLIB\ANDREICSLIB.csproj", "{469B8120-B6D8-48BD-97C4-AFAB63AEE304}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "WindowsFormsApplication1\WindowsFormsApplication1.csproj", "{95E71093-116F-4EDA-ADFD-D79366D67DF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,10 @@ Global
 		{469B8120-B6D8-48BD-97C4-AFAB63AEE304}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{469B8120-B6D8-48BD-97C4-AFAB63AEE304}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{469B8120-B6D8-48BD-97C4-AFAB63AEE304}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95E71093-116F-4EDA-ADFD-D79366D67DF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95E71093-116F-4EDA-ADFD-D79366D67DF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95E71093-116F-4EDA-ADFD-D79366D67DF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95E71093-116F-4EDA-ADFD-D79366D67DF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

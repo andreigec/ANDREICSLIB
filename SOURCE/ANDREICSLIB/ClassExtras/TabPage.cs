@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB.ClassExtras
 {
-    public static class TabPageUpdates
+    public static class TabPageExtras
     {
         public static void SetEnableOnAllTabPageControls(TabPage tp, bool enabled)
         {

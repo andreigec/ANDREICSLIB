@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB.ClassExtras
 {
-    public static class CheckedListBoxUpdates
+    public static class CheckedListBoxExtras
     {
         public static void CheckAll(CheckedListBox cb, bool value)
         {

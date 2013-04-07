@@ -5,7 +5,7 @@ using ICSharpCode.SharpZipLib.Zip;
 
 namespace ANDREICSLIB
 {
-    public static class Zip
+    public static class ZipExtras
     {
         public static void ExtractZipFile(string archiveFilenameIn, string outFolder, string password = null)
         {

@@ -225,16 +225,16 @@ namespace ANDREICSLIB
                 if (File.Exists(filename) == false)
                     return null;
 
-                string f = FileUpdates.LoadFile(filename);
+                string f = FileExtras.LoadFile(filename);
 
-                string[] parts = StringUpdates.SplitString(f, TypeSep);
+                string[] parts = StringExtras.SplitString(f, TypeSep);
 
                 //first part is controls and stuff
-                string[] controls = StringUpdates.SplitString(parts[0], NewLine);
+                string[] controls = StringExtras.SplitString(parts[0], NewLine);
 
                 foreach (string line in controls)
                 {
-                    string[] split = StringUpdates.SplitString(line, Separator);
+                    string[] split = StringExtras.SplitString(line, Separator);
                     if (split.Length < 2)
                         continue;
 
@@ -248,10 +248,10 @@ namespace ANDREICSLIB
                 //second part is literal strings
                 if (parts.Length >= 2)
                 {
-                    string[] strings = StringUpdates.SplitString(parts[1], NewLine);
+                    string[] strings = StringExtras.SplitString(parts[1], NewLine);
                     foreach (string line in strings)
                     {
-                        string[] split = StringUpdates.SplitString(line, Separator);
+                        string[] split = StringExtras.SplitString(line, Separator);
                         if (split.Length < 2)
                             continue;
 
@@ -321,7 +321,7 @@ namespace ANDREICSLIB
                     }
                 }
 
-                FileUpdates.SaveToFile(filename, output);
+                FileExtras.SaveToFile(filename, output);
             }
             catch (Exception)
             {

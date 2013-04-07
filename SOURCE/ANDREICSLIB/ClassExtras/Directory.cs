@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB.ClassExtras
 {
-    public static class DirectoryUpdates
+    public static class DirectoryExtras
     {
         public static string GetExePath()
         {
