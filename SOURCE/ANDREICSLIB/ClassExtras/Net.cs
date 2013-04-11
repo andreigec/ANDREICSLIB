@@ -333,6 +333,31 @@ namespace ANDREICSLIB
             return results;
         }
 
+        public static int GetNextFreePort(int min = 1000, int max = 50000)
+        {
+            var listeners = IPGlobalProperties.GetIPGlobalProperties().GetActiveTcpListeners();
+            var used = IPGlobalProperties.GetIPGlobalProperties().GetActiveTcpConnections();
+            var portArray = new Dictionary<int, bool>();
+
+            foreach (var l in listeners)
+            {
+                portArray.Add(l.Port, true);
+            }
+
+            foreach (var u in used)
+            {
+                portArray.Add(u.LocalEndPoint.Port, true);
+            }
+
+            for (int p = min; p < max; p++)
+            {
+                if (portArray.ContainsKey(p) == false)
+                    return p;
+            }
+
+            return -1;
+        }
+
      #region netbios info
 
         //group name/domain name/work group/ whatever its called

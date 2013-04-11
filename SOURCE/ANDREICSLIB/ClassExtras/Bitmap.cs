@@ -165,7 +165,17 @@ namespace ANDREICSLIB
             return inbit.Clone(rect, PixelFormat.DontCare);
         }
 
-        public static bool RowOrColIsWhite(Bitmap b, int value, bool isRow)
+        public static bool IsOnlyColour(Bitmap b,Color c)
+        {
+            for (int y=0;y<b.Height;y++)
+            {
+                if (RowOrColIsColour(b, y, true, c) == false)
+                    return false;
+            }
+            return true;
+        }
+
+        public static bool RowOrColIsColour(Bitmap b, int value, bool isRow,Color c)
         {
             int w = b.Width;
             int h = b.Height;
@@ -173,14 +183,14 @@ namespace ANDREICSLIB
 
             for (int v = 0; v < to; v++)
             {
-                Color c;
+                Color c2;
                 if (isRow)
-                    c = b.GetPixel(v, value);
+                    c2 = b.GetPixel(v, value);
                 else
-                    c = b.GetPixel(value, v);
+                    c2 = b.GetPixel(value, v);
 
 
-                if (c.R != 255 || c.G != 255 || c.B != 255)
+                if (c2.R != c.R || c2.G != c.G || c2.B != c.B)
                     return false;
             }
             return true;
@@ -197,14 +207,14 @@ namespace ANDREICSLIB
             {
                 if (starty == -1)
                 {
-                    if (RowOrColIsWhite(b, y, true)==false)
+                    if (RowOrColIsColour(b, y, true,Color.White)==false)
                         starty = y;
                 }
 
                 if (endy==-1)
                 {
                     var ey = (b.Height - 1) - y;
-                    if (RowOrColIsWhite(b, ey, true) == false)
+                    if (RowOrColIsColour(b, ey, true, Color.White) == false)
                         endy = ey;
                 }
 
@@ -216,14 +226,14 @@ namespace ANDREICSLIB
             {
                 if (startx == -1)
                 {
-                    if (RowOrColIsWhite(b, x, false) == false)
+                    if (RowOrColIsColour(b, x, false, Color.White) == false)
                         startx = x;
                 }
 
                 if (endx == -1)
                 {
                     var ex = (b.Width - 1) - x;
-                    if (RowOrColIsWhite(b, ex,false) == false)
+                    if (RowOrColIsColour(b, ex, false, Color.White) == false)
                         endx = ex;
                 }
 

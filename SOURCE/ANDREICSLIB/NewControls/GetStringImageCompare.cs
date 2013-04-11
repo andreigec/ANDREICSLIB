@@ -18,12 +18,15 @@ namespace ANDREICSLIB.NewControls
 
         public string[] returnvalue;
 
-        public string[] ShowDialog(String labelText, String title,Image i)
+        public string[] ShowDialog(String labelText, String title,Image i,int maxlen=-1,ImageLayout il=ImageLayout.Center)
         {
             Text = title;
             label.Text = labelText;
             imagepanel.BackgroundImage = i;
-            imagepanel.BackgroundImageLayout = ImageLayout.Stretch;
+            imagepanel.BackgroundImageLayout = il;
+
+            if (maxlen>=0)
+                textbox.MaxLength = maxlen;
 
             ShowDialog();
             return returnvalue;

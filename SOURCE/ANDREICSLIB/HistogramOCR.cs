@@ -213,6 +213,7 @@ namespace ANDREICSLIB
                 {
                     var ltext = t1[a];
                     var l = HistogramLetter.DeSerialise(ltext);
+                    if (letters.Any(s=>s.Letter.Equals(l.Letter))==false)
                     letters.Add(l);
                 }
 
@@ -230,16 +231,22 @@ namespace ANDREICSLIB
             return ret;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="b"></param>
+        /// <param name="whiteToSpace">default = will calculate</param>
+        /// <returns></returns>
         public Bitmap[][] SplitUp(Bitmap b, int whiteToSpace = -1)
         {
             var retlists = new List<List<Bitmap>>();
             //get rows
-            var rows = Split(b, true, whiteToSpace);
+            var rows = Split(b, true,ref  whiteToSpace);
             //for each of the rows, get the columns
             int row = 0;
             foreach (var r in rows)
             {
-                var cols = Split(r, false, whiteToSpace);
+                var cols = Split(r, false, ref whiteToSpace);
                 if (retlists.Count <= row)
                     retlists.Add(new List<Bitmap>());
 
@@ -265,7 +272,7 @@ namespace ANDREICSLIB
             return retlists.Select(s=>s.ToArray()).ToArray();
         }
 
-        private IEnumerable<Bitmap> Split(Bitmap b, bool byRow, int whiteToSpace = -1)
+        private static IEnumerable<Bitmap> Split(Bitmap b, bool byRow, ref int whiteToSpace )
         {
           
             //split rows then cols
@@ -276,10 +283,11 @@ namespace ANDREICSLIB
             var items = new List<Bitmap>();
             int whiteStart = 0;
             int lastValue = -1;
+
             for (int v = 0; v < to; v++)
             {
                 //keep going until we find a row with black
-                var isWhite = BitmapExtras.RowOrColIsWhite(b, v, byRow);
+                var isWhite = BitmapExtras.RowOrColIsColour(b, v, byRow,Color.White);
 
                 if (isWhite)
                 {
@@ -305,6 +313,10 @@ namespace ANDREICSLIB
                     Bitmap i = null;
                     if (byRow)
                     {
+                        //if by row, and the second time, we can estimate the white space for a space
+                        if (whiteToSpace==-1&&items.Count==1)
+                                whiteToSpace = whiteStart;
+
                         i = BitmapExtras.Crop(b, -1, v - whiteStart, 0, whiteStart);
 
                     }
@@ -344,7 +356,7 @@ namespace ANDREICSLIB
             {
                 foreach (var bcol in brow)
                 {
-                    var c = PerformOCRD(bcol);
+                    var c = PerformOCRCharacter(bcol);
                     ret[row] += c;
                 }
                 row++;
@@ -367,7 +379,16 @@ namespace ANDREICSLIB
             return null;
         }
 
-        private char PerformOCRD(Bitmap b)
+        public char? PerformOCRCharacterPerfect(Bitmap b)
+        {
+            //go through all the saved characters, and print the most likely
+                var res = Letters.FirstOrDefault(s => GetOffScore(b, s) == 0);
+                if (res == null)
+                    return null;
+            return res.Letter;
+        }
+
+        private char PerformOCRCharacter(Bitmap b,bool perfectOnly=false)
         {
             //go through all the saved characters, and print the most likely
             var best = Letters.OrderBy(s => GetOffScore(b, s));
@@ -425,7 +446,7 @@ namespace ANDREICSLIB
         /// <param name="filename"></param>
         /// <param name="letterChar"></param>
         /// <returns></returns>
-        private bool Train(Bitmap b, char letterChar)
+        public bool Train(Bitmap b, char letterChar)
         {
             try
             {
