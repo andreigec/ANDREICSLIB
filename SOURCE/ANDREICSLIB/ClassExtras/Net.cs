@@ -78,6 +78,26 @@ namespace ANDREICSLIB
             }
             return false;
         }
+        
+        public static bool IsLanIPCheckTTL(IPAddress address)
+        {
+            var ping = new Ping();
+            try
+            {
+                var rep = ping.Send(address, 100, new byte[] { 1 }, new PingOptions()
+                {
+                    DontFragment = true,
+                    Ttl = 1
+                });
+                if (rep != null)
+                    return rep.Status != IPStatus.TtlExpired && rep.Status != IPStatus.TimedOut && rep.Status != IPStatus.TimeExceeded;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return false;
+        }
 
         private static bool CheckMask(IPAddress address, IPAddress mask, IPAddress target)
         {
