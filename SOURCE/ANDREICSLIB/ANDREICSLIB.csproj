@@ -96,6 +96,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ClassExtras\Colour.cs" />
+    <Compile Include="NewControls\selectItemFromListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewControls\selectItemFromListView.Designer.cs">
+      <DependentUpon>selectItemFromListView.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewControls\GetStringImageCompare.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,7 +169,6 @@
     <Compile Include="ClassReplacements\Panel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="NewControls\SelectItem.cs" />
     <Compile Include="NewControls\SelectItemsFromCheckBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,6 +223,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="NewControls\selectItemFromListView.resx">
+      <DependentUpon>selectItemFromListView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NewControls\DragBar.resx">
       <DependentUpon>DragBar.cs</DependentUpon>
     </EmbeddedResource>

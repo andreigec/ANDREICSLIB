@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace ANDREICSLIB
+namespace ANDREICSLIB.NewControls
 {
     public partial class multipleMessageBox : Form
     {

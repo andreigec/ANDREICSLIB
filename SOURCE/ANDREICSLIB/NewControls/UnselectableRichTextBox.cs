@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace ANDREICSLIB
+namespace ANDREICSLIB.NewControls
 {
     public class UnselectableRichTextBox : RichTextBox
     {

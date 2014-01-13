@@ -1,4 +1,4 @@
-﻿namespace ANDREICSLIB
+﻿namespace ANDREICSLIB.NewControls
 {
 	partial class multipleMessageBox
 	{

@@ -9,14 +9,29 @@ namespace ANDREICSLIB
 {
     public class BitmapExtras
     {
-        public static Bitmap InitBitmap(int width,int height,Color c)
+        public static Bitmap GrayScale(Bitmap Bmp)
+        {
+            int rgb;
+            Color c;
+
+            for (int y = 0; y < Bmp.Height; y++)
+                for (int x = 0; x < Bmp.Width; x++)
+                {
+                    c = Bmp.GetPixel(x, y);
+                    rgb = (int)((c.R + c.G + c.B) / 3);
+                    Bmp.SetPixel(x, y, Color.FromArgb(rgb, rgb, rgb));
+                }
+            return Bmp;
+        }
+
+        public static Bitmap InitBitmap(int width, int height, Color c)
         {
             var b = new Bitmap(width, height);
             for (int y = 0; y < b.Height; y++)
             {
                 for (int x = 0; x < b.Width; x++)
                 {
-                    b.SetPixel(x,y,c);
+                    b.SetPixel(x, y, c);
                 }
             }
             return b;
@@ -24,13 +39,13 @@ namespace ANDREICSLIB
 
         public static Bitmap NonWhiteToBlack(Bitmap b, Color c)
         {
-            for (int y=0;y<b.Height;y++)
+            for (int y = 0; y < b.Height; y++)
             {
-                for (int x=0;x<b.Width;x++)
+                for (int x = 0; x < b.Width; x++)
                 {
                     var p = b.GetPixel(x, y);
                     bool white = !(p.R != 255 || p.G != 255 || p.B != 255);
-                    b.SetPixel(x,y,white?Color.White:Color.Black);
+                    b.SetPixel(x, y, white ? Color.White : Color.Black);
                 }
             }
             return b;
@@ -84,7 +99,7 @@ namespace ANDREICSLIB
 
         public static Bitmap StretchBitmap(Bitmap sourceBMP, int width, int height)
         {
-            var ret = new Bitmap(sourceBMP,width, height);
+            var ret = new Bitmap(sourceBMP, width, height);
             return ret;
         }
 
@@ -165,9 +180,9 @@ namespace ANDREICSLIB
             return inbit.Clone(rect, PixelFormat.DontCare);
         }
 
-        public static bool IsOnlyColour(Bitmap b,Color c)
+        public static bool IsOnlyColour(Bitmap b, Color c)
         {
-            for (int y=0;y<b.Height;y++)
+            for (int y = 0; y < b.Height; y++)
             {
                 if (RowOrColIsColour(b, y, true, c) == false)
                     return false;
@@ -175,7 +190,7 @@ namespace ANDREICSLIB
             return true;
         }
 
-        public static bool RowOrColIsColour(Bitmap b, int value, bool isRow,Color c)
+        public static bool RowOrColIsColour(Bitmap b, int value, bool isRow, Color c)
         {
             int w = b.Width;
             int h = b.Height;
@@ -196,7 +211,7 @@ namespace ANDREICSLIB
             return true;
         }
 
-        public static Bitmap RemoveExcessWhitespace(Bitmap b, bool keepPureWhite = true,int padx=0,int pady=0)
+        public static Bitmap RemoveExcessWhitespace(Bitmap b, bool keepPureWhite = true, int padx = 0, int pady = 0)
         {
             //remove rows of white
             int starty = -1;
@@ -207,11 +222,11 @@ namespace ANDREICSLIB
             {
                 if (starty == -1)
                 {
-                    if (RowOrColIsColour(b, y, true,Color.White)==false)
+                    if (RowOrColIsColour(b, y, true, Color.White) == false)
                         starty = y;
                 }
 
-                if (endy==-1)
+                if (endy == -1)
                 {
                     var ey = (b.Height - 1) - y;
                     if (RowOrColIsColour(b, ey, true, Color.White) == false)
@@ -241,7 +256,7 @@ namespace ANDREICSLIB
                     break;
             }
 
-            if (starty==-1||startx==-1||endy==-1||endx==-1)
+            if (starty == -1 || startx == -1 || endy == -1 || endx == -1)
             {
                 if (keepPureWhite)
                     return b;

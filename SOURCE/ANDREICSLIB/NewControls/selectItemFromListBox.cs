@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using ANDREICSLIB.NewControls;
 
-namespace ANDREICSLIB
+namespace ANDREICSLIB.NewControls
 {
     public partial class selectItemFromListBox : Form
     {
@@ -18,6 +17,21 @@ namespace ANDREICSLIB
         private selectItemFromListBox()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// not a control
+        /// </summary>
+        public class SelectItem
+        {
+            public bool preselected = false;
+            public string Text = "";
+
+            public SelectItem(String text, bool isSelected)
+            {
+                Text = text;
+                preselected = isSelected;
+            }
         }
 
         /// <summary>
@@ -44,7 +58,7 @@ namespace ANDREICSLIB
             int a = 0;
             foreach (SelectItem v in listBoxItems)
             {
-                s.listBox1.Items.Add(v.text);
+                s.listBox1.Items.Add(v.Text);
                 s.listBox1.SetSelected(a, v.preselected);
                 a++;
             }

@@ -18,7 +18,7 @@ namespace ANDREICSLIB.NewControls
         {
         }
 
-        public static List<String> ShowDialog(String labelText, String title, List<SelectItem> listBoxItems,
+        public static List<String> ShowDialog(String labelText, String title, List<selectItemFromListBox.SelectItem> listBoxItems,
                                               int mustSelectCountIN = -1)
         {
             var s = new SelectItemsFromCheckBox();
@@ -29,9 +29,9 @@ namespace ANDREICSLIB.NewControls
 
             s.checkedListBox1.Items.Clear();
             int a = 0;
-            foreach (SelectItem v in listBoxItems)
+            foreach (selectItemFromListBox.SelectItem v in listBoxItems)
             {
-                s.checkedListBox1.Items.Add(v.text);
+                s.checkedListBox1.Items.Add(v.Text);
                 s.checkedListBox1.SetSelected(a, v.preselected);
                 a++;
             }
