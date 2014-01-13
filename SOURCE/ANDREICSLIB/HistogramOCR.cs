@@ -49,10 +49,10 @@ namespace ANDREICSLIB
             public int[] YValues;
             const char b = '\b';
             const char f = '\f';
-            
+
             private HistogramLetter()
             {
-              
+
             }
 
             public string Serialise()
@@ -180,7 +180,7 @@ namespace ANDREICSLIB
         /// <summary>
         /// initialise with a file, or blank
         /// </summary>
-        public HistogramOCR(int HWidth = 20, int HHeight =20)
+        public HistogramOCR(int HWidth = 20, int HHeight = 20)
         {
             HistogramHeight = HHeight;
             HistogramWidth = HWidth;
@@ -213,8 +213,8 @@ namespace ANDREICSLIB
                 {
                     var ltext = t1[a];
                     var l = HistogramLetter.DeSerialise(ltext);
-                    if (letters.Any(s=>s.Letter.Equals(l.Letter))==false)
-                    letters.Add(l);
+                    if (letters.Any(s => s.Letter.Equals(l.Letter)) == false)
+                        letters.Add(l);
                 }
 
                 //set
@@ -241,7 +241,7 @@ namespace ANDREICSLIB
         {
             var retlists = new List<List<Bitmap>>();
             //get rows
-            var rows = Split(b, true,ref  whiteToSpace);
+            var rows = Split(b, true, ref  whiteToSpace);
             //for each of the rows, get the columns
             int row = 0;
             foreach (var r in rows)
@@ -253,15 +253,15 @@ namespace ANDREICSLIB
                 retlists[row].AddRange(cols);
                 row++;
             }
-            //return results as array
-            //normalise
-            redo:
-            for (int y = 0; y < retlists.Count();y++ )
+        //return results as array
+        //normalise
+        redo:
+            for (int y = 0; y < retlists.Count(); y++)
             {
                 for (int x = 0; x < retlists[y].Count(); x++)
                 {
                     var norm = Normalise(retlists[y][x]);
-                    if (norm==null)
+                    if (norm == null)
                     {
                         retlists[y].RemoveAt(x);
                         goto redo;
@@ -269,12 +269,12 @@ namespace ANDREICSLIB
                     retlists[y][x] = norm;
                 }
             }
-            return retlists.Select(s=>s.ToArray()).ToArray();
+            return retlists.Select(s => s.ToArray()).ToArray();
         }
 
-        private static IEnumerable<Bitmap> Split(Bitmap b, bool byRow, ref int whiteToSpace )
+        private static IEnumerable<Bitmap> Split(Bitmap b, bool byRow, ref int whiteToSpace)
         {
-          
+
             //split rows then cols
             int w = b.Width;
             int h = b.Height;
@@ -287,7 +287,7 @@ namespace ANDREICSLIB
             for (int v = 0; v < to; v++)
             {
                 //keep going until we find a row with black
-                var isWhite = BitmapExtras.RowOrColIsColour(b, v, byRow,Color.White);
+                var isWhite = BitmapExtras.RowOrColIsColour(b, v, byRow, Color.White);
 
                 if (isWhite)
                 {
@@ -314,8 +314,8 @@ namespace ANDREICSLIB
                     if (byRow)
                     {
                         //if by row, and the second time, we can estimate the white space for a space
-                        if (whiteToSpace==-1&&items.Count==1)
-                                whiteToSpace = whiteStart;
+                        if (whiteToSpace == -1 && items.Count == 1)
+                            whiteToSpace = whiteStart;
 
                         i = BitmapExtras.Crop(b, -1, v - whiteStart, 0, whiteStart);
 
@@ -345,7 +345,7 @@ namespace ANDREICSLIB
             return items;
         }
 
-        public string[] PerformOCR(Bitmap b,int spaceForWhiteSpace=-1)
+        public string[] PerformOCR(Bitmap b, int spaceForWhiteSpace = -1)
         {
             //split bitmap here
             var bits = SplitUp(b, spaceForWhiteSpace);
@@ -382,13 +382,13 @@ namespace ANDREICSLIB
         public char? PerformOCRCharacterPerfect(Bitmap b)
         {
             //go through all the saved characters, and print the most likely
-                var res = Letters.FirstOrDefault(s => GetOffScore(b, s) == 0);
-                if (res == null)
-                    return null;
+            var res = Letters.FirstOrDefault(s => GetOffScore(b, s) == 0);
+            if (res == null)
+                return null;
             return res.Letter;
         }
 
-        private char PerformOCRCharacter(Bitmap b,bool perfectOnly=false)
+        private char PerformOCRCharacter(Bitmap b, bool perfectOnly = false)
         {
             //go through all the saved characters, and print the most likely
             var best = Letters.OrderBy(s => GetOffScore(b, s));
@@ -428,7 +428,7 @@ namespace ANDREICSLIB
                             continue;
 
                         Train(bchar, l);
-                     //   bchar.Save("out_" + l.ToString() + ".bmp");
+                        //   bchar.Save("out_" + l.ToString() + ".bmp");
                     }
                     column++;
                 }
@@ -461,7 +461,10 @@ namespace ANDREICSLIB
             return false;
         }
 
-       
+        public bool RemoveByLetter(char removeChar)
+        {
+            return (Letters.RemoveAll(s => s.Letter == removeChar) > 0);
+        }
 
         /// <summary>
         /// get score. score of 0 is perfect

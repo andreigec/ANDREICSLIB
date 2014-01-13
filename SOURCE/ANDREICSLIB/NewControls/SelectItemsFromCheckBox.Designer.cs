@@ -87,6 +87,7 @@
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.label1);
             this.Name = "SelectItemsFromCheckBox";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SelectItemsFromCheckBox";
             this.Load += new System.EventHandler(this.SelectItemsFromCheckBox_Load);
             this.ResumeLayout(false);

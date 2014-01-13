@@ -90,6 +90,7 @@
             this.Controls.Add(this.okbutton);
             this.Controls.Add(this.listBox1);
             this.Name = "selectItemFromListBox";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "selectItemFromListBox";
             this.Load += new System.EventHandler(this.selectItemFromListBox_Load);
             this.SizeChanged += new System.EventHandler(this.selectItemFromListBox_SizeChanged);

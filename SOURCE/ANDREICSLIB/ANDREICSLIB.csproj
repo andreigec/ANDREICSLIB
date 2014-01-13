@@ -88,6 +88,7 @@
     <Compile Include="ClassExtras\ContextMenuStrip.cs" />
     <Compile Include="ClassExtras\Directory.cs" />
     <Compile Include="ClassExtras\List.cs" />
+    <Compile Include="ClassExtras\ListBox.cs" />
     <Compile Include="ClassExtras\TabPage.cs" />
     <Compile Include="HistogramOCR.cs" />
     <Compile Include="ListViewSorter.cs" />

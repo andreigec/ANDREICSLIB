@@ -48,6 +48,7 @@
             this.textbox.Name = "textbox";
             this.textbox.Size = new System.Drawing.Size(192, 393);
             this.textbox.TabIndex = 0;
+            this.textbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
             // 
             // label
             // 
@@ -116,6 +117,7 @@
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.panel1);
             this.Name = "GetStringImageCompare";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.GetStringImageCompare_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

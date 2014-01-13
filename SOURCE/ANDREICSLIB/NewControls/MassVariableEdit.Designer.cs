@@ -77,6 +77,7 @@
             this.Controls.Add(this.okbutton);
             this.Controls.Add(this.itemspanel);
             this.Name = "MassVariableEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MassVariableEdit";
             this.ResumeLayout(false);
 
