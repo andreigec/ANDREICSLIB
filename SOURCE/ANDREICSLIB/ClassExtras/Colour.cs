@@ -8,11 +8,22 @@ namespace ANDREICSLIB
     {
         private static Dictionary<Tuple<int, int>, Dictionary<int, Color>> colourCache;
 
+        /// <summary>
+        /// return true if the two colours match
+        /// </summary>
+        /// <param name="c1"></param>
+        /// <param name="c2"></param>
+        /// <returns></returns>
         public static bool TestColourByRGB(Color c1, Color c2)
         {
             return c1.R == c2.R && c1.G == c2.G && c1.B == c2.B;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="hex"></param>
+        /// <returns></returns>
         public static Color? HexColourToColour(String hex)
         {
             try

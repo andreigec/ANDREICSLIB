@@ -9,6 +9,11 @@ namespace ANDREICSLIB
 {
     public class BitmapExtras
     {
+        /// <summary>
+        /// convert a bitmap to grayscale
+        /// </summary>
+        /// <param name="Bmp"></param>
+        /// <returns></returns>
         public static Bitmap GrayScale(Bitmap Bmp)
         {
             int rgb;
@@ -24,6 +29,13 @@ namespace ANDREICSLIB
             return Bmp;
         }
 
+        /// <summary>
+        /// initialise a bitmap with a width height and colour
+        /// </summary>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="c"></param>
+        /// <returns></returns>
         public static Bitmap InitBitmap(int width, int height, Color c)
         {
             var b = new Bitmap(width, height);
@@ -37,6 +49,12 @@ namespace ANDREICSLIB
             return b;
         }
 
+        /// <summary>
+        /// convert all RGB values in a bitmap that arent white, to black
+        /// </summary>
+        /// <param name="b"></param>
+        /// <param name="c"></param>
+        /// <returns></returns>
         public static Bitmap NonWhiteToBlack(Bitmap b, Color c)
         {
             for (int y = 0; y < b.Height; y++)
@@ -80,6 +98,11 @@ namespace ANDREICSLIB
             return Bmp;
         }
 
+        /// <summary>
+        /// load an image file, and convert to a 2d array of Colors
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <returns></returns>
         public static Color[][] ImageFileToColorMatrix(String filename)
         {
             try
@@ -97,13 +120,27 @@ namespace ANDREICSLIB
             }
         }
 
+        /// <summary>
+        /// stretch an image to the desired width and height
+        /// </summary>
+        /// <param name="sourceBMP"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <returns></returns>
         public static Bitmap StretchBitmap(Bitmap sourceBMP, int width, int height)
         {
             var ret = new Bitmap(sourceBMP, width, height);
             return ret;
         }
 
-
+        /// <summary>
+        /// resize a bitmap to the desired width and height.
+        /// </summary>
+        /// <param name="sourceBMP"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="antiAlias"></param>
+        /// <returns></returns>
         public static Bitmap ResizeBitmap(Bitmap sourceBMP, int width, int height, bool antiAlias = false)
         {
             var bmp = new Bitmap(width, height);
@@ -114,7 +151,6 @@ namespace ANDREICSLIB
             graph.DrawImage(sourceBMP, new Rectangle(0, 0, width, height));
             return bmp;
         }
-
 
         private static Color[][] BitmapToColorMatrix(Bitmap b)
         {
@@ -136,6 +172,13 @@ namespace ANDREICSLIB
             return ret;
         }
 
+        /// <summary>
+        /// draw a line between to x/y coords in a bitmap
+        /// </summary>
+        /// <param name="b"></param>
+        /// <param name="c"></param>
+        /// <param name="one"></param>
+        /// <param name="two"></param>
         public static void DrawLine(Bitmap b, Color c, Tuple<int, int> one, Tuple<int, int> two)
         {
             int x = one.Item1;
@@ -157,6 +200,11 @@ namespace ANDREICSLIB
             }
         }
 
+        /// <summary>
+        /// perform locking on a bitmap to increase read speed
+        /// </summary>
+        /// <param name="b"></param>
+        /// <param name="doLock"></param>
         public static void LockBitmap(Bitmap b, bool doLock)
         {
             b.LockBits(new Rectangle(0, 0, b.Width, b.Height), ImageLockMode.WriteOnly, b.PixelFormat);
@@ -180,6 +228,12 @@ namespace ANDREICSLIB
             return inbit.Clone(rect, PixelFormat.DontCare);
         }
 
+        /// <summary>
+        /// return true if the bitmap only contains a certain colour
+        /// </summary>
+        /// <param name="b"></param>
+        /// <param name="c"></param>
+        /// <returns></returns>
         public static bool IsOnlyColour(Bitmap b, Color c)
         {
             for (int y = 0; y < b.Height; y++)
@@ -190,6 +244,14 @@ namespace ANDREICSLIB
             return true;
         }
 
+        /// <summary>
+        /// return true if a row of column is a certain colour
+        /// </summary>
+        /// <param name="b"></param>
+        /// <param name="value"></param>
+        /// <param name="isRow"></param>
+        /// <param name="c"></param>
+        /// <returns></returns>
         public static bool RowOrColIsColour(Bitmap b, int value, bool isRow, Color c)
         {
             int w = b.Width;
@@ -211,6 +273,14 @@ namespace ANDREICSLIB
             return true;
         }
 
+        /// <summary>
+        /// remove all straight whitespace around the outsides of an image. 
+        /// </summary>
+        /// <param name="b"></param>
+        /// <param name="keepPureWhite">if true, will return an image intact if it is only white</param>
+        /// <param name="padx"></param>
+        /// <param name="pady"></param>
+        /// <returns></returns>
         public static Bitmap RemoveExcessWhitespace(Bitmap b, bool keepPureWhite = true, int padx = 0, int pady = 0)
         {
             //remove rows of white

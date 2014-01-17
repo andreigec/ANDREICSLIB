@@ -1,0 +1,1134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shfbBuild product="Sandcastle Help File Builder" version="1.9.8.0" projectFile="C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Doc.shfbproj" started="14/01/2014 9:34:58 AM">
+<buildStep step="Initializing">
+Finding tools...
+Found Sandcastle tools in &#39;C:\Program Files (x86)\Sandcastle\&#39;
+Searching for HTML Help 1 compiler...
+Found HTML Help 1 compiler in &#39;C:\Program Files (x86)\HTML Help Workshop\&#39;
+</buildStep>
+<buildStep step="ValidatingDocumentationSources">
+Validating and copying documentation source information
+Source: C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\ANDREICSLIB\bin\Debug\ANDREICSLIB.dll
+    Found assembly &#39;C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\ANDREICSLIB\bin\Debug\ANDREICSLIB.dll&#39;
+Source: C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\ANDREICSLIB\bin\Debug\ANDREICSLIB.XML
+
+References to include (excluding framework assemblies):
+    C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\ANDREICSLIB\bin\Debug\ANDREICSLIB.dll
+
+Copying XML comments files
+    C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\ANDREICSLIB\bin\Debug\ANDREICSLIB.XML -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\ANDREICSLIB.XML
+</buildStep>
+<buildStep step="GenerateSharedContent">
+Generating shared content files (en-US, English (United States))...
+    Last step completed in 00:00:00.0100
+</buildStep>
+<buildStep step="GenerateApiFilter">
+Generating API filter for MRefBuilder...
+    Last step completed in 00:00:00.0010
+</buildStep>
+<buildStep step="GenerateReflectionInfo">
+Generating reflection information...
+[C:\Program Files (x86)\MSBuild\12.0\bin\MSBuild.exe]
+  MRefBuilder (v2.7.4.0)
+  Copyright &#184; 2006-2013, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2013, Eric Woodruff, All Rights Reserved.
+  Info: Loaded 1 assemblies for reflection and 2 dependency assemblies.
+  Info: Wrote information on 3 namespaces, 63 types, and 346 members
+  XslTransform (v2.7.4.0)
+  Copyright &#184; 2006-2013, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2013, Eric Woodruff, All Rights Reserved.
+  Info: Applying XSL transformation &#39;C:\Program Files (x86)\Sandcastle\ProductionTransforms\MergeDuplicates.xsl&#39;.
+    Last step completed in 00:00:03.1633
+</buildStep>
+<buildStep step="GenerateNamespaceSummaries">
+Generating namespace summary information...
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="ApplyVisibilityProperties">
+Applying visibility properties to reflection information file
+    0 attribute nodes removed
+    0 explicit interface implementations removed
+    71 local and base class EII elements removed
+    Last step completed in 00:00:00.7021
+</buildStep>
+<buildStep step="TransformReflectionInfo">
+Transforming reflection output...
+[C:\Program Files (x86)\MSBuild\12.0\bin\MSBuild.exe]
+  XslTransform (v2.7.4.0)
+  Copyright &#184; 2006-2013, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2013, Eric Woodruff, All Rights Reserved.
+  Info: Applying XSL transformation &#39;C:\Program Files (x86)\Sandcastle\\ProductionTransforms\ApplyVSDocModel.xsl&#39;.
+  Info: Applying XSL transformation &#39;C:\Program Files (x86)\Sandcastle\ProductionTransforms\AddFilenames.xsl&#39;.
+  XslTransform (v2.7.4.0)
+  Copyright &#184; 2006-2013, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2013, Eric Woodruff, All Rights Reserved.
+  Info: Applying XSL transformation &#39;C:\Program Files (x86)\Sandcastle\ProductionTransforms\ReflectionToManifest.xsl&#39;.
+    Last step completed in 00:00:05.1745
+</buildStep>
+<buildStep step="CopyAdditionalContent">
+Copying additional content files...
+No additional content to copy
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="MergeTablesOfContents">
+Merging conceptual and additional tables of contents...
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="GenerateIntermediateTableOfContents">
+Generating intermediate table of contents file...
+[C:\Program Files (x86)\MSBuild\12.0\bin\MSBuild.exe]
+  XslTransform (v2.7.4.0)
+  Copyright &#184; 2006-2013, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2013, Eric Woodruff, All Rights Reserved.
+  Info: Applying XSL transformation &#39;C:\Program Files (x86)\Sandcastle\\ProductionTransforms\CreateVSToc.xsl&#39;.
+Generating conceptual content intermediate TOC file...
+    Last step completed in 00:00:00.4480
+</buildStep>
+<buildStep step="CreateBuildAssemblerConfigs">
+Creating Sandcastle configuration files...
+    sandcastle.config
+    Last step completed in 00:00:00.5761
+</buildStep>
+<buildStep step="MergeCustomConfigs">
+Merging custom build component configurations
+C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\sandcastle.config
+    Last step completed in 00:00:00.3570
+</buildStep>
+<buildStep step="BuildReferenceTopics">
+Building reference help topics...
+[C:\Program Files (x86)\MSBuild\12.0\bin\MSBuild.exe]
+  BuildAssembler (v2.7.4.0)
+  Copyright &#184; 2006-2013, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2013, Eric Woodruff, All Rights Reserved.
+  Info: Loading configuration...
+  Info: Processing topics...
+  Warn: ShowMissingComponent: [N:ANDREICSLIB] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.aboutScreen] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.aboutScreen.apptitlelabel] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.aboutScreen.appversionlabel] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.aboutScreen.otherapptext] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.BitmapExtras] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.Crop(System.Drawing.Bitmap,System.Int32,System.Int32,System.Int32,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.Crop(System.Drawing.Bitmap,System.Int32,System.Int32,System.Int32,System.Int32)] Missing &lt;param name=&quot;startx&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.Crop(System.Drawing.Bitmap,System.Int32,System.Int32,System.Int32,System.Int32)] Missing &lt;param name=&quot;starty&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.DrawLine(System.Drawing.Bitmap,System.Drawing.Color,System.Tuple{System.Int32,System.Int32},System.Tuple{System.Int32,System.Int32})] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.DrawLine(System.Drawing.Bitmap,System.Drawing.Color,System.Tuple{System.Int32,System.Int32},System.Tuple{System.Int32,System.Int32})] Missing &lt;param name=&quot;b&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.DrawLine(System.Drawing.Bitmap,System.Drawing.Color,System.Tuple{System.Int32,System.Int32},System.Tuple{System.Int32,System.Int32})] Missing &lt;param name=&quot;c&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.DrawLine(System.Drawing.Bitmap,System.Drawing.Color,System.Tuple{System.Int32,System.Int32},System.Tuple{System.Int32,System.Int32})] Missing &lt;param name=&quot;one&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.DrawLine(System.Drawing.Bitmap,System.Drawing.Color,System.Tuple{System.Int32,System.Int32},System.Tuple{System.Int32,System.Int32})] Missing &lt;param name=&quot;two&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.GrayScale(System.Drawing.Bitmap)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.GrayScale(System.Drawing.Bitmap)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.GrayScale(System.Drawing.Bitmap)] Missing &lt;param name=&quot;Bmp&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.ImageFileToColorMatrix(System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.ImageFileToColorMatrix(System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.ImageFileToColorMatrix(System.String)] Missing &lt;param name=&quot;filename&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.InitBitmap(System.Int32,System.Int32,System.Drawing.Color)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.InitBitmap(System.Int32,System.Int32,System.Drawing.Color)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.InitBitmap(System.Int32,System.Int32,System.Drawing.Color)] Missing &lt;param name=&quot;width&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.InitBitmap(System.Int32,System.Int32,System.Drawing.Color)] Missing &lt;param name=&quot;height&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.InitBitmap(System.Int32,System.Int32,System.Drawing.Color)] Missing &lt;param name=&quot;c&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.IsOnlyColour(System.Drawing.Bitmap,System.Drawing.Color)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.IsOnlyColour(System.Drawing.Bitmap,System.Drawing.Color)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.IsOnlyColour(System.Drawing.Bitmap,System.Drawing.Color)] Missing &lt;param name=&quot;b&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.IsOnlyColour(System.Drawing.Bitmap,System.Drawing.Color)] Missing &lt;param name=&quot;c&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.LockBitmap(System.Drawing.Bitmap,System.Boolean)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.LockBitmap(System.Drawing.Bitmap,System.Boolean)] Missing &lt;param name=&quot;b&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.LockBitmap(System.Drawing.Bitmap,System.Boolean)] Missing &lt;param name=&quot;doLock&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.NonWhiteToBlack(System.Drawing.Bitmap,System.Drawing.Color)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.NonWhiteToBlack(System.Drawing.Bitmap,System.Drawing.Color)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.NonWhiteToBlack(System.Drawing.Bitmap,System.Drawing.Color)] Missing &lt;param name=&quot;b&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.NonWhiteToBlack(System.Drawing.Bitmap,System.Drawing.Color)] Missing &lt;param name=&quot;c&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.OnlyAllowBlackAndColour(System.Drawing.Bitmap,System.Int32,System.Int32,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.OnlyAllowBlackAndColour(System.Drawing.Bitmap,System.Int32,System.Int32,System.Int32)] Missing &lt;param name=&quot;Bmp&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.OnlyAllowBlackAndColour(System.Drawing.Bitmap,System.Int32,System.Int32,System.Int32)] Missing &lt;param name=&quot;r&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.OnlyAllowBlackAndColour(System.Drawing.Bitmap,System.Int32,System.Int32,System.Int32)] Missing &lt;param name=&quot;g&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.OnlyAllowBlackAndColour(System.Drawing.Bitmap,System.Int32,System.Int32,System.Int32)] Missing &lt;param name=&quot;b&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.RemoveExcessWhitespace(System.Drawing.Bitmap,System.Boolean,System.Int32,System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.RemoveExcessWhitespace(System.Drawing.Bitmap,System.Boolean,System.Int32,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.RemoveExcessWhitespace(System.Drawing.Bitmap,System.Boolean,System.Int32,System.Int32)] Missing &lt;param name=&quot;b&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.RemoveExcessWhitespace(System.Drawing.Bitmap,System.Boolean,System.Int32,System.Int32)] Missing &lt;param name=&quot;keepPureWhite&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.RemoveExcessWhitespace(System.Drawing.Bitmap,System.Boolean,System.Int32,System.Int32)] Missing &lt;param name=&quot;padx&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.RemoveExcessWhitespace(System.Drawing.Bitmap,System.Boolean,System.Int32,System.Int32)] Missing &lt;param name=&quot;pady&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.ResizeBitmap(System.Drawing.Bitmap,System.Int32,System.Int32,System.Boolean)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.ResizeBitmap(System.Drawing.Bitmap,System.Int32,System.Int32,System.Boolean)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.ResizeBitmap(System.Drawing.Bitmap,System.Int32,System.Int32,System.Boolean)] Missing &lt;param name=&quot;sourceBMP&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.ResizeBitmap(System.Drawing.Bitmap,System.Int32,System.Int32,System.Boolean)] Missing &lt;param name=&quot;width&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.ResizeBitmap(System.Drawing.Bitmap,System.Int32,System.Int32,System.Boolean)] Missing &lt;param name=&quot;height&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.ResizeBitmap(System.Drawing.Bitmap,System.Int32,System.Int32,System.Boolean)] Missing &lt;param name=&quot;antiAlias&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.RowOrColIsColour(System.Drawing.Bitmap,System.Int32,System.Boolean,System.Drawing.Color)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.RowOrColIsColour(System.Drawing.Bitmap,System.Int32,System.Boolean,System.Drawing.Color)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.RowOrColIsColour(System.Drawing.Bitmap,System.Int32,System.Boolean,System.Drawing.Color)] Missing &lt;param name=&quot;b&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.RowOrColIsColour(System.Drawing.Bitmap,System.Int32,System.Boolean,System.Drawing.Color)] Missing &lt;param name=&quot;value&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.RowOrColIsColour(System.Drawing.Bitmap,System.Int32,System.Boolean,System.Drawing.Color)] Missing &lt;param name=&quot;isRow&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.RowOrColIsColour(System.Drawing.Bitmap,System.Int32,System.Boolean,System.Drawing.Color)] Missing &lt;param name=&quot;c&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.StretchBitmap(System.Drawing.Bitmap,System.Int32,System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.StretchBitmap(System.Drawing.Bitmap,System.Int32,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.StretchBitmap(System.Drawing.Bitmap,System.Int32,System.Int32)] Missing &lt;param name=&quot;sourceBMP&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.StretchBitmap(System.Drawing.Bitmap,System.Int32,System.Int32)] Missing &lt;param name=&quot;width&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.BitmapExtras.StretchBitmap(System.Drawing.Bitmap,System.Int32,System.Int32)] Missing &lt;param name=&quot;height&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.ColorExtras] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ColorExtras.getColourFromInt(System.Int32,System.Int32,System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ColorExtras.getColourFromInt(System.Int32,System.Int32,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ColorExtras.getColourFromInt(System.Int32,System.Int32,System.Int32)] Missing &lt;param name=&quot;p&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ColorExtras.getColourFromInt(System.Int32,System.Int32,System.Int32)] Missing &lt;param name=&quot;min&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ColorExtras.getColourFromInt(System.Int32,System.Int32,System.Int32)] Missing &lt;param name=&quot;max&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ColorExtras.GetNearestColour(System.Drawing.Color,System.Collections.Generic.List{System.Drawing.Color})] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ColorExtras.GetNearestColour(System.Drawing.Color,System.Collections.Generic.List{System.Drawing.Color})] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ColorExtras.GetNearestColour(System.Drawing.Color,System.Collections.Generic.List{System.Drawing.Color})] Missing &lt;param name=&quot;c1&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ColorExtras.GetNearestColour(System.Drawing.Color,System.Collections.Generic.List{System.Drawing.Color})] Missing &lt;param name=&quot;possibleColours&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ColorExtras.getNegative(System.Drawing.Color)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ColorExtras.getNegative(System.Drawing.Color)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ColorExtras.getNegative(System.Drawing.Color)] Missing &lt;param name=&quot;inColour&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ColorExtras.HexColourToColour(System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ColorExtras.HexColourToColour(System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ColorExtras.HexColourToColour(System.String)] Missing &lt;param name=&quot;hex&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ColorExtras.TestColourByRGB(System.Drawing.Color,System.Drawing.Color)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ColorExtras.TestColourByRGB(System.Drawing.Color,System.Drawing.Color)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ColorExtras.TestColourByRGB(System.Drawing.Color,System.Drawing.Color)] Missing &lt;param name=&quot;c1&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ColorExtras.TestColourByRGB(System.Drawing.Color,System.Drawing.Color)] Missing &lt;param name=&quot;c2&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.CustomTimeZones] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.CustomTimeZones.#ctor(System.TimeZoneInfo,System.String,System.TimeSpan)] Missing &lt;param name=&quot;idIN&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.CustomTimeZones.#ctor(System.TimeZoneInfo,System.String,System.TimeSpan)] Missing &lt;param name=&quot;nameIN&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.CustomTimeZones.#ctor(System.TimeZoneInfo,System.String,System.TimeSpan)] Missing &lt;param name=&quot;UTCIN&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.CustomTimeZones.FromString(System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.CustomTimeZones.FromString(System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.CustomTimeZones.FromString(System.String)] Missing &lt;param name=&quot;s&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.CustomTimeZones.GetMyTimeZone] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.CustomTimeZones.GetMyTimeZone] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.CustomTimeZones.Id] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.CustomTimeZones.name] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.CustomTimeZones.Sort(System.Boolean)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.CustomTimeZones.Sort(System.Boolean)] Missing &lt;param name=&quot;byName&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.CustomTimeZones.ToString] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.CustomTimeZones.ToString] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.CustomTimeZones.UTCoffset] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.CustomTimeZones.Zones] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.DataClasses] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.DataClasses.Btree] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DataClasses.Btree.LoadFileIntoTree(System.String,ANDREICSLIB.DataClasses.Btree{System.String},System.String,System.Boolean)] Missing &lt;param name=&quot;filename&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DataClasses.Btree.LoadFileIntoTree(System.String,ANDREICSLIB.DataClasses.Btree{System.String},System.String,System.Boolean)] Missing &lt;param name=&quot;root&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DataClasses.Btree.LoadFileIntoTree(System.String,ANDREICSLIB.DataClasses.Btree{System.String},System.String,System.Boolean)] Missing &lt;param name=&quot;levelSeparator&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DataClasses.Btree.LoadFileIntoTree(System.String,ANDREICSLIB.DataClasses.Btree{System.String},System.String,System.Boolean)] Missing &lt;param name=&quot;RecreateFileIfInvalid&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DataClasses.Btree.LoadFileIntoTree``1(System.String,ANDREICSLIB.DataClasses.Btree{``0},System.Func{System.String,``0},System.String,System.Boolean)] Missing &lt;param name=&quot;filename&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DataClasses.Btree.LoadFileIntoTree``1(System.String,ANDREICSLIB.DataClasses.Btree{``0},System.Func{System.String,``0},System.String,System.Boolean)] Missing &lt;param name=&quot;root&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DataClasses.Btree.LoadFileIntoTree``1(System.String,ANDREICSLIB.DataClasses.Btree{``0},System.Func{System.String,``0},System.String,System.Boolean)] Missing &lt;param name=&quot;levelSeparator&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DataClasses.Btree.LoadFileIntoTree``1(System.String,ANDREICSLIB.DataClasses.Btree{``0},System.Func{System.String,``0},System.String,System.Boolean)] Missing &lt;param name=&quot;RecreateFileIfInvalid&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DataClasses.Btree.SaveFileIntoTree``1(System.String,ANDREICSLIB.DataClasses.Btree{``0},System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DataClasses.Btree.SaveFileIntoTree``1(System.String,ANDREICSLIB.DataClasses.Btree{``0},System.String)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DataClasses.Btree.SaveFileIntoTree``1(System.String,ANDREICSLIB.DataClasses.Btree{``0},System.String)] Missing &lt;param name=&quot;filename&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DataClasses.Btree.SaveFileIntoTree``1(System.String,ANDREICSLIB.DataClasses.Btree{``0},System.String)] Missing &lt;param name=&quot;root&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DataClasses.Btree.SaveFileIntoTree``1(System.String,ANDREICSLIB.DataClasses.Btree{``0},System.String)] Missing &lt;param name=&quot;levelSeparator&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.DataClasses.Btree`1] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.DataClasses.Btree`1] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DataClasses.Btree`1.AddChild(`0)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DataClasses.Btree`1.AddChild(`0)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DataClasses.Btree`1.AddChild(`0)] Missing &lt;param name=&quot;nameC&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.DataClasses.Btree`1.Children] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DataClasses.Btree`1.ClearChildren] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DataClasses.Btree`1.GetChildByName(`0)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DataClasses.Btree`1.GetChildByName(`0)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DataClasses.Btree`1.GetChildByName(`0)] Missing &lt;param name=&quot;nameC&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.DataClasses.Btree`1.Name] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.DataClasses.Btree`1.Parent] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DataClasses.Btree`1.RemoveChild(`0)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DataClasses.Btree`1.RemoveChild(`0)] Missing &lt;param name=&quot;nameC&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.DeviceUpdates] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DeviceUpdates.AutodetectCOMPort(System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DeviceUpdates.AutodetectCOMPort(System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DeviceUpdates.AutodetectCOMPort(System.String)] Missing &lt;param name=&quot;description&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.DictionaryExtras] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DictionaryExtras.DeleteDirectory(System.String)] Missing &lt;param name=&quot;FolderName&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DictionaryExtras.GetKeyByValue``2(System.Collections.Generic.Dictionary{``0,``1},``1)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DictionaryExtras.GetKeyByValue``2(System.Collections.Generic.Dictionary{``0,``1},``1)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DictionaryExtras.GetKeyByValue``2(System.Collections.Generic.Dictionary{``0,``1},``1)] Missing &lt;typeparam name=&quot;Y&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DictionaryExtras.GetKeyByValue``2(System.Collections.Generic.Dictionary{``0,``1},``1)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DictionaryExtras.GetKeyByValue``2(System.Collections.Generic.Dictionary{``0,``1},``1)] Missing &lt;param name=&quot;dict&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DictionaryExtras.GetKeyByValue``2(System.Collections.Generic.Dictionary{``0,``1},``1)] Missing &lt;param name=&quot;val&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DictionaryExtras.MergeTwoDictionaries``2(System.Collections.Generic.Dictionary{``0,``1}@,System.Collections.Generic.Dictionary{``0,``1},System.Boolean)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DictionaryExtras.MergeTwoDictionaries``2(System.Collections.Generic.Dictionary{``0,``1}@,System.Collections.Generic.Dictionary{``0,``1},System.Boolean)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DictionaryExtras.MergeTwoDictionaries``2(System.Collections.Generic.Dictionary{``0,``1}@,System.Collections.Generic.Dictionary{``0,``1},System.Boolean)] Missing &lt;typeparam name=&quot;Y&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DictionaryExtras.MergeTwoDictionaries``2(System.Collections.Generic.Dictionary{``0,``1}@,System.Collections.Generic.Dictionary{``0,``1},System.Boolean)] Missing &lt;param name=&quot;keep&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DictionaryExtras.MergeTwoDictionaries``2(System.Collections.Generic.Dictionary{``0,``1}@,System.Collections.Generic.Dictionary{``0,``1},System.Boolean)] Missing &lt;param name=&quot;mergein&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.DictionaryExtras.MergeTwoDictionaries``2(System.Collections.Generic.Dictionary{``0,``1}@,System.Collections.Generic.Dictionary{``0,``1},System.Boolean)] Missing &lt;param name=&quot;overwriteExisting&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.EmbeddedResources] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.EmbeddedResources.ReadEmbeddedImage(System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.EmbeddedResources.ReadEmbeddedResource(System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.FileExtras] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.FileExtras.CreateDirectory(System.String)] Missing &lt;param name=&quot;dir&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.FileExtras.CreateFile(System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.FileExtras.CreateFile(System.String)] Missing &lt;param name=&quot;filepath&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.FileExtras.DeleteDirectory(System.String)] Missing &lt;param name=&quot;dir&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.FileExtras.GetAbsoluteFilePath(System.String,System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.FileExtras.GetAbsoluteFilePath(System.String,System.String)] Missing &lt;param name=&quot;basedir&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.FileExtras.LoadFile(System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.FileExtras.LoadFile(System.String)] Missing &lt;param name=&quot;filename&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.FileExtras.SaveToFile(System.String,System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.FileExtras.SaveToFile(System.String,System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.FileExtras.SaveToFile(System.String,System.String)] Missing &lt;param name=&quot;filename&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.FileExtras.SaveToFile(System.String,System.String)] Missing &lt;param name=&quot;text&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.FileExtras.TrimFileName(System.String,System.Boolean,System.Boolean,System.Boolean)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.FileExtras.TrimFileName(System.String,System.Boolean,System.Boolean,System.Boolean)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.FileExtras.TrimFileName(System.String,System.Boolean,System.Boolean,System.Boolean)] Missing &lt;param name=&quot;fn&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.FileExtras.TrimFileName(System.String,System.Boolean,System.Boolean,System.Boolean)] Missing &lt;param name=&quot;basepath&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.FileExtras.TrimFileName(System.String,System.Boolean,System.Boolean,System.Boolean)] Missing &lt;param name=&quot;filename&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.FileExtras.TrimFileName(System.String,System.Boolean,System.Boolean,System.Boolean)] Missing &lt;param name=&quot;extension&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.FormConfigRestore] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.FormConfigRestore.SaveConfig(System.Windows.Forms.Form,System.String,System.Collections.Generic.IEnumerable{System.Windows.Forms.Control},System.Collections.Generic.IEnumerable{System.Windows.Forms.ToolStripItem},System.Collections.Generic.IEnumerable{System.Tuple{System.String,System.String}})] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.FormConfigRestore.SaveConfig(System.Windows.Forms.Form,System.String,System.Collections.Generic.IEnumerable{System.Windows.Forms.Control},System.Collections.Generic.IEnumerable{System.Windows.Forms.ToolStripItem},System.Collections.Generic.IEnumerable{System.Tuple{System.String,System.String}})] Missing &lt;param name=&quot;baseform&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.FormConfigRestore.SaveConfig(System.Windows.Forms.Form,System.String,System.Collections.Generic.IEnumerable{System.Windows.Forms.Control},System.Collections.Generic.IEnumerable{System.Windows.Forms.ToolStripItem},System.Collections.Generic.IEnumerable{System.Tuple{System.String,System.String}})] Missing &lt;param name=&quot;filename&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.helpScreen] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [P:ANDREICSLIB.helpScreen.AutoSize] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.helpScreen.helpbox] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.HistogramOCR] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.#ctor(System.Int32,System.Int32)] Missing &lt;param name=&quot;HWidth&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.#ctor(System.Int32,System.Int32)] Missing &lt;param name=&quot;HHeight&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.DeSerialise(System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.DeSerialise(System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.DeSerialise(System.String)] Missing &lt;param name=&quot;filename&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.HistogramOCR.HistogramHeight] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.HistogramOCR.HistogramWidth] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.HistogramOCR.Letters] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.Normalise(System.Drawing.Bitmap)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.Normalise(System.Drawing.Bitmap)] Missing &lt;param name=&quot;b1&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.PerformOCR(System.Drawing.Bitmap,System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.PerformOCR(System.Drawing.Bitmap,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.PerformOCR(System.Drawing.Bitmap,System.Int32)] Missing &lt;param name=&quot;b&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.PerformOCR(System.Drawing.Bitmap,System.Int32)] Missing &lt;param name=&quot;spaceForWhiteSpace&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.PerformOCR(System.String,System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.PerformOCR(System.String,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.PerformOCR(System.String,System.Int32)] Missing &lt;param name=&quot;filename&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.PerformOCR(System.String,System.Int32)] Missing &lt;param name=&quot;spaceForWhiteSpace&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.PerformOCRCharacterPerfect(System.Drawing.Bitmap)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.PerformOCRCharacterPerfect(System.Drawing.Bitmap)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.PerformOCRCharacterPerfect(System.Drawing.Bitmap)] Missing &lt;param name=&quot;b&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.RemoveByLetter(System.Char)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.RemoveByLetter(System.Char)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.RemoveByLetter(System.Char)] Missing &lt;param name=&quot;removeChar&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.Serialise(System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.Serialise(System.String)] Missing &lt;param name=&quot;filename&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.SplitUp(System.Drawing.Bitmap,System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.SplitUp(System.Drawing.Bitmap,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.SplitUp(System.Drawing.Bitmap,System.Int32)] Missing &lt;param name=&quot;b&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.Train(System.Drawing.Bitmap,System.Char)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.Train(System.Drawing.Bitmap,System.Char)] Missing &lt;param name=&quot;b&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.Train(System.Drawing.Bitmap,System.Char)] Missing &lt;param name=&quot;letterChar&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.Train(System.String,System.String[],System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.Train(System.String,System.String[],System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.Train(System.String,System.String[],System.Int32)] Missing &lt;param name=&quot;filename&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.Train(System.String,System.String[],System.Int32)] Missing &lt;param name=&quot;letters&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.Train(System.String,System.String[],System.Int32)] Missing &lt;param name=&quot;spaceForWhiteSpace&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.HistogramOCR.WhiteBitmap] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.HistogramOCR.BitmapBoolArray] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.BitmapBoolArray.GetBitmapBoolArray(System.Drawing.Bitmap)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.BitmapBoolArray.GetBitmapBoolArray(System.Drawing.Bitmap)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.BitmapBoolArray.GetBitmapBoolArray(System.Drawing.Bitmap)] Missing &lt;param name=&quot;b&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.HistogramOCR.HistogramLetter] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.HistogramLetter.#ctor(System.Drawing.Bitmap,System.Char)] Missing &lt;param name=&quot;b&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.HistogramLetter.#ctor(System.Drawing.Bitmap,System.Char)] Missing &lt;param name=&quot;letter&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.HistogramLetter.DeSerialise(System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.HistogramLetter.DeSerialise(System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.HistogramLetter.DeSerialise(System.String)] Missing &lt;param name=&quot;text&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.HistogramLetter.GetHistogram(ANDREICSLIB.HistogramOCR.BitmapBoolArray,System.Drawing.Bitmap)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.HistogramLetter.GetHistogram(ANDREICSLIB.HistogramOCR.BitmapBoolArray,System.Drawing.Bitmap)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.HistogramLetter.GetHistogram(ANDREICSLIB.HistogramOCR.BitmapBoolArray,System.Drawing.Bitmap)] Missing &lt;param name=&quot;bba&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.HistogramLetter.GetHistogram(ANDREICSLIB.HistogramOCR.BitmapBoolArray,System.Drawing.Bitmap)] Missing &lt;param name=&quot;b&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.HistogramLetter.GetHistogramOffsetScore(System.Int32[],System.Int32[])] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.HistogramLetter.GetHistogramOffsetScore(System.Int32[],System.Int32[])] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.HistogramLetter.GetHistogramOffsetScore(System.Int32[],System.Int32[])] Missing &lt;param name=&quot;xv&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.HistogramLetter.GetHistogramOffsetScore(System.Int32[],System.Int32[])] Missing &lt;param name=&quot;yv&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.HistogramOCR.HistogramLetter.Letter] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.HistogramLetter.Serialise] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.HistogramOCR.HistogramLetter.Serialise] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.HistogramOCR.HistogramLetter.XValues] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.HistogramOCR.HistogramLetter.YValues] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.Licensing] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Licensing.CreateLicense(System.Windows.Forms.Form,System.Windows.Forms.MenuStrip,ANDREICSLIB.Licensing.SolutionDetails)] Missing &lt;param name=&quot;baseform&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Licensing.CreateLicense(System.Windows.Forms.Form,System.Windows.Forms.MenuStrip,ANDREICSLIB.Licensing.SolutionDetails)] Missing &lt;param name=&quot;existingMenuStrip&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Licensing.CreateLicense(System.Windows.Forms.Form,System.Windows.Forms.MenuStrip,ANDREICSLIB.Licensing.SolutionDetails)] Missing &lt;param name=&quot;newsd&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.Licensing.DownloadedSolutionDetails] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.Licensing.DownloadedSolutionDetails.ChangeLog] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.Licensing.DownloadedSolutionDetails.Version] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.Licensing.DownloadedSolutionDetails.ZipFileLocation] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.Licensing.GetDetails] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.Licensing.SolutionDetails] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Licensing.SolutionDetails.#ctor(ANDREICSLIB.Licensing.GetDetails,System.String,System.String,System.Double,System.String)] Missing &lt;param name=&quot;gd&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Licensing.SolutionDetails.#ctor(ANDREICSLIB.Licensing.GetDetails,System.String,System.String,System.Double,System.String)] Missing &lt;param name=&quot;helpText&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Licensing.SolutionDetails.#ctor(ANDREICSLIB.Licensing.GetDetails,System.String,System.String,System.Double,System.String)] Missing &lt;param name=&quot;formTitle&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Licensing.SolutionDetails.#ctor(ANDREICSLIB.Licensing.GetDetails,System.String,System.String,System.Double,System.String)] Missing &lt;param name=&quot;appVersion&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Licensing.SolutionDetails.#ctor(ANDREICSLIB.Licensing.GetDetails,System.String,System.String,System.Double,System.String)] Missing &lt;param name=&quot;aboutScreenOtherText&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.Licensing.SolutionDetails.AboutScreenOtherText] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.Licensing.SolutionDetails.AppVersion] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.Licensing.SolutionDetails.FormTitle] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.Licensing.SolutionDetails.gd] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.Licensing.SolutionDetails.HelpText] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.ListViewExtras] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.AutoResize(System.Windows.Forms.ListView)] Missing &lt;param name=&quot;lv&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.CopyClassToListView(System.Windows.Forms.ListView,System.Object,System.Windows.Forms.ListViewItem)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.CopyClassToListView(System.Windows.Forms.ListView,System.Object,System.Windows.Forms.ListViewItem)] Missing &lt;param name=&quot;lv&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.CopyClassToListView(System.Windows.Forms.ListView,System.Object,System.Windows.Forms.ListViewItem)] Missing &lt;param name=&quot;classInstance&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.CopyClassToListView(System.Windows.Forms.ListView,System.Object,System.Windows.Forms.ListViewItem)] Missing &lt;param name=&quot;overwrite&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.EnsureSubItemCount(System.Windows.Forms.ListView,System.Windows.Forms.ListViewItem)] Missing &lt;param name=&quot;lv&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.EnsureSubItemCount(System.Windows.Forms.ListView,System.Windows.Forms.ListViewItem)] Missing &lt;param name=&quot;lvi&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.GetColumn(System.Windows.Forms.ListView,System.Windows.Forms.ListViewItem,System.String,System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.GetColumn(System.Windows.Forms.ListView,System.Windows.Forms.ListViewItem,System.String,System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.GetColumn(System.Windows.Forms.ListView,System.Windows.Forms.ListViewItem,System.String,System.String)] Missing &lt;param name=&quot;lv&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.GetColumn(System.Windows.Forms.ListView,System.Windows.Forms.ListViewItem,System.String,System.String)] Missing &lt;param name=&quot;lvi&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.GetColumn(System.Windows.Forms.ListView,System.Windows.Forms.ListViewItem,System.String,System.String)] Missing &lt;param name=&quot;columnName&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.GetColumn(System.Windows.Forms.ListView,System.Windows.Forms.ListViewItem,System.String,System.String)] Missing &lt;param name=&quot;LVIField&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.GetColumnNumber(System.Windows.Forms.ListView,System.String,System.String)] Missing &lt;param name=&quot;lv&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.GetColumnNumber(System.Windows.Forms.ListView,System.String,System.String)] Missing &lt;param name=&quot;LVIField&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.GetListViewItemRowValuesAndColumnName(System.Windows.Forms.ListView,System.Windows.Forms.ListViewItem,System.String)] Missing &lt;param name=&quot;lv&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.GetListViewItemRowValuesAndColumnName(System.Windows.Forms.ListView,System.Windows.Forms.ListViewItem,System.String)] Missing &lt;param name=&quot;LVI&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.GetListViewItemRowValuesAndColumnName(System.Windows.Forms.ListView,System.Windows.Forms.ListViewItem,System.String)] Missing &lt;param name=&quot;LVIField&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.GetObjectFromListViewItem(System.Windows.Forms.ListView,System.Windows.Forms.ListViewItem,System.Type)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.GetObjectFromListViewItem(System.Windows.Forms.ListView,System.Windows.Forms.ListViewItem,System.Type)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.GetObjectFromListViewItem(System.Windows.Forms.ListView,System.Windows.Forms.ListViewItem,System.Type)] Missing &lt;param name=&quot;lv&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.GetObjectFromListViewItem(System.Windows.Forms.ListView,System.Windows.Forms.ListViewItem,System.Type)] Missing &lt;param name=&quot;LVI&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.GetObjectFromListViewItem(System.Windows.Forms.ListView,System.Windows.Forms.ListViewItem,System.Type)] Missing &lt;param name=&quot;ty&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.GetObjectsFromListViewItems(System.Windows.Forms.ListView,System.Type)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.GetObjectsFromListViewItems(System.Windows.Forms.ListView,System.Type)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.GetObjectsFromListViewItems(System.Windows.Forms.ListView,System.Type)] Missing &lt;param name=&quot;lv&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.GetObjectsFromListViewItems(System.Windows.Forms.ListView,System.Type)] Missing &lt;param name=&quot;ty&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.InitColumnHeaders(System.Windows.Forms.ListView,System.Collections.Generic.List{System.String})] Missing &lt;param name=&quot;lv&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.InitColumnHeaders(System.Windows.Forms.ListView,System.Type)] Missing &lt;param name=&quot;lv&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.InitColumnHeaders(System.Windows.Forms.ListView,System.Type)] Missing &lt;param name=&quot;ty&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.SelectAllItems(System.Windows.Forms.ListView)] Missing &lt;param name=&quot;lv&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.SetColumn(System.Windows.Forms.ListView,System.Windows.Forms.ListViewItem,System.String,System.String,System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.SetColumn(System.Windows.Forms.ListView,System.Windows.Forms.ListViewItem,System.String,System.String,System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.SetColumn(System.Windows.Forms.ListView,System.Windows.Forms.ListViewItem,System.String,System.String,System.String)] Missing &lt;param name=&quot;lv&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.SetColumn(System.Windows.Forms.ListView,System.Windows.Forms.ListViewItem,System.String,System.String,System.String)] Missing &lt;param name=&quot;lvi&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.SetColumn(System.Windows.Forms.ListView,System.Windows.Forms.ListViewItem,System.String,System.String,System.String)] Missing &lt;param name=&quot;columnName&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.SetColumn(System.Windows.Forms.ListView,System.Windows.Forms.ListViewItem,System.String,System.String,System.String)] Missing &lt;param name=&quot;columnValue&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.SetColumn(System.Windows.Forms.ListView,System.Windows.Forms.ListViewItem,System.String,System.String,System.String)] Missing &lt;param name=&quot;LVIField&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewExtras.SwapIndicies(System.Windows.Forms.ListView,System.Int32,System.Int32)] Missing &lt;param name=&quot;lv&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.ListViewSorter] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [P:ANDREICSLIB.ListViewSorter.ByColumn] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewSorter.ColumnSort(ANDREICSLIB.ListViewSorter,System.Windows.Forms.ListView,System.Int32,System.Nullable{System.Windows.Forms.SortOrder})] Missing &lt;param name=&quot;lv&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewSorter.ColumnSort(ANDREICSLIB.ListViewSorter,System.Windows.Forms.ListView,System.Int32,System.Nullable{System.Windows.Forms.SortOrder})] Missing &lt;param name=&quot;column&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewSorter.Compare(System.Object,System.Object)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewSorter.Compare(System.Object,System.Object)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewSorter.Compare(System.Object,System.Object)] Missing &lt;param name=&quot;o1&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ListViewSorter.Compare(System.Object,System.Object)] Missing &lt;param name=&quot;o2&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.ListViewSorter.Enabled] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [P:ANDREICSLIB.ListViewSorter.LastSort] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.MathExtras] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MathExtras.Ceiling(System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MathExtras.Ceiling(System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MathExtras.Ceiling(System.Int32)] Missing &lt;param name=&quot;v&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MathExtras.ConvertMatrix(System.Drawing.Drawing2D.Matrix)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MathExtras.ConvertMatrix(System.Drawing.Drawing2D.Matrix)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MathExtras.ConvertMatrix(System.Drawing.Drawing2D.Matrix)] Missing &lt;param name=&quot;DrawingMatrix&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MathExtras.ConvertMatrix(System.Windows.Media.Matrix)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MathExtras.ConvertMatrix(System.Windows.Media.Matrix)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MathExtras.ConvertMatrix(System.Windows.Media.Matrix)] Missing &lt;param name=&quot;MediaMatrix&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MathExtras.Floor(System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MathExtras.Floor(System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MathExtras.Floor(System.Int32)] Missing &lt;param name=&quot;v&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MathExtras.Truncate(System.Double,System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MathExtras.Truncate(System.Double,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MathExtras.Truncate(System.Double,System.Int32)] Missing &lt;param name=&quot;inval&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MathExtras.Truncate(System.Double,System.Int32)] Missing &lt;param name=&quot;length&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.MatrixOps] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.CloneMatrix``1(``0[][],System.Int32,System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.CloneMatrix``1(``0[][],System.Int32,System.Int32)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.CloneMatrix``1(``0[][],System.Int32,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.CloneMatrix``1(``0[][],System.Int32,System.Int32)] Missing &lt;param name=&quot;gridIN&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.CloneMatrix``1(``0[][],System.Int32,System.Int32)] Missing &lt;param name=&quot;widthI&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.CloneMatrix``1(``0[][],System.Int32,System.Int32)] Missing &lt;param name=&quot;heightI&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.Count``1(``0[][],``0)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.Count``1(``0[][],``0)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.Count``1(``0[][],``0)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.Count``1(``0[][],``0)] Missing &lt;param name=&quot;matrix&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.Count``1(``0[][],``0)] Missing &lt;param name=&quot;val&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.CreateMatrix``1(System.Int32,System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.CreateMatrix``1(System.Int32,System.Int32)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.CreateMatrix``1(System.Int32,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.CreateMatrix``1(System.Int32,System.Int32)] Missing &lt;param name=&quot;widthI&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.CreateMatrix``1(System.Int32,System.Int32)] Missing &lt;param name=&quot;heightI&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.FloodFill``1(``0[][]@,System.Int32,System.Int32,``0,``0,ANDREICSLIB.MatrixOps.CompareDel{``0})] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.FloodFill``1(``0[][]@,System.Int32,System.Int32,``0,``0,ANDREICSLIB.MatrixOps.CompareDel{``0})] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.FloodFill``1(``0[][]@,System.Int32,System.Int32,``0,``0,ANDREICSLIB.MatrixOps.CompareDel{``0})] Missing &lt;param name=&quot;grid&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.FloodFill``1(``0[][]@,System.Int32,System.Int32,``0,``0,ANDREICSLIB.MatrixOps.CompareDel{``0})] Missing &lt;param name=&quot;startX&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.FloodFill``1(``0[][]@,System.Int32,System.Int32,``0,``0,ANDREICSLIB.MatrixOps.CompareDel{``0})] Missing &lt;param name=&quot;startY&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.FloodFill``1(``0[][]@,System.Int32,System.Int32,``0,``0,ANDREICSLIB.MatrixOps.CompareDel{``0})] Missing &lt;param name=&quot;test&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.FloodFill``1(``0[][]@,System.Int32,System.Int32,``0,``0,ANDREICSLIB.MatrixOps.CompareDel{``0})] Missing &lt;param name=&quot;set&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.FloodFill``1(``0[][]@,System.Int32,System.Int32,``0,``0,ANDREICSLIB.MatrixOps.CompareDel{``0})] Missing &lt;param name=&quot;compareF&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.Replace``1(``0[][]@,``0,``0,ANDREICSLIB.MatrixOps.CompareDel{``0})] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.Replace``1(``0[][]@,``0,``0,ANDREICSLIB.MatrixOps.CompareDel{``0})] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.Replace``1(``0[][]@,``0,``0,ANDREICSLIB.MatrixOps.CompareDel{``0})] Missing &lt;param name=&quot;matrix&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.Replace``1(``0[][]@,``0,``0,ANDREICSLIB.MatrixOps.CompareDel{``0})] Missing &lt;param name=&quot;test&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.Replace``1(``0[][]@,``0,``0,ANDREICSLIB.MatrixOps.CompareDel{``0})] Missing &lt;param name=&quot;set&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.Replace``1(``0[][]@,``0,``0,ANDREICSLIB.MatrixOps.CompareDel{``0})] Missing &lt;param name=&quot;compare&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.SerialiseMatrix``1(``0[][],System.Int32,System.Int32,System.String,System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.SerialiseMatrix``1(``0[][],System.Int32,System.Int32,System.String,System.String)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.SerialiseMatrix``1(``0[][],System.Int32,System.Int32,System.String,System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.SerialiseMatrix``1(``0[][],System.Int32,System.Int32,System.String,System.String)] Missing &lt;param name=&quot;matrix&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.SerialiseMatrix``1(``0[][],System.Int32,System.Int32,System.String,System.String)] Missing &lt;param name=&quot;width&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.SerialiseMatrix``1(``0[][],System.Int32,System.Int32,System.String,System.String)] Missing &lt;param name=&quot;height&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.SerialiseMatrix``1(``0[][],System.Int32,System.Int32,System.String,System.String)] Missing &lt;param name=&quot;rowsep&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.SerialiseMatrix``1(``0[][],System.Int32,System.Int32,System.String,System.String)] Missing &lt;param name=&quot;linesep&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.SetAll``1(``0[][],``0)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.SetAll``1(``0[][],``0)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.SetAll``1(``0[][],``0)] Missing &lt;param name=&quot;matrix&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.MatrixOps.SetAll``1(``0[][],``0)] Missing &lt;param name=&quot;val&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.MatrixOps.CompareDel`1] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.MatrixOps.CompareDel`1] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.MatrixOps.MatrixO`1] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.MatrixOps.MatrixO`1] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.MatrixOps.MatrixO`1.compareF] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.MatrixOps.MatrixO`1.h] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.MatrixOps.MatrixO`1.m] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.MatrixOps.MatrixO`1.w] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.NetExtras] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.DownloadFile(System.String,System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.DownloadFile(System.String,System.String)] Missing &lt;param name=&quot;url&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.DownloadFile(System.String,System.String)] Missing &lt;param name=&quot;filename&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.DownloadWebPage(System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.DownloadWebPage(System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.DownloadWebPage(System.String)] Missing &lt;param name=&quot;url&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetExternalAddress(System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetExternalAddress(System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetExternalAddress(System.String)] Missing &lt;param name=&quot;WebCheckIPURL&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetExternalDefaultLocalAddress(System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetExternalDefaultLocalAddress(System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetExternalDefaultLocalAddress(System.String)] Missing &lt;param name=&quot;WebCheckIPURL&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetHostName(System.Net.IPAddress)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetHostName(System.Net.IPAddress)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetHostName(System.Net.IPAddress)] Missing &lt;param name=&quot;externalIP&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetLocalAddress] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetLocalAddress] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetMAC(System.Net.IPAddress)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetMAC(System.Net.IPAddress)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetMAC(System.Net.IPAddress)] Missing &lt;param name=&quot;ip&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetNetBiosInfo(System.Net.IPAddress)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetNetBiosInfo(System.Net.IPAddress)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetNetBiosInfo(System.Net.IPAddress)] Missing &lt;param name=&quot;ip&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetNextFreePort(System.Int32,System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetNextFreePort(System.Int32,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetNextFreePort(System.Int32,System.Int32)] Missing &lt;param name=&quot;min&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetNextFreePort(System.Int32,System.Int32)] Missing &lt;param name=&quot;max&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetRemoteInfo(System.Net.IPAddress,System.String,System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetRemoteInfo(System.Net.IPAddress,System.String,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetRemoteInfo(System.Net.IPAddress,System.String,System.Int32)] Missing &lt;param name=&quot;ip&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetRemoteInfo(System.Net.IPAddress,System.String,System.Int32)] Missing &lt;param name=&quot;hostname&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.GetRemoteInfo(System.Net.IPAddress,System.String,System.Int32)] Missing &lt;param name=&quot;extraInfoTimeout&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.HostnameToIP(System.String,System.Boolean)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.HostnameToIP(System.String,System.Boolean)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.HostnameToIP(System.String,System.Boolean)] Missing &lt;param name=&quot;hostName&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.HostnameToIP(System.String,System.Boolean)] Missing &lt;param name=&quot;asIPV4&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.IPToLong(System.Net.IPAddress)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.IPToLong(System.Net.IPAddress)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.IPToLong(System.Net.IPAddress)] Missing &lt;param name=&quot;ip&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.IsIPAddress(System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.IsIPAddress(System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.IsIPAddress(System.String)] Missing &lt;param name=&quot;s&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.IsLanIP(System.Net.IPAddress)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.IsLanIP(System.Net.IPAddress)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.IsLanIP(System.Net.IPAddress)] Missing &lt;param name=&quot;address&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.IsLanIPCheckTTL(System.Net.IPAddress)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.IsLanIPCheckTTL(System.Net.IPAddress)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.IsLanIPCheckTTL(System.Net.IPAddress)] Missing &lt;param name=&quot;address&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.NetExtras.NetBiosInfo] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NetExtras.NetBiosInfo.#ctor(ANDREICSLIB.NetExtras.WKSTA_INFO_100)] Missing &lt;param name=&quot;w&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NetExtras.NetBiosInfo.ComputerName] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NetExtras.NetBiosInfo.LANGroup] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NetExtras.NetBiosInfo.PlatformID] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NetExtras.NetBiosInfo.VerMajor] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NetExtras.NetBiosInfo.VerMinor] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.NetExtras.WKSTA_INFO_100] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NetExtras.WKSTA_INFO_100.wki100_computername] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NetExtras.WKSTA_INFO_100.wki100_langroup] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NetExtras.WKSTA_INFO_100.wki100_platform_id] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NetExtras.WKSTA_INFO_100.wki100_ver_major] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NetExtras.WKSTA_INFO_100.wki100_ver_minor] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.Networking] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Networking.AddUDPClient(System.Int32,System.String,System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Networking.AddUDPClient(System.Int32,System.String,System.Int32)] Missing &lt;param name=&quot;udpPort&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Networking.AddUDPClient(System.Int32,System.String,System.Int32)] Missing &lt;param name=&quot;ip&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Networking.AddUDPClient(System.Int32,System.String,System.Int32)] Missing &lt;param name=&quot;receiveTimeout&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Networking.SendUDPPacketGetBlockingResponse(System.Net.IPAddress,System.Int32,System.Byte[])] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Networking.SendUDPPacketGetBlockingResponse(System.Net.IPAddress,System.Int32,System.Byte[])] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Networking.SendUDPPacketGetBlockingResponse(System.Net.IPAddress,System.Int32,System.Byte[])] Missing &lt;param name=&quot;address&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Networking.SendUDPPacketGetBlockingResponse(System.Net.IPAddress,System.Int32,System.Byte[])] Missing &lt;param name=&quot;port&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Networking.SendUDPPacketGetBlockingResponse(System.Net.IPAddress,System.Int32,System.Byte[])] Missing &lt;param name=&quot;data&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Networking.StopAll] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Networking.StopAllUDP] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Networking.StopUDPClient(System.Net.Sockets.UdpClient)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Networking.StopUDPClient(System.Net.Sockets.UdpClient)] Missing &lt;param name=&quot;udpClient&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Networking.STUNServer(System.Int32,System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Networking.STUNServer(System.Int32,System.Int32)] Missing &lt;param name=&quot;listenPort&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Networking.STUNServer(System.Int32,System.Int32)] Missing &lt;param name=&quot;sleepMS&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.Networking.UDPListener] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.Networking.UDPSenders] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.ObjectExtras] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ObjectExtras.CloneObject(System.Object)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ObjectExtras.CloneObject(System.Object)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ObjectExtras.CloneObject(System.Object)] Missing &lt;param name=&quot;o&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.PanelReplacement] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.addControl(System.Windows.Forms.Control,System.Boolean,System.Int32,System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.addControl(System.Windows.Forms.Control,System.Boolean,System.Int32,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.addControl(System.Windows.Forms.Control,System.Boolean,System.Int32,System.Int32)] Missing &lt;param name=&quot;C&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.addControl(System.Windows.Forms.Control,System.Boolean,System.Int32,System.Int32)] Missing &lt;param name=&quot;nextItemOnSameLine&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.addControl(System.Windows.Forms.Control,System.Boolean,System.Int32,System.Int32)] Missing &lt;param name=&quot;manualYAdd&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.addControl(System.Windows.Forms.Control,System.Boolean,System.Int32,System.Int32)] Missing &lt;param name=&quot;manualXAdd&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.PanelReplacement.borderColour] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [P:ANDREICSLIB.PanelReplacement.BorderColour] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.PanelReplacement.borderWidth] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [P:ANDREICSLIB.PanelReplacement.BorderWidth] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.bumpLastPosition(System.Int32,System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.bumpLastPosition(System.Int32,System.Int32)] Missing &lt;param name=&quot;x&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.bumpLastPosition(System.Int32,System.Int32)] Missing &lt;param name=&quot;y&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.clearControls] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.Clone] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.Clone] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.PanelReplacement.controlStack] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.fitPanel(System.Windows.Forms.Control,System.Windows.Forms.Control,System.Int32,System.Int32)] Missing &lt;param name=&quot;resize&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.fitPanel(System.Windows.Forms.Control,System.Windows.Forms.Control,System.Int32,System.Int32)] Missing &lt;param name=&quot;checkControls&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.fitPanel(System.Windows.Forms.Control,System.Windows.Forms.Control,System.Int32,System.Int32)] Missing &lt;param name=&quot;extrawidth&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.fitPanel(System.Windows.Forms.Control,System.Windows.Forms.Control,System.Int32,System.Int32)] Missing &lt;param name=&quot;extraheight&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.PanelReplacement.gap] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.getControlByName(System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.getControlByName(System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.getControlByName(System.String)] Missing &lt;param name=&quot;name&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.popPosition] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.PanelReplacement.positionStack] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.pushPosition] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.removeControl(System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.removeControl(System.String)] Missing &lt;param name=&quot;name&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.removeLastControl] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.ResumePaint] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.ResumePaint(System.Windows.Forms.Control)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.ResumePaint(System.Windows.Forms.Control)] Missing &lt;param name=&quot;control&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.SetGapBetweenItems(System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.SetGapBetweenItems(System.Int32)] Missing &lt;param name=&quot;val&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.SuspendPaint] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.SuspendPaint(System.Windows.Forms.Control)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.SuspendPaint(System.Windows.Forms.Control)] Missing &lt;param name=&quot;control&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.swapControls(System.Windows.Forms.Control,System.Windows.Forms.Control)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.swapControls(System.Windows.Forms.Control,System.Windows.Forms.Control)] Missing &lt;param name=&quot;one&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.swapControls(System.Windows.Forms.Control,System.Windows.Forms.Control)] Missing &lt;param name=&quot;two&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.switchControlLocations(System.Int32,System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.switchControlLocations(System.Int32,System.Int32)] Missing &lt;param name=&quot;indexone&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.PanelReplacement.switchControlLocations(System.Int32,System.Int32)] Missing &lt;param name=&quot;indextwo&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.Reflection] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Reflection.DeserialiseObject(System.String,System.Type,System.Boolean)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Reflection.DeserialiseObject(System.String,System.Type,System.Boolean)] Missing &lt;param name=&quot;filename&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Reflection.DeserialiseObject(System.String,System.Type,System.Boolean)] Missing &lt;param name=&quot;objectType&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Reflection.DeserialiseObject(System.String,System.Type,System.Boolean)] Missing &lt;param name=&quot;ignoreErrors&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Reflection.DeserialiseObject(System.Type,System.Collections.Generic.List{System.Tuple{System.String,System.String}},System.Boolean)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Reflection.DeserialiseObject(System.Type,System.Collections.Generic.List{System.Tuple{System.String,System.String}},System.Boolean)] Missing &lt;param name=&quot;objectType&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Reflection.DeserialiseObject(System.Type,System.Collections.Generic.List{System.Tuple{System.String,System.String}},System.Boolean)] Missing &lt;param name=&quot;ignoreErrors&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Reflection.DeserialiseObject(System.Type,System.String,System.Boolean)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Reflection.DeserialiseObject(System.Type,System.String,System.Boolean)] Missing &lt;param name=&quot;objectType&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Reflection.DeserialiseObject(System.Type,System.String,System.Boolean)] Missing &lt;param name=&quot;serialisedObjectString&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Reflection.DeserialiseObject(System.Type,System.String,System.Boolean)] Missing &lt;param name=&quot;ignoreErrors&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Reflection.GetFieldNames(System.Type)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Reflection.GetFieldNames(System.Type)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Reflection.GetFieldNames(System.Type)] Missing &lt;param name=&quot;ty&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Reflection.GetFieldNamesAndValues(System.Object)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Reflection.GetFieldValue(System.Object,System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Reflection.GetFieldValue(System.Object,System.String)] Missing &lt;param name=&quot;classInstance&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Reflection.GetFieldValue(System.Object,System.String)] Missing &lt;param name=&quot;fieldname&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.Reflection.Newline] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.Reflection.Separator] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Reflection.SerialiseObject(System.Object)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Reflection.SerialiseObject(System.Object)] Missing &lt;param name=&quot;classInstance&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Reflection.SerialiseObject(System.Object,System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Reflection.SerialiseObject(System.Object,System.String)] Missing &lt;param name=&quot;classInstance&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.Reflection.SerialiseObject(System.Object,System.String)] Missing &lt;param name=&quot;filename&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.SaveFileDialogExtras] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.SaveFileDialogExtras.createFilter(System.Collections.Generic.List{System.Tuple{System.String,System.String}})] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.SaveFileDialogExtras.createFilter(System.String,System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.StringExtras] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.AddText(System.String,System.String,System.Boolean)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.AddText(System.String,System.String,System.Boolean)] Missing &lt;param name=&quot;origString&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.AddText(System.String,System.String,System.Boolean)] Missing &lt;param name=&quot;addText&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.AddText(System.String,System.String,System.Boolean)] Missing &lt;param name=&quot;isFront&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.ApplyTrim(System.String,System.Boolean,System.Int32,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.ApplyTrim(System.String,System.Boolean,System.Int32,System.Int32)] Missing &lt;param name=&quot;origString&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.ApplyTrim(System.String,System.Boolean,System.Int32,System.Int32)] Missing &lt;param name=&quot;isFront&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.ApplyTrim(System.String,System.Boolean,System.Int32,System.Int32)] Missing &lt;param name=&quot;length&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.CleanString(System.String)] Missing &lt;param name=&quot;origString&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.ContainsSubStringCount(System.String,System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.ContainsSubStringCount(System.String,System.String)] Missing &lt;param name=&quot;instr&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.ContainsSubStringCount(System.String,System.String)] Missing &lt;param name=&quot;substring&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.MergeWhiteSpace(System.String,System.Char)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.MergeWhiteSpace(System.String,System.Char)] Missing &lt;param name=&quot;origString&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.MergeWhiteSpace(System.String,System.Char)] Missing &lt;param name=&quot;mergeTo&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.PadString(System.String,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.PadString(System.String,System.Int32)] Missing &lt;param name=&quot;instr&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.PadString(System.String,System.Int32)] Missing &lt;param name=&quot;maxlen&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.RandomString(System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.RandomString(System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.RandomString(System.Int32)] Missing &lt;param name=&quot;size&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.RemoveAllNonAlphabetChars(System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.RemoveAllNonAlphabetChars(System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.RemoveAllNonAlphabetChars(System.String)] Missing &lt;param name=&quot;origString&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.ReplaceAllChars(System.String,System.Char,System.Char)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.ReplaceAllChars(System.String,System.Char,System.Char)] Missing &lt;param name=&quot;origString&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.ReplaceAllChars(System.String,System.Char,System.Char)] Missing &lt;param name=&quot;replaceThis&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.ReplaceAllChars(System.String,System.Char,System.Char)] Missing &lt;param name=&quot;withThis&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.ReplaceAllChars(System.String,System.String,System.Char)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.ReplaceAllChars(System.String,System.String,System.Char)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.ReplaceAllChars(System.String,System.String,System.Char)] Missing &lt;param name=&quot;origString&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.ReplaceAllChars(System.String,System.String,System.Char)] Missing &lt;param name=&quot;replaceTheseChars&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.ReplaceAllChars(System.String,System.String,System.Char)] Missing &lt;param name=&quot;withThis&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.ReplaceAllChars(System.String,System.String,System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.ReplaceAllChars(System.String,System.String,System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.ReplaceAllChars(System.String,System.String,System.String)] Missing &lt;param name=&quot;origString&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.ReplaceAllChars(System.String,System.String,System.String)] Missing &lt;param name=&quot;replaceThis&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.ReplaceAllChars(System.String,System.String,System.String)] Missing &lt;param name=&quot;withThis&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.SplitString(System.String,System.String,System.Boolean)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.SplitString(System.String,System.String,System.Boolean)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.SplitString(System.String,System.String,System.Boolean)] Missing &lt;param name=&quot;instr&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.SplitString(System.String,System.String,System.Boolean)] Missing &lt;param name=&quot;split&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.SplitString(System.String,System.String,System.Boolean)] Missing &lt;param name=&quot;removeempty&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.SplitStrings(System.String,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.SplitStrings(System.String,System.Int32)] Missing &lt;param name=&quot;instr&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.SplitStrings(System.String,System.Int32)] Missing &lt;param name=&quot;max&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.SplitTwo(System.String,System.Char)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.SplitTwo(System.String,System.Char)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.SplitTwo(System.String,System.Char)] Missing &lt;param name=&quot;instr&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.SplitTwo(System.String,System.Char)] Missing &lt;param name=&quot;sep&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.SplitTwoInt(System.String,System.Char)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.SplitTwoInt(System.String,System.Char)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.SplitTwoInt(System.String,System.Char)] Missing &lt;param name=&quot;instr&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.SplitTwoInt(System.String,System.Char)] Missing &lt;param name=&quot;sep&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.StringIsNumber(System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.StringIsNumber(System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.StringIsNumber(System.String)] Missing &lt;param name=&quot;s&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.StringStartsWithLetter(System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.StringStartsWithLetter(System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.StringStartsWithLetter(System.String)] Missing &lt;param name=&quot;s&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.ToCamelCase(System.String,System.Boolean,System.Collections.Generic.List{System.String},System.Boolean)] Missing &lt;param name=&quot;capitaliseWordString&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.ToCamelCase(System.String,System.Boolean,System.Collections.Generic.List{System.String},System.Boolean)] Missing &lt;param name=&quot;spaceAfter&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.Truncate(System.String,System.Int32,System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.Truncate(System.String,System.Int32,System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.Truncate(System.String,System.Int32,System.String)] Missing &lt;param name=&quot;instr&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.Truncate(System.String,System.Int32,System.String)] Missing &lt;param name=&quot;maxlen&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.StringExtras.Truncate(System.String,System.Int32,System.String)] Missing &lt;param name=&quot;trucatedend&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.TextboxExtras] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TextboxExtras.GetFutureTextBoxAfterKeyPress(System.Char,System.Windows.Forms.Control)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TextboxExtras.GetFutureTextBoxAfterKeyPress(System.Char,System.Windows.Forms.Control)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TextboxExtras.GetFutureTextBoxAfterKeyPress(System.Char,System.Windows.Forms.Control)] Missing &lt;param name=&quot;keyChar&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TextboxExtras.GetFutureTextBoxAfterKeyPress(System.Char,System.Windows.Forms.Control)] Missing &lt;param name=&quot;c&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TextboxExtras.HandleInputAsFloat(System.Char,System.Windows.Forms.Control)] Missing &lt;param name=&quot;keyChar&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TextboxExtras.IsSpecial(System.Char,System.Windows.Forms.Control)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TextboxExtras.IsSpecial(System.Char,System.Windows.Forms.Control)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TextboxExtras.IsSpecial(System.Char,System.Windows.Forms.Control)] Missing &lt;param name=&quot;keyChar&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TextboxExtras.IsSpecial(System.Char,System.Windows.Forms.Control)] Missing &lt;param name=&quot;c&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.TextboxExtras.InputType] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.TextboxExtras.InputType.AllowChars] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.TextboxExtras.InputType.AllowDot] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.TextboxExtras.InputType.AllowNumbers] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.TextboxExtras.InputType.AllowWhiteSpace] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TextboxExtras.InputType.Create(System.Boolean,System.Boolean,System.Boolean,System.Boolean)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TextboxExtras.InputType.Create(System.Boolean,System.Boolean,System.Boolean,System.Boolean)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TextboxExtras.InputType.Create(System.Boolean,System.Boolean,System.Boolean,System.Boolean)] Missing &lt;param name=&quot;AllowChars&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TextboxExtras.InputType.Create(System.Boolean,System.Boolean,System.Boolean,System.Boolean)] Missing &lt;param name=&quot;AllowNumbers&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TextboxExtras.InputType.Create(System.Boolean,System.Boolean,System.Boolean,System.Boolean)] Missing &lt;param name=&quot;AllowDot&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TextboxExtras.InputType.Create(System.Boolean,System.Boolean,System.Boolean,System.Boolean)] Missing &lt;param name=&quot;AllowWhiteSpace&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TextboxExtras.InputType.CreateAllTrue] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.TimeUpdates] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TimeUpdates.GetDays(System.Double)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TimeUpdates.GetDays(System.Double)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TimeUpdates.GetDays(System.Double)] Missing &lt;param name=&quot;totalsecondsin&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TimeUpdates.GetHours(System.Double)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TimeUpdates.GetHours(System.Double)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TimeUpdates.GetHours(System.Double)] Missing &lt;param name=&quot;totalsecondsin&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TimeUpdates.GetMinutes(System.Double)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TimeUpdates.GetMinutes(System.Double)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TimeUpdates.GetMinutes(System.Double)] Missing &lt;param name=&quot;totalsecondsin&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TimeUpdates.Pluralise(System.String,System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TimeUpdates.Pluralise(System.String,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TimeUpdates.Pluralise(System.String,System.Int32)] Missing &lt;param name=&quot;word&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TimeUpdates.Pluralise(System.String,System.Int32)] Missing &lt;param name=&quot;val&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TimeUpdates.TimeInWords(System.Double)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TimeUpdates.TimeInWords(System.Double)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.TimeUpdates.TimeInWords(System.Double)] Missing &lt;param name=&quot;totalsecondsin&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.ZipExtras] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ZipExtras.ExtractZipFile(System.String,System.String,System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ZipExtras.ExtractZipFile(System.String,System.String,System.String)] Missing &lt;param name=&quot;archiveFilenameIn&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ZipExtras.ExtractZipFile(System.String,System.String,System.String)] Missing &lt;param name=&quot;outFolder&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ZipExtras.ExtractZipFile(System.String,System.String,System.String)] Missing &lt;param name=&quot;password&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [N:ANDREICSLIB.ClassExtras] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.ClassExtras.ArrayExtras] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ArrayExtras.Clone``1(``0[][],System.Int32,System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ArrayExtras.Clone``1(``0[][],System.Int32,System.Int32)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ArrayExtras.Clone``1(``0[][],System.Int32,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ArrayExtras.Clone``1(``0[][],System.Int32,System.Int32)] Missing &lt;param name=&quot;inarr&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ArrayExtras.Clone``1(``0[][],System.Int32,System.Int32)] Missing &lt;param name=&quot;width&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ArrayExtras.Clone``1(``0[][],System.Int32,System.Int32)] Missing &lt;param name=&quot;height&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ArrayExtras.InstantiateArray``1(System.Int32,System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ArrayExtras.InstantiateArray``1(System.Int32,System.Int32)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ArrayExtras.InstantiateArray``1(System.Int32,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ArrayExtras.InstantiateArray``1(System.Int32,System.Int32)] Missing &lt;param name=&quot;width&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ArrayExtras.InstantiateArray``1(System.Int32,System.Int32)] Missing &lt;param name=&quot;height&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ArrayExtras.RotateArray``1(``0[][],System.Int32,System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ArrayExtras.RotateArray``1(``0[][],System.Int32,System.Int32)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ArrayExtras.RotateArray``1(``0[][],System.Int32,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ArrayExtras.RotateArray``1(``0[][],System.Int32,System.Int32)] Missing &lt;param name=&quot;inarr&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ArrayExtras.RotateArray``1(``0[][],System.Int32,System.Int32)] Missing &lt;param name=&quot;width&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ArrayExtras.RotateArray``1(``0[][],System.Int32,System.Int32)] Missing &lt;param name=&quot;height&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.ClassExtras.CheckedListBoxExtras] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.CheckedListBoxExtras.CheckAll(System.Windows.Forms.CheckedListBox,System.Boolean)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.CheckedListBoxExtras.CheckAll(System.Windows.Forms.CheckedListBox,System.Boolean)] Missing &lt;param name=&quot;cb&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.CheckedListBoxExtras.CheckAll(System.Windows.Forms.CheckedListBox,System.Boolean)] Missing &lt;param name=&quot;value&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.CheckedListBoxExtras.CheckItem(System.Windows.Forms.CheckedListBox,System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.CheckedListBoxExtras.CheckItem(System.Windows.Forms.CheckedListBox,System.String)] Missing &lt;param name=&quot;cb&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.CheckedListBoxExtras.CheckItem(System.Windows.Forms.CheckedListBox,System.String)] Missing &lt;param name=&quot;item&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.ClassExtras.ContextMenuStripExtras] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ContextMenuStripExtras.GetContextParent(System.Object,System.Type)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ContextMenuStripExtras.GetContextParent(System.Object,System.Type)] Missing &lt;param name=&quot;senderToolStrip&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ContextMenuStripExtras.GetContextParent(System.Object,System.Type)] Missing &lt;param name=&quot;t&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.ClassExtras.DirectoryExtras] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.DirectoryExtras.GetExePath] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.DirectoryExtras.GetExePath] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.DirectoryExtras.GetFilesRecursive(System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.DirectoryExtras.SetCurrentDirectoryToDefault] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.ClassExtras.ListBoxExtras] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListBoxExtras.RemoveSelected(System.Windows.Forms.ListBox@)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListBoxExtras.RemoveSelected(System.Windows.Forms.ListBox@)] Missing &lt;param name=&quot;lb&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.ClassExtras.ListExtras] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListExtras.ChangeListTyping``1(System.Collections.Generic.List{System.Object})] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListExtras.ChangeListTyping``1(System.Collections.Generic.List{System.Object})] Missing &lt;typeparam name=&quot;TNewType&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListExtras.ChangeListTyping``1(System.Collections.Generic.List{System.Object})] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListExtras.ChangeListTyping``1(System.Collections.Generic.List{System.Object})] Missing &lt;param name=&quot;inlist&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListExtras.ContainsLoopThrough``1(System.Collections.Generic.List{System.Object},``0)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListExtras.ContainsLoopThrough``1(System.Collections.Generic.List{System.Object},``0)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListExtras.ContainsLoopThrough``1(System.Collections.Generic.List{System.Object},``0)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListExtras.ContainsLoopThrough``1(System.Collections.Generic.List{System.Object},``0)] Missing &lt;param name=&quot;list&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListExtras.ContainsLoopThrough``1(System.Collections.Generic.List{System.Object},``0)] Missing &lt;param name=&quot;val&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListExtras.GetAllCombinations``1(System.Collections.Generic.List{``0},System.Int32,System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListExtras.GetAllCombinations``1(System.Collections.Generic.List{``0},System.Int32,System.Int32)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListExtras.GetAllCombinations``1(System.Collections.Generic.List{``0},System.Int32,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListExtras.GetAllCombinations``1(System.Collections.Generic.List{``0},System.Int32,System.Int32)] Missing &lt;param name=&quot;inlist&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListExtras.GetAllCombinations``1(System.Collections.Generic.List{``0},System.Int32,System.Int32)] Missing &lt;param name=&quot;minlength&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListExtras.GetAllCombinations``1(System.Collections.Generic.List{``0},System.Int32,System.Int32)] Missing &lt;param name=&quot;maxlength&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListExtras.Serialise(System.Collections.Generic.List{System.Object},System.String)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListExtras.Serialise(System.Collections.Generic.List{System.Object},System.String)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListExtras.Serialise(System.Collections.Generic.List{System.Object},System.String)] Missing &lt;param name=&quot;list&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListExtras.Serialise(System.Collections.Generic.List{System.Object},System.String)] Missing &lt;param name=&quot;sep&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListExtras.Swap``1(System.Collections.Generic.List{``0}@,System.Int32,System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListExtras.Swap``1(System.Collections.Generic.List{``0}@,System.Int32,System.Int32)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListExtras.Swap``1(System.Collections.Generic.List{``0}@,System.Int32,System.Int32)] Missing &lt;param name=&quot;list&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListExtras.Swap``1(System.Collections.Generic.List{``0}@,System.Int32,System.Int32)] Missing &lt;param name=&quot;index1&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.ListExtras.Swap``1(System.Collections.Generic.List{``0}@,System.Int32,System.Int32)] Missing &lt;param name=&quot;index2&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.ClassExtras.TabPageExtras] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.TabPageExtras.SetEnableOnAllTabPageControls(System.Windows.Forms.TabPage,System.Boolean)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.TabPageExtras.SetEnableOnAllTabPageControls(System.Windows.Forms.TabPage,System.Boolean)] Missing &lt;param name=&quot;tp&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.TabPageExtras.SetEnableOnAllTabPageControls(System.Windows.Forms.TabPage,System.Boolean)] Missing &lt;param name=&quot;enabled&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.TabPageExtras.SetEnableOnAllTabPagesInTabControl(System.Windows.Forms.TabControl,System.Boolean,System.Collections.Generic.List{System.Windows.Forms.TabPage})] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.TabPageExtras.SetEnableOnAllTabPagesInTabControl(System.Windows.Forms.TabControl,System.Boolean,System.Collections.Generic.List{System.Windows.Forms.TabPage})] Missing &lt;param name=&quot;tc&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.TabPageExtras.SetEnableOnAllTabPagesInTabControl(System.Windows.Forms.TabControl,System.Boolean,System.Collections.Generic.List{System.Windows.Forms.TabPage})] Missing &lt;param name=&quot;enabled&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.ClassExtras.TabPageExtras.SetEnableOnAllTabPagesInTabControl(System.Windows.Forms.TabControl,System.Boolean,System.Collections.Generic.List{System.Windows.Forms.TabPage})] Missing &lt;param name=&quot;excluding&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [N:ANDREICSLIB.NewControls] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.NewControls.ColorListBox] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NewControls.ColorListBox.colours] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [P:ANDREICSLIB.NewControls.ColorListBox.Colours] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.NewControls.DragBar] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [P:ANDREICSLIB.NewControls.DragBar.BackColour] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [P:ANDREICSLIB.NewControls.DragBar.BarColour] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [P:ANDREICSLIB.NewControls.DragBar.BarMaximumValue] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [P:ANDREICSLIB.NewControls.DragBar.BarMinimumValue] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [E:ANDREICSLIB.NewControls.DragBar.BarValueChange] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [P:ANDREICSLIB.NewControls.DragBar.DrawScale] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [P:ANDREICSLIB.NewControls.DragBar.MaximumValue] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [P:ANDREICSLIB.NewControls.DragBar.MinimumValue] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.DragBar.OnBarValueChange] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [P:ANDREICSLIB.NewControls.DragBar.ScaleColour] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.NewControls.DragBar.BarEvent] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.NewControls.getStringBox] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NewControls.getStringBox.label1] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NewControls.getStringBox.returnvalue] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.getStringBox.ShowDialog(System.String,System.String,System.Boolean)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.getStringBox.ShowDialog(System.String,System.String,System.Boolean)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.getStringBox.ShowDialog(System.String,System.String,System.Boolean)] Missing &lt;param name=&quot;labelText&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.getStringBox.ShowDialog(System.String,System.String,System.Boolean)] Missing &lt;param name=&quot;title&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.getStringBox.ShowDialog(System.String,System.String,System.Boolean)] Missing &lt;param name=&quot;multiline&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.NewControls.GetStringImageCompare] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NewControls.GetStringImageCompare.returnvalue] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.GetStringImageCompare.ShowDialog(System.String,System.String,System.Drawing.Image,System.Int32,System.Windows.Forms.ImageLayout)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.GetStringImageCompare.ShowDialog(System.String,System.String,System.Drawing.Image,System.Int32,System.Windows.Forms.ImageLayout)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.GetStringImageCompare.ShowDialog(System.String,System.String,System.Drawing.Image,System.Int32,System.Windows.Forms.ImageLayout)] Missing &lt;param name=&quot;labelText&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.GetStringImageCompare.ShowDialog(System.String,System.String,System.Drawing.Image,System.Int32,System.Windows.Forms.ImageLayout)] Missing &lt;param name=&quot;title&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.GetStringImageCompare.ShowDialog(System.String,System.String,System.Drawing.Image,System.Int32,System.Windows.Forms.ImageLayout)] Missing &lt;param name=&quot;i&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.GetStringImageCompare.ShowDialog(System.String,System.String,System.Drawing.Image,System.Int32,System.Windows.Forms.ImageLayout)] Missing &lt;param name=&quot;maxlen&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.GetStringImageCompare.ShowDialog(System.String,System.String,System.Drawing.Image,System.Int32,System.Windows.Forms.ImageLayout)] Missing &lt;param name=&quot;il&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.NewControls.growingLabel] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.growingLabel.OnFontChanged(System.EventArgs)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.growingLabel.OnFontChanged(System.EventArgs)] Missing &lt;param name=&quot;e&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.growingLabel.OnSizeChanged(System.EventArgs)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.growingLabel.OnSizeChanged(System.EventArgs)] Missing &lt;param name=&quot;e&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.growingLabel.OnTextChanged(System.EventArgs)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.growingLabel.OnTextChanged(System.EventArgs)] Missing &lt;param name=&quot;e&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.NewControls.ImageDraw] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.ImageDraw.GetMatrix(System.Windows.Forms.Control)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.ImageDraw.GetMatrix(System.Windows.Forms.Control)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.ImageDraw.GetMatrix(System.Windows.Forms.Control)] Missing &lt;param name=&quot;c&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.ImageDraw.GetRealPos(System.Windows.Forms.Control,System.Int32,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.ImageDraw.GetRealPos(System.Windows.Forms.Control,System.Int32,System.Int32)] Missing &lt;param name=&quot;c&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.ImageDraw.GetRealPos(System.Windows.Forms.Control,System.Int32,System.Int32)] Missing &lt;param name=&quot;x&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.ImageDraw.GetRealPos(System.Windows.Forms.Control,System.Int32,System.Int32)] Missing &lt;param name=&quot;y&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.ImageDraw.PaintEvent(System.Object,System.Windows.Forms.PaintEventArgs)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.ImageDraw.PaintEvent(System.Object,System.Windows.Forms.PaintEventArgs)] Missing &lt;param name=&quot;sender&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.ImageDraw.PaintEvent(System.Object,System.Windows.Forms.PaintEventArgs)] Missing &lt;param name=&quot;e&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.ImageDraw.PaintF(System.Drawing.Graphics,System.Windows.Forms.Control)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.ImageDraw.PaintF(System.Drawing.Graphics,System.Windows.Forms.Control)] Missing &lt;param name=&quot;g&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.ImageDraw.PaintF(System.Drawing.Graphics,System.Windows.Forms.Control)] Missing &lt;param name=&quot;c&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.NewControls.MassVariableEdit] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NewControls.MassVariableEdit.ReturnValues] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.MassVariableEdit.ShowDialog(System.String,System.Collections.Generic.List{ANDREICSLIB.NewControls.MassVariableEdit.TextBoxItems})] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.MassVariableEdit.ShowDialog(System.String,System.Collections.Generic.List{ANDREICSLIB.NewControls.MassVariableEdit.TextBoxItems})] Missing &lt;param name=&quot;formText&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.MassVariableEdit.ShowDialog(System.String,System.Object,System.Collections.Generic.List{ANDREICSLIB.NewControls.MassVariableEdit.TextBoxItems})] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.MassVariableEdit.ShowDialog(System.String,System.Object,System.Collections.Generic.List{ANDREICSLIB.NewControls.MassVariableEdit.TextBoxItems})] Missing &lt;param name=&quot;formText&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.MassVariableEdit.ShowDialog(System.String,System.Object,System.Collections.Generic.List{ANDREICSLIB.NewControls.MassVariableEdit.TextBoxItems})] Missing &lt;param name=&quot;classInstance&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.MassVariableEdit.ShowDialog(System.String,System.Object,System.Collections.Generic.List{ANDREICSLIB.NewControls.MassVariableEdit.TextBoxItems})] Missing &lt;param name=&quot;overload&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.MassVariableEdit.ShowDialogStatic(System.String,System.Object,System.Collections.Generic.List{ANDREICSLIB.NewControls.MassVariableEdit.TextBoxItems})] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.MassVariableEdit.ShowDialogStatic(System.String,System.Object,System.Collections.Generic.List{ANDREICSLIB.NewControls.MassVariableEdit.TextBoxItems})] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.MassVariableEdit.ShowDialogStatic(System.String,System.Object,System.Collections.Generic.List{ANDREICSLIB.NewControls.MassVariableEdit.TextBoxItems})] Missing &lt;param name=&quot;formText&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.MassVariableEdit.ShowDialogStatic(System.String,System.Object,System.Collections.Generic.List{ANDREICSLIB.NewControls.MassVariableEdit.TextBoxItems})] Missing &lt;param name=&quot;classInstance&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.MassVariableEdit.ShowDialogStatic(System.String,System.Object,System.Collections.Generic.List{ANDREICSLIB.NewControls.MassVariableEdit.TextBoxItems})] Missing &lt;param name=&quot;overload&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NewControls.MassVariableEdit.textboxes] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.NewControls.MassVariableEdit.TextBoxItems] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.MassVariableEdit.TextBoxItems.#ctor(System.String,System.String,ANDREICSLIB.NewControls.MassVariableEdit.HandleKeyPress,ANDREICSLIB.NewControls.MassVariableEdit.AcceptFinalTextBoxText,System.String)] Missing &lt;param name=&quot;fieldname&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.MassVariableEdit.TextBoxItems.#ctor(System.String,System.String,ANDREICSLIB.NewControls.MassVariableEdit.HandleKeyPress,ANDREICSLIB.NewControls.MassVariableEdit.AcceptFinalTextBoxText,System.String)] Missing &lt;param name=&quot;presetvalue&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.MassVariableEdit.TextBoxItems.#ctor(System.String,System.String,ANDREICSLIB.NewControls.MassVariableEdit.HandleKeyPress,ANDREICSLIB.NewControls.MassVariableEdit.AcceptFinalTextBoxText,System.String)] Missing &lt;param name=&quot;handleKeyPressH&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.MassVariableEdit.TextBoxItems.#ctor(System.String,System.String,ANDREICSLIB.NewControls.MassVariableEdit.HandleKeyPress,ANDREICSLIB.NewControls.MassVariableEdit.AcceptFinalTextBoxText,System.String)] Missing &lt;param name=&quot;acceptFinalTextBoxTextH&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.MassVariableEdit.TextBoxItems.#ctor(System.String,System.String,ANDREICSLIB.NewControls.MassVariableEdit.HandleKeyPress,ANDREICSLIB.NewControls.MassVariableEdit.AcceptFinalTextBoxText,System.String)] Missing &lt;param name=&quot;errortext&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NewControls.MassVariableEdit.TextBoxItems.acceptFinalText] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NewControls.MassVariableEdit.TextBoxItems.FinalTextError] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NewControls.MassVariableEdit.TextBoxItems.handleKeyPress] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NewControls.MassVariableEdit.TextBoxItems.LabelText] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NewControls.MassVariableEdit.TextBoxItems.TextBoxName] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NewControls.MassVariableEdit.TextBoxItems.TextBoxPreSetText] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.NewControls.multipleMessageBox] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.multipleMessageBox.#ctor(System.String,System.String,System.Collections.Generic.IEnumerable{System.String})] Missing &lt;param name=&quot;windowText&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.multipleMessageBox.#ctor(System.String,System.String,System.Collections.Generic.IEnumerable{System.String})] Missing &lt;param name=&quot;labelText&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.multipleMessageBox.#ctor(System.String,System.String,System.Collections.Generic.IEnumerable{System.String})] Missing &lt;param name=&quot;Buttons&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NewControls.multipleMessageBox.Result] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NewControls.multipleMessageBox.Set] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [P:ANDREICSLIB.NewControls.multipleMessageBox.Text] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.NewControls.selectItemFromListBox] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.selectItemFromListBox.ShowDialog(System.String,System.String,System.Collections.Generic.List{ANDREICSLIB.NewControls.selectItemFromListBox.SelectItem},System.Boolean,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.selectItemFromListBox.ShowDialog(System.String,System.String,System.Collections.Generic.List{ANDREICSLIB.NewControls.selectItemFromListBox.SelectItem},System.Boolean,System.Int32)] Missing &lt;param name=&quot;labelText&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.selectItemFromListBox.ShowDialog(System.String,System.String,System.Collections.Generic.List{ANDREICSLIB.NewControls.selectItemFromListBox.SelectItem},System.Boolean,System.Int32)] Missing &lt;param name=&quot;title&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.selectItemFromListBox.ShowDialog(System.String,System.String,System.Collections.Generic.List{ANDREICSLIB.NewControls.selectItemFromListBox.SelectItem},System.Boolean,System.Int32)] Missing &lt;param name=&quot;listBoxItems&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.selectItemFromListBox.ShowDialog(System.String,System.String,System.Collections.Generic.List{ANDREICSLIB.NewControls.selectItemFromListBox.SelectItem},System.Boolean,System.Int32)] Missing &lt;param name=&quot;multiselect&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.selectItemFromListBox.ShowDialog(System.String,System.String,System.Collections.Generic.List{ANDREICSLIB.NewControls.selectItemFromListBox.SelectItem},System.Boolean,System.Int32)] Missing &lt;param name=&quot;mustSelectCountIN&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.selectItemFromListBox.SelectItem.#ctor(System.String,System.Boolean)] Missing &lt;param name=&quot;text&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.selectItemFromListBox.SelectItem.#ctor(System.String,System.Boolean)] Missing &lt;param name=&quot;isSelected&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NewControls.selectItemFromListBox.SelectItem.preselected] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [F:ANDREICSLIB.NewControls.selectItemFromListBox.SelectItem.Text] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.NewControls.selectItemFromListView] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.selectItemFromListView.ShowDialog(System.String,System.String,System.Collections.Generic.List{System.Windows.Forms.ListViewItem},System.Boolean,System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.selectItemFromListView.ShowDialog(System.String,System.String,System.Collections.Generic.List{System.Windows.Forms.ListViewItem},System.Boolean,System.Int32)] Missing &lt;param name=&quot;labelText&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.selectItemFromListView.ShowDialog(System.String,System.String,System.Collections.Generic.List{System.Windows.Forms.ListViewItem},System.Boolean,System.Int32)] Missing &lt;param name=&quot;title&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.selectItemFromListView.ShowDialog(System.String,System.String,System.Collections.Generic.List{System.Windows.Forms.ListViewItem},System.Boolean,System.Int32)] Missing &lt;param name=&quot;listBoxItems&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.selectItemFromListView.ShowDialog(System.String,System.String,System.Collections.Generic.List{System.Windows.Forms.ListViewItem},System.Boolean,System.Int32)] Missing &lt;param name=&quot;multiselect&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.selectItemFromListView.ShowDialog(System.String,System.String,System.Collections.Generic.List{System.Windows.Forms.ListViewItem},System.Boolean,System.Int32)] Missing &lt;param name=&quot;mustSelectCountIN&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.NewControls.SelectItemsFromCheckBox] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.SelectItemsFromCheckBox.ShowDialog(System.String,System.String,System.Collections.Generic.List{ANDREICSLIB.NewControls.selectItemFromListBox.SelectItem},System.Int32)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.SelectItemsFromCheckBox.ShowDialog(System.String,System.String,System.Collections.Generic.List{ANDREICSLIB.NewControls.selectItemFromListBox.SelectItem},System.Int32)] Missing &lt;returns&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.SelectItemsFromCheckBox.ShowDialog(System.String,System.String,System.Collections.Generic.List{ANDREICSLIB.NewControls.selectItemFromListBox.SelectItem},System.Int32)] Missing &lt;param name=&quot;labelText&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.SelectItemsFromCheckBox.ShowDialog(System.String,System.String,System.Collections.Generic.List{ANDREICSLIB.NewControls.selectItemFromListBox.SelectItem},System.Int32)] Missing &lt;param name=&quot;title&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.SelectItemsFromCheckBox.ShowDialog(System.String,System.String,System.Collections.Generic.List{ANDREICSLIB.NewControls.selectItemFromListBox.SelectItem},System.Int32)] Missing &lt;param name=&quot;listBoxItems&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.SelectItemsFromCheckBox.ShowDialog(System.String,System.String,System.Collections.Generic.List{ANDREICSLIB.NewControls.selectItemFromListBox.SelectItem},System.Int32)] Missing &lt;param name=&quot;mustSelectCountIN&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [T:ANDREICSLIB.NewControls.UnselectableRichTextBox] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.UnselectableRichTextBox.OnGotFocus(System.EventArgs)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.UnselectableRichTextBox.OnGotFocus(System.EventArgs)] Missing &lt;param name=&quot;e&quot;/&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.UnselectableRichTextBox.UnselectableTextBox] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.UnselectableRichTextBox.WndProc(System.Windows.Forms.Message@)] Missing &lt;summary&gt; documentation
+  Warn: ShowMissingComponent: [M:ANDREICSLIB.NewControls.UnselectableRichTextBox.WndProc(System.Windows.Forms.Message@)] Missing &lt;param name=&quot;m&quot;/&gt; documentation
+  Info: Processed 612 topic(s)
+  Info: 838 warning(s)
+  Diagnostic: CopyFromIndexComponent: &quot;reflection&quot; in-memory cache entries used: 11 of 15.
+  Diagnostic: CopyFromIndexComponent: &quot;comments&quot; in-memory cache entries used: 4 of 30.
+    Last step completed in 00:00:26.4306
+</buildStep>
+<buildStep step="CombiningIntermediateTocFiles">
+Combining conceptual and API intermediate TOC files...
+    Last step completed in 00:00:00.0040
+</buildStep>
+<buildStep step="ExtractingHtmlInfo">
+Extracting HTML info for HTML Help 1 and/or website...
+[C:\Program Files (x86)\MSBuild\12.0\bin\MSBuild.exe]
+Sandcastle Help File Builder, version 1.9.8.0
+Copyright &#184; 2006-2013, Eric Woodruff, All Rights Reserved
+E-Mail: Eric@EWoodruff.us
+
+Using LCID &#39;1033&#39;, code page &#39;65001&#39;, encoding charset &#39;UTF-8&#39;.
+
+Processing Help 1 files in C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1
+Processed 612 HTML files
+Sorting keywords and generating See Also indices
+Saving HTML Help 1 keyword index to C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Doc.hhk
+Saving HTML Help 1 table of contents to C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Doc.hhc
+    Last step completed in 00:00:01.1131
+</buildStep>
+<buildStep step="CopyStandardHelpContent">
+Copying standard help content...
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\adm.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\adm.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\adm_arch.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\adm_arch.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\adm_dev.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\adm_dev.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\adm_dev_arch.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\adm_dev_arch.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\alert_caution.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\alert_caution.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\alert_note.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\alert_note.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\alert_security.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\alert_security.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\arch.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\arch.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\big_adm.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\big_adm.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\big_arch.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\big_arch.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\big_dev.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\big_dev.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\big_kw.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\big_kw.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\box.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\box.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\Caution.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\Caution.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\CFW.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\CFW.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\collall.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\collall.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\collapse.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\collapse.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\collapse_all.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\collapse_all.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\copycode.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\copycode.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\copycodeHighlight.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\copycodeHighlight.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\dev.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\dev.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\dev_arch.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\dev_arch.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\dropdown.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\dropdown.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\dropdownHover.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\dropdownHover.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\drpdown.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\drpdown.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\drpdown_orange.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\drpdown_orange.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\drpdown_orange_up.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\drpdown_orange_up.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\drpup.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\drpup.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\exp.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\exp.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\expall.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\expall.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\expand_all.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\expand_all.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\filter1a.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\filter1a.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\filter1c.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\filter1c.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\footer.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\footer.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\gradient.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\gradient.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\greencheck.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\greencheck.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\greychck.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\greychck.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\header_prev_next.jpg -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\header_prev_next.jpg
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\header_sql_tutorial_blank.jpg -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\header_sql_tutorial_blank.jpg
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\header_sql_tutorial_logo.GIF -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\header_sql_tutorial_logo.GIF
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\kw.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\kw.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\kw_adm.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\kw_adm.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\kw_adm_arch.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\kw_adm_arch.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\kw_adm_dev.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\kw_adm_dev.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\kw_adm_dev_arch.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\kw_adm_dev_arch.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\kw_arch.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\kw_arch.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\kw_dev.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\kw_dev.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\kw_dev_arch.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\kw_dev_arch.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\LastChild.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\LastChild.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\load.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\load.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\load_hover.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\load_hover.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\note.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\note.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\pencil.GIF -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\pencil.GIF
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\privclass.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\privclass.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\privdelegate.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\privdelegate.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\privenum.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\privenum.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\privenumeration.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\privenumeration.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\privevent.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\privevent.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\privextension.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\privextension.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\privfield.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\privfield.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\privinterface.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\privinterface.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\privmethod.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\privmethod.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\privproperty.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\privproperty.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\privstructure.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\privstructure.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\protclass.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\protclass.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\protdelegate.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\protdelegate.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\protenum.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\protenum.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\protenumeration.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\protenumeration.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\protevent.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\protevent.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\protextension.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\protextension.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\protfield.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\protfield.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\protinterface.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\protinterface.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\protmethod.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\protmethod.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\protoperator.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\protoperator.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\protproperty.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\protproperty.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\protstructure.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\protstructure.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\pubclass.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\pubclass.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\pubdelegate.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\pubdelegate.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\pubenum.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\pubenum.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\pubenumeration.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\pubenumeration.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\pubevent.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\pubevent.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\pubextension.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\pubextension.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\pubfield.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\pubfield.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\pubinterface.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\pubinterface.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\pubmethod.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\pubmethod.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\puboperator.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\puboperator.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\pubproperty.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\pubproperty.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\pubstructure.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\pubstructure.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\requirements1a.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\requirements1a.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\requirements1c.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\requirements1c.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\save.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\save.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\save_hover.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\save_hover.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\security.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\security.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\seealso1a.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\seealso1a.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\seealso1c.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\seealso1c.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\slMobile.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\slMobile.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\static.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\static.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\icons\xna.gif -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\icons\xna.gif
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\scripts\CheckboxMenu.js -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\scripts\CheckboxMenu.js
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\scripts\CommonUtilities.js -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\scripts\CommonUtilities.js
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\scripts\Dropdown.js -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\scripts\Dropdown.js
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\scripts\EventUtilities.js -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\scripts\EventUtilities.js
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\scripts\script_feedBack.js -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\scripts\script_feedBack.js
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\scripts\script_manifold.js -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\scripts\script_manifold.js
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\scripts\SplitScreen.js -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\scripts\SplitScreen.js
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\styles\Presentation.css -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\styles\Presentation.css
+C:\Program Files (x86)\Sandcastle\\Presentation\VS2005\styles\Whidbey\Presentation.css -&gt; C:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\styles\Whidbey\Presentation.css
+    Last step completed in 00:00:01.6032
+</buildStep>
+<buildStep step="GenerateHelpFormatTableOfContents">
+Generating HTML Help 1 table of contents file...
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="GenerateHelpFileIndex">
+Generating HTML Help 1 index file...
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="GenerateHelpProject">
+Generating HTML Help 1 project file...
+    Last step completed in 00:00:00.0060
+</buildStep>
+<buildStep step="CompilingHelpFile">
+Compiling HTML Help 1 file...
+[C:\Program Files (x86)\MSBuild\12.0\bin\MSBuild.exe]
+  Microsoft HTML Help Compiler 4.74.8702
+  
+  
+  
+  Compiling c:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\Doc.chm
+  
+  
+  
+  
+  
+  Compile time: 0 minutes, 11 seconds
+  
+  614	Topics
+  
+  7,342	Local links
+  
+  35,511	Internet links
+  
+  0	Graphics
+  
+  
+  
+  
+  
+  Created c:\Users\andrei.gec\Downloads\ss\GIT\ANDREICSLIB\SOURCE\Doc\Help\Working\Output\HtmlHelp1\Doc.chm, 1,809,817 bytes
+  
+  Compression decreased file by 12,743,989 bytes.
+  
+    Last step completed in 00:00:15.2625
+</buildStep>
+<buildStep step="CleanIntermediates">
+Removing intermediate files...
+    Last step completed in 00:00:00.3760
+</buildStep>
+<buildStep step="Completed">
+
+Build completed successfully at 01/14/2014 09:35 AM.  Total time: 00:00:55.5746
+
+</buildStep>
+</shfbBuild>
