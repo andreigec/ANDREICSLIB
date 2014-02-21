@@ -21,6 +21,13 @@ namespace ANDREICSLIB
         /// </summary>
         internal static bool ShowingHelp;
 
+        public class DownloadedSolutionDetails
+        {
+            public string ZipFileLocation;
+            public string ChangeLog;
+            public double Version;
+        }
+
         private static ToolStripMenuItem GetItem(MenuStrip ms)
         {
             //see if a help item exists
@@ -53,7 +60,7 @@ namespace ANDREICSLIB
         /// <param name="baseform"></param>
         /// <param name="newsd"></param>
         /// <param name="existingMenuStrip"></param>
-        public static void CreateLicense(Form baseform, SolutionDetails newsd, MenuStrip existingMenuStrip)
+        public static void CreateLicense(Form baseform, MenuStrip existingMenuStrip, SolutionDetails newsd)
         {
             _sd = newsd;
 
@@ -66,7 +73,7 @@ namespace ANDREICSLIB
             if (helpToolStripItem != null)
                 existed = true;
             else
-                //if it doesnt, create
+            //if it doesnt, create
             {
                 existingMenuStrip.Items.Add(new ToolStripMenuItem(help));
                 //should always be set now
@@ -101,9 +108,9 @@ namespace ANDREICSLIB
             var AS = new aboutScreen
                          {
                              Text = "About " + _sd.FormTitle,
-                             appversionlabel = {Text = "Version " + _sd.AppVersion},
-                             apptitlelabel = {Text = _sd.FormTitle},
-                             otherapptext = {Text = _sd.AboutScreenOtherText}
+                             appversionlabel = { Text = "Version " + _sd.AppVersion },
+                             apptitlelabel = { Text = _sd.FormTitle },
+                             otherapptext = { Text = _sd.AboutScreenOtherText }
                          };
 
             if (ShowingAbout == false)
@@ -115,7 +122,7 @@ namespace ANDREICSLIB
 
         private static void Helpbox(object sender, EventArgs e)
         {
-            var hs = new helpScreen {Text = _sd.FormTitle + " Help", helpbox = {Text = _sd.HelpText}};
+            var hs = new helpScreen { Text = _sd.FormTitle + " Help", helpbox = { Text = _sd.HelpText } };
 
             if (ShowingHelp == false)
             {
@@ -134,29 +141,21 @@ namespace ANDREICSLIB
             if (dr1 == DialogResult.No)
                 return;
 
-            string result = NetExtras.DownloadWebPage(_sd.VersionPath);
-            if (String.IsNullOrEmpty(result))
-            {
-                MessageBox.Show("Error while getting new version file:" + _sd.VersionPath);
-                return;
-            }
+            DownloadedSolutionDetails dsd;
 
-            double newV;
-            try
+            dsd = _sd.Callback();
+
+            if (dsd == null)
             {
-                newV = double.Parse(result);
-            }
-            catch
-            {
-                MessageBox.Show("Online file:" + _sd.VersionPath + " has an invalid version:" + result);
+                MessageBox.Show("Error while getting new version");
                 return;
             }
 
             string versionS = "Your version of " + _sd.FormTitle + ":" + _sd.AppVersion +
                               "\nNewest version online:" +
-                              newV;
+                              dsd.Version;
 
-            if (_sd.AppVersion >= newV)
+            if (_sd.AppVersion >= dsd.Version)
             {
                 MessageBox.Show(
                     versionS + "\n\nNo update required, you already have an up to date version of " + _sd.FormTitle,
@@ -164,11 +163,10 @@ namespace ANDREICSLIB
                 return;
             }
 
-            string changelog = NetExtras.DownloadWebPage(_sd.ChangelogPath);
-            if (String.IsNullOrEmpty(changelog) == false)
+            if (String.IsNullOrEmpty(dsd.ChangeLog) == false)
             {
-                changelog = StringExtras.ApplyTrim(changelog, true, 500);
-                versionS += "\n\nCHANGELOG:\n" + changelog;
+                dsd.ChangeLog = StringExtras.ApplyTrim(dsd.ChangeLog, true, 500);
+                versionS += "\n\nCHANGELOG:\n" + dsd.ChangeLog;
             }
             else
             {
@@ -182,11 +180,11 @@ namespace ANDREICSLIB
                     "\n\nDo you wish to update to this version? \n(Be aware that this program will restart; please save your data beforehand)",
                     "Do you wish to update?", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
-                UpdateApplication();
+                UpdateApplication(dsd);
         }
 
 
-        private static void UpdateApplication()
+        private static void UpdateApplication(DownloadedSolutionDetails dsd)
         {
             String folder;
             String localfile;
@@ -211,8 +209,8 @@ namespace ANDREICSLIB
             try
             {
                 var client = new WebClient();
-                localfile = _sd.ApplicationZipFileLocation.Substring(_sd.ApplicationZipFileLocation.LastIndexOf('/') + 1);
-                client.DownloadFile(_sd.ApplicationZipFileLocation, localfile);
+                localfile = dsd.ZipFileLocation.Substring(dsd.ZipFileLocation.LastIndexOf('/') + 1);
+                client.DownloadFile(dsd.ZipFileLocation, localfile);
             }
             catch (Exception ex)
             {
@@ -326,27 +324,30 @@ namespace ANDREICSLIB
 
         #region Nested type: SolutionDetails
 
+        public delegate DownloadedSolutionDetails LicenseCallback();
         public class SolutionDetails
         {
+            private LicenseCallback _callback;
             public String AboutScreenOtherText;
-            public double AppVersion;
-            public String ApplicationZipFileLocation;
-            public String ChangelogPath;
             public String FormTitle;
             public String HelpText;
-            public String VersionPath;
+            public double AppVersion;
 
-            public SolutionDetails(string helpText = null, string formTitle = null, double appVersion = -1,
-                                   string aboutScreenOtherText = null, string versionPath = null,
-                                   string applicationZipFileLocation = null, string changelogPath = null)
+            public SolutionDetails(LicenseCallback dsd, string helpText = null, string formTitle = null, double? version = null, string aboutScreenOtherText = null)
             {
+                _callback = dsd;
+
+                AppVersion = version ?? -1;
                 HelpText = helpText;
                 FormTitle = formTitle;
-                AppVersion = appVersion;
                 AboutScreenOtherText = aboutScreenOtherText;
-                VersionPath = versionPath;
-                ApplicationZipFileLocation = applicationZipFileLocation;
-                ChangelogPath = changelogPath;
+            }
+
+            public DownloadedSolutionDetails Callback()
+            {
+                if (_callback != null)
+                    return _callback();
+                return null;
             }
         }
 

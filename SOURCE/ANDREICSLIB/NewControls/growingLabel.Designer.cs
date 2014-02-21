@@ -1,4 +1,4 @@
-﻿namespace ANDREICSLIB.controls
+﻿namespace ANDREICSLIB.NewControls
 {
 	partial class growingLabel
 	{

@@ -16,7 +16,7 @@ namespace ANDREICSLIB
 
         public static Tuple<string, string> SplitTwo(String instr, char sep)
         {
-            var sep2 = new[] {sep};
+            var sep2 = new[] { sep };
             string[] sep3 = instr.Split(sep2);
             if (sep3.Count() != 2)
                 return null;
@@ -66,7 +66,7 @@ namespace ANDREICSLIB
             var ls = new List<string>();
 
             int count = 0;
-            var splitchar = new[] {' '};
+            var splitchar = new[] { ' ' };
             string[] splitspace = instr.Split(splitchar);
             foreach (string s in splitspace)
             {
@@ -139,7 +139,7 @@ namespace ANDREICSLIB
 
             string bef = str.Substring(0, position);
             string af = str.Substring(position + 1);
-            str= bef + newChar.ToString(CultureInfo.InvariantCulture) + af;
+            str = bef + newChar.ToString(CultureInfo.InvariantCulture) + af;
         }
 
         /// <summary>
@@ -260,11 +260,34 @@ namespace ANDREICSLIB
          * */
 
         /// <summary>
+        /// merges all consecutive whitespace into one character
+        /// </summary>
+        /// <param name="origString"></param>
+        /// <returns></returns>
+        public static string MergeWhiteSpace(string origString, char mergeTo = ' ')
+        {
+            var mstr = mergeTo.ToString();
+            var str = origString;
+            str = str.Replace("\r\n", mstr);
+            str = str.Replace('\n', mergeTo);
+            str = str.Replace('\r', mergeTo);
+            str = str.Replace('\t', mergeTo);
+
+            str = str.Replace("  ", " ");
+            str = str.Replace("  ", " ");
+            str = str.Replace("  ", " ");
+            str = str.Replace("  ", " ");
+
+            str = str.Replace(' ', mergeTo);
+            return str;
+        }
+
+        /// <summary>
         /// removes \n \r and \0 from the start and end of a string
         /// </summary>
         /// <param name="origString"></param>
         /// <returns>the 'cleaned' string</returns>
-        private static String CleanString(String origString)
+        public static String CleanString(String origString)
         {
             if (String.IsNullOrEmpty(origString))
                 return origString;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -68,6 +69,26 @@ namespace ANDREICSLIB
                 result.Add(kvp.Key, newl);
             }
             return DictToListOfListViewItems(result);
+        }
+
+        /// <summary>
+        /// delete a directory and all its files
+        /// </summary>
+        /// <param name="FolderName"></param>
+        public static void DeleteDirectory(string FolderName)
+        {
+            DirectoryInfo dir = new DirectoryInfo(FolderName);
+
+            foreach (FileInfo fi in dir.GetFiles())
+            {
+                fi.Delete();
+            }
+
+            foreach (DirectoryInfo di in dir.GetDirectories())
+            {
+                DeleteDirectory(di.FullName);
+                di.Delete();
+            }
         }
     }
 }

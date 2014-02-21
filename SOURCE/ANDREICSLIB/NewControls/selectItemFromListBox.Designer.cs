@@ -1,6 +1,4 @@
-﻿using ANDREICSLIB.controls;
-
-namespace ANDREICSLIB
+﻿namespace ANDREICSLIB.NewControls
 {
 	partial class selectItemFromListBox
 	{

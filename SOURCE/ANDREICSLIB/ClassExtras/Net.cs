@@ -13,6 +13,14 @@ namespace ANDREICSLIB
 {
     public abstract class NetExtras
     {
+        public static void DownloadFile(string url, string filename)
+        {
+            using (WebClient client = new WebClient())
+            {
+                client.DownloadFile(url, filename);
+            }
+        }
+
         public static string DownloadWebPage(string url)
         {
             // Open a connection
@@ -78,7 +86,7 @@ namespace ANDREICSLIB
             }
             return false;
         }
-        
+
         public static bool IsLanIPCheckTTL(IPAddress address)
         {
             var ping = new Ping();
@@ -165,7 +173,7 @@ namespace ANDREICSLIB
             return null;
         }
 
-        public static string GetExternalDefaultLocalAddress(string WebCheckIPURL=null)
+        public static string GetExternalDefaultLocalAddress(string WebCheckIPURL = null)
         {
             string ret = WebCheckIPURL == null ? GetExternalAddress() : GetExternalAddress(WebCheckIPURL);
 
@@ -177,7 +185,7 @@ namespace ANDREICSLIB
 
         public static string GetLocalAddress()
         {
-            IPHostEntry host= Dns.GetHostEntry(Dns.GetHostName());
+            IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
             return (from ip in host.AddressList where ip.AddressFamily == AddressFamily.InterNetwork select ip.ToString()).FirstOrDefault();
         }
 
@@ -378,7 +386,7 @@ namespace ANDREICSLIB
             return -1;
         }
 
-     #region netbios info
+        #region netbios info
 
         //group name/domain name/work group/ whatever its called
         [DllImport("netapi32.dll", CharSet = CharSet.Auto)]

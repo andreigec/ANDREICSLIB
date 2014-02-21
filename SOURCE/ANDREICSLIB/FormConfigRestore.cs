@@ -17,8 +17,13 @@ namespace ANDREICSLIB
         {
             if (C is CheckBox)
             {
-                var V = (CheckBox) C;
+                var V = (CheckBox)C;
                 output += V.Name + Separator + "Checked" + Separator + V.Checked + NewLine;
+            }
+            else if (C is ComboBox)
+            {
+                var V = (ComboBox)C;
+                output += V.Name + Separator + "Text" + Separator + V.Text + NewLine;
             }
 
             else if (C is ListBox)
@@ -55,7 +60,7 @@ namespace ANDREICSLIB
         {
             if (tsi is ToolStripMenuItem)
             {
-                var v = (ToolStripMenuItem) tsi;
+                var v = (ToolStripMenuItem)tsi;
                 output += v.Name + Separator + "Checked" + Separator + v.Checked + NewLine;
             }
         }
@@ -95,7 +100,7 @@ namespace ANDREICSLIB
             if (c is ListBox && propertyName.Equals("Items"))
             {
                 var lb = c as ListBox;
-                var s = new[] {ListSeparator};
+                var s = new[] { ListSeparator };
                 string[] v = value.ToString().Split(s, StringSplitOptions.RemoveEmptyEntries);
                 foreach (string v2 in v)
                 {
@@ -106,9 +111,9 @@ namespace ANDREICSLIB
             if (c is ListView && propertyName.Equals("Items"))
             {
                 var lv = c as ListView;
-                var s = new[] {ListSeparator};
+                var s = new[] { ListSeparator };
                 string[] v = value.ToString().Split(s, StringSplitOptions.RemoveEmptyEntries);
-                if (v.Length%2 == 0)
+                if (v.Length % 2 == 0)
                 {
                     for (int a = 0; a < v.Length; a += 2)
                     {
@@ -139,7 +144,7 @@ namespace ANDREICSLIB
 
                 if (c is MenuStrip)
                 {
-                    var ms = (MenuStrip) c;
+                    var ms = (MenuStrip)c;
                     foreach (ToolStripItem tsi in ms.Items)
                     {
                         if (LoadProperty(name, propertyName, tsi, value))
@@ -169,7 +174,7 @@ namespace ANDREICSLIB
 
                 if (c is MenuStrip)
                 {
-                    var ms = (MenuStrip) c;
+                    var ms = (MenuStrip)c;
                     foreach (ToolStripItem TSI in ms.Items)
                     {
                         if (LoadProperty(name, propertyName, TSI, value))
@@ -193,7 +198,7 @@ namespace ANDREICSLIB
         {
             if (checkthis is ToolStripMenuItem)
             {
-                var tsmi = (ToolStripMenuItem) checkthis;
+                var tsmi = (ToolStripMenuItem)checkthis;
 
                 foreach (ToolStripItem tsi in tsmi.DropDownItems)
                 {

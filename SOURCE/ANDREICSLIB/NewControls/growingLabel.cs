@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace ANDREICSLIB.controls
+namespace ANDREICSLIB.NewControls
 {
     public partial class growingLabel : Label
     {
