@@ -13,13 +13,13 @@ namespace ANDREICSLIB.ClassExtras
 
         public static List<List<T>> GetAllCombinations<T>(List<T> inlist, int minlength = 1, int maxlength = -1)
         {
-            var ret = new List<List<T>>();
+            var temp = new Dictionary<string, List<T>>();
 
             //gradually take more and more items
             for (int takesize = minlength; takesize <= inlist.Count; takesize++)
             {
                 if (takesize > maxlength && maxlength > -1)
-                    return ret;
+                    return temp.Select(s => s.Value).ToList();
 
                 bool breaktime = false;
                 for (int take = 0; take < inlist.Count; take++)
@@ -40,11 +40,13 @@ namespace ANDREICSLIB.ClassExtras
                     if (breaktime)
                         break;
 
-                    ret.Add(concat);
+                    var concatKey = concat.Aggregate("", (a, b) => a + b);
+
+                    if (temp.ContainsKey(concatKey) == false)
+                        temp.Add(concatKey, concat);
                 }
             }
-
-            return ret;
+            return temp.Select(s => s.Value).ToList();
         }
 
         public static void Swap<T>(ref List<T> list, int index1, int index2)
