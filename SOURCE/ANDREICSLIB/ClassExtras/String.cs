@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace ANDREICSLIB
 {
@@ -499,6 +500,34 @@ namespace ANDREICSLIB
                 return false;
 
             return ((s[0] >= 65 && s[0] <= 90) || (s[0] >= 97 && s[0] <= 122));
+        }
+
+
+        /// <summary>
+        /// remove comment lines etc
+        /// </summary>
+        /// <param name="multiline"></param>
+        /// <returns></returns>
+        public static string RemoveComments(string multiline)
+        {
+            var blockComments = @"/\*(.*?)\*/";
+            var lineComments = @"//(.*?)\r?\n";
+            var hashComments = @"#(.*?)\r?\n";
+            var strings = @"""((\\[^\n]|[^""\n])*)""";
+            var verbatimStrings = @"@(""[^""]*"")+";
+
+            string noComments = Regex.Replace(multiline,
+    blockComments + "|" + lineComments + "|" + hashComments + "|" + strings + "|" + verbatimStrings,
+    me =>
+    {
+        if (me.Value.StartsWith("/*") || me.Value.StartsWith("//") || me.Value.StartsWith("#"))
+            return me.Value.StartsWith("//") ? Environment.NewLine : "";
+        // Keep the literal strings
+        return me.Value;
+    },
+    RegexOptions.Singleline);
+
+            return noComments;
         }
     }
 }

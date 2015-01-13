@@ -13,6 +13,24 @@ namespace ANDREICSLIB
 {
     public abstract class NetExtras
     {
+        /// <summary>
+        /// add timeout to web client
+        /// </summary>
+        public class WebClientEx : WebClient
+        {
+            /// <summary>
+            /// timeout in MS
+            /// </summary>
+            public int Timeout { get; set; }
+
+            protected override WebRequest GetWebRequest(Uri address)
+            {
+                var request = base.GetWebRequest(address);
+                request.Timeout = Timeout;
+                return request;
+            }
+        }
+
         public static void DownloadFile(string url, string filename)
         {
             using (WebClient client = new WebClient())
