@@ -175,6 +175,7 @@
     <Compile Include="NewControls\SelectItemsFromCheckBox.Designer.cs">
       <DependentUpon>SelectItemsFromCheckBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewControls\SerializableDictionary.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>

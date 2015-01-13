@@ -5,6 +5,12 @@ namespace ANDREICSLIB
 {
     public static class TextboxExtras
     {
+
+	    public static void ScrollToEnd(TextBox tb)
+	    {
+			tb.SelectionStart = tb.TextLength;
+			tb.ScrollToCaret();
+	    }
         private static Tuple<int, int> GetSelection(Control c)
         {
             int start = 0;
