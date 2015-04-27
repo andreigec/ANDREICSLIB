@@ -114,5 +114,31 @@ namespace ANDREICSLIB
 
             return p;
         }
+		
+		
+		public static T GetFieldByName<T>(object instance, string fieldName)
+        {
+            try
+            {
+                var myType = instance.GetType();
+                // Get the FieldInfo of MyClass.
+                FieldInfo[] myFields = myType.GetFields(BindingFlags.Public | BindingFlags.Instance);
+                var ret = default(T);
+                foreach (var t in myFields)
+                {
+                    if (t.Name == fieldName)
+                    {
+                        ret = (T)t.GetValue(instance);
+                        break;
+                    }
+                }
+                return ret;
+            }
+            catch (Exception ex)
+            {
+                return default(T);
+            }
+
+        }
     }
 }

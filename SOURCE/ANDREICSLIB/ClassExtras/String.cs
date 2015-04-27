@@ -2,11 +2,43 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace ANDREICSLIB
 {
 	public static class StringExtras
 	{
+        public static string GetMD5OfString(String s)
+        {
+            using (var md5Hash = MD5.Create())
+            {
+                var hash = GetMd5Hash(md5Hash, s);
+                return hash;
+            }
+        }
+
+        public static string GetMd5Hash(MD5 md5Hash, string input)
+        {
+            // Convert the input string to a byte array and compute the hash. 
+            var data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+
+            // Create a new Stringbuilder to collect the bytes 
+            // and create a string.
+            var sBuilder = new StringBuilder();
+
+            // Loop through each byte of the hashed data  
+            // and format each one as a hexadecimal string. 
+            for (var i = 0; i < data.Length; i++)
+            {
+                sBuilder.Append(i.ToString("x2"));
+            }
+
+            // Return the hexadecimal string. 
+            return sBuilder.ToString();
+        }
+
 		public static string[] SplitString(String instr, String split, bool removeempty = true)
 		{
 			var s = new string[1];
@@ -489,6 +521,34 @@ namespace ANDREICSLIB
 				return false;
 
 			return ((s[0] >= 65 && s[0] <= 90) || (s[0] >= 97 && s[0] <= 122));
+        }
+
+
+        /// <summary>
+        /// remove comment lines etc
+        /// </summary>
+        /// <param name="multiline"></param>
+        /// <returns></returns>
+        public static string RemoveComments(string multiline)
+        {
+            var blockComments = @"/\*(.*?)\*/";
+            var lineComments = @"//(.*?)\r?\n";
+            var hashComments = @"#(.*?)\r?\n";
+            var strings = @"""((\\[^\n]|[^""\n])*)""";
+            var verbatimStrings = @"@(""[^""]*"")+";
+
+            string noComments = Regex.Replace(multiline,
+    blockComments + "|" + lineComments + "|" + hashComments + "|" + strings + "|" + verbatimStrings,
+    me =>
+    {
+        if (me.Value.StartsWith("/*") || me.Value.StartsWith("//") || me.Value.StartsWith("#"))
+            return me.Value.StartsWith("//") ? Environment.NewLine : "";
+        // Keep the literal strings
+        return me.Value;
+    },
+    RegexOptions.Singleline);
+
+            return noComments;
 		}
 
 

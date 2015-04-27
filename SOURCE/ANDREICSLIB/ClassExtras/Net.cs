@@ -13,6 +13,24 @@ namespace ANDREICSLIB
 {
     public abstract class NetExtras
     {
+        /// <summary>
+        /// add timeout to web client
+        /// </summary>
+        public class WebClientEx : WebClient
+        {
+            /// <summary>
+            /// timeout in MS
+            /// </summary>
+            public int Timeout { get; set; }
+
+            protected override WebRequest GetWebRequest(Uri address)
+            {
+                var request = base.GetWebRequest(address);
+                request.Timeout = Timeout;
+                return request;
+            }
+        }
+
         public static void DownloadFile(string url, string filename)
         {
             using (WebClient client = new WebClient())
@@ -22,6 +40,30 @@ namespace ANDREICSLIB
         }
 
         public static string DownloadWebPage(string url)
+        {
+            var t = GetWebPageStream(url);
+            var webStream = t.Item1;
+            var response = t.Item2;
+
+            // Create reader object:
+            if (webStream != null)
+            {
+                var reader = new StreamReader(webStream);
+
+                // Read the entire stream content:
+                string pageContent = reader.ReadToEnd();
+
+                // Cleanup
+                reader.Close();
+                webStream.Close();
+                response.Close();
+
+                return pageContent;
+            }
+            return null;
+        }
+
+        public static Tuple<Stream, WebResponse> GetWebPageStream(string url)
         {
             // Open a connection
             var webRequestObject = (HttpWebRequest)WebRequest.Create(url);
@@ -44,23 +86,7 @@ namespace ANDREICSLIB
 
             // Open data stream:
             Stream webStream = response.GetResponseStream();
-
-            // Create reader object:
-            if (webStream != null)
-            {
-                var reader = new StreamReader(webStream);
-
-                // Read the entire stream content:
-                string pageContent = reader.ReadToEnd();
-
-                // Cleanup
-                reader.Close();
-                webStream.Close();
-                response.Close();
-
-                return pageContent;
-            }
-            return null;
+            return new Tuple<Stream, WebResponse>(webStream, response);
         }
 
         public static string GetHostName(IPAddress externalIP = null)
