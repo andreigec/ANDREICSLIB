@@ -35,7 +35,7 @@ namespace ANDREICSLIB
         }
     }
 
-    public abstract class FileExtras
+    public static class FileExtras
     {
         /// <summary>
         /// load a file from a path into a string
