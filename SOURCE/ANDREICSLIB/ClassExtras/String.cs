@@ -8,8 +8,8 @@ using System.Text.RegularExpressions;
 
 namespace ANDREICSLIB
 {
-    public static class StringExtras
-    {
+	public static class StringExtras
+	{
         public static string GetMD5OfString(String s)
         {
             using (var md5Hash = MD5.Create())
@@ -39,467 +39,488 @@ namespace ANDREICSLIB
             return sBuilder.ToString();
         }
 
-        public static string[] SplitString(String instr, String split, bool removeempty = true)
-        {
-            var s = new string[1];
-            s[0] = split;
-            return instr.Split(s, removeempty ? StringSplitOptions.RemoveEmptyEntries : StringSplitOptions.None);
-        }
+		public static string[] SplitString(String instr, String split, bool removeempty = true)
+		{
+			var s = new string[1];
+			s[0] = split;
+			return instr.Split(s, removeempty ? StringSplitOptions.RemoveEmptyEntries : StringSplitOptions.None);
+		}
 
-        public static Tuple<string, string> SplitTwo(String instr, char sep)
-        {
-            var sep2 = new[] { sep };
-            string[] sep3 = instr.Split(sep2);
-            if (sep3.Count() != 2)
-                return null;
+		public static Tuple<string, string> SplitTwo(String instr, char sep)
+		{
+			var sep2 = new[] { sep };
+			string[] sep3 = instr.Split(sep2);
+			if (sep3.Count() != 2)
+				return null;
 
-            return new Tuple<string, string>(sep3[0], sep3[1]);
-        }
+			return new Tuple<string, string>(sep3[0], sep3[1]);
+		}
 
-        public static Tuple<int, int> SplitTwoInt(String instr, char sep)
-        {
-            Tuple<string, string> x = SplitTwo(instr, sep);
-            return new Tuple<int, int>(Int32.Parse(x.Item1), Int32.Parse(x.Item2));
-        }
+		public static Tuple<int, int> SplitTwoInt(String instr, char sep)
+		{
+			Tuple<string, string> x = SplitTwo(instr, sep);
+			return new Tuple<int, int>(Int32.Parse(x.Item1), Int32.Parse(x.Item2));
+		}
 
-        /// <summary>
-        /// count how many occurences of a substring occur in a string
-        /// </summary>
-        /// <param name="instr"></param>
-        /// <param name="substring"></param>
-        /// <returns></returns>
-        public static int ContainsSubStringCount(String instr, String substring)
-        {
-            int count = 0;
+		/// <summary>
+		/// count how many occurences of a substring occur in a string
+		/// </summary>
+		/// <param name="instr"></param>
+		/// <param name="substring"></param>
+		/// <returns></returns>
+		public static int ContainsSubStringCount(String instr, String substring)
+		{
+			int count = 0;
 
-            int c = instr.Length;
-            int c1 = substring.Length;
-            for (int a = 0; a < c; a++)
-            {
-                if (instr.Substring(a, c1).Equals(substring))
-                {
-                    count++;
-                    a += c1 - 1;
-                }
-            }
+			int c = instr.Length;
+			int c1 = substring.Length;
+			for (int a = 0; a < c; a++)
+			{
+				if (instr.Substring(a, c1).Equals(substring))
+				{
+					count++;
+					a += c1 - 1;
+				}
+			}
 
-            return count;
-        }
+			return count;
+		}
 
-        /// <summary>
-        /// Split a long string into separate lines based on a max length
-        /// </summary>
-        /// <param name="instr"></param>
-        /// <param name="max"></param>
-        /// <returns></returns>
-        public static List<string> SplitStrings(String instr, int max)
-        {
-            string line = "";
-            var ls = new List<string>();
+		/// <summary>
+		/// Split a long string into separate lines based on a max length
+		/// </summary>
+		/// <param name="instr"></param>
+		/// <param name="max"></param>
+		/// <returns></returns>
+		public static List<string> SplitStrings(String instr, int max)
+		{
+			string line = "";
+			var ls = new List<string>();
 
-            int count = 0;
-            var splitchar = new[] { ' ' };
-            string[] splitspace = instr.Split(splitchar);
-            foreach (string s in splitspace)
-            {
-                if (String.IsNullOrEmpty(s))
-                    continue;
+			int count = 0;
+			var splitchar = new[] { ' ' };
+			string[] splitspace = instr.Split(splitchar);
+			foreach (string s in splitspace)
+			{
+				if (String.IsNullOrEmpty(s))
+					continue;
 
-                if ((count + s.Length) > max)
-                {
-                    ls.Add(PadString(line, max));
-                    line = "";
-                    count = 0;
-                }
+				if ((count + s.Length) > max)
+				{
+					ls.Add(PadString(line, max));
+					line = "";
+					count = 0;
+				}
 
-                string z = s + " ";
-                count += z.Length;
-                line += z;
-            }
-            if (count != 0)
-            {
-                ls.Add(PadString(line, max));
-            }
-            return ls;
-        }
+				string z = s + " ";
+				count += z.Length;
+				line += z;
+			}
+			if (count != 0)
+			{
+				ls.Add(PadString(line, max));
+			}
+			return ls;
+		}
 
-        /// <summary>
-        /// Truncate or pad a string with spaces to a certain length
-        /// </summary>
-        /// <param name="instr"></param>
-        /// <param name="maxlen"></param>
-        /// <returns></returns>
-        public static String PadString(String instr, int maxlen)
-        {
-            string ret = "";
-            int len = instr.Length;
-            for (int a = 0; a < maxlen; a++)
-            {
-                if (a < len)
-                    ret += instr[a];
-                else
-                    ret += " ";
-            }
-            return ret;
-        }
+		/// <summary>
+		/// Truncate or pad a string with spaces to a certain length
+		/// </summary>
+		/// <param name="instr"></param>
+		/// <param name="maxlen"></param>
+		/// <returns></returns>
+		public static String PadString(String instr, int maxlen)
+		{
+			string ret = "";
+			int len = instr.Length;
+			for (int a = 0; a < maxlen; a++)
+			{
+				if (a < len)
+					ret += instr[a];
+				else
+					ret += " ";
+			}
+			return ret;
+		}
 
-        public static string Truncate(String instr, int maxlen, string trucatedend = "...")
-        {
-            String outstr = instr;
-            if (outstr.Length > maxlen)
-            {
-                outstr = outstr.Substring(0, maxlen);
-                outstr += trucatedend;
-            }
-            return outstr;
-        }
+		public static string Truncate(String instr, int maxlen, string trucatedend = "...")
+		{
+			String outstr = instr;
+			if (outstr.Length > maxlen)
+			{
+				outstr = outstr.Substring(0, maxlen);
+				outstr += trucatedend;
+			}
+			return outstr;
+		}
 
-        /// <summary>
-        /// Replace a char in a string with another
-        /// </summary>
-        /// <param name="str">The string to change a character in</param>
-        /// <param name="newChar">The new character to be used</param>
-        /// <param name="position">The position to use the new character</param>
-        /// <returns>a string with the character replaced</returns>
-        public static void ReplaceCharAtPosition(ref String str, char newChar, int position)
-        {
-            if (position < 0)
-                return;
+		/// <summary>
+		/// Replace a char in a string with another
+		/// </summary>
+		/// <param name="str">The string to change a character in</param>
+		/// <param name="newChar">The new character to be used</param>
+		/// <param name="position">The position to use the new character</param>
+		/// <returns>a string with the character replaced</returns>
+		public static void ReplaceCharAtPosition(ref String str, char newChar, int position)
+		{
+			if (position < 0)
+				return;
 
-            if (String.IsNullOrEmpty(str))
-                return;
+			if (String.IsNullOrEmpty(str))
+				return;
 
-            string bef = str.Substring(0, position);
-            string af = str.Substring(position + 1);
-            str = bef + newChar.ToString(CultureInfo.InvariantCulture) + af;
-        }
+			string bef = str.Substring(0, position);
+			string af = str.Substring(position + 1);
+			str = bef + newChar.ToString(CultureInfo.InvariantCulture) + af;
+		}
 
-        /// <summary>
-        /// Replace all instances of a char with another char
-        /// </summary>
-        /// <param name="origString"></param>
-        /// <param name="replaceThis"></param>
-        /// <param name="withThis"></param>
-        /// <returns></returns>
-        public static String ReplaceAllChars(String origString, char replaceThis, char withThis)
-        {
-            if (String.IsNullOrEmpty(origString))
-                return origString;
+		/// <summary>
+		/// replace a length of string in a string with another string
+		/// </summary>
+		/// <param name="str"></param>
+		/// <param name="newstr"></param>
+		/// <param name="startpos"></param>
+		/// <param name="endpos"></param>
+		public static string ReplaceStringAtPosition(String str, string newstr, int startpos, int endpos)
+		{
+			if (startpos < 0 || endpos < 0)
+				return str;
 
-            return origString.Replace(replaceThis, withThis);
-        }
+			if (String.IsNullOrEmpty(str))
+				return str;
 
-        public static String ReplaceAllChars(String origString, String replaceThis, String withThis)
-        {
-            if (String.IsNullOrEmpty(origString))
-                return origString;
+			string bef = str.Substring(0, startpos);
+			string af = str.Substring(endpos);
+			str = bef + newstr + af;
+			return str;
+		}
 
-            return origString.Replace(replaceThis, withThis);
-        }
+		/// <summary>
+		/// Replace all instances of a char with another char
+		/// </summary>
+		/// <param name="origString"></param>
+		/// <param name="replaceThis"></param>
+		/// <param name="withThis"></param>
+		/// <returns></returns>
+		public static String ReplaceAllChars(String origString, char replaceThis, char withThis)
+		{
+			if (String.IsNullOrEmpty(origString))
+				return origString;
 
-        public static String RemoveAllNonAlphabetChars(String origString)
-        {
-            String outstr = "";
-            for (int a = 0; a < origString.Length; a++)
-            {
-                char c = origString[a];
+			return origString.Replace(replaceThis, withThis);
+		}
 
-                if (char.IsLetter(c) == false && char.IsWhiteSpace(c) == false)
-                    continue;
+		public static String ReplaceAllChars(String origString, String replaceThis, String withThis)
+		{
+			if (String.IsNullOrEmpty(origString))
+				return origString;
 
-                outstr += c;
-            }
-            return outstr;
-        }
+			return origString.Replace(replaceThis, withThis);
+		}
 
-        public static String ReplaceAllChars(String origString, String replaceTheseChars, char withThis)
-        {
-            String outstr = "";
-            for (int a = 0; a < origString.Length; a++)
-            {
-                char c = origString[a];
-                if (replaceTheseChars.Contains(c))
-                    c = withThis;
+		public static String RemoveAllNonAlphabetChars(String origString)
+		{
+			String outstr = "";
+			for (int a = 0; a < origString.Length; a++)
+			{
+				char c = origString[a];
 
-                outstr += c;
-            }
-            return outstr;
-        }
+				if (char.IsLetter(c) == false && char.IsWhiteSpace(c) == false)
+					continue;
 
+				outstr += c;
+			}
+			return outstr;
+		}
 
-        /// <summary>
-        /// Trim a string of a certain number of chars, either from the start or the end
-        /// </summary>
-        /// <param name="origString"></param>
-        /// <param name="isFront"></param>
-        /// <param name="length"></param>
-        /// <param name="relativeStart">front=true, start=relativestart. front=end, start=end-length+relativestart</param>
-        /// <returns></returns>
-        public static String ApplyTrim(String origString, bool isFront, int length, int relativeStart = 0)
-        {
-            //relative start is bad or length is more than the entire length, then cancel
-            if (relativeStart < 0 ||
-                (isFront && (relativeStart + length) > origString.Length) ||
-                (isFront == false && (origString.Length + relativeStart - length) > origString.Length))
-                return origString;
+		public static String ReplaceAllChars(String origString, String replaceTheseChars, char withThis)
+		{
+			String outstr = "";
+			for (int a = 0; a < origString.Length; a++)
+			{
+				char c = origString[a];
+				if (replaceTheseChars.Contains(c))
+					c = withThis;
 
-            if (isFront == false)
-                relativeStart = origString.Length - length + relativeStart;
-
-            return origString.Remove(relativeStart, length);
-        }
-        /*
-          public static string[] SplitAtArgument(string s1)
-        {
-
-            var ret = new List<string>();
-            string str = s1;
-            int colonloc = 0;
-            //find next colon
-            while ((colonloc=str.IndexOf(":"))!=-1)
-            {
-                //go back to next space
-                int spaceloc = colonloc;
-                while (spaceloc > 0 && str[spaceloc] != ' ')
-                {
-                    spaceloc--;
-                }
-
-                //get next colon or end
-                int nextcolonloc = str.IndexOf(":", colonloc+1);
-                //get previous space
-                int nextspaceloc = nextcolonloc;
-                while (nextspaceloc > 0 && str[nextspaceloc] != ' ')
-                {
-                    nextspaceloc--;
-                }
-
-                //get arg name/val
-                string argname = str.Substring(spaceloc, colonloc - spaceloc);
-                string argval = "";
-                if (nextspaceloc!=-1)
-                argval= str.Substring(colonloc+1, nextspaceloc - colonloc);
-                //remove up to next space loc
-                str=str.Remove(spaceloc, nextspaceloc - spaceloc);
-                argname = CleanString(argname);
-                argval=CleanString(argval);
-                ret.Add(argname);
-                ret.Add(argval);
-            }
-
-            return ret.ToArray();
-        }
-         * */
-
-        /// <summary>
-        /// merges all consecutive whitespace into one character
-        /// </summary>
-        /// <param name="origString"></param>
-        /// <returns></returns>
-        public static string MergeWhiteSpace(string origString, char mergeTo = ' ')
-        {
-            var mstr = mergeTo.ToString();
-            var str = origString;
-            str = str.Replace("\r\n", mstr);
-            str = str.Replace('\n', mergeTo);
-            str = str.Replace('\r', mergeTo);
-            str = str.Replace('\t', mergeTo);
-
-            str = str.Replace("  ", " ");
-            str = str.Replace("  ", " ");
-            str = str.Replace("  ", " ");
-            str = str.Replace("  ", " ");
-
-            str = str.Replace(' ', mergeTo);
-            return str;
-        }
-
-        /// <summary>
-        /// removes \n \r and \0 from the start and end of a string
-        /// </summary>
-        /// <param name="origString"></param>
-        /// <returns>the 'cleaned' string</returns>
-        public static String CleanString(String origString)
-        {
-            if (String.IsNullOrEmpty(origString))
-                return origString;
-
-            char[] bad = { '\n', '\r', '\0', ' ' };
-
-            //keep going while changes have been made
-            bool change = true;
-            while (change)
-            {
-                change = false;
-                if (origString.Length == 0)
-                    return "";
-                char start = origString[0];
-                char end = origString[origString.Length - 1];
+				outstr += c;
+			}
+			return outstr;
+		}
 
 
-                foreach (char b in bad)
-                {
-                    if (start == b)
-                    {
-                        origString = origString.Remove(0, 1);
-                        change = true;
-                    }
-                    if (end == b)
-                    {
-                        origString = origString.Remove(origString.Length - 1, 1);
-                        change = true;
-                    }
+		/// <summary>
+		/// Trim a string of a certain number of chars, either from the start or the end
+		/// </summary>
+		/// <param name="origString"></param>
+		/// <param name="isFront"></param>
+		/// <param name="length"></param>
+		/// <param name="relativeStart">front=true, start=relativestart. front=end, start=end-length+relativestart</param>
+		/// <returns></returns>
+		public static String ApplyTrim(String origString, bool isFront, int length, int relativeStart = 0)
+		{
+			//relative start is bad or length is more than the entire length, then cancel
+			if (relativeStart < 0 ||
+				(isFront && (relativeStart + length) > origString.Length) ||
+				(isFront == false && (origString.Length + relativeStart - length) > origString.Length))
+				return origString;
 
-                    if (change)
-                        break;
-                }
-            }
+			if (isFront == false)
+				relativeStart = origString.Length - length + relativeStart;
 
-            //remove duplicate whitespace
-            change = true;
-            while (change)
-            {
-                int len = origString.Length;
-                origString = origString.Replace("  ", " ");
-                if (origString.Length == len)
-                    change = false;
-            }
+			return origString.Remove(relativeStart, length);
+		}
+		/*
+		  public static string[] SplitAtArgument(string s1)
+		{
 
-            return origString;
-        }
+			var ret = new List<string>();
+			string str = s1;
+			int colonloc = 0;
+			//find next colon
+			while ((colonloc=str.IndexOf(":"))!=-1)
+			{
+				//go back to next space
+				int spaceloc = colonloc;
+				while (spaceloc > 0 && str[spaceloc] != ' ')
+				{
+					spaceloc--;
+				}
 
-        /// <summary>
-        /// append/prepend text to a string
-        /// </summary>
-        /// <param name="origString"></param>
-        /// <param name="addText"></param>
-        /// <param name="isFront"></param>
-        /// <returns></returns>
-        public static String AddText(String origString, String addText, bool isFront)
-        {
-            if (isFront)
-                return addText + origString;
-            else
-                return origString + addText;
-        }
+				//get next colon or end
+				int nextcolonloc = str.IndexOf(":", colonloc+1);
+				//get previous space
+				int nextspaceloc = nextcolonloc;
+				while (nextspaceloc > 0 && str[nextspaceloc] != ' ')
+				{
+					nextspaceloc--;
+				}
+
+				//get arg name/val
+				string argname = str.Substring(spaceloc, colonloc - spaceloc);
+				string argval = "";
+				if (nextspaceloc!=-1)
+				argval= str.Substring(colonloc+1, nextspaceloc - colonloc);
+				//remove up to next space loc
+				str=str.Remove(spaceloc, nextspaceloc - spaceloc);
+				argname = CleanString(argname);
+				argval=CleanString(argval);
+				ret.Add(argname);
+				ret.Add(argval);
+			}
+
+			return ret.ToArray();
+		}
+		 * */
+
+		/// <summary>
+		/// merges all consecutive whitespace into one character
+		/// </summary>
+		/// <param name="origString"></param>
+		/// <returns></returns>
+		public static string MergeWhiteSpace(string origString, char mergeTo = ' ')
+		{
+			var mstr = mergeTo.ToString();
+			var str = origString;
+			str = str.Replace("\r\n", mstr);
+			str = str.Replace('\n', mergeTo);
+			str = str.Replace('\r', mergeTo);
+			str = str.Replace('\t', mergeTo);
+
+			str = str.Replace("  ", " ");
+			str = str.Replace("  ", " ");
+			str = str.Replace("  ", " ");
+			str = str.Replace("  ", " ");
+
+			str = str.Replace(' ', mergeTo);
+			return str;
+		}
+
+		/// <summary>
+		/// removes \n \r and \0 from the start and end of a string
+		/// </summary>
+		/// <param name="origString"></param>
+		/// <returns>the 'cleaned' string</returns>
+		public static String CleanString(String origString)
+		{
+			if (String.IsNullOrEmpty(origString))
+				return origString;
+
+			char[] bad = { '\n', '\r', '\0', ' ' };
+
+			//keep going while changes have been made
+			bool change = true;
+			while (change)
+			{
+				change = false;
+				if (origString.Length == 0)
+					return "";
+				char start = origString[0];
+				char end = origString[origString.Length - 1];
 
 
-        /// <summary>
-        /// Auto capitalise a string - first letter in each word is capitalised, rest are lower case
-        /// </summary>
-        /// <param name="origString">The string to change</param>
-        /// <param name="capitaliseInitial">Should the first letter be capitalised?</param>
-        /// <param name="capitaliseWordString"> </param>
-        /// <returns>the auto capitalised string</returns>
-        public static String ToCamelCase(String origString, Boolean capitaliseInitial,
-                                         List<string> capitaliseWordString = null, bool spaceAfter = true)
-        {
-            if (string.IsNullOrEmpty(origString))
-                return null;
+				foreach (char b in bad)
+				{
+					if (start == b)
+					{
+						origString = origString.Remove(0, 1);
+						change = true;
+					}
+					if (end == b)
+					{
+						origString = origString.Remove(origString.Length - 1, 1);
+						change = true;
+					}
 
-            try
-            {
-                string outstr = origString.ToLower();
-                //dj/mc
+					if (change)
+						break;
+				}
+			}
 
-                var openbracket = new List<char>();
-                var closebracket = new List<char>();
+			//remove duplicate whitespace
+			change = true;
+			while (change)
+			{
+				int len = origString.Length;
+				origString = origString.Replace("  ", " ");
+				if (origString.Length == len)
+					change = false;
+			}
 
-                openbracket.Add('(');
-                closebracket.Add(')');
-                openbracket.Add('[');
-                closebracket.Add(']');
-                openbracket.Add('{');
-                closebracket.Add('}');
-                openbracket.Add('<');
-                closebracket.Add('>');
+			return origString;
+		}
 
-                var capitalAfter = new List<char>();
-                capitalAfter.AddRange(openbracket);
-                capitalAfter.AddRange(closebracket);
-                capitalAfter.Add('/');
-                capitalAfter.Add('\\');
-                capitalAfter.Add(',');
-                capitalAfter.Add('.');
+		/// <summary>
+		/// append/prepend text to a string
+		/// </summary>
+		/// <param name="origString"></param>
+		/// <param name="addText"></param>
+		/// <param name="isFront"></param>
+		/// <returns></returns>
+		public static String AddText(String origString, String addText, bool isFront)
+		{
+			if (isFront)
+				return addText + origString;
+			else
+				return origString + addText;
+		}
 
-                for (int a = 0; a < outstr.Length; a++)
-                {
-                    char x = outstr[a];
 
-                    if (Char.IsLetter(x))
-                    {
-                        //capitalised words
-                        foreach (string CWS in capitaliseWordString)
-                        {
-                            if ((a + CWS.Length) < outstr.Length && outstr.Substring(a, CWS.Length).Equals(CWS))
-                            {
-                                //only if the following char is blank or end of line, or a special char is after
+		/// <summary>
+		/// Auto capitalise a string - first letter in each word is capitalised, rest are lower case
+		/// </summary>
+		/// <param name="origString">The string to change</param>
+		/// <param name="capitaliseInitial">Should the first letter be capitalised?</param>
+		/// <param name="capitaliseWordString"> </param>
+		/// <returns>the auto capitalised string</returns>
+		public static String ToCamelCase(String origString, Boolean capitaliseInitial,
+										 List<string> capitaliseWordString = null, bool spaceAfter = true)
+		{
+			if (string.IsNullOrEmpty(origString))
+				return null;
 
-                                if (((a + CWS.Length) > outstr.Length) || (Char.IsWhiteSpace(outstr[a + CWS.Length])) ||
-                                    (capitalAfter.Contains(outstr[a + CWS.Length])))
-                                {
-                                    for (int a1 = a; a1 < a + CWS.Length; a1++)
-                                    {
-                                        char x1 = outstr[a1];
-                                        x1 = Char.ToUpper(x1);
-                                        ReplaceCharAtPosition(ref outstr, x1, a1);
-                                    }
-                                }
-                            }
-                        }
+			try
+			{
+				string outstr = origString.ToLower();
+				//dj/mc
 
-                        //cap if first, or after space (camel case), or bracket
-                        if ((a == 0 && capitaliseInitial) || Char.IsWhiteSpace(outstr[a - 1]) ||
-                            capitalAfter.Contains(outstr[a - 1]))
-                            ReplaceCharAtPosition(ref outstr, Char.ToUpper(x), a);
-                    }
+				var openbracket = new List<char>();
+				var closebracket = new List<char>();
 
-                    //space after comma and close bracket
-                    if (spaceAfter)
-                    {
-                        if (((a + 1) < outstr.Length) &&
-                            ((outstr[a] == ',' || closebracket.Contains(outstr[a])) &&
-                             Char.IsWhiteSpace(outstr[a + 1]) == false))
-                        {
-                            outstr = outstr.Insert(a + 1, " ");
-                        }
+				openbracket.Add('(');
+				closebracket.Add(')');
+				openbracket.Add('[');
+				closebracket.Add(']');
+				openbracket.Add('{');
+				closebracket.Add('}');
+				openbracket.Add('<');
+				closebracket.Add('>');
 
-                        //space before openbracket
-                        if (((a - 1) > 0) && (openbracket.Contains(outstr[a])) &&
-                            (Char.IsWhiteSpace(outstr[a - 1]) == false))
-                        {
-                            outstr = outstr.Insert(a, " ");
-                        }
-                    }
-                }
+				var capitalAfter = new List<char>();
+				capitalAfter.AddRange(openbracket);
+				capitalAfter.AddRange(closebracket);
+				capitalAfter.Add('/');
+				capitalAfter.Add('\\');
+				capitalAfter.Add(',');
+				capitalAfter.Add('.');
 
-                return outstr;
-            }
-            catch
-            {
-                return origString;
-            }
-        }
+				for (int a = 0; a < outstr.Length; a++)
+				{
+					char x = outstr[a];
 
-        public static bool StringIsNumber(string s)
-        {
-            try
-            {
-                Double.Parse(s);
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
+					if (Char.IsLetter(x))
+					{
+						//capitalised words
+						foreach (string CWS in capitaliseWordString)
+						{
+							if ((a + CWS.Length) < outstr.Length && outstr.Substring(a, CWS.Length).Equals(CWS))
+							{
+								//only if the following char is blank or end of line, or a special char is after
 
-        public static bool StringStartsWithLetter(String s)
-        {
-            if (s.Length == 0)
-                return false;
+								if (((a + CWS.Length) > outstr.Length) || (Char.IsWhiteSpace(outstr[a + CWS.Length])) ||
+									(capitalAfter.Contains(outstr[a + CWS.Length])))
+								{
+									for (int a1 = a; a1 < a + CWS.Length; a1++)
+									{
+										char x1 = outstr[a1];
+										x1 = Char.ToUpper(x1);
+										ReplaceCharAtPosition(ref outstr, x1, a1);
+									}
+								}
+							}
+						}
 
-            return ((s[0] >= 65 && s[0] <= 90) || (s[0] >= 97 && s[0] <= 122));
+						//cap if first, or after space (camel case), or bracket
+						if ((a == 0 && capitaliseInitial) || Char.IsWhiteSpace(outstr[a - 1]) ||
+							capitalAfter.Contains(outstr[a - 1]))
+							ReplaceCharAtPosition(ref outstr, Char.ToUpper(x), a);
+					}
+
+					//space after comma and close bracket
+					if (spaceAfter)
+					{
+						if (((a + 1) < outstr.Length) &&
+							((outstr[a] == ',' || closebracket.Contains(outstr[a])) &&
+							 Char.IsWhiteSpace(outstr[a + 1]) == false))
+						{
+							outstr = outstr.Insert(a + 1, " ");
+						}
+
+						//space before openbracket
+						if (((a - 1) > 0) && (openbracket.Contains(outstr[a])) &&
+							(Char.IsWhiteSpace(outstr[a - 1]) == false))
+						{
+							outstr = outstr.Insert(a, " ");
+						}
+					}
+				}
+
+				return outstr;
+			}
+			catch
+			{
+				return origString;
+			}
+		}
+
+		public static bool StringIsNumber(string s)
+		{
+			try
+			{
+				Double.Parse(s);
+				return true;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
+		}
+
+		public static bool StringStartsWithLetter(String s)
+		{
+			if (s.Length == 0)
+				return false;
+
+			return ((s[0] >= 65 && s[0] <= 90) || (s[0] >= 97 && s[0] <= 122));
         }
 
 
@@ -528,6 +549,58 @@ namespace ANDREICSLIB
     RegexOptions.Singleline);
 
             return noComments;
-        }
-    }
+		}
+
+
+		/// <summary>
+		/// get first block of repetitions in string
+		/// </summary>
+		/// <param name="instr"></param>
+		/// <param name="pattern"></param>
+		/// <param name="minCount"></param>
+		/// <returns>count,start position, end pos - must be more than mincount</returns>
+		public static Tuple<int, int, int> GetFirstRepetition(string instr, string pattern, int minCount = 2)
+		{
+			int count = 0;
+
+			int a = 0;
+			int firstpos = -1;
+			int lastpos = 0;
+			while ((a = instr.IndexOf(pattern, a)) != -1)
+			{
+				var notConsecutive = lastpos != (a - pattern.Length);
+				//if not consecutive, but have enough, then break
+				if (notConsecutive && count >= minCount)
+					break;
+
+				count++;
+				if (firstpos == -1)
+				{
+					lastpos = firstpos = a;
+				}
+				else
+				{
+					//if not consecutive, restart
+					if (notConsecutive)
+					{
+						lastpos = firstpos = a;
+						count = 1;
+					}
+					else
+					{
+						lastpos = a;
+					}
+				}
+
+				a += pattern.Length;
+
+			}
+
+			lastpos += pattern.Length;
+			if (count < minCount)
+				return null;
+
+			return new Tuple<int, int, int>(count, firstpos, lastpos);
+		}
+	}
 }
