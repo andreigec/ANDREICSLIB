@@ -31,6 +31,21 @@ namespace ANDREICSLIB
             }
         }
 
+        public static string MakeStringURLSafe(string instr)
+        {
+            //changes
+            instr = instr.Replace("://", "_");
+            instr = instr.Replace("/", "_");
+            instr = instr.Replace(":", "");
+            instr = instr.Replace(".", "_");
+            instr = instr.Replace("{", "_");
+            instr = instr.Replace("}", "_");
+            instr = instr.Replace("__", "_");
+            instr = instr.Trim(new[] { '_' });
+            return instr;
+        }
+
+
         public static void DownloadFile(string url, string filename)
         {
             using (WebClient client = new WebClient())
