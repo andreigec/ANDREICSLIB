@@ -2,7 +2,7 @@ before_build:
   - nuget restore
   
 build:
-  project: ANDREICSLIB.sln
+  project: ANDREICSLIB.csproj
 
 branches:
   except:

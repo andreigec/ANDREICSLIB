@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>ANDREI GEC</authors>
+    <owners>ANDREI GEC</owners>
+    <projectUrl>http://andreigec.net</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Andrei's Library of C# Helpers</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>C# Helpers Utility</tags>
+  </metadata>
+</package>
