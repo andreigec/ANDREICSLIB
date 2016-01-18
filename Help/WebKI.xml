@@ -1,0 +1,1746 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="Aboutbox method" Url="html/0d44a58a-bd29-1a14-1bdb-fcc6e9cdf88d.htm" />
+  <HelpKINode Title="AboutScreen class">
+    <HelpKINode Title="AboutScreen Class" Url="html/5e960b62-35fc-54c9-4d62-9b08edc80eb4.htm" />
+    <HelpKINode Title="about AboutScreen class" Url="html/5e960b62-35fc-54c9-4d62-9b08edc80eb4.htm" />
+    <HelpKINode Title="constructor" Url="html/74acd5a0-1a0f-54f4-4c2e-4a4be1fa0b5e.htm" />
+    <HelpKINode Title="events" Url="html/7aeb1834-f0d1-b36e-9f36-67121b06b27f.htm" />
+    <HelpKINode Title="fields" Url="html/a9b3b857-cefe-8581-2188-a72eb1bdd810.htm" />
+    <HelpKINode Title="methods" Url="html/3417ef2f-1dab-d9c0-7fbd-8b497cfbd5e3.htm" />
+    <HelpKINode Title="properties" Url="html/15546412-3450-01f1-8cc1-edf479be6da7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AboutScreen.AboutScreen constructor" Url="html/74acd5a0-1a0f-54f4-4c2e-4a4be1fa0b5e.htm" />
+  <HelpKINode Title="AboutScreen.aboutScreen_FormClosing method" Url="html/05c43964-394a-23bb-7d06-c46c5428042f.htm" />
+  <HelpKINode Title="AboutScreen.aboutScreen_Load method" Url="html/51f3d9e8-1998-ea8d-955c-866a131376c2.htm" />
+  <HelpKINode Title="AboutScreen.apptitlelabel field" Url="html/325bd690-241f-09dd-f720-a58b1d427e19.htm" />
+  <HelpKINode Title="AboutScreen.appversionlabel field" Url="html/27252194-6430-42a2-8142-67db796d863a.htm" />
+  <HelpKINode Title="AboutScreen.closebutton field" Url="html/4294cf44-bccb-601d-8cce-3f61e39d1d8f.htm" />
+  <HelpKINode Title="AboutScreen.closebutton_Click method" Url="html/7478f5fb-d760-cb55-bb20-80e8c783e3ce.htm" />
+  <HelpKINode Title="AboutScreen.components field" Url="html/d72c3410-7868-e689-44c5-9b24b4911dc1.htm" />
+  <HelpKINode Title="AboutScreen.Dispose method" Url="html/c96d2ee7-bace-597a-35d4-34a7739db9de.htm" />
+  <HelpKINode Title="AboutScreen.InitializeComponent method" Url="html/1f4b6559-c757-92e3-0f1e-1c98050d0b90.htm" />
+  <HelpKINode Title="AboutScreen.otherapptext field" Url="html/6484a831-7964-4257-d038-ebb88a7d2ec4.htm" />
+  <HelpKINode Title="AboutScreen.otherapptext_LinkClicked method" Url="html/18093db5-f362-408e-7ed3-8d3a818c0183.htm" />
+  <HelpKINode Title="AboutScreen.panel1 field" Url="html/c357abde-e4aa-6368-85dd-c4640bcd4039.htm" />
+  <HelpKINode Title="AboutScreenOtherText field" Url="html/9be716b3-4bf8-9ff1-3be2-cc9cc9c7c65f.htm" />
+  <HelpKINode Title="aboutScreen_FormClosing method" Url="html/05c43964-394a-23bb-7d06-c46c5428042f.htm" />
+  <HelpKINode Title="aboutScreen_Load method" Url="html/51f3d9e8-1998-ea8d-955c-866a131376c2.htm" />
+  <HelpKINode Title="acceptFinalText field" Url="html/e5f36652-e9f1-bf55-8845-195f6d9a4c40.htm" />
+  <HelpKINode Title="AddChild method" Url="html/91e9b659-d4e4-8edf-5cf4-13f32cef4455.htm" />
+  <HelpKINode Title="AddControl method" Url="html/a3c7d9ad-9703-5ba2-4257-8697a9ba625d.htm" />
+  <HelpKINode Title="AddHelpOption method" Url="html/f7699fc9-b5bd-e5c5-b745-a9c7ebe61e7e.htm" />
+  <HelpKINode Title="AddItemToArray(Of T) method" Url="html/50a77048-7ca6-d934-61cd-b885840ad993.htm" />
+  <HelpKINode Title="AddItemToArray&lt;T&gt; method" Url="html/50a77048-7ca6-d934-61cd-b885840ad993.htm" />
+  <HelpKINode Title="AddText method" Url="html/5cd0bbcd-30c3-3196-f1be-3f6a499ff7c8.htm" />
+  <HelpKINode Title="AddToolTip method" Url="html/5ffd9d8b-ef83-9734-74f4-091258be6481.htm" />
+  <HelpKINode Title="AddUDPClient method" Url="html/768722a8-a2a6-857e-6dbc-a1a19f6cc712.htm" />
+  <HelpKINode Title="AllowChars field" Url="html/11d75c9c-efc3-331a-2924-6ba951827e3a.htm" />
+  <HelpKINode Title="AllowDot field" Url="html/71e510b2-763e-167b-eefa-b2f8cf51a22a.htm" />
+  <HelpKINode Title="AllowNumbers field" Url="html/9c910f28-9a13-d11d-f7c9-80989fc50205.htm" />
+  <HelpKINode Title="AllowWhiteSpace field" Url="html/671602c7-4262-6a00-e965-38aad90597fd.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassExtras namespace" Url="html/c70bae12-f617-deb9-8e06-15090ea287a2.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassExtras.ArrayExtras class" Url="html/4edcaea0-b153-96ca-e195-7e00d7d020cd.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassExtras.BitmapExtras class" Url="html/1d453a6a-2b2c-a745-200a-e40108df83e0.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassExtras.CheckedListBoxExtras class" Url="html/32d967de-0f52-4a11-e397-537f5d0018a7.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassExtras.ColorExtras class" Url="html/37194e0d-5301-b118-333c-8d0eec339790.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassExtras.ContextMenuStripExtras class" Url="html/aef09d20-d471-681d-fda1-839212779bfc.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassExtras.DictionaryExtras class" Url="html/fc8f45ce-1662-3889-1ad6-9358d9f2b440.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassExtras.DirectoryExtras class" Url="html/2d7f1d52-b178-bf90-d4a9-789abb63cb51.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassExtras.ExpandoObjectHelpers class" Url="html/1c46aee5-5812-db20-734c-90c9795b9a41.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassExtras.FileExtras class" Url="html/ad903aa8-3c2e-9673-0714-29d71e5db75f.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassExtras.ListExtras class" Url="html/fe8b9ad3-f379-9625-5d54-125772f2ec38.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassExtras.ListViewExtras class" Url="html/d1d139ae-60d7-e75e-2173-f493c93a2cf1.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassExtras.MathExtras class" Url="html/778a0bee-74a7-83a4-57ad-575544d14f73.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassExtras.NetExtras class" Url="html/b99ee427-7d03-bbda-a803-a7b515a28361.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassExtras.NetExtras.NetBiosInfo class" Url="html/653ce826-5f84-cc19-47ee-aeda9e9e4a70.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassExtras.NetExtras.WebClientEx class" Url="html/2ae3fbc4-f731-f500-588e-6ceb9d550ee0.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassExtras.NetExtras.WKSTA_INFO_100 structure" Url="html/7422ec63-00fa-3f19-3445-a20181bb8042.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassExtras.ObjectExtras class" Url="html/01c4132a-0345-8451-8915-e7f514ac8a58.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassExtras.SaveFileDialogExtras class" Url="html/c6ccd539-8847-6afc-842e-57329f4dfcc0.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassExtras.StringExtras class" Url="html/1a9cb3fe-1ac3-b532-2f42-e5133055fe32.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassExtras.TabPageExtras class" Url="html/e2ded14f-0525-fefc-6a29-af30e6055019.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassExtras.TextboxExtras class" Url="html/84dc5ebb-3296-5521-bdb0-d7c194ac8035.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassExtras.TextboxExtras.InputType class" Url="html/2f75e590-d38d-d040-4a4e-285879a36973.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassExtras.ZipExtras class" Url="html/c2b3d7e5-4fd5-6383-614c-f48ea78af866.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassReplacements namespace" Url="html/c989c7a1-e364-af4d-a9ea-30032a46a441.htm" />
+  <HelpKINode Title="ANDREICSLIB.ClassReplacements.PanelReplacement class" Url="html/fb5766f4-87e3-988b-7b27-61cb41ef3e84.htm" />
+  <HelpKINode Title="ANDREICSLIB.Helpers namespace" Url="html/70fe13a2-691c-9a0b-24fa-f91aac260773.htm" />
+  <HelpKINode Title="ANDREICSLIB.Helpers.AsyncHelpers class" Url="html/f7bac468-24df-10af-d7cc-acaa6e644def.htm" />
+  <HelpKINode Title="ANDREICSLIB.Helpers.AsyncHelpers.ExclusiveSynchronizationContext class" Url="html/faf53e4f-1b2e-bfd4-d6e1-88570195118f.htm" />
+  <HelpKINode Title="ANDREICSLIB.Helpers.BTree class" Url="html/038ae282-d41d-d918-710e-97453bab4883.htm" />
+  <HelpKINode Title="ANDREICSLIB.Helpers.Btree(Of T) class" Url="html/13aa30fb-8354-093a-c784-fbc677c50e6c.htm" />
+  <HelpKINode Title="ANDREICSLIB.Helpers.Btree&lt;T&gt; class" Url="html/13aa30fb-8354-093a-c784-fbc677c50e6c.htm" />
+  <HelpKINode Title="ANDREICSLIB.Helpers.CustomTimeZones class" Url="html/d8bd2e37-220d-2090-e449-4d91836eaeb4.htm" />
+  <HelpKINode Title="ANDREICSLIB.Helpers.DeviceUpdates class" Url="html/b293927a-ca28-5df3-36d0-5f19eafbb25d.htm" />
+  <HelpKINode Title="ANDREICSLIB.Helpers.EmbeddedResources class" Url="html/2ca98a80-450f-72dd-b7d5-4f4adcb6dcb2.htm" />
+  <HelpKINode Title="ANDREICSLIB.Helpers.FormConfigRestore class" Url="html/0b52af5a-d390-ea55-63ea-9a9e9bc284b7.htm" />
+  <HelpKINode Title="ANDREICSLIB.Helpers.HistogramOCR class" Url="html/69c066a9-fdbd-589f-8a3b-14b5ca513ca1.htm" />
+  <HelpKINode Title="ANDREICSLIB.Helpers.HistogramOCR.BitmapBoolArray class" Url="html/7a3d6770-d4b2-19a4-16cf-a1778b862dfd.htm" />
+  <HelpKINode Title="ANDREICSLIB.Helpers.HistogramOCR.HistogramLetter class" Url="html/2daf7e60-2bfc-19fc-364d-5bef44a24148.htm" />
+  <HelpKINode Title="ANDREICSLIB.Helpers.ListViewSorter class" Url="html/d7efe26d-7e4a-b4cf-a9be-9a2adcbfc415.htm" />
+  <HelpKINode Title="ANDREICSLIB.Helpers.MatrixOps class" Url="html/ec349d6d-8b07-22fb-9fa2-89b4044594ea.htm" />
+  <HelpKINode Title="ANDREICSLIB.Helpers.MatrixOps.CompareDel(Of T) delegate" Url="html/237d9db4-f0d5-8f89-b51a-d1297c7e978f.htm" />
+  <HelpKINode Title="ANDREICSLIB.Helpers.MatrixOps.CompareDel&lt;T&gt; delegate" Url="html/237d9db4-f0d5-8f89-b51a-d1297c7e978f.htm" />
+  <HelpKINode Title="ANDREICSLIB.Helpers.MatrixOps.MatrixO(Of T) class" Url="html/fbdca5a3-0876-6680-2b09-83816759bf6d.htm" />
+  <HelpKINode Title="ANDREICSLIB.Helpers.MatrixOps.MatrixO&lt;T&gt; class" Url="html/fbdca5a3-0876-6680-2b09-83816759bf6d.htm" />
+  <HelpKINode Title="ANDREICSLIB.Helpers.Networking class" Url="html/1664a85e-c96f-e3b6-4acf-5f8bd2ab8ce5.htm" />
+  <HelpKINode Title="ANDREICSLIB.Helpers.PersistantCache class" Url="html/e3f9c87e-ec45-511f-9437-0c3cef7c7dbf.htm" />
+  <HelpKINode Title="ANDREICSLIB.Helpers.Reflection class" Url="html/869bc298-5af5-920a-7918-047ed1e81a9f.htm" />
+  <HelpKINode Title="ANDREICSLIB.Helpers.TimeUpdates class" Url="html/0c612dae-844f-c797-47be-e0f4d1863398.htm" />
+  <HelpKINode Title="ANDREICSLIB.Licensing namespace" Url="html/cf0e1cc0-53d3-0032-c003-33b1203e74c3.htm" />
+  <HelpKINode Title="ANDREICSLIB.Licensing.AboutScreen class" Url="html/5e960b62-35fc-54c9-4d62-9b08edc80eb4.htm" />
+  <HelpKINode Title="ANDREICSLIB.Licensing.HelpScreen class" Url="html/f6a71bfe-341b-0123-ae37-efb4c53e925b.htm" />
+  <HelpKINode Title="ANDREICSLIB.Licensing.Licensing class" Url="html/baab8879-c778-db65-4ea5-bda5c8977c28.htm" />
+  <HelpKINode Title="ANDREICSLIB.Licensing.Licensing.DownloadedSolutionDetails class" Url="html/5aac5275-477b-163a-b541-c1edf8922798.htm" />
+  <HelpKINode Title="ANDREICSLIB.Licensing.Licensing.LicenseCallback delegate" Url="html/fa824f5a-32b3-9462-3606-f89fe0d43799.htm" />
+  <HelpKINode Title="ANDREICSLIB.Licensing.Licensing.SolutionDetails class" Url="html/7dbc0b51-f5e6-ead1-ed7d-deaa64083365.htm" />
+  <HelpKINode Title="ANDREICSLIB.Models namespace" Url="html/fee57b9c-ef2d-851f-d9cd-0d44ddab2604.htm" />
+  <HelpKINode Title="ANDREICSLIB.Models.FileSizes class" Url="html/831518f4-2b88-5da2-9a54-d168b69ec6f4.htm" />
+  <HelpKINode Title="ANDREICSLIB.NewControls namespace" Url="html/8c354dcd-97c8-7a46-69b8-81c30268557c.htm" />
+  <HelpKINode Title="ANDREICSLIB.NewControls.ColorListBox class" Url="html/b6adbd93-37bc-ce1e-bb22-d52ea165eddc.htm" />
+  <HelpKINode Title="ANDREICSLIB.NewControls.DragBar class" Url="html/a24b8146-1529-ed88-d12a-af1b7545996a.htm" />
+  <HelpKINode Title="ANDREICSLIB.NewControls.DragBar.BarEvent delegate" Url="html/83786ca4-9aff-26f4-03c7-0b6164787b31.htm" />
+  <HelpKINode Title="ANDREICSLIB.NewControls.DragBar.scale class" Url="html/2c59e510-51f7-33a4-3bb8-8a6614f8b9c1.htm" />
+  <HelpKINode Title="ANDREICSLIB.NewControls.GetStringBox class" Url="html/7aeb2ce2-4ed6-3ff6-0f34-4afe08b9be0c.htm" />
+  <HelpKINode Title="ANDREICSLIB.NewControls.GetStringImageCompare class" Url="html/a199b597-c39d-61ec-15ba-943370e37cf1.htm" />
+  <HelpKINode Title="ANDREICSLIB.NewControls.GrowingLabel class" Url="html/060c2acf-3d37-62b9-0116-78f7fd48220f.htm" />
+  <HelpKINode Title="ANDREICSLIB.NewControls.ImageDraw class" Url="html/ca25b175-8fca-43d5-2416-ab51ec52dee5.htm" />
+  <HelpKINode Title="ANDREICSLIB.NewControls.MassVariableEdit class" Url="html/a81d38fb-e894-ce45-0cea-be963cfc2fa8.htm" />
+  <HelpKINode Title="ANDREICSLIB.NewControls.MassVariableEdit.AcceptFinalTextBoxText delegate" Url="html/aa3ae9f6-aa7f-90be-05f0-5e231b3b012a.htm" />
+  <HelpKINode Title="ANDREICSLIB.NewControls.MassVariableEdit.HandleKeyPress delegate" Url="html/d3f6a35b-a7ce-6e61-d6a8-e1b04c3c219c.htm" />
+  <HelpKINode Title="ANDREICSLIB.NewControls.MassVariableEdit.TextBoxItems class" Url="html/019c0611-9bb4-9b0a-87af-bfce7aaebf5b.htm" />
+  <HelpKINode Title="ANDREICSLIB.NewControls.MultipleMessageBox class" Url="html/c49084c0-187a-59b6-9d3f-fd5ccd5c33bf.htm" />
+  <HelpKINode Title="ANDREICSLIB.NewControls.SelectItemFromListBox class" Url="html/58384579-d01f-3839-8aa3-4eb41b6e7ed7.htm" />
+  <HelpKINode Title="ANDREICSLIB.NewControls.SelectItemFromListBox.SelectItem class" Url="html/798aa58d-a673-2cf2-cd4c-d79fe4c87a3c.htm" />
+  <HelpKINode Title="ANDREICSLIB.NewControls.SelectItemFromListView class" Url="html/2f70bc08-0d7c-2978-6522-070a187f7048.htm" />
+  <HelpKINode Title="ANDREICSLIB.NewControls.SelectItemsFromCheckBox class" Url="html/e428dcca-ee80-9664-14ac-5f95896e8334.htm" />
+  <HelpKINode Title="ANDREICSLIB.NewControls.SerializableDictionary(Of TKey, TValue) class" Url="html/e7db5c2c-8648-5ca1-b983-56bd0b072b81.htm" />
+  <HelpKINode Title="ANDREICSLIB.NewControls.SerializableDictionary&lt;TKey, TValue&gt; class" Url="html/e7db5c2c-8648-5ca1-b983-56bd0b072b81.htm" />
+  <HelpKINode Title="ANDREICSLIB.NewControls.UnselectableRichTextBox class" Url="html/7859ee68-c0de-d452-70b3-c55635e3b54e.htm" />
+  <HelpKINode Title="ApplyTrim method" Url="html/3303fe91-cb2d-e431-ffcd-c456ef882f31.htm" />
+  <HelpKINode Title="apptitlelabel field" Url="html/325bd690-241f-09dd-f720-a58b1d427e19.htm" />
+  <HelpKINode Title="AppVersion field" Url="html/d33f67f5-0d81-bcd1-5d09-f6eb07927881.htm" />
+  <HelpKINode Title="appversionlabel field" Url="html/27252194-6430-42a2-8142-67db796d863a.htm" />
+  <HelpKINode Title="ArrayExtras class">
+    <HelpKINode Title="ArrayExtras Class" Url="html/4edcaea0-b153-96ca-e195-7e00d7d020cd.htm" />
+    <HelpKINode Title="about ArrayExtras class" Url="html/4edcaea0-b153-96ca-e195-7e00d7d020cd.htm" />
+    <HelpKINode Title="constructor" Url="html/af06c8d7-8c64-cbb4-1327-d8952f3a0709.htm" />
+    <HelpKINode Title="methods" Url="html/97bcc1e5-eb65-4519-afa1-ec7ab973476f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ArrayExtras.AddItemToArray(Of T) method" Url="html/50a77048-7ca6-d934-61cd-b885840ad993.htm" />
+  <HelpKINode Title="ArrayExtras.AddItemToArray&lt;T&gt; method" Url="html/50a77048-7ca6-d934-61cd-b885840ad993.htm" />
+  <HelpKINode Title="ArrayExtras.ArrayExtras constructor" Url="html/af06c8d7-8c64-cbb4-1327-d8952f3a0709.htm" />
+  <HelpKINode Title="ArrayExtras.Clone(Of T) method" Url="html/5bf92447-ae41-c73f-bfb7-10bee6198469.htm" />
+  <HelpKINode Title="ArrayExtras.Clone&lt;T&gt; method" Url="html/5bf92447-ae41-c73f-bfb7-10bee6198469.htm" />
+  <HelpKINode Title="ArrayExtras.InstantiateArray(Of T) method" Url="html/aa0ce770-08f1-6152-4a61-b680f65794f6.htm" />
+  <HelpKINode Title="ArrayExtras.InstantiateArray&lt;T&gt; method" Url="html/aa0ce770-08f1-6152-4a61-b680f65794f6.htm" />
+  <HelpKINode Title="ArrayExtras.RotateArray(Of T) method" Url="html/be28292c-d8d9-f386-38ca-17d57a3c7a87.htm" />
+  <HelpKINode Title="ArrayExtras.RotateArray&lt;T&gt; method" Url="html/be28292c-d8d9-f386-38ca-17d57a3c7a87.htm" />
+  <HelpKINode Title="AsyncHelpers class">
+    <HelpKINode Title="AsyncHelpers Class" Url="html/f7bac468-24df-10af-d7cc-acaa6e644def.htm" />
+    <HelpKINode Title="about AsyncHelpers class" Url="html/f7bac468-24df-10af-d7cc-acaa6e644def.htm" />
+    <HelpKINode Title="methods" Url="html/1f74dbcb-fd41-76c5-f25e-16a177adb837.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AsyncHelpers.ExclusiveSynchronizationContext class">
+    <HelpKINode Title="AsyncHelpers.ExclusiveSynchronizationContext Class" Url="html/faf53e4f-1b2e-bfd4-d6e1-88570195118f.htm" />
+    <HelpKINode Title="about AsyncHelpers.ExclusiveSynchronizationContext class" Url="html/faf53e4f-1b2e-bfd4-d6e1-88570195118f.htm" />
+    <HelpKINode Title="constructor" Url="html/5598348d-37c4-ea66-c7eb-a2e1097d79e8.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AsyncHelpers.ExclusiveSynchronizationContext.BeginMessageLoop method" Url="html/cdfba79a-e71a-e1e6-aa64-2689649f7918.htm" />
+  <HelpKINode Title="AsyncHelpers.ExclusiveSynchronizationContext.CreateCopy method" Url="html/80aeb62f-6aae-85b0-25da-875e0b2e1176.htm" />
+  <HelpKINode Title="AsyncHelpers.ExclusiveSynchronizationContext.done field" Url="html/cffc45d8-cfe9-7668-72fa-e5809e5a9595.htm" />
+  <HelpKINode Title="AsyncHelpers.ExclusiveSynchronizationContext.EndMessageLoop method" Url="html/8353b120-709f-71e8-6f09-23c413128b9d.htm" />
+  <HelpKINode Title="AsyncHelpers.ExclusiveSynchronizationContext.ExclusiveSynchronizationContext constructor" Url="html/5598348d-37c4-ea66-c7eb-a2e1097d79e8.htm" />
+  <HelpKINode Title="AsyncHelpers.ExclusiveSynchronizationContext.InnerException property" Url="html/5febf510-453f-5844-e962-4dae79b62232.htm" />
+  <HelpKINode Title="AsyncHelpers.ExclusiveSynchronizationContext.items field" Url="html/7375468b-f873-a2fc-bd3d-6a4479cd4775.htm" />
+  <HelpKINode Title="AsyncHelpers.ExclusiveSynchronizationContext.Post method" Url="html/6efa4824-dc7b-050d-29df-0975818eb869.htm" />
+  <HelpKINode Title="AsyncHelpers.ExclusiveSynchronizationContext.Send method" Url="html/30b78b11-7caa-af93-b3d1-d54660cd1aa5.htm" />
+  <HelpKINode Title="AsyncHelpers.ExclusiveSynchronizationContext.workItemsWaiting field" Url="html/e0f2cfd1-ece6-f1bc-b590-65b16f8bce5e.htm" />
+  <HelpKINode Title="AsyncHelpers.RunSync method" Url="html/8ed07e0b-44cf-ee84-f571-968dfa7bbc4e.htm" />
+  <HelpKINode Title="AutodetectCOMPort method" Url="html/1cc0adc6-954f-e3a5-9599-18d84a0e40c3.htm" />
+  <HelpKINode Title="AutoResize method" Url="html/ecbd1753-2c95-0a77-d938-a875a2bced7e.htm" />
+  <HelpKINode Title="AutoResizeListViewColumn method" Url="html/953567e3-f2d9-d34b-65c7-4c78f40eb6ae.htm" />
+  <HelpKINode Title="AutoSize property" Url="html/4d6761b1-3dfa-6f24-037b-329c30fecf11.htm" />
+  <HelpKINode Title="b field" Url="html/6a06ef3b-343b-699a-c5d5-91ec1b50b38d.htm" />
+  <HelpKINode Title="BackColour property" Url="html/cdf9386b-8a81-e4ce-c22c-9621bc91561a.htm" />
+  <HelpKINode Title="BarColour property" Url="html/3c6d5e5e-1f64-5231-3e34-6f7a8a719b1b.htm" />
+  <HelpKINode Title="barEndX field" Url="html/dfbba4e0-7f88-d16b-4380-6f4e8825bd64.htm" />
+  <HelpKINode Title="BarMaximumValue property" Url="html/9ad8d36a-9b60-63ae-1944-baf1b9df8081.htm" />
+  <HelpKINode Title="BarMinimumValue property" Url="html/6a3c5fdd-dccd-f322-f29b-aa1637d6040e.htm" />
+  <HelpKINode Title="BarValueChange event" Url="html/d0a7b7c2-c1ae-35b6-70bd-444da4d173cc.htm" />
+  <HelpKINode Title="barX field" Url="html/40a9478f-1ab0-6b9a-9462-157c462ba4f6.htm" />
+  <HelpKINode Title="BeginMessageLoop method" Url="html/cdfba79a-e71a-e1e6-aa64-2689649f7918.htm" />
+  <HelpKINode Title="bitmapBool field" Url="html/30be1adc-2ce7-40ee-c043-fcb9a3e868fb.htm" />
+  <HelpKINode Title="BitmapBoolArray class">
+    <HelpKINode Title="fields" Url="html/1554f6e7-46dd-ad25-2425-f2510130acad.htm" />
+    <HelpKINode Title="methods" Url="html/fc73d53b-2608-e62a-f4f7-630491f1bb29.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BitmapExtras class">
+    <HelpKINode Title="BitmapExtras Class" Url="html/1d453a6a-2b2c-a745-200a-e40108df83e0.htm" />
+    <HelpKINode Title="about BitmapExtras class" Url="html/1d453a6a-2b2c-a745-200a-e40108df83e0.htm" />
+    <HelpKINode Title="constructor" Url="html/ce1ddb18-a672-e432-59a9-99d675b84e05.htm" />
+    <HelpKINode Title="methods" Url="html/14bfde1a-7988-099f-7c60-3b26583f93cb.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BitmapExtras.BitmapExtras constructor" Url="html/ce1ddb18-a672-e432-59a9-99d675b84e05.htm" />
+  <HelpKINode Title="BitmapExtras.BitmapToColorMatrix method" Url="html/6c350d36-61e9-c5e7-7c07-66faf9737adf.htm" />
+  <HelpKINode Title="BitmapExtras.Crop method" Url="html/447237f4-cdac-6e82-7638-4348b7bd98bf.htm" />
+  <HelpKINode Title="BitmapExtras.DrawLine method" Url="html/5f391278-109f-50c0-a604-558a07bbc075.htm" />
+  <HelpKINode Title="BitmapExtras.GrayScale method" Url="html/4a7d6c4f-21f3-c241-9996-a5c1cbb940e8.htm" />
+  <HelpKINode Title="BitmapExtras.ImageFileToColorMatrix method" Url="html/079cd055-6f0e-4dc4-8108-85a660095453.htm" />
+  <HelpKINode Title="BitmapExtras.InitBitmap method" Url="html/1696673b-938d-5d40-d352-0bdca7aa5c34.htm" />
+  <HelpKINode Title="BitmapExtras.IsOnlyColour method" Url="html/14945b82-ef15-151d-f57e-9373ab7ea892.htm" />
+  <HelpKINode Title="BitmapExtras.LockBitmap method" Url="html/44a4bac6-cc19-139b-e5f5-1f53a4f7aa4b.htm" />
+  <HelpKINode Title="BitmapExtras.NonWhiteToBlack method" Url="html/f3b5b05e-96b3-4e16-2105-23b77ee39954.htm" />
+  <HelpKINode Title="BitmapExtras.OnlyAllowBlackAndColour method" Url="html/db126ce3-7eb5-307f-b85f-c55835044dcf.htm" />
+  <HelpKINode Title="BitmapExtras.RemoveExcessWhitespace method" Url="html/9c5f241c-870e-a1ef-de57-9ee64c882361.htm" />
+  <HelpKINode Title="BitmapExtras.ResizeBitmap method" Url="html/5973e908-ee75-03a8-7d2b-28f6501de9ad.htm" />
+  <HelpKINode Title="BitmapExtras.RowOrColIsColour method" Url="html/186e1703-03fd-9c1b-6ce1-7b4a3e3d14bd.htm" />
+  <HelpKINode Title="BitmapExtras.StretchBitmap method" Url="html/1b3ed258-ae69-04a5-75ad-c68bdca3f06a.htm" />
+  <HelpKINode Title="BitmapToColorMatrix method" Url="html/6c350d36-61e9-c5e7-7c07-66faf9737adf.htm" />
+  <HelpKINode Title="borderColour field" Url="html/2232c23a-7214-b364-2742-bafa103601ff.htm" />
+  <HelpKINode Title="BorderColour property" Url="html/a70cff13-328c-f789-b202-65516f82b5ae.htm" />
+  <HelpKINode Title="borderWidth field" Url="html/3b3a5fb0-2307-db17-b938-72ec505f5f03.htm" />
+  <HelpKINode Title="BorderWidth property" Url="html/e5fdf38e-2432-4448-1850-dcdc42abdf21.htm" />
+  <HelpKINode Title="BTree class">
+    <HelpKINode Title="BTree Class" Url="html/038ae282-d41d-d918-710e-97453bab4883.htm" />
+    <HelpKINode Title="about BTree class" Url="html/038ae282-d41d-d918-710e-97453bab4883.htm" />
+    <HelpKINode Title="constructor" Url="html/4fe4b151-42d3-ac19-bc15-32f4afafb293.htm" />
+    <HelpKINode Title="methods" Url="html/2ebce0d5-4796-edea-f0b7-fca9b5c324f7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Btree(Of T) class">
+    <HelpKINode Title="Btree(T) Class" Url="html/13aa30fb-8354-093a-c784-fbc677c50e6c.htm" />
+    <HelpKINode Title="about Btree(Of T) class" Url="html/13aa30fb-8354-093a-c784-fbc677c50e6c.htm" />
+    <HelpKINode Title="constructor" Url="html/8253d678-f21c-605a-9192-a91de2618375.htm" />
+    <HelpKINode Title="fields" Url="html/baf30730-8094-6fe5-8ae8-b716ee23c4c9.htm" />
+    <HelpKINode Title="methods" Url="html/c9278835-028d-683c-5bcf-e9f7842327f8.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Btree(Of T).AddChild method" Url="html/91e9b659-d4e4-8edf-5cf4-13f32cef4455.htm" />
+  <HelpKINode Title="Btree(Of T).Btree constructor" Url="html/8253d678-f21c-605a-9192-a91de2618375.htm" />
+  <HelpKINode Title="Btree(Of T).Children field" Url="html/1ef18831-bd80-708d-a768-789c76603e0a.htm" />
+  <HelpKINode Title="Btree(Of T).ClearChildren method" Url="html/c95ea7d1-c3a3-fbe7-78ab-ba35ee0f4626.htm" />
+  <HelpKINode Title="Btree(Of T).GetChildByName method" Url="html/3bd0c330-a3e0-a41e-e4ba-4d954c25c0f9.htm" />
+  <HelpKINode Title="Btree(Of T).Name field" Url="html/9a0d798e-024b-47e0-501f-3ca3cdc12045.htm" />
+  <HelpKINode Title="Btree(Of T).Parent field" Url="html/e8071ee7-4e50-0ed0-922f-8ae8cd6e8cff.htm" />
+  <HelpKINode Title="Btree(Of T).RemoveChild method" Url="html/3b96c745-8e86-1afe-3189-e1f56a53665f.htm" />
+  <HelpKINode Title="BTree.BTree constructor" Url="html/4fe4b151-42d3-ac19-bc15-32f4afafb293.htm" />
+  <HelpKINode Title="BTree.LoadFileIntoTree method" Url="html/5cbd8a91-8a98-2b7e-06e0-6befbfdfd04f.htm" />
+  <HelpKINode Title="BTree.SaveFileIntoTree(Of T) method" Url="html/6d00027d-2fcc-5c4e-b29c-30e4ed4104e9.htm" />
+  <HelpKINode Title="BTree.SaveFileIntoTree&lt;T&gt; method" Url="html/6d00027d-2fcc-5c4e-b29c-30e4ed4104e9.htm" />
+  <HelpKINode Title="BTree.SaveTree(Of T) method" Url="html/ceda4c88-6499-8b2a-de92-b2cf1118a2d9.htm" />
+  <HelpKINode Title="BTree.SaveTree&lt;T&gt; method" Url="html/ceda4c88-6499-8b2a-de92-b2cf1118a2d9.htm" />
+  <HelpKINode Title="Btree&lt;T&gt; class">
+    <HelpKINode Title="Btree(T) Class" Url="html/13aa30fb-8354-093a-c784-fbc677c50e6c.htm" />
+    <HelpKINode Title="about Btree&lt;T&gt; class" Url="html/13aa30fb-8354-093a-c784-fbc677c50e6c.htm" />
+    <HelpKINode Title="constructor" Url="html/8253d678-f21c-605a-9192-a91de2618375.htm" />
+    <HelpKINode Title="fields" Url="html/baf30730-8094-6fe5-8ae8-b716ee23c4c9.htm" />
+    <HelpKINode Title="methods" Url="html/c9278835-028d-683c-5bcf-e9f7842327f8.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Btree&lt;T&gt;.AddChild method" Url="html/91e9b659-d4e4-8edf-5cf4-13f32cef4455.htm" />
+  <HelpKINode Title="Btree&lt;T&gt;.Btree constructor" Url="html/8253d678-f21c-605a-9192-a91de2618375.htm" />
+  <HelpKINode Title="Btree&lt;T&gt;.Children field" Url="html/1ef18831-bd80-708d-a768-789c76603e0a.htm" />
+  <HelpKINode Title="Btree&lt;T&gt;.ClearChildren method" Url="html/c95ea7d1-c3a3-fbe7-78ab-ba35ee0f4626.htm" />
+  <HelpKINode Title="Btree&lt;T&gt;.GetChildByName method" Url="html/3bd0c330-a3e0-a41e-e4ba-4d954c25c0f9.htm" />
+  <HelpKINode Title="Btree&lt;T&gt;.Name field" Url="html/9a0d798e-024b-47e0-501f-3ca3cdc12045.htm" />
+  <HelpKINode Title="Btree&lt;T&gt;.Parent field" Url="html/e8071ee7-4e50-0ed0-922f-8ae8cd6e8cff.htm" />
+  <HelpKINode Title="Btree&lt;T&gt;.RemoveChild method" Url="html/3b96c745-8e86-1afe-3189-e1f56a53665f.htm" />
+  <HelpKINode Title="bumpLastPosition method" Url="html/4151a072-6bdb-3d5e-49f2-5e465041075a.htm" />
+  <HelpKINode Title="buttonpanel field" Url="html/a76229d0-3071-c2c1-2a6d-46eb8c16cda7.htm" />
+  <HelpKINode Title="buttonpress method" Url="html/b49bb69f-8431-a330-7197-5b189cb9380f.htm" />
+  <HelpKINode Title="ByColumn property" Url="html/66b7f4be-15e4-7a25-4efa-10cb2f5a62f6.htm" />
+  <HelpKINode Title="Bytes field" Url="html/5167230e-55b3-c7df-a602-cb047479bfc4.htm" />
+  <HelpKINode Title="Cache(Of T) method" Url="html/8ffe0a92-eb4e-9179-ee22-542da6e95051.htm" />
+  <HelpKINode Title="Cache&lt;T&gt; method" Url="html/8ffe0a92-eb4e-9179-ee22-542da6e95051.htm" />
+  <HelpKINode Title="Callback method" Url="html/1f5b9ba0-b023-6898-9ddf-c4f28fbf885d.htm" />
+  <HelpKINode Title="cancelbutton field">
+    <HelpKINode Title="GetStringBox.cancelbutton Field" Url="html/cdfbd496-0189-4cb0-c4e8-d58926772b12.htm" />
+    <HelpKINode Title="GetStringImageCompare.cancelbutton Field" Url="html/ca214a5e-accd-dbab-70e7-08b6592e39f0.htm" />
+    <HelpKINode Title="MassVariableEdit.cancelbutton Field" Url="html/59a4fbb2-00d1-3901-ddb5-bafbf4054a1c.htm" />
+    <HelpKINode Title="SelectItemFromListBox.cancelbutton Field" Url="html/82fff8d6-8bae-d4cb-5fc0-ce104a0f2db8.htm" />
+    <HelpKINode Title="SelectItemFromListView.cancelbutton Field" Url="html/b2ccef5a-b27b-e5e7-9b54-c90cd4019b80.htm" />
+    <HelpKINode Title="SelectItemsFromCheckBox.cancelbutton Field" Url="html/0a87910b-5d37-8b06-16e7-91d4a4c39801.htm" />
+  </HelpKINode>
+  <HelpKINode Title="cancelbutton_Click method">
+    <HelpKINode Title="GetStringBox.cancelbutton_Click Method " Url="html/add97e67-b552-1fbc-f87e-f96972cd4136.htm" />
+    <HelpKINode Title="GetStringImageCompare.cancelbutton_Click Method " Url="html/b270629e-7bc2-e357-d4ad-6323e9d8b4db.htm" />
+    <HelpKINode Title="MassVariableEdit.cancelbutton_Click Method " Url="html/d9075fb1-1466-d383-73c6-cbe7e0ff2906.htm" />
+    <HelpKINode Title="SelectItemFromListBox.cancelbutton_Click Method " Url="html/917395a5-cff0-1af6-dc80-01882dd9bd9c.htm" />
+    <HelpKINode Title="SelectItemFromListView.cancelbutton_Click Method " Url="html/99dd0557-744f-f661-888e-30ecacf4f2e7.htm" />
+    <HelpKINode Title="SelectItemsFromCheckBox.cancelbutton_Click Method " Url="html/9ff139cd-8dc7-0c8e-61a6-dc3f73f77586.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Ceiling method" Url="html/7aeb8c0a-e3fc-5c79-8aa4-8a86501d502a.htm" />
+  <HelpKINode Title="ChangeLog field" Url="html/cc193053-6139-803b-5df1-8bd91f2d6f03.htm" />
+  <HelpKINode Title="CheckAll method" Url="html/80b402bc-22b6-32a7-44f6-bba39bf20353.htm" />
+  <HelpKINode Title="checkedListBox1 field" Url="html/8f7933ea-5a40-c437-dc37-7ed833a8e462.htm" />
+  <HelpKINode Title="CheckedListBoxExtras class">
+    <HelpKINode Title="CheckedListBoxExtras Class" Url="html/32d967de-0f52-4a11-e397-537f5d0018a7.htm" />
+    <HelpKINode Title="about CheckedListBoxExtras class" Url="html/32d967de-0f52-4a11-e397-537f5d0018a7.htm" />
+    <HelpKINode Title="methods" Url="html/186a974a-56bc-0f64-daff-fbd65dc5bc2b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CheckedListBoxExtras.CheckAll method" Url="html/80b402bc-22b6-32a7-44f6-bba39bf20353.htm" />
+  <HelpKINode Title="CheckedListBoxExtras.CheckItem method" Url="html/b4d8f7dc-7fe9-48ce-9f2e-5ed66a0d0d76.htm" />
+  <HelpKINode Title="CheckItem method" Url="html/b4d8f7dc-7fe9-48ce-9f2e-5ed66a0d0d76.htm" />
+  <HelpKINode Title="CheckMask method" Url="html/1fac4902-eaf1-5342-ba4b-670412aea5e1.htm" />
+  <HelpKINode Title="Children field" Url="html/1ef18831-bd80-708d-a768-789c76603e0a.htm" />
+  <HelpKINode Title="CleanString method" Url="html/1a311cd3-adca-f0b9-1355-e770d4f1e860.htm" />
+  <HelpKINode Title="ClearChildren method" Url="html/c95ea7d1-c3a3-fbe7-78ab-ba35ee0f4626.htm" />
+  <HelpKINode Title="ClearControls method" Url="html/be2b4b8a-6125-88b5-b2c0-25416d76bdb4.htm" />
+  <HelpKINode Title="Clone method" Url="html/97e4d9e9-02fe-5ba8-6270-278fb41d686a.htm" />
+  <HelpKINode Title="Clone(Of T) method">
+    <HelpKINode Title="ArrayExtras.Clone(T) Method " Url="html/5bf92447-ae41-c73f-bfb7-10bee6198469.htm" />
+    <HelpKINode Title="ObjectExtras.Clone(T) Method " Url="html/c1f4a2f8-8a46-c84e-ced9-8f03d820f228.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Clone&lt;T&gt; method">
+    <HelpKINode Title="ArrayExtras.Clone(T) Method " Url="html/5bf92447-ae41-c73f-bfb7-10bee6198469.htm" />
+    <HelpKINode Title="ObjectExtras.Clone(T) Method " Url="html/c1f4a2f8-8a46-c84e-ced9-8f03d820f228.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CloneMatrix(Of T) method" Url="html/db2ba69f-2aa3-1bbe-5f77-f406cc897320.htm" />
+  <HelpKINode Title="CloneMatrix&lt;T&gt; method" Url="html/db2ba69f-2aa3-1bbe-5f77-f406cc897320.htm" />
+  <HelpKINode Title="CloneObject method" Url="html/af594e3c-7413-2d66-adc9-56a9d19cfd10.htm" />
+  <HelpKINode Title="closebutton field">
+    <HelpKINode Title="AboutScreen.closebutton Field" Url="html/4294cf44-bccb-601d-8cce-3f61e39d1d8f.htm" />
+    <HelpKINode Title="HelpScreen.closebutton Field" Url="html/ef835970-3c6d-7e9c-c56b-c6b0be3797dc.htm" />
+  </HelpKINode>
+  <HelpKINode Title="closebutton_Click method">
+    <HelpKINode Title="AboutScreen.closebutton_Click Method " Url="html/7478f5fb-d760-cb55-bb20-80e8c783e3ce.htm" />
+    <HelpKINode Title="HelpScreen.closebutton_Click Method " Url="html/d95890b2-5231-d86f-60f8-75c70c23e70f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ColorExtras class">
+    <HelpKINode Title="ColorExtras Class" Url="html/37194e0d-5301-b118-333c-8d0eec339790.htm" />
+    <HelpKINode Title="about ColorExtras class" Url="html/37194e0d-5301-b118-333c-8d0eec339790.htm" />
+    <HelpKINode Title="constructor" Url="html/df297087-c26f-928c-1606-982e05b07412.htm" />
+    <HelpKINode Title="fields" Url="html/f8dc414d-bbf0-0ee4-73c4-7cecd506bcf6.htm" />
+    <HelpKINode Title="methods" Url="html/296ac023-ebd5-cc79-a044-d5852a79a082.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ColorExtras.ColorExtras constructor" Url="html/df297087-c26f-928c-1606-982e05b07412.htm" />
+  <HelpKINode Title="ColorExtras.colourCache field" Url="html/75994258-8aab-4aed-0eac-8c32aa6bd3fb.htm" />
+  <HelpKINode Title="ColorExtras.getColourFromInt method" Url="html/dfc6db41-2bac-179d-1719-091165e420f3.htm" />
+  <HelpKINode Title="ColorExtras.GetNearestColour method" Url="html/5403e7f2-1c7f-010b-e999-eb4dcc4c0e45.htm" />
+  <HelpKINode Title="ColorExtras.getNegative method" Url="html/b80458ea-ec27-4a1f-9df6-4349b01b8a86.htm" />
+  <HelpKINode Title="ColorExtras.HexColourToColour method" Url="html/bccdcf59-d71e-6673-7af1-b47e3e94fe7f.htm" />
+  <HelpKINode Title="ColorExtras.TestColourByRGB method" Url="html/64321dbf-6914-feed-e717-92a2cfa7660d.htm" />
+  <HelpKINode Title="ColorListBox class">
+    <HelpKINode Title="ColorListBox Class" Url="html/b6adbd93-37bc-ce1e-bb22-d52ea165eddc.htm" />
+    <HelpKINode Title="about ColorListBox class" Url="html/b6adbd93-37bc-ce1e-bb22-d52ea165eddc.htm" />
+    <HelpKINode Title="constructor" Url="html/f4163ae8-f681-6a72-d189-a57e1bcc6ec3.htm" />
+    <HelpKINode Title="events" Url="html/a75745a0-e011-d493-24cc-57d7a320f8fd.htm" />
+    <HelpKINode Title="fields" Url="html/251c75f2-eb77-6a39-ddeb-a36ee150b3e8.htm" />
+    <HelpKINode Title="methods" Url="html/73dcc2f3-015a-dbd7-12b8-9105ffbec664.htm" />
+    <HelpKINode Title="properties" Url="html/04d9fb79-890b-04d5-d3b4-bdbcf650592d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ColorListBox.ColorListBox constructor" Url="html/f4163ae8-f681-6a72-d189-a57e1bcc6ec3.htm" />
+  <HelpKINode Title="ColorListBox.colours field" Url="html/53d14094-5235-3206-ee0a-a6d2b49647c9.htm" />
+  <HelpKINode Title="ColorListBox.Colours property" Url="html/9e7c008e-96eb-c4d5-75a3-adfbfda342ff.htm" />
+  <HelpKINode Title="ColorListBox.DrawItemHandler method" Url="html/6c2cdab3-cf87-1454-6f15-fd9729cea2f3.htm" />
+  <HelpKINode Title="colourCache field" Url="html/75994258-8aab-4aed-0eac-8c32aa6bd3fb.htm" />
+  <HelpKINode Title="colours field" Url="html/53d14094-5235-3206-ee0a-a6d2b49647c9.htm" />
+  <HelpKINode Title="Colours property" Url="html/9e7c008e-96eb-c4d5-75a3-adfbfda342ff.htm" />
+  <HelpKINode Title="ColumnSort method" Url="html/cfc9c235-1202-dbbe-7a81-49ce7c6e2097.htm" />
+  <HelpKINode Title="Compare method" Url="html/1682f50b-13f3-4de1-e096-9a503e56e63e.htm" />
+  <HelpKINode Title="compareF field" Url="html/815a9634-a76d-7ae8-4268-bba54a4e38cd.htm" />
+  <HelpKINode Title="CompareNatural method" Url="html/8ec9e92d-ab75-66a3-b350-37e5d48dd5d9.htm" />
+  <HelpKINode Title="ComparisonTime method" Url="html/5f8140ae-ac0a-b40c-1c9a-d2c14f16dad5.htm" />
+  <HelpKINode Title="components field">
+    <HelpKINode Title="AboutScreen.components Field" Url="html/d72c3410-7868-e689-44c5-9b24b4911dc1.htm" />
+    <HelpKINode Title="DragBar.components Field" Url="html/dc8f2dd9-384e-e189-8be6-1a85616b3b44.htm" />
+    <HelpKINode Title="GetStringBox.components Field" Url="html/e59966cc-0cca-e8b8-2c2f-f24bf48ec10a.htm" />
+    <HelpKINode Title="GetStringImageCompare.components Field" Url="html/bbf3e39f-7dba-17e1-381c-7157b93b0a9c.htm" />
+    <HelpKINode Title="GrowingLabel.components Field" Url="html/3ab613f4-b708-d3ba-7d9d-9ca4831fc2d7.htm" />
+    <HelpKINode Title="HelpScreen.components Field" Url="html/51606eff-f560-227a-c59b-26aa03165b9b.htm" />
+    <HelpKINode Title="ImageDraw.components Field" Url="html/b3457c3e-8a51-1eec-8a3a-477501d95a22.htm" />
+    <HelpKINode Title="MassVariableEdit.components Field" Url="html/d9f93589-e3b2-31b7-c4a4-9049811e647f.htm" />
+    <HelpKINode Title="MultipleMessageBox.components Field" Url="html/8dfe4632-2c1f-4151-7aa1-64685f43172e.htm" />
+    <HelpKINode Title="SelectItemFromListBox.components Field" Url="html/c22841d7-30d3-1f67-c1ff-fd9d0880b7b8.htm" />
+    <HelpKINode Title="SelectItemFromListView.components Field" Url="html/aa660f4c-a23b-63a2-acea-9b351e452ccc.htm" />
+    <HelpKINode Title="SelectItemsFromCheckBox.components Field" Url="html/e62f2a4e-947a-baa5-1a3c-20e457af5943.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ComputerName field" Url="html/b6700729-fd3a-b4c6-4fa6-d840c2268d6f.htm" />
+  <HelpKINode Title="ContainsLoopThrough(Of T) method" Url="html/2df1a79b-8eab-d453-7528-feea4af1c01f.htm" />
+  <HelpKINode Title="ContainsLoopThrough&lt;T&gt; method" Url="html/2df1a79b-8eab-d453-7528-feea4af1c01f.htm" />
+  <HelpKINode Title="ContainsSubStringCount method" Url="html/7c9dbe66-5117-c8a0-2ff7-8009b8057e53.htm" />
+  <HelpKINode Title="ContextMenuStripExtras class">
+    <HelpKINode Title="ContextMenuStripExtras Class" Url="html/aef09d20-d471-681d-fda1-839212779bfc.htm" />
+    <HelpKINode Title="about ContextMenuStripExtras class" Url="html/aef09d20-d471-681d-fda1-839212779bfc.htm" />
+    <HelpKINode Title="methods" Url="html/3eac81af-14e3-a8c2-89b0-6889ffc86fc6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ContextMenuStripExtras.GetContextParent method" Url="html/461c7581-41ab-68c4-1f1f-5d96079c86d3.htm" />
+  <HelpKINode Title="controlStack field" Url="html/e1f23f73-b6a0-b303-5254-44e6788598c5.htm" />
+  <HelpKINode Title="ConvertMatrix method" Url="html/3a0700f3-a3f0-ec9a-b8ba-365a7026d881.htm" />
+  <HelpKINode Title="CopyClassToListView method" Url="html/4d88f9df-436d-2ebd-ea6d-958980cd8ad8.htm" />
+  <HelpKINode Title="Count(Of T) method" Url="html/49ffe495-4310-0c37-369e-67ddd9c4a1b3.htm" />
+  <HelpKINode Title="Count&lt;T&gt; method" Url="html/49ffe495-4310-0c37-369e-67ddd9c4a1b3.htm" />
+  <HelpKINode Title="Create method">
+    <HelpKINode Title="CustomTimeZones.Create Method " Url="html/f3eb0e61-e1a3-0f6d-976a-b9a89c561e78.htm" />
+    <HelpKINode Title="TextboxExtras.InputType.Create Method " Url="html/cf8bbb95-0d5c-be97-16b0-0c4636645464.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CreateAllTrue method" Url="html/161b641e-1d10-0adf-63c3-654f77b692cc.htm" />
+  <HelpKINode Title="CreateCopy method" Url="html/80aeb62f-6aae-85b0-25da-875e0b2e1176.htm" />
+  <HelpKINode Title="CreateDirectory method" Url="html/81a80a3b-3633-09ae-9260-f4bbe1472a59.htm" />
+  <HelpKINode Title="CreateDirectoryTree method" Url="html/15616c4f-2223-2b48-3e5e-4d17e8f76947.htm" />
+  <HelpKINode Title="CreateFile method" Url="html/6f29760e-f7b5-1609-7448-4c586aafc995.htm" />
+  <HelpKINode Title="createFilter method" Url="html/56777b26-f07b-4063-b432-96c61f593268.htm" />
+  <HelpKINode Title="CreateLicense method" Url="html/f9bfd7d6-4a80-043e-8dd3-fd20486dfe41.htm" />
+  <HelpKINode Title="CreateMatrix(Of T) method" Url="html/ec04ae15-08ee-128c-25f3-5e01b3e4555f.htm" />
+  <HelpKINode Title="CreateMatrix&lt;T&gt; method" Url="html/ec04ae15-08ee-128c-25f3-5e01b3e4555f.htm" />
+  <HelpKINode Title="Crop method" Url="html/447237f4-cdac-6e82-7638-4348b7bd98bf.htm" />
+  <HelpKINode Title="CustomTimeZones class">
+    <HelpKINode Title="CustomTimeZones Class" Url="html/d8bd2e37-220d-2090-e449-4d91836eaeb4.htm" />
+    <HelpKINode Title="about CustomTimeZones class" Url="html/d8bd2e37-220d-2090-e449-4d91836eaeb4.htm" />
+    <HelpKINode Title="constructor" Url="html/cfb23fdb-15bc-5aa1-598b-212bdbcc5d48.htm" />
+    <HelpKINode Title="constructor" Url="html/1939886b-6117-ca55-5bc4-e0046a37d82c.htm" />
+    <HelpKINode Title="fields" Url="html/97cb1414-50bb-b959-b411-233fcc63552b.htm" />
+    <HelpKINode Title="methods" Url="html/fa55247a-df70-f639-628e-9cbe33e46c7e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CustomTimeZones.ComparisonTime method" Url="html/5f8140ae-ac0a-b40c-1c9a-d2c14f16dad5.htm" />
+  <HelpKINode Title="CustomTimeZones.Create method" Url="html/f3eb0e61-e1a3-0f6d-976a-b9a89c561e78.htm" />
+  <HelpKINode Title="CustomTimeZones.CustomTimeZones constructor">
+    <HelpKINode Title="CustomTimeZones Constructor " Url="html/cfb23fdb-15bc-5aa1-598b-212bdbcc5d48.htm" />
+    <HelpKINode Title="CustomTimeZones Constructor " Url="html/1939886b-6117-ca55-5bc4-e0046a37d82c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CustomTimeZones.FromString method" Url="html/ad89c848-ed6d-9985-ab61-1b9423425cfb.htm" />
+  <HelpKINode Title="CustomTimeZones.GetMyTimeZone method" Url="html/6b5a927f-af34-de05-8a05-9e255856d1bb.htm" />
+  <HelpKINode Title="CustomTimeZones.Id field" Url="html/fe9733a8-7ba9-8168-6c99-1e240604b566.htm" />
+  <HelpKINode Title="CustomTimeZones.name field" Url="html/209c5144-3df6-1b37-d68b-a382c87def76.htm" />
+  <HelpKINode Title="CustomTimeZones.Sort method" Url="html/eedb89f0-f959-c07a-b6fe-749780dba3d0.htm" />
+  <HelpKINode Title="CustomTimeZones.ToString method" Url="html/6ba161ae-480c-d5b2-6b72-ad8c473477c3.htm" />
+  <HelpKINode Title="CustomTimeZones.UTCoffset field" Url="html/f9262703-7751-e09c-4534-6ef4d8fea443.htm" />
+  <HelpKINode Title="CustomTimeZones.Zones field" Url="html/25d7efd0-399e-8b24-38b0-7f5173bd4325.htm" />
+  <HelpKINode Title="DeleteDirectory method">
+    <HelpKINode Title="DirectoryExtras.DeleteDirectory Method " Url="html/8d5416fd-cf41-b4fb-fdec-bb69bcaeb5d9.htm" />
+    <HelpKINode Title="FileExtras.DeleteDirectory Method " Url="html/248f8a7a-5bfb-1d04-a9ea-566edb332cd3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DeSerialise method">
+    <HelpKINode Title="HistogramOCR.DeSerialise Method " Url="html/f10deca4-8d7f-fdf4-4794-d5695dfb6bdf.htm" />
+    <HelpKINode Title="HistogramOCR.HistogramLetter.DeSerialise Method " Url="html/e25b9825-a2d0-a91b-95c3-53ee67dc6c38.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DeserialiseObject method" Url="html/dcb68d22-259c-2563-f800-ffcec94bd16a.htm" />
+  <HelpKINode Title="Deserialize method" Url="html/6501bc33-a485-87d0-a334-c8ba58c2e924.htm" />
+  <HelpKINode Title="DeviceUpdates class">
+    <HelpKINode Title="DeviceUpdates Class" Url="html/b293927a-ca28-5df3-36d0-5f19eafbb25d.htm" />
+    <HelpKINode Title="about DeviceUpdates class" Url="html/b293927a-ca28-5df3-36d0-5f19eafbb25d.htm" />
+    <HelpKINode Title="constructor" Url="html/9795d30d-ffe8-f97b-f076-5f50c65ed4fc.htm" />
+    <HelpKINode Title="methods" Url="html/61d4ce28-852a-d810-e07b-16b366ff597d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DeviceUpdates.AutodetectCOMPort method" Url="html/1cc0adc6-954f-e3a5-9599-18d84a0e40c3.htm" />
+  <HelpKINode Title="DeviceUpdates.DeviceUpdates constructor" Url="html/9795d30d-ffe8-f97b-f076-5f50c65ed4fc.htm" />
+  <HelpKINode Title="DictionaryExtras class">
+    <HelpKINode Title="DictionaryExtras Class" Url="html/fc8f45ce-1662-3889-1ad6-9358d9f2b440.htm" />
+    <HelpKINode Title="about DictionaryExtras class" Url="html/fc8f45ce-1662-3889-1ad6-9358d9f2b440.htm" />
+    <HelpKINode Title="methods" Url="html/c3902c75-a099-fde6-166c-a07dc03f57f3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DictionaryExtras.Deserialize method" Url="html/6501bc33-a485-87d0-a334-c8ba58c2e924.htm" />
+  <HelpKINode Title="DictionaryExtras.DictToListOfListViewItems method" Url="html/aa1f0b30-eeb7-3be3-5ab5-0cafe5fa4b9b.htm" />
+  <HelpKINode Title="DictionaryExtras.GetKeyByValue(Of T, Y) method" Url="html/cbe67834-946b-9074-ce46-0c9beb11a65f.htm" />
+  <HelpKINode Title="DictionaryExtras.GetKeyByValue&lt;T, Y&gt; method" Url="html/cbe67834-946b-9074-ce46-0c9beb11a65f.htm" />
+  <HelpKINode Title="DictionaryExtras.MergeTwoDictionaries(Of T, Y) method" Url="html/a61fb828-9fc7-e6b3-7fe9-de45c0e47687.htm" />
+  <HelpKINode Title="DictionaryExtras.MergeTwoDictionaries&lt;T, Y&gt; method" Url="html/a61fb828-9fc7-e6b3-7fe9-de45c0e47687.htm" />
+  <HelpKINode Title="DictionaryExtras.Serialise method" Url="html/6956ed9b-f242-6091-987c-4438a5e9de43.htm" />
+  <HelpKINode Title="DictToListOfListViewItems method" Url="html/aa1f0b30-eeb7-3be3-5ab5-0cafe5fa4b9b.htm" />
+  <HelpKINode Title="DirectoryExtras class">
+    <HelpKINode Title="DirectoryExtras Class" Url="html/2d7f1d52-b178-bf90-d4a9-789abb63cb51.htm" />
+    <HelpKINode Title="about DirectoryExtras class" Url="html/2d7f1d52-b178-bf90-d4a9-789abb63cb51.htm" />
+    <HelpKINode Title="methods" Url="html/dda88230-e8fc-524d-a493-f328d4345a03.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DirectoryExtras.DeleteDirectory method" Url="html/8d5416fd-cf41-b4fb-fdec-bb69bcaeb5d9.htm" />
+  <HelpKINode Title="DirectoryExtras.GetExePath method" Url="html/1136f6b6-7a53-0173-7ad9-77f4bd522e02.htm" />
+  <HelpKINode Title="DirectoryExtras.GetFilesRecursive method" Url="html/7a936fa9-5640-683c-5a90-52c842e3077e.htm" />
+  <HelpKINode Title="DirectoryExtras.SetCurrentDirectoryToDefault method" Url="html/45e261ab-9e64-dff5-98dc-584ceba6a79c.htm" />
+  <HelpKINode Title="Dispose method">
+    <HelpKINode Title="AboutScreen.Dispose Method " Url="html/c96d2ee7-bace-597a-35d4-34a7739db9de.htm" />
+    <HelpKINode Title="DragBar.Dispose Method " Url="html/0c836583-7c83-ec5b-d8c0-481f05d19d45.htm" />
+    <HelpKINode Title="GetStringBox.Dispose Method " Url="html/e5b93fc6-944d-3b59-57af-3a16589e4ec9.htm" />
+    <HelpKINode Title="GetStringImageCompare.Dispose Method " Url="html/96afaf3b-6ca4-6c18-0794-8e6d81903614.htm" />
+    <HelpKINode Title="GrowingLabel.Dispose Method " Url="html/b766c0f9-a778-8abc-612b-10b6e49446c4.htm" />
+    <HelpKINode Title="HelpScreen.Dispose Method " Url="html/56753715-1332-3c3d-ff8e-a25f22c13667.htm" />
+    <HelpKINode Title="ImageDraw.Dispose Method " Url="html/d6073ef4-bc8e-c95c-188d-2eda8ae3a61e.htm" />
+    <HelpKINode Title="MassVariableEdit.Dispose Method " Url="html/8fb45a83-62f4-f3a2-91c4-b095c19cc17a.htm" />
+    <HelpKINode Title="MultipleMessageBox.Dispose Method " Url="html/db15674a-f0f2-3c5a-760a-8cd558b2d76f.htm" />
+    <HelpKINode Title="PersistantCache.Dispose Method " Url="html/6382db47-ef27-62ba-19c6-8e21e8355d53.htm" />
+    <HelpKINode Title="SelectItemFromListBox.Dispose Method " Url="html/d6d9aaad-8ce4-8b52-9901-af47d02e41a0.htm" />
+    <HelpKINode Title="SelectItemFromListView.Dispose Method " Url="html/33dcb0b1-df9f-b578-2760-9be6bb7cf5df.htm" />
+    <HelpKINode Title="SelectItemsFromCheckBox.Dispose Method " Url="html/29730bb0-b7cb-8981-056b-dab3bafed84f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DistinctBy(Of TSource, TKey) method" Url="html/814fe9e5-2bda-6b64-0442-86cd787dd0e0.htm" />
+  <HelpKINode Title="DistinctBy&lt;TSource, TKey&gt; method" Url="html/814fe9e5-2bda-6b64-0442-86cd787dd0e0.htm" />
+  <HelpKINode Title="done field" Url="html/cffc45d8-cfe9-7668-72fa-e5809e5a9595.htm" />
+  <HelpKINode Title="DownloadedSolutionDetails class">
+    <HelpKINode Title="fields" Url="html/81d8254f-33a9-862f-2c5f-9c6a1d787231.htm" />
+    <HelpKINode Title="methods" Url="html/9ebfac45-b731-5918-9e33-09875f5741e3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DownloadFile method" Url="html/3cdfb8c5-3be2-98f9-fae6-1f4d31815328.htm" />
+  <HelpKINode Title="DownloadWebPage method" Url="html/aa9a3118-b512-bb6d-b4ac-c30278fbdf92.htm" />
+  <HelpKINode Title="DragBar class">
+    <HelpKINode Title="DragBar Class" Url="html/a24b8146-1529-ed88-d12a-af1b7545996a.htm" />
+    <HelpKINode Title="about DragBar class" Url="html/a24b8146-1529-ed88-d12a-af1b7545996a.htm" />
+    <HelpKINode Title="constructor" Url="html/50f90938-ba1f-b572-b8fb-96593caa6dfb.htm" />
+    <HelpKINode Title="events" Url="html/34b83811-02c3-cb4c-d73e-b0264d08c1f3.htm" />
+    <HelpKINode Title="fields" Url="html/d042cb7a-c7ac-c1a2-d030-1a0c789209dc.htm" />
+    <HelpKINode Title="methods" Url="html/dd28c559-5124-40a2-df30-bb4ca306b5f6.htm" />
+    <HelpKINode Title="properties" Url="html/1294e8ca-65a6-1271-00de-930e5bdda2aa.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DragBar.BackColour property" Url="html/cdf9386b-8a81-e4ce-c22c-9621bc91561a.htm" />
+  <HelpKINode Title="DragBar.BarColour property" Url="html/3c6d5e5e-1f64-5231-3e34-6f7a8a719b1b.htm" />
+  <HelpKINode Title="DragBar.barEndX field" Url="html/dfbba4e0-7f88-d16b-4380-6f4e8825bd64.htm" />
+  <HelpKINode Title="DragBar.BarEvent delegate" Url="html/83786ca4-9aff-26f4-03c7-0b6164787b31.htm" />
+  <HelpKINode Title="DragBar.BarMaximumValue property" Url="html/9ad8d36a-9b60-63ae-1944-baf1b9df8081.htm" />
+  <HelpKINode Title="DragBar.BarMinimumValue property" Url="html/6a3c5fdd-dccd-f322-f29b-aa1637d6040e.htm" />
+  <HelpKINode Title="DragBar.BarValueChange event" Url="html/d0a7b7c2-c1ae-35b6-70bd-444da4d173cc.htm" />
+  <HelpKINode Title="DragBar.barX field" Url="html/40a9478f-1ab0-6b9a-9462-157c462ba4f6.htm" />
+  <HelpKINode Title="DragBar.components field" Url="html/dc8f2dd9-384e-e189-8be6-1a85616b3b44.htm" />
+  <HelpKINode Title="DragBar.Dispose method" Url="html/0c836583-7c83-ec5b-d8c0-481f05d19d45.htm" />
+  <HelpKINode Title="DragBar.DragBar constructor" Url="html/50f90938-ba1f-b572-b8fb-96593caa6dfb.htm" />
+  <HelpKINode Title="DragBar.DragBar_Load method" Url="html/cb87eabf-cdba-e324-7793-7ef56927be8f.htm" />
+  <HelpKINode Title="DragBar.DragBar_Resize method" Url="html/3261c73d-e94c-5b6b-9121-b6a34e5f45f0.htm" />
+  <HelpKINode Title="DragBar.drawpanel field" Url="html/c3a67822-0aec-1b27-2a7e-46d96f90893a.htm" />
+  <HelpKINode Title="DragBar.drawpanel_MouseDown method" Url="html/ebc3a005-08d5-7074-5770-9a733acff69b.htm" />
+  <HelpKINode Title="DragBar.drawpanel_MouseMove method" Url="html/7c0e6df9-2bc3-bf27-4d59-8b0b9d71c083.htm" />
+  <HelpKINode Title="DragBar.drawpanel_MouseUp method" Url="html/f18e4201-de98-14d1-f92b-2d07c2225733.htm" />
+  <HelpKINode Title="DragBar.drawpanel_Paint method" Url="html/a2acb82a-5368-a13a-9561-bc2b811522f8.htm" />
+  <HelpKINode Title="DragBar.DrawScale property" Url="html/573f1d31-fc90-fb37-222c-4639f180eea7.htm" />
+  <HelpKINode Title="DragBar.getFontSize method" Url="html/e94e577a-0f07-430f-b15b-b8a250714568.htm" />
+  <HelpKINode Title="DragBar.InitializeComponent method" Url="html/4497ff92-89ad-0194-43bf-32c23b1b5fd2.htm" />
+  <HelpKINode Title="DragBar.InitScale method" Url="html/3102bca9-a1d1-61e3-c24d-40374aee2a42.htm" />
+  <HelpKINode Title="DragBar.listpanel field" Url="html/527d0f43-7520-c9b1-abd6-03d844e8ab26.htm" />
+  <HelpKINode Title="DragBar.listpanel_Paint method" Url="html/9a6a4643-2ae7-5e58-e5ae-31d4f7c5bf68.htm" />
+  <HelpKINode Title="DragBar.MaximumValue property" Url="html/669cecfc-89ef-5431-23c4-a7162fe5a021.htm" />
+  <HelpKINode Title="DragBar.MinimumValue property" Url="html/a886b479-2095-8760-7366-76ed85fdb446.htm" />
+  <HelpKINode Title="DragBar.mouseDownButton field" Url="html/a8a4adc7-72c3-a1ed-a6d2-f721797e586e.htm" />
+  <HelpKINode Title="DragBar.mouseDownX field" Url="html/6e07cf2d-63df-0c05-302d-f835545d33b8.htm" />
+  <HelpKINode Title="DragBar.mouseMoveBar field" Url="html/ea7b3927-516e-b104-c788-d9aaf1b54b26.htm" />
+  <HelpKINode Title="DragBar.mouseResizeBar field" Url="html/942cf7c6-4ce7-85e6-2f99-a9cd19aac423.htm" />
+  <HelpKINode Title="DragBar.OnBarValueChange method" Url="html/df9fe7b5-de2b-f8a0-627b-fd93b8834fcc.htm" />
+  <HelpKINode Title="DragBar.overCenter method" Url="html/55532d32-bbf3-ed15-1491-f45a8c01a2ba.htm" />
+  <HelpKINode Title="DragBar.overLeftResize method" Url="html/bf9ff96b-c87e-19d1-f028-8a475c13661c.htm" />
+  <HelpKINode Title="DragBar.overRightResize method" Url="html/81ed1182-bf22-c4f3-62ed-6713b7546efa.htm" />
+  <HelpKINode Title="DragBar.resizeleft field" Url="html/a19057f3-181c-e56c-5ad6-96d863ff08b0.htm" />
+  <HelpKINode Title="DragBar.scale class">
+    <HelpKINode Title="DragBar.scale Class" Url="html/2c59e510-51f7-33a4-3bb8-8a6614f8b9c1.htm" />
+    <HelpKINode Title="about DragBar.scale class" Url="html/2c59e510-51f7-33a4-3bb8-8a6614f8b9c1.htm" />
+    <HelpKINode Title="constructor" Url="html/f73861c0-8cdb-5f19-aff5-fb7ce9d9392a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DragBar.scale.number field" Url="html/f87451a8-d4e7-0362-8177-ecb2c771a232.htm" />
+  <HelpKINode Title="DragBar.scale.scale constructor" Url="html/f73861c0-8cdb-5f19-aff5-fb7ce9d9392a.htm" />
+  <HelpKINode Title="DragBar.scale.shownOnScale field" Url="html/4bdd54b7-3521-4da4-d14f-579e0f0b9128.htm" />
+  <HelpKINode Title="DragBar.scale.xval field" Url="html/783f3e10-f989-364c-c0e9-40c6e0400543.htm" />
+  <HelpKINode Title="DragBar.ScaleColour property" Url="html/331c6092-0f86-2685-5d2d-f299977c8faa.htm" />
+  <HelpKINode Title="DragBar.scales field" Url="html/c4d0ff20-2978-8828-b348-e8917a89c148.htm" />
+  <HelpKINode Title="DragBar.scaleWidth field" Url="html/052dcf8a-3e64-cf03-3dea-9565818e1d88.htm" />
+  <HelpKINode Title="DragBar.WrapBar method" Url="html/67f29d02-fe28-1c7b-cb76-0f7a1b61dae0.htm" />
+  <HelpKINode Title="DragBar_Load method" Url="html/cb87eabf-cdba-e324-7793-7ef56927be8f.htm" />
+  <HelpKINode Title="DragBar_Resize method" Url="html/3261c73d-e94c-5b6b-9121-b6a34e5f45f0.htm" />
+  <HelpKINode Title="DrawItemHandler method" Url="html/6c2cdab3-cf87-1454-6f15-fd9729cea2f3.htm" />
+  <HelpKINode Title="DrawLine method" Url="html/5f391278-109f-50c0-a604-558a07bbc075.htm" />
+  <HelpKINode Title="drawpanel field" Url="html/c3a67822-0aec-1b27-2a7e-46d96f90893a.htm" />
+  <HelpKINode Title="drawpanel_MouseDown method" Url="html/ebc3a005-08d5-7074-5770-9a733acff69b.htm" />
+  <HelpKINode Title="drawpanel_MouseMove method" Url="html/7c0e6df9-2bc3-bf27-4d59-8b0b9d71c083.htm" />
+  <HelpKINode Title="drawpanel_MouseUp method" Url="html/f18e4201-de98-14d1-f92b-2d07c2225733.htm" />
+  <HelpKINode Title="drawpanel_Paint method" Url="html/a2acb82a-5368-a13a-9561-bc2b811522f8.htm" />
+  <HelpKINode Title="DrawScale property" Url="html/573f1d31-fc90-fb37-222c-4639f180eea7.htm" />
+  <HelpKINode Title="EmbeddedResources class">
+    <HelpKINode Title="EmbeddedResources Class" Url="html/2ca98a80-450f-72dd-b7d5-4f4adcb6dcb2.htm" />
+    <HelpKINode Title="about EmbeddedResources class" Url="html/2ca98a80-450f-72dd-b7d5-4f4adcb6dcb2.htm" />
+    <HelpKINode Title="methods" Url="html/136f04ae-7499-86e8-8744-f4b36633f0a7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EmbeddedResources.GetResourceStream method" Url="html/c7829a28-9ba9-07c5-2789-b2fa0c21719a.htm" />
+  <HelpKINode Title="EmbeddedResources.ReadEmbeddedImage method" Url="html/859c97ce-8c62-9a19-8ad3-15d21f190f49.htm" />
+  <HelpKINode Title="EmbeddedResources.ReadEmbeddedResource method" Url="html/cc9e9ab4-90cc-7cc5-7c18-de0df603feb2.htm" />
+  <HelpKINode Title="Enabled field" Url="html/9f247cfc-81df-b3d5-56fe-3d07392e6f73.htm" />
+  <HelpKINode Title="EndMessageLoop method" Url="html/8353b120-709f-71e8-6f09-23c413128b9d.htm" />
+  <HelpKINode Title="EnsureSubItemCount method" Url="html/a2a6f662-1707-80a7-7318-291d43141737.htm" />
+  <HelpKINode Title="ExclusiveSynchronizationContext class">
+    <HelpKINode Title="fields" Url="html/1703100b-4cb8-ea1b-b1d5-4709a6dc491f.htm" />
+    <HelpKINode Title="methods" Url="html/54993492-1b34-17de-4684-38dbb64f1159.htm" />
+    <HelpKINode Title="properties" Url="html/8d969b5c-00f6-f2e3-7f5e-884664f4a41b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ExpandoObjectHelpers class">
+    <HelpKINode Title="ExpandoObjectHelpers Class" Url="html/1c46aee5-5812-db20-734c-90c9795b9a41.htm" />
+    <HelpKINode Title="about ExpandoObjectHelpers class" Url="html/1c46aee5-5812-db20-734c-90c9795b9a41.htm" />
+    <HelpKINode Title="methods" Url="html/373a2ca3-3c34-ba8e-cc75-3fbe70d8b68f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ExpandoObjectHelpers.ToDictionary method" Url="html/1b6571bf-bcf7-9ba0-fe12-de45b26112eb.htm" />
+  <HelpKINode Title="ExpandoObjectHelpers.ToExpando method" Url="html/3515a772-bdaf-2605-275b-1bfb1ed8ae31.htm" />
+  <HelpKINode Title="ExtractZipFile method" Url="html/b768c2c7-b901-d568-4333-77a178c0ae21.htm" />
+  <HelpKINode Title="f field" Url="html/44018698-4511-ebe3-9dee-9960d96cd7d7.htm" />
+  <HelpKINode Title="FileExtras class">
+    <HelpKINode Title="FileExtras Class" Url="html/ad903aa8-3c2e-9673-0714-29d71e5db75f.htm" />
+    <HelpKINode Title="about FileExtras class" Url="html/ad903aa8-3c2e-9673-0714-29d71e5db75f.htm" />
+    <HelpKINode Title="methods" Url="html/5d2cafe3-d883-40e5-fe71-1159e323a058.htm" />
+  </HelpKINode>
+  <HelpKINode Title="FileExtras.CreateDirectory method" Url="html/81a80a3b-3633-09ae-9260-f4bbe1472a59.htm" />
+  <HelpKINode Title="FileExtras.CreateDirectoryTree method" Url="html/15616c4f-2223-2b48-3e5e-4d17e8f76947.htm" />
+  <HelpKINode Title="FileExtras.CreateFile method" Url="html/6f29760e-f7b5-1609-7448-4c586aafc995.htm" />
+  <HelpKINode Title="FileExtras.DeleteDirectory method" Url="html/248f8a7a-5bfb-1d04-a9ea-566edb332cd3.htm" />
+  <HelpKINode Title="FileExtras.GenerateRandomFileName method" Url="html/46b8a85a-708a-7381-65b6-86917e7e3510.htm" />
+  <HelpKINode Title="FileExtras.GetAbsoluteFilePath method" Url="html/79bc047f-a54b-1a11-6a50-405156633e56.htm" />
+  <HelpKINode Title="FileExtras.LoadFile method" Url="html/9bf78b80-b6c2-4eac-8e2a-2727f307e343.htm" />
+  <HelpKINode Title="FileExtras.MergeDirectories method" Url="html/d6d7d6ac-cca1-c476-ce79-be36e34ad486.htm" />
+  <HelpKINode Title="FileExtras.SaveToFile method" Url="html/59ea6e21-258c-d9ff-f674-d7b8d132db56.htm" />
+  <HelpKINode Title="FileExtras.TrimFileName method" Url="html/214cabfe-edd5-c4f9-283a-5b2beae57356.htm" />
+  <HelpKINode Title="filename field" Url="html/a6a54812-fe67-8612-14ed-7fa85d77f373.htm" />
+  <HelpKINode Title="FileSizes class">
+    <HelpKINode Title="FileSizes Class" Url="html/831518f4-2b88-5da2-9a54-d168b69ec6f4.htm" />
+    <HelpKINode Title="about FileSizes class" Url="html/831518f4-2b88-5da2-9a54-d168b69ec6f4.htm" />
+    <HelpKINode Title="constructor" Url="html/6ae2aeb8-e05e-4517-f4cc-a572e149b0a2.htm" />
+    <HelpKINode Title="fields" Url="html/de9ec7df-a083-5b53-50ff-58aaa2658d07.htm" />
+    <HelpKINode Title="methods" Url="html/cc53d26d-7803-4a23-5e8c-2f85b70927f9.htm" />
+  </HelpKINode>
+  <HelpKINode Title="FileSizes.Bytes field" Url="html/5167230e-55b3-c7df-a602-cb047479bfc4.htm" />
+  <HelpKINode Title="FileSizes.FileSizes constructor" Url="html/6ae2aeb8-e05e-4517-f4cc-a572e149b0a2.htm" />
+  <HelpKINode Title="FileSizes.ToStringBytes method" Url="html/897c028c-d424-e2c4-afb2-866dee0e3589.htm" />
+  <HelpKINode Title="FileSizes.ToStringKB method" Url="html/156c9a2e-d2b8-9329-6fca-28ea35a7a9bd.htm" />
+  <HelpKINode Title="FileSizes.ToStringMB method" Url="html/d5a80976-197c-0ac4-887f-b733530ea87d.htm" />
+  <HelpKINode Title="FinalTextError field" Url="html/944431a3-e4ce-a98b-e35a-18e6d10c9fc2.htm" />
+  <HelpKINode Title="FitPanel method" Url="html/8348b71a-7895-9c87-a3d0-da611fdb2fda.htm" />
+  <HelpKINode Title="FloodFill(Of T) method" Url="html/28d2aff1-b565-176c-73ad-9ab93b7e8279.htm" />
+  <HelpKINode Title="FloodFill&lt;T&gt; method" Url="html/28d2aff1-b565-176c-73ad-9ab93b7e8279.htm" />
+  <HelpKINode Title="Floor method" Url="html/dad877cd-d497-3a47-bf15-bc64e52220af.htm" />
+  <HelpKINode Title="FormConfigRestore class">
+    <HelpKINode Title="FormConfigRestore Class" Url="html/0b52af5a-d390-ea55-63ea-9a9e9bc284b7.htm" />
+    <HelpKINode Title="about FormConfigRestore class" Url="html/0b52af5a-d390-ea55-63ea-9a9e9bc284b7.htm" />
+    <HelpKINode Title="constructor" Url="html/ba9ef4e4-bfaf-777d-0d21-18ef6b275a45.htm" />
+    <HelpKINode Title="fields" Url="html/390bdf1c-fd5e-f1a0-e449-773495f42839.htm" />
+    <HelpKINode Title="methods" Url="html/72363841-51f5-2a1a-fa4b-9c3fde9bab1e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="FormConfigRestore.FormConfigRestore constructor" Url="html/ba9ef4e4-bfaf-777d-0d21-18ef6b275a45.htm" />
+  <HelpKINode Title="FormConfigRestore.ListSeparator field" Url="html/c87795a4-df58-59bf-b452-deebf5b0c450.htm" />
+  <HelpKINode Title="FormConfigRestore.LoadConfig method" Url="html/ab19e204-b8ce-c1ce-de1e-6bd1a7b98a81.htm" />
+  <HelpKINode Title="FormConfigRestore.LoadProperty method" Url="html/e53ee55d-60bb-6c35-97cd-272fa4e91aee.htm" />
+  <HelpKINode Title="FormConfigRestore.LoadPropertyManual method" Url="html/0c9e58be-fcf1-3114-f09a-467d0d6e3ac3.htm" />
+  <HelpKINode Title="FormConfigRestore.NewLine field" Url="html/c15908dd-b3b4-9c57-5900-e1f8788d1552.htm" />
+  <HelpKINode Title="FormConfigRestore.SaveConfig method" Url="html/1778b092-e142-d60d-b830-7e8c602f23b5.htm" />
+  <HelpKINode Title="FormConfigRestore.SaveProperty method" Url="html/ed69b283-c56f-ae31-e958-d9aa278f4566.htm" />
+  <HelpKINode Title="FormConfigRestore.Separator field" Url="html/a6988330-4327-83ee-04d7-b477882d7da9.htm" />
+  <HelpKINode Title="FormConfigRestore.TypeSep field" Url="html/628b3e06-b95c-7fab-48f1-fb43b3da8b64.htm" />
+  <HelpKINode Title="FormTitle field" Url="html/ed399073-3d4e-bd10-08ec-8eba0bae3807.htm" />
+  <HelpKINode Title="FromString method" Url="html/ad89c848-ed6d-9985-ab61-1b9423425cfb.htm" />
+  <HelpKINode Title="gap field" Url="html/37a02acc-7f1c-da72-429c-a9917147cd6f.htm" />
+  <HelpKINode Title="Gap field" Url="html/10361c13-5a8d-9d4f-cb46-af75e3087ce1.htm" />
+  <HelpKINode Title="GenerateRandomFileName method" Url="html/46b8a85a-708a-7381-65b6-86917e7e3510.htm" />
+  <HelpKINode Title="GetAbsoluteFilePath method" Url="html/79bc047f-a54b-1a11-6a50-405156633e56.htm" />
+  <HelpKINode Title="GetAllCombinations(Of T) method" Url="html/fe44c5ff-5858-6b1d-8ee1-b1d1f77eea36.htm" />
+  <HelpKINode Title="GetAllCombinations&lt;T&gt; method" Url="html/fe44c5ff-5858-6b1d-8ee1-b1d1f77eea36.htm" />
+  <HelpKINode Title="GetBitmapBoolArray method" Url="html/0cd6ae82-64b5-03d3-772e-cf9e87502a8a.htm" />
+  <HelpKINode Title="GetChildByName method" Url="html/3bd0c330-a3e0-a41e-e4ba-4d954c25c0f9.htm" />
+  <HelpKINode Title="getColourFromInt method" Url="html/dfc6db41-2bac-179d-1719-091165e420f3.htm" />
+  <HelpKINode Title="GetColumn method" Url="html/70928f13-0755-e52f-dad0-f3d81c089eb6.htm" />
+  <HelpKINode Title="GetColumnNumber method" Url="html/6320bd4c-f191-52ba-deda-f9a7bc2cd65e.htm" />
+  <HelpKINode Title="GetContextParent method" Url="html/461c7581-41ab-68c4-1f1f-5d96079c86d3.htm" />
+  <HelpKINode Title="GetControlByName method" Url="html/942e8f84-961b-2253-122d-424ffb53fca1.htm" />
+  <HelpKINode Title="GetDays method" Url="html/39fb04ea-49a3-f76d-7195-b313e809d48c.htm" />
+  <HelpKINode Title="GetExePath method" Url="html/1136f6b6-7a53-0173-7ad9-77f4bd522e02.htm" />
+  <HelpKINode Title="GetExternalAddress method" Url="html/184542cb-0f99-a52f-ad7a-cca781c0e23d.htm" />
+  <HelpKINode Title="GetExternalDefaultLocalAddress method" Url="html/7bd62c3e-c6ce-2e60-0ccb-da53b663521b.htm" />
+  <HelpKINode Title="GetFieldByName(Of T) method" Url="html/7988d471-bca8-4f2d-d98d-b46ca918ceb0.htm" />
+  <HelpKINode Title="GetFieldByName&lt;T&gt; method" Url="html/7988d471-bca8-4f2d-d98d-b46ca918ceb0.htm" />
+  <HelpKINode Title="GetFieldName method" Url="html/0074471b-aa6c-9194-e7a0-659717e3638d.htm" />
+  <HelpKINode Title="GetFieldNames method" Url="html/72a3b6e7-a8c2-253a-d6c3-24e720efd9f0.htm" />
+  <HelpKINode Title="GetFieldNamesAndValues method" Url="html/ec9056ab-dcfc-b2b4-9ffa-268cd815160e.htm" />
+  <HelpKINode Title="GetFieldValue method" Url="html/2934f4b4-24be-f2ab-28b4-d8cf2d41dca5.htm" />
+  <HelpKINode Title="GetFilesRecursive method" Url="html/7a936fa9-5640-683c-5a90-52c842e3077e.htm" />
+  <HelpKINode Title="GetFirstRepetition method" Url="html/b5dd7712-dd62-f8d6-537a-9ba410cd814c.htm" />
+  <HelpKINode Title="getFontSize method" Url="html/e94e577a-0f07-430f-b15b-b8a250714568.htm" />
+  <HelpKINode Title="GetFutureTextBoxAfterKeyPress method" Url="html/3c57a17f-3e9d-6bde-bd0c-a9176c5ac9eb.htm" />
+  <HelpKINode Title="GetHistogram method" Url="html/d178f9ad-7cc8-d7e1-9bf6-ccabcf0ff5c5.htm" />
+  <HelpKINode Title="GetHistogramOffsetScore method" Url="html/4ebafbd9-f8d6-3234-6673-3cf47929a164.htm" />
+  <HelpKINode Title="GetHostName method" Url="html/52694380-2372-59f3-f086-7ac5a731910c.htm" />
+  <HelpKINode Title="GetHours method" Url="html/2eaa2aea-252b-23a4-12c2-992866e5a5cd.htm" />
+  <HelpKINode Title="GetItem method" Url="html/7977de5c-880e-db1c-0260-f7322290c95b.htm" />
+  <HelpKINode Title="GetKeyByValue(Of T, Y) method" Url="html/cbe67834-946b-9074-ce46-0c9beb11a65f.htm" />
+  <HelpKINode Title="GetKeyByValue&lt;T, Y&gt; method" Url="html/cbe67834-946b-9074-ce46-0c9beb11a65f.htm" />
+  <HelpKINode Title="GetListViewItemRowValuesAndColumnName method" Url="html/8c681aa3-3218-245c-599c-ff00dde20193.htm" />
+  <HelpKINode Title="GetLocalAddress method" Url="html/6f6a00d8-bb0c-3e3e-7ff6-2bef4d8f2df0.htm" />
+  <HelpKINode Title="GetMAC method" Url="html/2927000c-2e11-2d83-dabf-9ccd43c4f7c1.htm" />
+  <HelpKINode Title="getMachineNetBiosInfo method" Url="html/8aa5b509-de20-046f-4e16-8e9e05825f0a.htm" />
+  <HelpKINode Title="GetMatrix method" Url="html/6480a350-eac4-343d-5a43-90c77c00c3c1.htm" />
+  <HelpKINode Title="GetMd5Hash method" Url="html/77336248-0669-9431-6b13-b6c9f0f225b4.htm" />
+  <HelpKINode Title="GetMD5OfString method" Url="html/374b2634-1b23-e885-96bd-e0b28ec03e01.htm" />
+  <HelpKINode Title="GetMinutes method" Url="html/f177b7a4-2eab-e189-aff7-3d93b7d9c23c.htm" />
+  <HelpKINode Title="GetMyTimeZone method" Url="html/6b5a927f-af34-de05-8a05-9e255856d1bb.htm" />
+  <HelpKINode Title="GetNearestColour method" Url="html/5403e7f2-1c7f-010b-e999-eb4dcc4c0e45.htm" />
+  <HelpKINode Title="getNegative method" Url="html/b80458ea-ec27-4a1f-9df6-4349b01b8a86.htm" />
+  <HelpKINode Title="GetNetBiosInfo method" Url="html/b359ad10-6d53-bed5-40ee-e964b8f091cb.htm" />
+  <HelpKINode Title="GetNextFreePort method" Url="html/cd66afe3-ee1f-02fa-6d06-490113bd30a9.htm" />
+  <HelpKINode Title="GetObjectFromListViewItem method" Url="html/c80db301-a1d1-f9fe-8e30-731c0a8bb4ea.htm" />
+  <HelpKINode Title="GetObjectsFromListViewItems method" Url="html/e0579bd8-2b0d-d567-ca9c-fae76923cff5.htm" />
+  <HelpKINode Title="GetOffScore method" Url="html/cdb3f9c9-4dc4-948a-5779-7224cb6fbc46.htm" />
+  <HelpKINode Title="GetRealPos method" Url="html/9a17533d-eced-bc53-8434-a8eeb080a891.htm" />
+  <HelpKINode Title="GetRemoteInfo method" Url="html/ff5bb27a-f410-81d8-39f2-d76ecd869edc.htm" />
+  <HelpKINode Title="GetResourceStream method" Url="html/c7829a28-9ba9-07c5-2789-b2fa0c21719a.htm" />
+  <HelpKINode Title="GetSchema method" Url="html/320b9ec5-6a1c-10a9-2fb0-3eba292340e8.htm" />
+  <HelpKINode Title="GetSelection method" Url="html/72d7b441-401f-5c93-49a3-91885c454ac5.htm" />
+  <HelpKINode Title="GetSocketInfo method" Url="html/42e7b6c3-9cd5-6aeb-7aee-9cab10f48ade.htm" />
+  <HelpKINode Title="GetStringBox class">
+    <HelpKINode Title="GetStringBox Class" Url="html/7aeb2ce2-4ed6-3ff6-0f34-4afe08b9be0c.htm" />
+    <HelpKINode Title="about GetStringBox class" Url="html/7aeb2ce2-4ed6-3ff6-0f34-4afe08b9be0c.htm" />
+    <HelpKINode Title="constructor" Url="html/1be8276f-db4e-cb72-bbe7-c05230fa8621.htm" />
+    <HelpKINode Title="events" Url="html/cd89225c-99a1-245e-462a-8507e5b12707.htm" />
+    <HelpKINode Title="fields" Url="html/4a9b6d5e-5b23-760a-b01b-1379322da07e.htm" />
+    <HelpKINode Title="methods" Url="html/848e2e2c-e749-7263-8d89-adf7a3f9d415.htm" />
+    <HelpKINode Title="properties" Url="html/e9f9fe1b-75a1-4255-d929-2345cdda5c4f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetStringBox.cancelbutton field" Url="html/cdfbd496-0189-4cb0-c4e8-d58926772b12.htm" />
+  <HelpKINode Title="GetStringBox.cancelbutton_Click method" Url="html/add97e67-b552-1fbc-f87e-f96972cd4136.htm" />
+  <HelpKINode Title="GetStringBox.components field" Url="html/e59966cc-0cca-e8b8-2c2f-f24bf48ec10a.htm" />
+  <HelpKINode Title="GetStringBox.Dispose method" Url="html/e5b93fc6-944d-3b59-57af-3a16589e4ec9.htm" />
+  <HelpKINode Title="GetStringBox.GetStringBox constructor" Url="html/1be8276f-db4e-cb72-bbe7-c05230fa8621.htm" />
+  <HelpKINode Title="GetStringBox.InitializeComponent method" Url="html/73215007-adbc-2751-115d-20410523140c.htm" />
+  <HelpKINode Title="GetStringBox.label1 field" Url="html/00727763-4eff-6abf-9358-d40272e6dbd7.htm" />
+  <HelpKINode Title="GetStringBox.okbutton field" Url="html/c54d03b4-a17d-ada1-50ee-5ebddcbadd20.htm" />
+  <HelpKINode Title="GetStringBox.okbutton_Click method" Url="html/3640aa93-9f3e-b1c6-a352-cdba89477c52.htm" />
+  <HelpKINode Title="GetStringBox.panel1 field" Url="html/d28b55d2-463b-dd05-0ba5-b2f4c2e724e5.htm" />
+  <HelpKINode Title="GetStringBox.panel2 field" Url="html/6fc506df-f59a-ce99-88c1-03a3a3615851.htm" />
+  <HelpKINode Title="GetStringBox.returnvalue field" Url="html/d3c10b4c-b0ab-da10-9b72-5fa4cdb4a3ce.htm" />
+  <HelpKINode Title="GetStringBox.ShowDialog method" Url="html/78c11746-fe59-8ac3-2d25-5afd4dbeb78a.htm" />
+  <HelpKINode Title="GetStringBox.splitter1 field" Url="html/c089a8e5-ab53-199d-d3e0-f514149f24e7.htm" />
+  <HelpKINode Title="GetStringBox.textBox1 field" Url="html/cf741605-880f-1976-bb53-9fea5467c23f.htm" />
+  <HelpKINode Title="GetStringBox.textBox1_KeyPress method" Url="html/8f11746f-e213-d839-1aa2-09dfe90f3ccd.htm" />
+  <HelpKINode Title="GetStringImageCompare class">
+    <HelpKINode Title="GetStringImageCompare Class" Url="html/a199b597-c39d-61ec-15ba-943370e37cf1.htm" />
+    <HelpKINode Title="about GetStringImageCompare class" Url="html/a199b597-c39d-61ec-15ba-943370e37cf1.htm" />
+    <HelpKINode Title="constructor" Url="html/f2967143-b7a9-2210-3ba3-acab090f7a2a.htm" />
+    <HelpKINode Title="events" Url="html/154b3bd8-c0fb-87e3-ad79-5483f0c05a2e.htm" />
+    <HelpKINode Title="fields" Url="html/039f7b72-d940-fd74-f9b8-73d146eaf598.htm" />
+    <HelpKINode Title="methods" Url="html/a9e23430-7c75-af36-2c66-2f3ece51ba48.htm" />
+    <HelpKINode Title="properties" Url="html/0e197e4d-33be-9531-a796-d17ef8c10cc4.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetStringImageCompare.cancelbutton field" Url="html/ca214a5e-accd-dbab-70e7-08b6592e39f0.htm" />
+  <HelpKINode Title="GetStringImageCompare.cancelbutton_Click method" Url="html/b270629e-7bc2-e357-d4ad-6323e9d8b4db.htm" />
+  <HelpKINode Title="GetStringImageCompare.components field" Url="html/bbf3e39f-7dba-17e1-381c-7157b93b0a9c.htm" />
+  <HelpKINode Title="GetStringImageCompare.Dispose method" Url="html/96afaf3b-6ca4-6c18-0794-8e6d81903614.htm" />
+  <HelpKINode Title="GetStringImageCompare.GetStringImageCompare constructor" Url="html/f2967143-b7a9-2210-3ba3-acab090f7a2a.htm" />
+  <HelpKINode Title="GetStringImageCompare.GetStringImageCompare_Load method" Url="html/f3d28fe5-0833-17dc-3138-34d437469411.htm" />
+  <HelpKINode Title="GetStringImageCompare.imagepanel field" Url="html/7b55a997-7de3-60ad-2bf6-a672ea9c09f1.htm" />
+  <HelpKINode Title="GetStringImageCompare.InitializeComponent method" Url="html/e656f6ef-ee4a-0f34-8c8d-293a64fb51cd.htm" />
+  <HelpKINode Title="GetStringImageCompare.label field" Url="html/193b3d17-0595-a3a3-fce3-4a7f6ec77968.htm" />
+  <HelpKINode Title="GetStringImageCompare.okbutton field" Url="html/4286ad12-3ac3-730f-855c-151c873ab948.htm" />
+  <HelpKINode Title="GetStringImageCompare.okbutton_Click method" Url="html/2ab905a7-2f05-f6ee-c09b-ebe7e443a63c.htm" />
+  <HelpKINode Title="GetStringImageCompare.panel1 field" Url="html/2f2f3360-02d4-4c72-e531-d31093933d78.htm" />
+  <HelpKINode Title="GetStringImageCompare.returnvalue field" Url="html/46cc7caa-f827-b4fb-24f6-4c8850a4c8d2.htm" />
+  <HelpKINode Title="GetStringImageCompare.ShowDialog method" Url="html/fd0d734d-aee8-f0e5-edcc-afc5ff2e7f62.htm" />
+  <HelpKINode Title="GetStringImageCompare.splitter1 field" Url="html/7777d25c-6084-6e72-bc92-a861a8afe049.htm" />
+  <HelpKINode Title="GetStringImageCompare.textbox field" Url="html/fb9c75dd-bc9c-2556-67b2-0a9872ffcf46.htm" />
+  <HelpKINode Title="GetStringImageCompare_Load method" Url="html/f3d28fe5-0833-17dc-3138-34d437469411.htm" />
+  <HelpKINode Title="GetWebPageStream method" Url="html/6581b618-7369-9d53-ccfe-d2204a7487c1.htm" />
+  <HelpKINode Title="GetWebRequest method" Url="html/5d31b95b-2054-a1d0-910e-50468a7daad6.htm" />
+  <HelpKINode Title="GrayScale method" Url="html/4a7d6c4f-21f3-c241-9996-a5c1cbb940e8.htm" />
+  <HelpKINode Title="GrowingLabel class">
+    <HelpKINode Title="GrowingLabel Class" Url="html/060c2acf-3d37-62b9-0116-78f7fd48220f.htm" />
+    <HelpKINode Title="about GrowingLabel class" Url="html/060c2acf-3d37-62b9-0116-78f7fd48220f.htm" />
+    <HelpKINode Title="constructor" Url="html/b7fee121-65cd-58bf-c7c4-02745e2cec86.htm" />
+    <HelpKINode Title="events" Url="html/fc043923-5425-a728-e533-64fcdf008518.htm" />
+    <HelpKINode Title="fields" Url="html/6a209bae-b11e-f684-b50d-829a65c9be14.htm" />
+    <HelpKINode Title="methods" Url="html/df0152e8-069b-48c6-74bc-c7edbfec6e6b.htm" />
+    <HelpKINode Title="properties" Url="html/bc6eeed8-07e4-3314-f0b9-b85f79638b82.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GrowingLabel.components field" Url="html/3ab613f4-b708-d3ba-7d9d-9ca4831fc2d7.htm" />
+  <HelpKINode Title="GrowingLabel.Dispose method" Url="html/b766c0f9-a778-8abc-612b-10b6e49446c4.htm" />
+  <HelpKINode Title="GrowingLabel.GrowingLabel constructor" Url="html/b7fee121-65cd-58bf-c7c4-02745e2cec86.htm" />
+  <HelpKINode Title="GrowingLabel.InitializeComponent method" Url="html/785fcec6-90e2-13d0-fe62-af6a394564e8.htm" />
+  <HelpKINode Title="GrowingLabel.mGrowing field" Url="html/6d568d38-7049-b747-3f84-574acf98deb8.htm" />
+  <HelpKINode Title="GrowingLabel.OnFontChanged method" Url="html/6793a876-f281-f26e-4f8b-4580bc177e6b.htm" />
+  <HelpKINode Title="GrowingLabel.OnSizeChanged method" Url="html/d3bf5c54-2b6c-52a6-857d-4be17945435e.htm" />
+  <HelpKINode Title="GrowingLabel.OnTextChanged method" Url="html/1d02e898-e39b-3a59-fb9d-7f51d83515c7.htm" />
+  <HelpKINode Title="GrowingLabel.resizeLabel method" Url="html/7aae09a3-2dc3-5bc7-19ad-a55248135a4c.htm" />
+  <HelpKINode Title="h field" Url="html/f59cebb1-3eab-db13-d4a1-7c6b9447a2d5.htm" />
+  <HelpKINode Title="HandleInput method" Url="html/c2c9f1c2-6b3f-4dba-ce6f-f820bb8cfb79.htm" />
+  <HelpKINode Title="HandleInputAsFloat method" Url="html/42ef60d5-fb11-6e39-69dd-e6c780da8ca6.htm" />
+  <HelpKINode Title="handleKeyPress field" Url="html/d9e9f31f-02c6-a958-d626-0ac0ce56712d.htm" />
+  <HelpKINode Title="helpbox field" Url="html/7733389f-c6f7-e4af-8188-8d559a84bea8.htm" />
+  <HelpKINode Title="Helpbox method" Url="html/f86603d8-e178-6673-c22f-5e9792bddb7d.htm" />
+  <HelpKINode Title="HelpScreen class">
+    <HelpKINode Title="HelpScreen Class" Url="html/f6a71bfe-341b-0123-ae37-efb4c53e925b.htm" />
+    <HelpKINode Title="about HelpScreen class" Url="html/f6a71bfe-341b-0123-ae37-efb4c53e925b.htm" />
+    <HelpKINode Title="constructor" Url="html/b254ae93-9fb9-9570-7e8b-547f4590e679.htm" />
+    <HelpKINode Title="events" Url="html/dc74c13e-738e-2eeb-6610-c45328ff3a58.htm" />
+    <HelpKINode Title="fields" Url="html/06262097-d316-4e38-dfb5-281f23adbfa4.htm" />
+    <HelpKINode Title="methods" Url="html/1ba81f2d-e105-24b5-1959-2f5a5e3f7144.htm" />
+    <HelpKINode Title="properties" Url="html/b2e51aa6-1620-c28d-47ff-d5f3a4b0705f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="HelpScreen.AutoSize property" Url="html/4d6761b1-3dfa-6f24-037b-329c30fecf11.htm" />
+  <HelpKINode Title="HelpScreen.closebutton field" Url="html/ef835970-3c6d-7e9c-c56b-c6b0be3797dc.htm" />
+  <HelpKINode Title="HelpScreen.closebutton_Click method" Url="html/d95890b2-5231-d86f-60f8-75c70c23e70f.htm" />
+  <HelpKINode Title="HelpScreen.components field" Url="html/51606eff-f560-227a-c59b-26aa03165b9b.htm" />
+  <HelpKINode Title="HelpScreen.Dispose method" Url="html/56753715-1332-3c3d-ff8e-a25f22c13667.htm" />
+  <HelpKINode Title="HelpScreen.helpbox field" Url="html/7733389f-c6f7-e4af-8188-8d559a84bea8.htm" />
+  <HelpKINode Title="HelpScreen.HelpScreen constructor" Url="html/b254ae93-9fb9-9570-7e8b-547f4590e679.htm" />
+  <HelpKINode Title="HelpScreen.helpScreen_FormClosing method" Url="html/43487fb6-a423-00ba-6281-5615479133bd.htm" />
+  <HelpKINode Title="HelpScreen.InitializeComponent method" Url="html/b832731d-28dd-3c5f-8acc-edc265ae8522.htm" />
+  <HelpKINode Title="HelpScreen.panel1 field" Url="html/b657142f-efe6-00c9-edf8-b7ce01429c8f.htm" />
+  <HelpKINode Title="helpScreen_FormClosing method" Url="html/43487fb6-a423-00ba-6281-5615479133bd.htm" />
+  <HelpKINode Title="HelpText field" Url="html/9344e5ac-b290-44db-2455-d5bb61fec527.htm" />
+  <HelpKINode Title="HexColourToColour method" Url="html/bccdcf59-d71e-6673-7af1-b47e3e94fe7f.htm" />
+  <HelpKINode Title="HistogramHeight field" Url="html/7977f101-b6e0-bc73-ea5b-fc0747a9c5d5.htm" />
+  <HelpKINode Title="HistogramLetter class">
+    <HelpKINode Title="fields" Url="html/955ab5c7-4ae2-0c01-9829-12dd9bebb1e4.htm" />
+    <HelpKINode Title="methods" Url="html/0c4c4002-5f07-d1a4-6d6c-51d950b87a96.htm" />
+  </HelpKINode>
+  <HelpKINode Title="HistogramOCR class">
+    <HelpKINode Title="HistogramOCR Class" Url="html/69c066a9-fdbd-589f-8a3b-14b5ca513ca1.htm" />
+    <HelpKINode Title="about HistogramOCR class" Url="html/69c066a9-fdbd-589f-8a3b-14b5ca513ca1.htm" />
+    <HelpKINode Title="constructor" Url="html/06988b46-7e03-355e-05d6-d27d9fea5389.htm" />
+    <HelpKINode Title="constructor" Url="html/69877799-1e7a-77f5-8f84-e28261a077f2.htm" />
+    <HelpKINode Title="fields" Url="html/fffe8802-f584-3a4d-5cba-60bec7cc37e3.htm" />
+    <HelpKINode Title="methods" Url="html/6661df95-bcc2-15c7-f6e1-c0e15f9d60e4.htm" />
+  </HelpKINode>
+  <HelpKINode Title="HistogramOCR.BitmapBoolArray class">
+    <HelpKINode Title="HistogramOCR.BitmapBoolArray Class" Url="html/7a3d6770-d4b2-19a4-16cf-a1778b862dfd.htm" />
+    <HelpKINode Title="about HistogramOCR.BitmapBoolArray class" Url="html/7a3d6770-d4b2-19a4-16cf-a1778b862dfd.htm" />
+    <HelpKINode Title="constructor" Url="html/db4a1031-c609-cc70-8f8e-cfa10a947d32.htm" />
+  </HelpKINode>
+  <HelpKINode Title="HistogramOCR.BitmapBoolArray.bitmapBool field" Url="html/30be1adc-2ce7-40ee-c043-fcb9a3e868fb.htm" />
+  <HelpKINode Title="HistogramOCR.BitmapBoolArray.BitmapBoolArray constructor" Url="html/db4a1031-c609-cc70-8f8e-cfa10a947d32.htm" />
+  <HelpKINode Title="HistogramOCR.BitmapBoolArray.GetBitmapBoolArray method" Url="html/0cd6ae82-64b5-03d3-772e-cf9e87502a8a.htm" />
+  <HelpKINode Title="HistogramOCR.DeSerialise method" Url="html/f10deca4-8d7f-fdf4-4794-d5695dfb6bdf.htm" />
+  <HelpKINode Title="HistogramOCR.GetOffScore method" Url="html/cdb3f9c9-4dc4-948a-5779-7224cb6fbc46.htm" />
+  <HelpKINode Title="HistogramOCR.HistogramHeight field" Url="html/7977f101-b6e0-bc73-ea5b-fc0747a9c5d5.htm" />
+  <HelpKINode Title="HistogramOCR.HistogramLetter class">
+    <HelpKINode Title="HistogramOCR.HistogramLetter Class" Url="html/2daf7e60-2bfc-19fc-364d-5bef44a24148.htm" />
+    <HelpKINode Title="about HistogramOCR.HistogramLetter class" Url="html/2daf7e60-2bfc-19fc-364d-5bef44a24148.htm" />
+    <HelpKINode Title="constructor" Url="html/2f14205a-375f-ec22-bb1f-c8b365878ccd.htm" />
+  </HelpKINode>
+  <HelpKINode Title="HistogramOCR.HistogramLetter.b field" Url="html/6a06ef3b-343b-699a-c5d5-91ec1b50b38d.htm" />
+  <HelpKINode Title="HistogramOCR.HistogramLetter.DeSerialise method" Url="html/e25b9825-a2d0-a91b-95c3-53ee67dc6c38.htm" />
+  <HelpKINode Title="HistogramOCR.HistogramLetter.f field" Url="html/44018698-4511-ebe3-9dee-9960d96cd7d7.htm" />
+  <HelpKINode Title="HistogramOCR.HistogramLetter.GetHistogram method" Url="html/d178f9ad-7cc8-d7e1-9bf6-ccabcf0ff5c5.htm" />
+  <HelpKINode Title="HistogramOCR.HistogramLetter.GetHistogramOffsetScore method" Url="html/4ebafbd9-f8d6-3234-6673-3cf47929a164.htm" />
+  <HelpKINode Title="HistogramOCR.HistogramLetter.HistogramLetter constructor" Url="html/2f14205a-375f-ec22-bb1f-c8b365878ccd.htm" />
+  <HelpKINode Title="HistogramOCR.HistogramLetter.Letter field" Url="html/e1a228e0-a0c4-f952-a335-ec2624f0fd01.htm" />
+  <HelpKINode Title="HistogramOCR.HistogramLetter.Serialise method" Url="html/a3a27b7c-f1a0-a9b7-6702-44ff99af5a1a.htm" />
+  <HelpKINode Title="HistogramOCR.HistogramLetter.XValues field" Url="html/0c3a8c76-9934-1209-3e72-c0a127054a6a.htm" />
+  <HelpKINode Title="HistogramOCR.HistogramLetter.YValues field" Url="html/ac55a4a6-eb42-9f11-06d3-4e5dba15a304.htm" />
+  <HelpKINode Title="HistogramOCR.HistogramOCR constructor">
+    <HelpKINode Title="HistogramOCR Constructor " Url="html/06988b46-7e03-355e-05d6-d27d9fea5389.htm" />
+    <HelpKINode Title="HistogramOCR Constructor " Url="html/69877799-1e7a-77f5-8f84-e28261a077f2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="HistogramOCR.HistogramWidth field" Url="html/5f095e01-3087-8d85-2f3d-ffd2d88b9735.htm" />
+  <HelpKINode Title="HistogramOCR.Letters field" Url="html/394af1fb-16b1-eed7-fde4-eb4889b2eecb.htm" />
+  <HelpKINode Title="HistogramOCR.Normalise method" Url="html/5b24d46d-4e8c-33cd-888f-fed52f3b6642.htm" />
+  <HelpKINode Title="HistogramOCR.PerformOCR method" Url="html/8c9d7a95-0715-e326-a51d-58e26be7733d.htm" />
+  <HelpKINode Title="HistogramOCR.PerformOCRCharacter method" Url="html/0114578d-6fe6-a624-8191-ea795ada3403.htm" />
+  <HelpKINode Title="HistogramOCR.PerformOCRCharacterPerfect method" Url="html/e1431f07-d87b-8012-37d2-6605024aa352.htm" />
+  <HelpKINode Title="HistogramOCR.Serialise method" Url="html/f96b6d39-959c-4c04-1499-17a1e7f7b35e.htm" />
+  <HelpKINode Title="HistogramOCR.Split method" Url="html/0a2c0dc1-f06f-9c4b-a443-e35848a2efd9.htm" />
+  <HelpKINode Title="HistogramOCR.SplitUp method" Url="html/7f6d528b-3720-43a2-52be-7a18175e9fd3.htm" />
+  <HelpKINode Title="HistogramOCR.Train method" Url="html/1e887819-439d-0057-eb16-20718cd0db99.htm" />
+  <HelpKINode Title="HistogramOCR.v field" Url="html/10dddb7a-80b9-c3d8-59e1-d106b2816b0e.htm" />
+  <HelpKINode Title="HistogramOCR.WhiteBitmap field" Url="html/133f0f89-742c-a99e-0b9f-709868c10392.htm" />
+  <HelpKINode Title="HistogramWidth field" Url="html/5f095e01-3087-8d85-2f3d-ffd2d88b9735.htm" />
+  <HelpKINode Title="HostnameToIP method" Url="html/d2c7e749-af71-8f7b-3681-2e6161b074fe.htm" />
+  <HelpKINode Title="Id field" Url="html/fe9733a8-7ba9-8168-6c99-1e240604b566.htm" />
+  <HelpKINode Title="ImageDraw class">
+    <HelpKINode Title="ImageDraw Class" Url="html/ca25b175-8fca-43d5-2416-ab51ec52dee5.htm" />
+    <HelpKINode Title="about ImageDraw class" Url="html/ca25b175-8fca-43d5-2416-ab51ec52dee5.htm" />
+    <HelpKINode Title="constructor" Url="html/895639dc-7f5d-b9e5-be0d-f1000219d7eb.htm" />
+    <HelpKINode Title="events" Url="html/08f2549e-e559-c6c0-204f-f7a232294f85.htm" />
+    <HelpKINode Title="fields" Url="html/ac63e1cc-b553-b7ab-8a39-2520146c40fb.htm" />
+    <HelpKINode Title="methods" Url="html/3bf504c5-26f7-f6c2-aa33-ecf4554317ff.htm" />
+    <HelpKINode Title="properties" Url="html/963563f7-f4d7-03d9-e510-7c29c21ce0f4.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ImageDraw.components field" Url="html/b3457c3e-8a51-1eec-8a3a-477501d95a22.htm" />
+  <HelpKINode Title="ImageDraw.Dispose method" Url="html/d6073ef4-bc8e-c95c-188d-2eda8ae3a61e.htm" />
+  <HelpKINode Title="ImageDraw.GetMatrix method" Url="html/6480a350-eac4-343d-5a43-90c77c00c3c1.htm" />
+  <HelpKINode Title="ImageDraw.GetRealPos method" Url="html/9a17533d-eced-bc53-8434-a8eeb080a891.htm" />
+  <HelpKINode Title="ImageDraw.ImageDraw constructor" Url="html/895639dc-7f5d-b9e5-be0d-f1000219d7eb.htm" />
+  <HelpKINode Title="ImageDraw.InitializeComponent method" Url="html/7b9cc9f2-703a-6149-6bab-eb8fddbd36ae.htm" />
+  <HelpKINode Title="ImageDraw.PaintEvent method" Url="html/d253174a-ee75-d0ca-cbda-b977d87dc34b.htm" />
+  <HelpKINode Title="ImageDraw.PaintF method" Url="html/12d87428-3bd6-7bbd-27ac-37be5357023c.htm" />
+  <HelpKINode Title="ImageFileToColorMatrix method" Url="html/079cd055-6f0e-4dc4-8108-85a660095453.htm" />
+  <HelpKINode Title="imagepanel field" Url="html/7b55a997-7de3-60ad-2bf6-a672ea9c09f1.htm" />
+  <HelpKINode Title="InitBitmap method" Url="html/1696673b-938d-5d40-d352-0bdca7aa5c34.htm" />
+  <HelpKINode Title="InitColumnHeaders method" Url="html/f0b50eca-618e-b6f5-bb76-611446d506bb.htm" />
+  <HelpKINode Title="InitializeComponent method">
+    <HelpKINode Title="AboutScreen.InitializeComponent Method " Url="html/1f4b6559-c757-92e3-0f1e-1c98050d0b90.htm" />
+    <HelpKINode Title="DragBar.InitializeComponent Method " Url="html/4497ff92-89ad-0194-43bf-32c23b1b5fd2.htm" />
+    <HelpKINode Title="GetStringBox.InitializeComponent Method " Url="html/73215007-adbc-2751-115d-20410523140c.htm" />
+    <HelpKINode Title="GetStringImageCompare.InitializeComponent Method " Url="html/e656f6ef-ee4a-0f34-8c8d-293a64fb51cd.htm" />
+    <HelpKINode Title="GrowingLabel.InitializeComponent Method " Url="html/785fcec6-90e2-13d0-fe62-af6a394564e8.htm" />
+    <HelpKINode Title="HelpScreen.InitializeComponent Method " Url="html/b832731d-28dd-3c5f-8acc-edc265ae8522.htm" />
+    <HelpKINode Title="ImageDraw.InitializeComponent Method " Url="html/7b9cc9f2-703a-6149-6bab-eb8fddbd36ae.htm" />
+    <HelpKINode Title="MassVariableEdit.InitializeComponent Method " Url="html/2913b82d-d620-d739-abfe-bba6e3f43c09.htm" />
+    <HelpKINode Title="MultipleMessageBox.InitializeComponent Method " Url="html/b0a84fa9-bd6d-4783-477c-ec877af2a38a.htm" />
+    <HelpKINode Title="SelectItemFromListBox.InitializeComponent Method " Url="html/78360d80-e01a-b004-9887-72dea60034bb.htm" />
+    <HelpKINode Title="SelectItemFromListView.InitializeComponent Method " Url="html/5c7a43f8-393d-6d08-45b8-a32f6cc91115.htm" />
+    <HelpKINode Title="SelectItemsFromCheckBox.InitializeComponent Method " Url="html/cb774dd0-80f7-c98a-546b-8bfe53fefa47.htm" />
+  </HelpKINode>
+  <HelpKINode Title="InitScale method" Url="html/3102bca9-a1d1-61e3-c24d-40374aee2a42.htm" />
+  <HelpKINode Title="InnerException property" Url="html/5febf510-453f-5844-e962-4dae79b62232.htm" />
+  <HelpKINode Title="InputType class">
+    <HelpKINode Title="fields" Url="html/7ce1aa30-9918-a277-93f6-a2fb6fc098a1.htm" />
+    <HelpKINode Title="methods" Url="html/76c39da4-0e67-9cb4-360e-c2219368bfd4.htm" />
+  </HelpKINode>
+  <HelpKINode Title="InstantiateArray(Of T) method" Url="html/aa0ce770-08f1-6152-4a61-b680f65794f6.htm" />
+  <HelpKINode Title="InstantiateArray&lt;T&gt; method" Url="html/aa0ce770-08f1-6152-4a61-b680f65794f6.htm" />
+  <HelpKINode Title="IPToLong method" Url="html/fab69c3c-0100-5cfa-7353-0c38d9011430.htm" />
+  <HelpKINode Title="IsIPAddress method" Url="html/7578dde9-f4d3-9acb-d801-d4f0c07fc33e.htm" />
+  <HelpKINode Title="IsLanIP method" Url="html/c6dd8007-5345-5dca-6094-00f517fe7418.htm" />
+  <HelpKINode Title="IsLanIPCheckTTL method" Url="html/4b1ecc6e-eb6a-f07a-e346-19d2fdd00fff.htm" />
+  <HelpKINode Title="IsOnlyColour method" Url="html/14945b82-ef15-151d-f57e-9373ab7ea892.htm" />
+  <HelpKINode Title="IsSpecial method" Url="html/c0782582-bdb9-8469-a23f-674bdbcfc8c2.htm" />
+  <HelpKINode Title="items field" Url="html/7375468b-f873-a2fc-bd3d-6a4479cd4775.htm" />
+  <HelpKINode Title="itemspanel field" Url="html/3455fe11-8923-d246-e4f8-7dad6be494d7.htm" />
+  <HelpKINode Title="js field" Url="html/564d2096-0560-8dd0-7cb1-8cf0c3bc5101.htm" />
+  <HelpKINode Title="label field" Url="html/193b3d17-0595-a3a3-fce3-4a7f6ec77968.htm" />
+  <HelpKINode Title="label1 field">
+    <HelpKINode Title="GetStringBox.label1 Field" Url="html/00727763-4eff-6abf-9358-d40272e6dbd7.htm" />
+    <HelpKINode Title="SelectItemsFromCheckBox.label1 Field" Url="html/29121272-86d9-1c8c-376f-c8f1f0956b5d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="label2 field">
+    <HelpKINode Title="SelectItemFromListBox.label2 Field" Url="html/3a51c62d-1089-6957-c10f-f5bab3cd6002.htm" />
+    <HelpKINode Title="SelectItemFromListView.label2 Field" Url="html/e1631fb7-254d-c41f-32fc-3ad08abefe64.htm" />
+  </HelpKINode>
+  <HelpKINode Title="LabelText field" Url="html/8683c899-9143-c378-1824-033cd9f17e04.htm" />
+  <HelpKINode Title="LANGroup field" Url="html/0cdf5118-fbb5-e89c-7d35-493fce2c5772.htm" />
+  <HelpKINode Title="LastSort property" Url="html/828be7ef-90d5-8a68-545c-1d0d9b5168e4.htm" />
+  <HelpKINode Title="lastX field" Url="html/a966dca3-0c99-b44a-429f-2d1b4f05384a.htm" />
+  <HelpKINode Title="lastY field" Url="html/446a85f0-2939-4ae1-b365-f332775bc332.htm" />
+  <HelpKINode Title="Letter field" Url="html/e1a228e0-a0c4-f952-a335-ec2624f0fd01.htm" />
+  <HelpKINode Title="Letters field" Url="html/394af1fb-16b1-eed7-fde4-eb4889b2eecb.htm" />
+  <HelpKINode Title="Licensing class">
+    <HelpKINode Title="Licensing Class" Url="html/baab8879-c778-db65-4ea5-bda5c8977c28.htm" />
+    <HelpKINode Title="about Licensing class" Url="html/baab8879-c778-db65-4ea5-bda5c8977c28.htm" />
+    <HelpKINode Title="fields" Url="html/e4988e1f-c90f-93ff-c6bb-0366bac02fc1.htm" />
+    <HelpKINode Title="methods" Url="html/1313b780-0ea3-69f6-4044-fd420a36fbce.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Licensing.Aboutbox method" Url="html/0d44a58a-bd29-1a14-1bdb-fcc6e9cdf88d.htm" />
+  <HelpKINode Title="Licensing.AddHelpOption method" Url="html/f7699fc9-b5bd-e5c5-b745-a9c7ebe61e7e.htm" />
+  <HelpKINode Title="Licensing.CreateLicense method" Url="html/f9bfd7d6-4a80-043e-8dd3-fd20486dfe41.htm" />
+  <HelpKINode Title="Licensing.DownloadedSolutionDetails class">
+    <HelpKINode Title="Licensing.DownloadedSolutionDetails Class" Url="html/5aac5275-477b-163a-b541-c1edf8922798.htm" />
+    <HelpKINode Title="about Licensing.DownloadedSolutionDetails class" Url="html/5aac5275-477b-163a-b541-c1edf8922798.htm" />
+    <HelpKINode Title="constructor" Url="html/905241ce-450b-c3a2-cc9c-aada2789e7df.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Licensing.DownloadedSolutionDetails.ChangeLog field" Url="html/cc193053-6139-803b-5df1-8bd91f2d6f03.htm" />
+  <HelpKINode Title="Licensing.DownloadedSolutionDetails.DownloadedSolutionDetails constructor" Url="html/905241ce-450b-c3a2-cc9c-aada2789e7df.htm" />
+  <HelpKINode Title="Licensing.DownloadedSolutionDetails.Version field" Url="html/6e6eb831-c601-ebda-846f-b58935b81663.htm" />
+  <HelpKINode Title="Licensing.DownloadedSolutionDetails.ZipFileLocation field" Url="html/21115d60-3a07-c23b-d731-53d151630f23.htm" />
+  <HelpKINode Title="Licensing.GetItem method" Url="html/7977de5c-880e-db1c-0260-f7322290c95b.htm" />
+  <HelpKINode Title="Licensing.Helpbox method" Url="html/f86603d8-e178-6673-c22f-5e9792bddb7d.htm" />
+  <HelpKINode Title="Licensing.LicenseCallback delegate" Url="html/fa824f5a-32b3-9462-3606-f89fe0d43799.htm" />
+  <HelpKINode Title="Licensing.ShowingAbout field" Url="html/39d9f75e-4341-d3b5-fc34-d4b0e5be45f5.htm" />
+  <HelpKINode Title="Licensing.ShowingHelp field" Url="html/6d3c5cfe-be35-8377-0055-3cc8d8519193.htm" />
+  <HelpKINode Title="Licensing.SolutionDetails class">
+    <HelpKINode Title="Licensing.SolutionDetails Class" Url="html/7dbc0b51-f5e6-ead1-ed7d-deaa64083365.htm" />
+    <HelpKINode Title="about Licensing.SolutionDetails class" Url="html/7dbc0b51-f5e6-ead1-ed7d-deaa64083365.htm" />
+    <HelpKINode Title="constructor" Url="html/1a87ef57-7ab2-e634-a2b4-3dd987a80237.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Licensing.SolutionDetails.AboutScreenOtherText field" Url="html/9be716b3-4bf8-9ff1-3be2-cc9cc9c7c65f.htm" />
+  <HelpKINode Title="Licensing.SolutionDetails.AppVersion field" Url="html/d33f67f5-0d81-bcd1-5d09-f6eb07927881.htm" />
+  <HelpKINode Title="Licensing.SolutionDetails.Callback method" Url="html/1f5b9ba0-b023-6898-9ddf-c4f28fbf885d.htm" />
+  <HelpKINode Title="Licensing.SolutionDetails.FormTitle field" Url="html/ed399073-3d4e-bd10-08ec-8eba0bae3807.htm" />
+  <HelpKINode Title="Licensing.SolutionDetails.HelpText field" Url="html/9344e5ac-b290-44db-2455-d5bb61fec527.htm" />
+  <HelpKINode Title="Licensing.SolutionDetails.SolutionDetails constructor" Url="html/1a87ef57-7ab2-e634-a2b4-3dd987a80237.htm" />
+  <HelpKINode Title="Licensing.SolutionDetails._callback field" Url="html/0178ea95-917b-3d63-442f-5e5d6dc3717f.htm" />
+  <HelpKINode Title="Licensing.UpdateApplication method" Url="html/5a4a94da-adea-792c-ba91-456d63718429.htm" />
+  <HelpKINode Title="Licensing._sd field" Url="html/2e6a560e-a065-dcaa-6423-f0dff31256e7.htm" />
+  <HelpKINode Title="listBox1 field" Url="html/970069ce-528b-e990-a8c2-c0ea3cbbdc54.htm" />
+  <HelpKINode Title="ListExtras class">
+    <HelpKINode Title="ListExtras Class" Url="html/fe8b9ad3-f379-9625-5d54-125772f2ec38.htm" />
+    <HelpKINode Title="about ListExtras class" Url="html/fe8b9ad3-f379-9625-5d54-125772f2ec38.htm" />
+    <HelpKINode Title="methods" Url="html/c9fed7e5-b87f-50d4-6705-d0a5171adbe6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ListExtras.ContainsLoopThrough(Of T) method" Url="html/2df1a79b-8eab-d453-7528-feea4af1c01f.htm" />
+  <HelpKINode Title="ListExtras.ContainsLoopThrough&lt;T&gt; method" Url="html/2df1a79b-8eab-d453-7528-feea4af1c01f.htm" />
+  <HelpKINode Title="ListExtras.DistinctBy(Of TSource, TKey) method" Url="html/814fe9e5-2bda-6b64-0442-86cd787dd0e0.htm" />
+  <HelpKINode Title="ListExtras.DistinctBy&lt;TSource, TKey&gt; method" Url="html/814fe9e5-2bda-6b64-0442-86cd787dd0e0.htm" />
+  <HelpKINode Title="ListExtras.GetAllCombinations(Of T) method" Url="html/fe44c5ff-5858-6b1d-8ee1-b1d1f77eea36.htm" />
+  <HelpKINode Title="ListExtras.GetAllCombinations&lt;T&gt; method" Url="html/fe44c5ff-5858-6b1d-8ee1-b1d1f77eea36.htm" />
+  <HelpKINode Title="ListExtras.Serialise method" Url="html/a05ea6e4-ce59-25e1-e7d5-8c65cb1afabf.htm" />
+  <HelpKINode Title="ListExtras.Swap(Of T) method" Url="html/5e02cc1e-8c15-285b-ea62-12780821db43.htm" />
+  <HelpKINode Title="ListExtras.Swap&lt;T&gt; method" Url="html/5e02cc1e-8c15-285b-ea62-12780821db43.htm" />
+  <HelpKINode Title="listpanel field" Url="html/527d0f43-7520-c9b1-abd6-03d844e8ab26.htm" />
+  <HelpKINode Title="listpanel_Paint method" Url="html/9a6a4643-2ae7-5e58-e5ae-31d4f7c5bf68.htm" />
+  <HelpKINode Title="ListSeparator field" Url="html/c87795a4-df58-59bf-b452-deebf5b0c450.htm" />
+  <HelpKINode Title="listView field" Url="html/16bdd590-ceae-8b01-0112-11ae5659d0be.htm" />
+  <HelpKINode Title="ListViewExtras class">
+    <HelpKINode Title="ListViewExtras Class" Url="html/d1d139ae-60d7-e75e-2173-f493c93a2cf1.htm" />
+    <HelpKINode Title="about ListViewExtras class" Url="html/d1d139ae-60d7-e75e-2173-f493c93a2cf1.htm" />
+    <HelpKINode Title="methods" Url="html/012f0a30-e405-a713-ab4e-8ae731ef3a08.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ListViewExtras.AutoResize method" Url="html/ecbd1753-2c95-0a77-d938-a875a2bced7e.htm" />
+  <HelpKINode Title="ListViewExtras.AutoResizeListViewColumn method" Url="html/953567e3-f2d9-d34b-65c7-4c78f40eb6ae.htm" />
+  <HelpKINode Title="ListViewExtras.CopyClassToListView method" Url="html/4d88f9df-436d-2ebd-ea6d-958980cd8ad8.htm" />
+  <HelpKINode Title="ListViewExtras.EnsureSubItemCount method" Url="html/a2a6f662-1707-80a7-7318-291d43141737.htm" />
+  <HelpKINode Title="ListViewExtras.GetColumn method" Url="html/70928f13-0755-e52f-dad0-f3d81c089eb6.htm" />
+  <HelpKINode Title="ListViewExtras.GetColumnNumber method" Url="html/6320bd4c-f191-52ba-deda-f9a7bc2cd65e.htm" />
+  <HelpKINode Title="ListViewExtras.GetListViewItemRowValuesAndColumnName method" Url="html/8c681aa3-3218-245c-599c-ff00dde20193.htm" />
+  <HelpKINode Title="ListViewExtras.GetObjectFromListViewItem method" Url="html/c80db301-a1d1-f9fe-8e30-731c0a8bb4ea.htm" />
+  <HelpKINode Title="ListViewExtras.GetObjectsFromListViewItems method" Url="html/e0579bd8-2b0d-d567-ca9c-fae76923cff5.htm" />
+  <HelpKINode Title="ListViewExtras.InitColumnHeaders method" Url="html/f0b50eca-618e-b6f5-bb76-611446d506bb.htm" />
+  <HelpKINode Title="ListViewExtras.SelectAllItems method" Url="html/634ba782-49cc-2fde-d3e7-c2d8f08de181.htm" />
+  <HelpKINode Title="ListViewExtras.SetColumn method" Url="html/9259406d-e2e8-2700-7084-4406e08321a9.htm" />
+  <HelpKINode Title="ListViewExtras.SubItemCollectionToRange method" Url="html/cc148871-a2b9-753a-7852-8c954a051fea.htm" />
+  <HelpKINode Title="ListViewExtras.SwapIndicies method" Url="html/bde09388-cd2e-0111-f21a-270d7ea0a2c1.htm" />
+  <HelpKINode Title="ListViewSorter class">
+    <HelpKINode Title="ListViewSorter Class" Url="html/d7efe26d-7e4a-b4cf-a9be-9a2adcbfc415.htm" />
+    <HelpKINode Title="about ListViewSorter class" Url="html/d7efe26d-7e4a-b4cf-a9be-9a2adcbfc415.htm" />
+    <HelpKINode Title="constructor" Url="html/0580642d-12c2-bc18-0a39-9ca6358f2ab9.htm" />
+    <HelpKINode Title="fields" Url="html/088687e3-3cf3-b8d2-1d41-39c7f959b57b.htm" />
+    <HelpKINode Title="methods" Url="html/b8bbc8a5-bf7d-6dc8-9344-6049dbbfa109.htm" />
+    <HelpKINode Title="properties" Url="html/6afd1486-6cb5-46f1-219e-94111eae0801.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ListViewSorter.ByColumn property" Url="html/66b7f4be-15e4-7a25-4efa-10cb2f5a62f6.htm" />
+  <HelpKINode Title="ListViewSorter.ColumnSort method" Url="html/cfc9c235-1202-dbbe-7a81-49ce7c6e2097.htm" />
+  <HelpKINode Title="ListViewSorter.Compare method" Url="html/1682f50b-13f3-4de1-e096-9a503e56e63e.htm" />
+  <HelpKINode Title="ListViewSorter.CompareNatural method" Url="html/8ec9e92d-ab75-66a3-b350-37e5d48dd5d9.htm" />
+  <HelpKINode Title="ListViewSorter.Enabled field" Url="html/9f247cfc-81df-b3d5-56fe-3d07392e6f73.htm" />
+  <HelpKINode Title="ListViewSorter.LastSort property" Url="html/828be7ef-90d5-8a68-545c-1d0d9b5168e4.htm" />
+  <HelpKINode Title="ListViewSorter.ListViewSorter constructor" Url="html/0580642d-12c2-bc18-0a39-9ca6358f2ab9.htm" />
+  <HelpKINode Title="LoadConfig method" Url="html/ab19e204-b8ce-c1ce-de1e-6bd1a7b98a81.htm" />
+  <HelpKINode Title="LoadFile method" Url="html/9bf78b80-b6c2-4eac-8e2a-2727f307e343.htm" />
+  <HelpKINode Title="LoadFileIntoTree method" Url="html/5cbd8a91-8a98-2b7e-06e0-6befbfdfd04f.htm" />
+  <HelpKINode Title="LoadProperty method" Url="html/e53ee55d-60bb-6c35-97cd-272fa4e91aee.htm" />
+  <HelpKINode Title="LoadPropertyManual method" Url="html/0c9e58be-fcf1-3114-f09a-467d0d6e3ac3.htm" />
+  <HelpKINode Title="LockBitmap method" Url="html/44a4bac6-cc19-139b-e5f5-1f53a4f7aa4b.htm" />
+  <HelpKINode Title="m field" Url="html/46d6c95f-41d7-7420-742b-eb3a7ca0770e.htm" />
+  <HelpKINode Title="MakeStringURLSafe method" Url="html/365854d8-ca4a-6706-4faf-eab5b98cd795.htm" />
+  <HelpKINode Title="MassVariableEdit class">
+    <HelpKINode Title="MassVariableEdit Class" Url="html/a81d38fb-e894-ce45-0cea-be963cfc2fa8.htm" />
+    <HelpKINode Title="about MassVariableEdit class" Url="html/a81d38fb-e894-ce45-0cea-be963cfc2fa8.htm" />
+    <HelpKINode Title="constructor" Url="html/0508b3fe-f243-6168-5be1-be8c614a65fc.htm" />
+    <HelpKINode Title="events" Url="html/9a194e8f-d0f4-288d-35b2-09a49ebe611f.htm" />
+    <HelpKINode Title="fields" Url="html/bf5356e5-0944-45d0-f287-22b76ef34089.htm" />
+    <HelpKINode Title="methods" Url="html/7e8471e2-5741-d856-dcaf-015f9001c54e.htm" />
+    <HelpKINode Title="properties" Url="html/0bada274-80b9-22e5-1809-81dcf9c6fd7d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MassVariableEdit.AcceptFinalTextBoxText delegate" Url="html/aa3ae9f6-aa7f-90be-05f0-5e231b3b012a.htm" />
+  <HelpKINode Title="MassVariableEdit.cancelbutton field" Url="html/59a4fbb2-00d1-3901-ddb5-bafbf4054a1c.htm" />
+  <HelpKINode Title="MassVariableEdit.cancelbutton_Click method" Url="html/d9075fb1-1466-d383-73c6-cbe7e0ff2906.htm" />
+  <HelpKINode Title="MassVariableEdit.components field" Url="html/d9f93589-e3b2-31b7-c4a4-9049811e647f.htm" />
+  <HelpKINode Title="MassVariableEdit.Dispose method" Url="html/8fb45a83-62f4-f3a2-91c4-b095c19cc17a.htm" />
+  <HelpKINode Title="MassVariableEdit.HandleKeyPress delegate" Url="html/d3f6a35b-a7ce-6e61-d6a8-e1b04c3c219c.htm" />
+  <HelpKINode Title="MassVariableEdit.InitializeComponent method" Url="html/2913b82d-d620-d739-abfe-bba6e3f43c09.htm" />
+  <HelpKINode Title="MassVariableEdit.itemspanel field" Url="html/3455fe11-8923-d246-e4f8-7dad6be494d7.htm" />
+  <HelpKINode Title="MassVariableEdit.MassVariableEdit constructor" Url="html/0508b3fe-f243-6168-5be1-be8c614a65fc.htm" />
+  <HelpKINode Title="MassVariableEdit.okbutton field" Url="html/6eb7df20-b987-f466-0198-829a0c8fd352.htm" />
+  <HelpKINode Title="MassVariableEdit.okbutton_Click method" Url="html/cb478139-11ce-f273-3d6a-2f8ae883e3ad.htm" />
+  <HelpKINode Title="MassVariableEdit.ReturnValues field" Url="html/f116daff-36b8-d65e-d6ea-ad79fa2e5e49.htm" />
+  <HelpKINode Title="MassVariableEdit.ShowDialog method" Url="html/dbfb631a-0ec2-1ebd-ce18-c0758d7faca6.htm" />
+  <HelpKINode Title="MassVariableEdit.ShowDialogStatic method" Url="html/2fd1e6ac-c53f-1a42-522e-41bb1aa4d784.htm" />
+  <HelpKINode Title="MassVariableEdit.tb_KeyPress method" Url="html/58978dc9-e5c2-15da-b66e-8420c856b26f.htm" />
+  <HelpKINode Title="MassVariableEdit.textboxes field" Url="html/e99fa6bb-8976-0a3e-cbde-081dcc840a8e.htm" />
+  <HelpKINode Title="MassVariableEdit.TextBoxItems class">
+    <HelpKINode Title="MassVariableEdit.TextBoxItems Class" Url="html/019c0611-9bb4-9b0a-87af-bfce7aaebf5b.htm" />
+    <HelpKINode Title="about MassVariableEdit.TextBoxItems class" Url="html/019c0611-9bb4-9b0a-87af-bfce7aaebf5b.htm" />
+    <HelpKINode Title="constructor" Url="html/1c642717-c35c-8559-06bb-ce8f2495a7ac.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MassVariableEdit.TextBoxItems.acceptFinalText field" Url="html/e5f36652-e9f1-bf55-8845-195f6d9a4c40.htm" />
+  <HelpKINode Title="MassVariableEdit.TextBoxItems.FinalTextError field" Url="html/944431a3-e4ce-a98b-e35a-18e6d10c9fc2.htm" />
+  <HelpKINode Title="MassVariableEdit.TextBoxItems.handleKeyPress field" Url="html/d9e9f31f-02c6-a958-d626-0ac0ce56712d.htm" />
+  <HelpKINode Title="MassVariableEdit.TextBoxItems.LabelText field" Url="html/8683c899-9143-c378-1824-033cd9f17e04.htm" />
+  <HelpKINode Title="MassVariableEdit.TextBoxItems.TextBoxItems constructor" Url="html/1c642717-c35c-8559-06bb-ce8f2495a7ac.htm" />
+  <HelpKINode Title="MassVariableEdit.TextBoxItems.TextBoxName field" Url="html/65e588a2-34c0-d4c3-f955-24ad54f8ed03.htm" />
+  <HelpKINode Title="MassVariableEdit.TextBoxItems.TextBoxPreSetText field" Url="html/0fea06ca-bcb4-6375-eb65-9cc8b1355528.htm" />
+  <HelpKINode Title="MathExtras class">
+    <HelpKINode Title="MathExtras Class" Url="html/778a0bee-74a7-83a4-57ad-575544d14f73.htm" />
+    <HelpKINode Title="about MathExtras class" Url="html/778a0bee-74a7-83a4-57ad-575544d14f73.htm" />
+    <HelpKINode Title="methods" Url="html/6b56350c-b3c4-b16b-9de9-62e82e96e0a6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MathExtras.Ceiling method" Url="html/7aeb8c0a-e3fc-5c79-8aa4-8a86501d502a.htm" />
+  <HelpKINode Title="MathExtras.ConvertMatrix method" Url="html/3a0700f3-a3f0-ec9a-b8ba-365a7026d881.htm" />
+  <HelpKINode Title="MathExtras.Floor method" Url="html/dad877cd-d497-3a47-bf15-bc64e52220af.htm" />
+  <HelpKINode Title="MathExtras.Truncate method" Url="html/424fcb94-1619-bdd1-f74a-7b0b1d7809db.htm" />
+  <HelpKINode Title="MatrixO(Of T) class">
+    <HelpKINode Title="fields" Url="html/51f6c69e-1a3e-3c7f-325a-fca694f089bf.htm" />
+    <HelpKINode Title="methods" Url="html/11e86029-9efa-4a69-7317-d2c1853c7db8.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MatrixO&lt;T&gt; class">
+    <HelpKINode Title="fields" Url="html/51f6c69e-1a3e-3c7f-325a-fca694f089bf.htm" />
+    <HelpKINode Title="methods" Url="html/11e86029-9efa-4a69-7317-d2c1853c7db8.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MatrixOps class">
+    <HelpKINode Title="MatrixOps Class" Url="html/ec349d6d-8b07-22fb-9fa2-89b4044594ea.htm" />
+    <HelpKINode Title="about MatrixOps class" Url="html/ec349d6d-8b07-22fb-9fa2-89b4044594ea.htm" />
+    <HelpKINode Title="methods" Url="html/69fe0a5b-a590-e4e7-09d9-a997c49fdb0c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MatrixOps.CloneMatrix(Of T) method" Url="html/db2ba69f-2aa3-1bbe-5f77-f406cc897320.htm" />
+  <HelpKINode Title="MatrixOps.CloneMatrix&lt;T&gt; method" Url="html/db2ba69f-2aa3-1bbe-5f77-f406cc897320.htm" />
+  <HelpKINode Title="MatrixOps.CompareDel(Of T) delegate" Url="html/237d9db4-f0d5-8f89-b51a-d1297c7e978f.htm" />
+  <HelpKINode Title="MatrixOps.CompareDel&lt;T&gt; delegate" Url="html/237d9db4-f0d5-8f89-b51a-d1297c7e978f.htm" />
+  <HelpKINode Title="MatrixOps.Count(Of T) method" Url="html/49ffe495-4310-0c37-369e-67ddd9c4a1b3.htm" />
+  <HelpKINode Title="MatrixOps.Count&lt;T&gt; method" Url="html/49ffe495-4310-0c37-369e-67ddd9c4a1b3.htm" />
+  <HelpKINode Title="MatrixOps.CreateMatrix(Of T) method" Url="html/ec04ae15-08ee-128c-25f3-5e01b3e4555f.htm" />
+  <HelpKINode Title="MatrixOps.CreateMatrix&lt;T&gt; method" Url="html/ec04ae15-08ee-128c-25f3-5e01b3e4555f.htm" />
+  <HelpKINode Title="MatrixOps.FloodFill(Of T) method" Url="html/28d2aff1-b565-176c-73ad-9ab93b7e8279.htm" />
+  <HelpKINode Title="MatrixOps.FloodFill&lt;T&gt; method" Url="html/28d2aff1-b565-176c-73ad-9ab93b7e8279.htm" />
+  <HelpKINode Title="MatrixOps.MatrixO(Of T) class">
+    <HelpKINode Title="MatrixOps.MatrixO(T) Class" Url="html/fbdca5a3-0876-6680-2b09-83816759bf6d.htm" />
+    <HelpKINode Title="about MatrixOps.MatrixO(Of T) class" Url="html/fbdca5a3-0876-6680-2b09-83816759bf6d.htm" />
+    <HelpKINode Title="constructor" Url="html/e313d5a8-623c-5ec1-47fe-38159c59dd78.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MatrixOps.MatrixO(Of T).compareF field" Url="html/815a9634-a76d-7ae8-4268-bba54a4e38cd.htm" />
+  <HelpKINode Title="MatrixOps.MatrixO(Of T).h field" Url="html/f59cebb1-3eab-db13-d4a1-7c6b9447a2d5.htm" />
+  <HelpKINode Title="MatrixOps.MatrixO(Of T).m field" Url="html/46d6c95f-41d7-7420-742b-eb3a7ca0770e.htm" />
+  <HelpKINode Title="MatrixOps.MatrixO(Of T).MatrixO constructor" Url="html/e313d5a8-623c-5ec1-47fe-38159c59dd78.htm" />
+  <HelpKINode Title="MatrixOps.MatrixO(Of T).w field" Url="html/66f8f3f4-d0a4-4c67-7ad2-d37349403187.htm" />
+  <HelpKINode Title="MatrixOps.MatrixO&lt;T&gt; class">
+    <HelpKINode Title="MatrixOps.MatrixO(T) Class" Url="html/fbdca5a3-0876-6680-2b09-83816759bf6d.htm" />
+    <HelpKINode Title="about MatrixOps.MatrixO&lt;T&gt; class" Url="html/fbdca5a3-0876-6680-2b09-83816759bf6d.htm" />
+    <HelpKINode Title="constructor" Url="html/e313d5a8-623c-5ec1-47fe-38159c59dd78.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MatrixOps.MatrixO&lt;T&gt;.compareF field" Url="html/815a9634-a76d-7ae8-4268-bba54a4e38cd.htm" />
+  <HelpKINode Title="MatrixOps.MatrixO&lt;T&gt;.h field" Url="html/f59cebb1-3eab-db13-d4a1-7c6b9447a2d5.htm" />
+  <HelpKINode Title="MatrixOps.MatrixO&lt;T&gt;.m field" Url="html/46d6c95f-41d7-7420-742b-eb3a7ca0770e.htm" />
+  <HelpKINode Title="MatrixOps.MatrixO&lt;T&gt;.MatrixO constructor" Url="html/e313d5a8-623c-5ec1-47fe-38159c59dd78.htm" />
+  <HelpKINode Title="MatrixOps.MatrixO&lt;T&gt;.w field" Url="html/66f8f3f4-d0a4-4c67-7ad2-d37349403187.htm" />
+  <HelpKINode Title="MatrixOps.Replace(Of T) method" Url="html/4256b07f-e8fd-6266-28de-995fae373b42.htm" />
+  <HelpKINode Title="MatrixOps.Replace&lt;T&gt; method" Url="html/4256b07f-e8fd-6266-28de-995fae373b42.htm" />
+  <HelpKINode Title="MatrixOps.SerialiseMatrix(Of T) method" Url="html/8ac10fa9-7c6d-7e01-ca4b-6df8914f0230.htm" />
+  <HelpKINode Title="MatrixOps.SerialiseMatrix&lt;T&gt; method" Url="html/8ac10fa9-7c6d-7e01-ca4b-6df8914f0230.htm" />
+  <HelpKINode Title="MatrixOps.SetAll(Of T) method" Url="html/e37d6951-9772-0131-0c58-6b302913c03b.htm" />
+  <HelpKINode Title="MatrixOps.SetAll&lt;T&gt; method" Url="html/e37d6951-9772-0131-0c58-6b302913c03b.htm" />
+  <HelpKINode Title="MatrixOps.StartRight(Of T) method" Url="html/fe1bbff8-faea-8416-0991-ac402195fd67.htm" />
+  <HelpKINode Title="MatrixOps.StartRight&lt;T&gt; method" Url="html/fe1bbff8-faea-8416-0991-ac402195fd67.htm" />
+  <HelpKINode Title="MaximumValue property" Url="html/669cecfc-89ef-5431-23c4-a7162fe5a021.htm" />
+  <HelpKINode Title="MergeDirectories method" Url="html/d6d7d6ac-cca1-c476-ce79-be36e34ad486.htm" />
+  <HelpKINode Title="MergeTwoDictionaries(Of T, Y) method" Url="html/a61fb828-9fc7-e6b3-7fe9-de45c0e47687.htm" />
+  <HelpKINode Title="MergeTwoDictionaries&lt;T, Y&gt; method" Url="html/a61fb828-9fc7-e6b3-7fe9-de45c0e47687.htm" />
+  <HelpKINode Title="MergeWhiteSpace method" Url="html/9146f54c-6eb4-227e-155b-e09555375849.htm" />
+  <HelpKINode Title="mGrowing field" Url="html/6d568d38-7049-b747-3f84-574acf98deb8.htm" />
+  <HelpKINode Title="MinimumValue property" Url="html/a886b479-2095-8760-7366-76ed85fdb446.htm" />
+  <HelpKINode Title="mouseDownButton field" Url="html/a8a4adc7-72c3-a1ed-a6d2-f721797e586e.htm" />
+  <HelpKINode Title="mouseDownX field" Url="html/6e07cf2d-63df-0c05-302d-f835545d33b8.htm" />
+  <HelpKINode Title="mouseMoveBar field" Url="html/ea7b3927-516e-b104-c788-d9aaf1b54b26.htm" />
+  <HelpKINode Title="mouseResizeBar field" Url="html/942cf7c6-4ce7-85e6-2f99-a9cd19aac423.htm" />
+  <HelpKINode Title="MultipleMessageBox class">
+    <HelpKINode Title="MultipleMessageBox Class" Url="html/c49084c0-187a-59b6-9d3f-fd5ccd5c33bf.htm" />
+    <HelpKINode Title="about MultipleMessageBox class" Url="html/c49084c0-187a-59b6-9d3f-fd5ccd5c33bf.htm" />
+    <HelpKINode Title="constructor" Url="html/1442a3d0-b89a-61c7-33d7-fd2450294cfa.htm" />
+    <HelpKINode Title="events" Url="html/f0bc58fb-d972-13db-c467-7476b076c5fb.htm" />
+    <HelpKINode Title="fields" Url="html/390ef844-84ed-dc3e-6088-6531906ae1ce.htm" />
+    <HelpKINode Title="methods" Url="html/28642d66-cfad-fa51-0d29-53f0e6709d5b.htm" />
+    <HelpKINode Title="properties" Url="html/32a9843e-2e6a-f744-f87a-ed186f4c79f1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MultipleMessageBox.buttonpanel field" Url="html/a76229d0-3071-c2c1-2a6d-46eb8c16cda7.htm" />
+  <HelpKINode Title="MultipleMessageBox.buttonpress method" Url="html/b49bb69f-8431-a330-7197-5b189cb9380f.htm" />
+  <HelpKINode Title="MultipleMessageBox.components field" Url="html/8dfe4632-2c1f-4151-7aa1-64685f43172e.htm" />
+  <HelpKINode Title="MultipleMessageBox.Dispose method" Url="html/db15674a-f0f2-3c5a-760a-8cd558b2d76f.htm" />
+  <HelpKINode Title="MultipleMessageBox.Gap field" Url="html/10361c13-5a8d-9d4f-cb46-af75e3087ce1.htm" />
+  <HelpKINode Title="MultipleMessageBox.InitializeComponent method" Url="html/b0a84fa9-bd6d-4783-477c-ec877af2a38a.htm" />
+  <HelpKINode Title="MultipleMessageBox.MultipleMessageBox constructor" Url="html/1442a3d0-b89a-61c7-33d7-fd2450294cfa.htm" />
+  <HelpKINode Title="MultipleMessageBox.Result field" Url="html/271b8975-150e-d533-2ae7-25a88e4bf592.htm" />
+  <HelpKINode Title="MultipleMessageBox.Set field" Url="html/323e35c8-b56e-b4ca-dc7a-58d2e13f1bd4.htm" />
+  <HelpKINode Title="MultipleMessageBox.Text property" Url="html/4e2f3fd4-b2ea-edec-fd17-5c789f4ade55.htm" />
+  <HelpKINode Title="MultipleMessageBox.textarea field" Url="html/ab4fd1a3-4acc-7c14-0aa1-a0362934f751.htm" />
+  <HelpKINode Title="mustSelectCount field">
+    <HelpKINode Title="SelectItemFromListBox.mustSelectCount Field" Url="html/899ce61d-fd0e-f446-aa03-b394cee5380a.htm" />
+    <HelpKINode Title="SelectItemFromListView.mustSelectCount Field" Url="html/ebe0b0e5-4559-464b-a0d0-96fb7f710838.htm" />
+    <HelpKINode Title="SelectItemsFromCheckBox.mustSelectCount Field" Url="html/e6eaf7e5-2f89-d633-e224-c308cad4b39a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="name field" Url="html/209c5144-3df6-1b37-d68b-a382c87def76.htm" />
+  <HelpKINode Title="Name field" Url="html/9a0d798e-024b-47e0-501f-3ca3cdc12045.htm" />
+  <HelpKINode Title="NetBiosInfo class">
+    <HelpKINode Title="fields" Url="html/2e95b975-d123-13cd-7b97-03a2248e3f28.htm" />
+    <HelpKINode Title="methods" Url="html/671a533c-5142-5ba2-e3ea-e3d8363864c7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="NetExtras class">
+    <HelpKINode Title="NetExtras Class" Url="html/b99ee427-7d03-bbda-a803-a7b515a28361.htm" />
+    <HelpKINode Title="about NetExtras class" Url="html/b99ee427-7d03-bbda-a803-a7b515a28361.htm" />
+    <HelpKINode Title="constructor" Url="html/43f009f1-6867-6393-a3ab-b3a5fba43372.htm" />
+    <HelpKINode Title="methods" Url="html/511e507e-2ee4-74f4-2428-40211d489333.htm" />
+  </HelpKINode>
+  <HelpKINode Title="NetExtras.CheckMask method" Url="html/1fac4902-eaf1-5342-ba4b-670412aea5e1.htm" />
+  <HelpKINode Title="NetExtras.DownloadFile method" Url="html/3cdfb8c5-3be2-98f9-fae6-1f4d31815328.htm" />
+  <HelpKINode Title="NetExtras.DownloadWebPage method" Url="html/aa9a3118-b512-bb6d-b4ac-c30278fbdf92.htm" />
+  <HelpKINode Title="NetExtras.GetExternalAddress method" Url="html/184542cb-0f99-a52f-ad7a-cca781c0e23d.htm" />
+  <HelpKINode Title="NetExtras.GetExternalDefaultLocalAddress method" Url="html/7bd62c3e-c6ce-2e60-0ccb-da53b663521b.htm" />
+  <HelpKINode Title="NetExtras.GetHostName method" Url="html/52694380-2372-59f3-f086-7ac5a731910c.htm" />
+  <HelpKINode Title="NetExtras.GetLocalAddress method" Url="html/6f6a00d8-bb0c-3e3e-7ff6-2bef4d8f2df0.htm" />
+  <HelpKINode Title="NetExtras.GetMAC method" Url="html/2927000c-2e11-2d83-dabf-9ccd43c4f7c1.htm" />
+  <HelpKINode Title="NetExtras.getMachineNetBiosInfo method" Url="html/8aa5b509-de20-046f-4e16-8e9e05825f0a.htm" />
+  <HelpKINode Title="NetExtras.GetNetBiosInfo method" Url="html/b359ad10-6d53-bed5-40ee-e964b8f091cb.htm" />
+  <HelpKINode Title="NetExtras.GetNextFreePort method" Url="html/cd66afe3-ee1f-02fa-6d06-490113bd30a9.htm" />
+  <HelpKINode Title="NetExtras.GetRemoteInfo method" Url="html/ff5bb27a-f410-81d8-39f2-d76ecd869edc.htm" />
+  <HelpKINode Title="NetExtras.GetWebPageStream method" Url="html/6581b618-7369-9d53-ccfe-d2204a7487c1.htm" />
+  <HelpKINode Title="NetExtras.HostnameToIP method" Url="html/d2c7e749-af71-8f7b-3681-2e6161b074fe.htm" />
+  <HelpKINode Title="NetExtras.IPToLong method" Url="html/fab69c3c-0100-5cfa-7353-0c38d9011430.htm" />
+  <HelpKINode Title="NetExtras.IsIPAddress method" Url="html/7578dde9-f4d3-9acb-d801-d4f0c07fc33e.htm" />
+  <HelpKINode Title="NetExtras.IsLanIP method" Url="html/c6dd8007-5345-5dca-6094-00f517fe7418.htm" />
+  <HelpKINode Title="NetExtras.IsLanIPCheckTTL method" Url="html/4b1ecc6e-eb6a-f07a-e346-19d2fdd00fff.htm" />
+  <HelpKINode Title="NetExtras.MakeStringURLSafe method" Url="html/365854d8-ca4a-6706-4faf-eab5b98cd795.htm" />
+  <HelpKINode Title="NetExtras.NetBiosInfo class">
+    <HelpKINode Title="NetExtras.NetBiosInfo Class" Url="html/653ce826-5f84-cc19-47ee-aeda9e9e4a70.htm" />
+    <HelpKINode Title="about NetExtras.NetBiosInfo class" Url="html/653ce826-5f84-cc19-47ee-aeda9e9e4a70.htm" />
+    <HelpKINode Title="constructor" Url="html/d38915b5-7a41-5e3e-892f-a5e14e682860.htm" />
+  </HelpKINode>
+  <HelpKINode Title="NetExtras.NetBiosInfo.ComputerName field" Url="html/b6700729-fd3a-b4c6-4fa6-d840c2268d6f.htm" />
+  <HelpKINode Title="NetExtras.NetBiosInfo.LANGroup field" Url="html/0cdf5118-fbb5-e89c-7d35-493fce2c5772.htm" />
+  <HelpKINode Title="NetExtras.NetBiosInfo.NetBiosInfo constructor" Url="html/d38915b5-7a41-5e3e-892f-a5e14e682860.htm" />
+  <HelpKINode Title="NetExtras.NetBiosInfo.PlatformID field" Url="html/2eb1912b-04d3-8dbd-c33f-833efca277ad.htm" />
+  <HelpKINode Title="NetExtras.NetBiosInfo.VerMajor field" Url="html/479654e1-4156-6988-5130-08a451054bec.htm" />
+  <HelpKINode Title="NetExtras.NetBiosInfo.VerMinor field" Url="html/01a1efd2-b116-24a4-923e-d07b140b6502.htm" />
+  <HelpKINode Title="NetExtras.NetExtras constructor" Url="html/43f009f1-6867-6393-a3ab-b3a5fba43372.htm" />
+  <HelpKINode Title="NetExtras.NetWkstaGetInfo method" Url="html/c71aa468-a62d-3069-7c67-8e0f5105a8d6.htm" />
+  <HelpKINode Title="NetExtras.SendARP method" Url="html/960956f3-fdda-f575-d37f-37809a8e3c9f.htm" />
+  <HelpKINode Title="NetExtras.WebClientEx class">
+    <HelpKINode Title="NetExtras.WebClientEx Class" Url="html/2ae3fbc4-f731-f500-588e-6ceb9d550ee0.htm" />
+    <HelpKINode Title="about NetExtras.WebClientEx class" Url="html/2ae3fbc4-f731-f500-588e-6ceb9d550ee0.htm" />
+    <HelpKINode Title="constructor" Url="html/d8f1f7d8-afbb-7c59-b150-7830c2117abf.htm" />
+  </HelpKINode>
+  <HelpKINode Title="NetExtras.WebClientEx.GetWebRequest method" Url="html/5d31b95b-2054-a1d0-910e-50468a7daad6.htm" />
+  <HelpKINode Title="NetExtras.WebClientEx.Timeout property" Url="html/3dd2002d-c5c4-5df9-5529-9ef31adbc708.htm" />
+  <HelpKINode Title="NetExtras.WebClientEx.WebClientEx constructor" Url="html/d8f1f7d8-afbb-7c59-b150-7830c2117abf.htm" />
+  <HelpKINode Title="NetExtras.WKSTA_INFO_100 structure">
+    <HelpKINode Title="NetExtras.WKSTA_INFO_100 Structure" Url="html/7422ec63-00fa-3f19-3445-a20181bb8042.htm" />
+    <HelpKINode Title="about NetExtras.WKSTA_INFO_100 structure" Url="html/7422ec63-00fa-3f19-3445-a20181bb8042.htm" />
+  </HelpKINode>
+  <HelpKINode Title="NetExtras.WKSTA_INFO_100.wki100_computername field" Url="html/5ee6aaed-d312-6487-c016-58a9b5776e7a.htm" />
+  <HelpKINode Title="NetExtras.WKSTA_INFO_100.wki100_langroup field" Url="html/604f1035-b252-2802-05c1-397548796c16.htm" />
+  <HelpKINode Title="NetExtras.WKSTA_INFO_100.wki100_platform_id field" Url="html/b56ac401-0c67-483e-8736-a97d2dbf203a.htm" />
+  <HelpKINode Title="NetExtras.WKSTA_INFO_100.wki100_ver_major field" Url="html/4625e2d8-db91-20eb-4ab9-2e5a84142ed2.htm" />
+  <HelpKINode Title="NetExtras.WKSTA_INFO_100.wki100_ver_minor field" Url="html/3f7432e7-6c81-d478-a9d1-fb123f95dd06.htm" />
+  <HelpKINode Title="NetWkstaGetInfo method" Url="html/c71aa468-a62d-3069-7c67-8e0f5105a8d6.htm" />
+  <HelpKINode Title="Networking class">
+    <HelpKINode Title="Networking Class" Url="html/1664a85e-c96f-e3b6-4acf-5f8bd2ab8ce5.htm" />
+    <HelpKINode Title="about Networking class" Url="html/1664a85e-c96f-e3b6-4acf-5f8bd2ab8ce5.htm" />
+    <HelpKINode Title="constructor" Url="html/59e0d066-cbdf-3d7c-f4a4-9c1accf5e247.htm" />
+    <HelpKINode Title="fields" Url="html/241d8906-d9df-e55c-9474-26d72305ed30.htm" />
+    <HelpKINode Title="methods" Url="html/98409600-db36-fcce-67ba-7af3592b9faa.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Networking.AddUDPClient method" Url="html/768722a8-a2a6-857e-6dbc-a1a19f6cc712.htm" />
+  <HelpKINode Title="Networking.GetSocketInfo method" Url="html/42e7b6c3-9cd5-6aeb-7aee-9cab10f48ade.htm" />
+  <HelpKINode Title="Networking.Networking constructor" Url="html/59e0d066-cbdf-3d7c-f4a4-9c1accf5e247.htm" />
+  <HelpKINode Title="Networking.SendUDPPacketGetBlockingResponse method" Url="html/d6f0471c-f44e-a917-1888-cdeeead4a011.htm" />
+  <HelpKINode Title="Networking.SetUDPTimeout method" Url="html/26a1e533-c551-a1b6-9b66-dfc5134b16c0.htm" />
+  <HelpKINode Title="Networking.StopAll method" Url="html/c4bb5207-8d83-28cf-2c19-8582b80ab4ac.htm" />
+  <HelpKINode Title="Networking.StopAllUDP method" Url="html/29f0d53f-32cb-ac05-8e62-02ad3eb38fc9.htm" />
+  <HelpKINode Title="Networking.StopUDPClient method" Url="html/c76de078-3518-542b-a06a-318b5ef6863f.htm" />
+  <HelpKINode Title="Networking.STUNServer method" Url="html/4dc1dd3d-6e7d-8c9b-5cc6-c6f09978f3e6.htm" />
+  <HelpKINode Title="Networking.UDPListener field" Url="html/ddab4961-24ff-3247-24a7-9de9c7e61b3a.htm" />
+  <HelpKINode Title="Networking.UDPSenders field" Url="html/6a6b8f85-16af-603d-6496-97742a486995.htm" />
+  <HelpKINode Title="Newline field" Url="html/8e433283-c38e-1045-f6e8-6b4f98056ef2.htm" />
+  <HelpKINode Title="NewLine field" Url="html/c15908dd-b3b4-9c57-5900-e1f8788d1552.htm" />
+  <HelpKINode Title="NonWhiteToBlack method" Url="html/f3b5b05e-96b3-4e16-2105-23b77ee39954.htm" />
+  <HelpKINode Title="Normalise method" Url="html/5b24d46d-4e8c-33cd-888f-fed52f3b6642.htm" />
+  <HelpKINode Title="number field" Url="html/f87451a8-d4e7-0362-8177-ecb2c771a232.htm" />
+  <HelpKINode Title="ObjectExtras class">
+    <HelpKINode Title="ObjectExtras Class" Url="html/01c4132a-0345-8451-8915-e7f514ac8a58.htm" />
+    <HelpKINode Title="about ObjectExtras class" Url="html/01c4132a-0345-8451-8915-e7f514ac8a58.htm" />
+    <HelpKINode Title="constructor" Url="html/2e6c26f2-35c3-1216-5f6b-5087c2773264.htm" />
+    <HelpKINode Title="methods" Url="html/9c04d579-f58b-d848-3b23-977a40c0bf6b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ObjectExtras.AddToolTip method" Url="html/5ffd9d8b-ef83-9734-74f4-091258be6481.htm" />
+  <HelpKINode Title="ObjectExtras.Clone(Of T) method" Url="html/c1f4a2f8-8a46-c84e-ced9-8f03d820f228.htm" />
+  <HelpKINode Title="ObjectExtras.Clone&lt;T&gt; method" Url="html/c1f4a2f8-8a46-c84e-ced9-8f03d820f228.htm" />
+  <HelpKINode Title="ObjectExtras.CloneObject method" Url="html/af594e3c-7413-2d66-adc9-56a9d19cfd10.htm" />
+  <HelpKINode Title="ObjectExtras.GetFieldByName(Of T) method" Url="html/7988d471-bca8-4f2d-d98d-b46ca918ceb0.htm" />
+  <HelpKINode Title="ObjectExtras.GetFieldByName&lt;T&gt; method" Url="html/7988d471-bca8-4f2d-d98d-b46ca918ceb0.htm" />
+  <HelpKINode Title="ObjectExtras.ObjectExtras constructor" Url="html/2e6c26f2-35c3-1216-5f6b-5087c2773264.htm" />
+  <HelpKINode Title="okbutton field">
+    <HelpKINode Title="GetStringBox.okbutton Field" Url="html/c54d03b4-a17d-ada1-50ee-5ebddcbadd20.htm" />
+    <HelpKINode Title="GetStringImageCompare.okbutton Field" Url="html/4286ad12-3ac3-730f-855c-151c873ab948.htm" />
+    <HelpKINode Title="MassVariableEdit.okbutton Field" Url="html/6eb7df20-b987-f466-0198-829a0c8fd352.htm" />
+    <HelpKINode Title="SelectItemFromListBox.okbutton Field" Url="html/3e515b67-ae55-c65b-c8fb-03517ec1df64.htm" />
+    <HelpKINode Title="SelectItemFromListView.okbutton Field" Url="html/632c6a83-f7a3-2d49-6ae1-c29a54c05b59.htm" />
+    <HelpKINode Title="SelectItemsFromCheckBox.okbutton Field" Url="html/00b5a3a4-6cec-8052-730a-02f8c67d1ce6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="okbutton_Click method">
+    <HelpKINode Title="GetStringBox.okbutton_Click Method " Url="html/3640aa93-9f3e-b1c6-a352-cdba89477c52.htm" />
+    <HelpKINode Title="GetStringImageCompare.okbutton_Click Method " Url="html/2ab905a7-2f05-f6ee-c09b-ebe7e443a63c.htm" />
+    <HelpKINode Title="MassVariableEdit.okbutton_Click Method " Url="html/cb478139-11ce-f273-3d6a-2f8ae883e3ad.htm" />
+    <HelpKINode Title="SelectItemFromListBox.okbutton_Click Method " Url="html/281e1cb2-944a-55a9-46b7-8aea0553d242.htm" />
+    <HelpKINode Title="SelectItemFromListView.okbutton_Click Method " Url="html/05dc9b8d-457e-0e02-4ff0-a9b3a4c0266a.htm" />
+    <HelpKINode Title="SelectItemsFromCheckBox.okbutton_Click Method " Url="html/a92f08cf-d433-92c0-954e-0f51810782a0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OnBarValueChange method" Url="html/df9fe7b5-de2b-f8a0-627b-fd93b8834fcc.htm" />
+  <HelpKINode Title="OnFontChanged method" Url="html/6793a876-f281-f26e-4f8b-4580bc177e6b.htm" />
+  <HelpKINode Title="OnGotFocus method" Url="html/92cfb0d9-e7c7-562d-94bf-bec7076f6238.htm" />
+  <HelpKINode Title="OnlyAllowBlackAndColour method" Url="html/db126ce3-7eb5-307f-b85f-c55835044dcf.htm" />
+  <HelpKINode Title="OnSizeChanged method" Url="html/d3bf5c54-2b6c-52a6-857d-4be17945435e.htm" />
+  <HelpKINode Title="OnTextChanged method" Url="html/1d02e898-e39b-3a59-fb9d-7f51d83515c7.htm" />
+  <HelpKINode Title="otherapptext field" Url="html/6484a831-7964-4257-d038-ebb88a7d2ec4.htm" />
+  <HelpKINode Title="otherapptext_LinkClicked method" Url="html/18093db5-f362-408e-7ed3-8d3a818c0183.htm" />
+  <HelpKINode Title="overCenter method" Url="html/55532d32-bbf3-ed15-1491-f45a8c01a2ba.htm" />
+  <HelpKINode Title="overLeftResize method" Url="html/bf9ff96b-c87e-19d1-f028-8a475c13661c.htm" />
+  <HelpKINode Title="overRightResize method" Url="html/81ed1182-bf22-c4f3-62ed-6713b7546efa.htm" />
+  <HelpKINode Title="PadString method" Url="html/7eb275a1-4fd4-7a19-c38e-ef99b2edb332.htm" />
+  <HelpKINode Title="paintEvent method" Url="html/941e5923-b3d0-3903-ce95-bb63596bbedb.htm" />
+  <HelpKINode Title="PaintEvent method" Url="html/d253174a-ee75-d0ca-cbda-b977d87dc34b.htm" />
+  <HelpKINode Title="PaintF method" Url="html/12d87428-3bd6-7bbd-27ac-37be5357023c.htm" />
+  <HelpKINode Title="panel1 field">
+    <HelpKINode Title="AboutScreen.panel1 Field" Url="html/c357abde-e4aa-6368-85dd-c4640bcd4039.htm" />
+    <HelpKINode Title="GetStringBox.panel1 Field" Url="html/d28b55d2-463b-dd05-0ba5-b2f4c2e724e5.htm" />
+    <HelpKINode Title="GetStringImageCompare.panel1 Field" Url="html/2f2f3360-02d4-4c72-e531-d31093933d78.htm" />
+    <HelpKINode Title="HelpScreen.panel1 Field" Url="html/b657142f-efe6-00c9-edf8-b7ce01429c8f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="panel2 field" Url="html/6fc506df-f59a-ce99-88c1-03a3a3615851.htm" />
+  <HelpKINode Title="PanelReplacement class">
+    <HelpKINode Title="PanelReplacement Class" Url="html/fb5766f4-87e3-988b-7b27-61cb41ef3e84.htm" />
+    <HelpKINode Title="about PanelReplacement class" Url="html/fb5766f4-87e3-988b-7b27-61cb41ef3e84.htm" />
+    <HelpKINode Title="constructor" Url="html/75d3e0c5-9262-8899-0dbd-f97b8a230974.htm" />
+    <HelpKINode Title="constructor" Url="html/2e19bc45-c4c3-5470-9b59-5ee69199d741.htm" />
+    <HelpKINode Title="events" Url="html/c198bf19-5baf-7950-44ec-7c3a7b14d01a.htm" />
+    <HelpKINode Title="fields" Url="html/dec8ff94-3ccc-94b0-4807-706e0e7704d6.htm" />
+    <HelpKINode Title="methods" Url="html/ffa79e92-7a10-9342-a0c6-fc13e949655a.htm" />
+    <HelpKINode Title="properties" Url="html/8709be37-be9c-d705-c4cd-5b17050bf8f9.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PanelReplacement.AddControl method" Url="html/a3c7d9ad-9703-5ba2-4257-8697a9ba625d.htm" />
+  <HelpKINode Title="PanelReplacement.borderColour field" Url="html/2232c23a-7214-b364-2742-bafa103601ff.htm" />
+  <HelpKINode Title="PanelReplacement.BorderColour property" Url="html/a70cff13-328c-f789-b202-65516f82b5ae.htm" />
+  <HelpKINode Title="PanelReplacement.borderWidth field" Url="html/3b3a5fb0-2307-db17-b938-72ec505f5f03.htm" />
+  <HelpKINode Title="PanelReplacement.BorderWidth property" Url="html/e5fdf38e-2432-4448-1850-dcdc42abdf21.htm" />
+  <HelpKINode Title="PanelReplacement.bumpLastPosition method" Url="html/4151a072-6bdb-3d5e-49f2-5e465041075a.htm" />
+  <HelpKINode Title="PanelReplacement.ClearControls method" Url="html/be2b4b8a-6125-88b5-b2c0-25416d76bdb4.htm" />
+  <HelpKINode Title="PanelReplacement.Clone method" Url="html/97e4d9e9-02fe-5ba8-6270-278fb41d686a.htm" />
+  <HelpKINode Title="PanelReplacement.controlStack field" Url="html/e1f23f73-b6a0-b303-5254-44e6788598c5.htm" />
+  <HelpKINode Title="PanelReplacement.FitPanel method" Url="html/8348b71a-7895-9c87-a3d0-da611fdb2fda.htm" />
+  <HelpKINode Title="PanelReplacement.gap field" Url="html/37a02acc-7f1c-da72-429c-a9917147cd6f.htm" />
+  <HelpKINode Title="PanelReplacement.GetControlByName method" Url="html/942e8f84-961b-2253-122d-424ffb53fca1.htm" />
+  <HelpKINode Title="PanelReplacement.lastX field" Url="html/a966dca3-0c99-b44a-429f-2d1b4f05384a.htm" />
+  <HelpKINode Title="PanelReplacement.lastY field" Url="html/446a85f0-2939-4ae1-b365-f332775bc332.htm" />
+  <HelpKINode Title="PanelReplacement.paintEvent method" Url="html/941e5923-b3d0-3903-ce95-bb63596bbedb.htm" />
+  <HelpKINode Title="PanelReplacement.PanelReplacement constructor">
+    <HelpKINode Title="PanelReplacement Constructor " Url="html/2e19bc45-c4c3-5470-9b59-5ee69199d741.htm" />
+    <HelpKINode Title="PanelReplacement Constructor " Url="html/75d3e0c5-9262-8899-0dbd-f97b8a230974.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PanelReplacement.popPosition method" Url="html/1afc95d5-9454-fd4f-1699-fff14b2f190e.htm" />
+  <HelpKINode Title="PanelReplacement.positionStack field" Url="html/cf38e41c-0bd9-aa8f-a8f1-f53851dd8b5d.htm" />
+  <HelpKINode Title="PanelReplacement.pushPosition method" Url="html/c25f0e6e-48d3-603b-b618-02a1f76872eb.htm" />
+  <HelpKINode Title="PanelReplacement.RemoveControl method" Url="html/09734d47-29b1-ec9c-6663-537983d0b3f1.htm" />
+  <HelpKINode Title="PanelReplacement.RemoveLastControl method" Url="html/009d6e4c-d3fe-0b84-00da-e9e818783226.htm" />
+  <HelpKINode Title="PanelReplacement.ResumePaint method" Url="html/2dd2f6f0-8a6b-1803-1947-eaa204f6c0f3.htm" />
+  <HelpKINode Title="PanelReplacement.SetGapBetweenItems method" Url="html/ae1c9662-8a7a-0a77-f994-64322a1c26a2.htm" />
+  <HelpKINode Title="PanelReplacement.SuspendPaint method" Url="html/557f8be4-9270-4920-ccc7-d909cae424ed.htm" />
+  <HelpKINode Title="PanelReplacement.SwapControls method" Url="html/900e9d48-7e60-e82a-934e-06c55b274bc4.htm" />
+  <HelpKINode Title="PanelReplacement.SwitchControlLocations method" Url="html/6d8034cc-012e-8bd3-00cf-7c181dfee934.htm" />
+  <HelpKINode Title="PanelReplacement.WM_SETREDRAW field" Url="html/b9a5a5e8-eb23-fcf1-5118-4dcaf6fb8a5c.htm" />
+  <HelpKINode Title="Parent field" Url="html/e8071ee7-4e50-0ed0-922f-8ae8cd6e8cff.htm" />
+  <HelpKINode Title="PerformOCR method" Url="html/8c9d7a95-0715-e326-a51d-58e26be7733d.htm" />
+  <HelpKINode Title="PerformOCRCharacter method" Url="html/0114578d-6fe6-a624-8191-ea795ada3403.htm" />
+  <HelpKINode Title="PerformOCRCharacterPerfect method" Url="html/e1431f07-d87b-8012-37d2-6605024aa352.htm" />
+  <HelpKINode Title="PersistantCache class">
+    <HelpKINode Title="PersistantCache Class" Url="html/e3f9c87e-ec45-511f-9437-0c3cef7c7dbf.htm" />
+    <HelpKINode Title="about PersistantCache class" Url="html/e3f9c87e-ec45-511f-9437-0c3cef7c7dbf.htm" />
+    <HelpKINode Title="constructor" Url="html/5b852dbf-7dd5-a12c-eb88-be817a5d82a0.htm" />
+    <HelpKINode Title="fields" Url="html/9da752b0-1372-3ca7-3012-d80ce02c8852.htm" />
+    <HelpKINode Title="methods" Url="html/f459b6ce-473e-f214-efd7-7eb9a040376d.htm" />
+    <HelpKINode Title="properties" Url="html/57317da3-bd50-d01a-bd09-e06a30d30512.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PersistantCache.Cache(Of T) method" Url="html/8ffe0a92-eb4e-9179-ee22-542da6e95051.htm" />
+  <HelpKINode Title="PersistantCache.Cache&lt;T&gt; method" Url="html/8ffe0a92-eb4e-9179-ee22-542da6e95051.htm" />
+  <HelpKINode Title="PersistantCache.Dispose method" Url="html/6382db47-ef27-62ba-19c6-8e21e8355d53.htm" />
+  <HelpKINode Title="PersistantCache.filename field" Url="html/a6a54812-fe67-8612-14ed-7fa85d77f373.htm" />
+  <HelpKINode Title="PersistantCache.js field" Url="html/564d2096-0560-8dd0-7cb1-8cf0c3bc5101.htm" />
+  <HelpKINode Title="PersistantCache.PersistantCache constructor" Url="html/5b852dbf-7dd5-a12c-eb88-be817a5d82a0.htm" />
+  <HelpKINode Title="PersistantCache.Set method" Url="html/267c61a5-3e63-cdb2-d898-fb4d70c811f3.htm" />
+  <HelpKINode Title="PersistantCache.storage field" Url="html/9b8f71ea-88c7-f707-9c03-82342f911a59.htm" />
+  <HelpKINode Title="PersistantCache.Storage property" Url="html/a3415363-cd29-8b7c-bf87-7f99374e8ffc.htm" />
+  <HelpKINode Title="PlatformID field" Url="html/2eb1912b-04d3-8dbd-c33f-833efca277ad.htm" />
+  <HelpKINode Title="Pluralise method" Url="html/d0283a9e-b6f0-5563-4b02-4b5c11467c73.htm" />
+  <HelpKINode Title="popPosition method" Url="html/1afc95d5-9454-fd4f-1699-fff14b2f190e.htm" />
+  <HelpKINode Title="positionStack field" Url="html/cf38e41c-0bd9-aa8f-a8f1-f53851dd8b5d.htm" />
+  <HelpKINode Title="Post method" Url="html/6efa4824-dc7b-050d-29df-0975818eb869.htm" />
+  <HelpKINode Title="preselected field" Url="html/9744023c-a93f-69fd-cc58-d951a4efe513.htm" />
+  <HelpKINode Title="pushPosition method" Url="html/c25f0e6e-48d3-603b-b618-02a1f76872eb.htm" />
+  <HelpKINode Title="ReadEmbeddedImage method" Url="html/859c97ce-8c62-9a19-8ad3-15d21f190f49.htm" />
+  <HelpKINode Title="ReadEmbeddedResource method" Url="html/cc9e9ab4-90cc-7cc5-7c18-de0df603feb2.htm" />
+  <HelpKINode Title="ReadXml method" Url="html/b55cba7c-4cf9-8f0d-d8bc-2da787965eb0.htm" />
+  <HelpKINode Title="Reflection class">
+    <HelpKINode Title="Reflection Class" Url="html/869bc298-5af5-920a-7918-047ed1e81a9f.htm" />
+    <HelpKINode Title="about Reflection class" Url="html/869bc298-5af5-920a-7918-047ed1e81a9f.htm" />
+    <HelpKINode Title="constructor" Url="html/fd3d4223-fb07-01d9-bdce-34af4e7461d8.htm" />
+    <HelpKINode Title="fields" Url="html/71f8e6b0-2778-26b9-e6cd-5e3f5bf1e1aa.htm" />
+    <HelpKINode Title="methods" Url="html/4456e36e-d8b6-8518-37a9-a6fa111abaab.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Reflection.DeserialiseObject method" Url="html/dcb68d22-259c-2563-f800-ffcec94bd16a.htm" />
+  <HelpKINode Title="Reflection.GetFieldName method" Url="html/0074471b-aa6c-9194-e7a0-659717e3638d.htm" />
+  <HelpKINode Title="Reflection.GetFieldNames method" Url="html/72a3b6e7-a8c2-253a-d6c3-24e720efd9f0.htm" />
+  <HelpKINode Title="Reflection.GetFieldNamesAndValues method" Url="html/ec9056ab-dcfc-b2b4-9ffa-268cd815160e.htm" />
+  <HelpKINode Title="Reflection.GetFieldValue method" Url="html/2934f4b4-24be-f2ab-28b4-d8cf2d41dca5.htm" />
+  <HelpKINode Title="Reflection.Newline field" Url="html/8e433283-c38e-1045-f6e8-6b4f98056ef2.htm" />
+  <HelpKINode Title="Reflection.Reflection constructor" Url="html/fd3d4223-fb07-01d9-bdce-34af4e7461d8.htm" />
+  <HelpKINode Title="Reflection.Separator field" Url="html/50379632-5970-0170-18f4-926e8f8ecf2a.htm" />
+  <HelpKINode Title="Reflection.SerialiseObject method" Url="html/73a71f9c-ef18-0f74-2884-915dd12c3007.htm" />
+  <HelpKINode Title="RemoveAllNonAlphabetChars method" Url="html/43663c68-7f57-e6d1-8ccb-075fce6a0c45.htm" />
+  <HelpKINode Title="RemoveChild method" Url="html/3b96c745-8e86-1afe-3189-e1f56a53665f.htm" />
+  <HelpKINode Title="RemoveComments method" Url="html/50a00dbe-f9e5-47ee-ebc0-1ba59c9054c4.htm" />
+  <HelpKINode Title="RemoveControl method" Url="html/09734d47-29b1-ec9c-6663-537983d0b3f1.htm" />
+  <HelpKINode Title="RemoveExcessWhitespace method" Url="html/9c5f241c-870e-a1ef-de57-9ee64c882361.htm" />
+  <HelpKINode Title="RemoveLastControl method" Url="html/009d6e4c-d3fe-0b84-00da-e9e818783226.htm" />
+  <HelpKINode Title="Replace(Of T) method" Url="html/4256b07f-e8fd-6266-28de-995fae373b42.htm" />
+  <HelpKINode Title="Replace&lt;T&gt; method" Url="html/4256b07f-e8fd-6266-28de-995fae373b42.htm" />
+  <HelpKINode Title="ReplaceAllChars method" Url="html/a461e93a-261b-6bf6-c4f4-54f27c6c1941.htm" />
+  <HelpKINode Title="ReplaceCharAtPosition method" Url="html/caecc800-2be1-0a00-ae53-28474a39cab7.htm" />
+  <HelpKINode Title="ReplaceStringAtPosition method" Url="html/66a1813f-ea01-be03-c3fd-129fe370d194.htm" />
+  <HelpKINode Title="ResizeBitmap method" Url="html/5973e908-ee75-03a8-7d2b-28f6501de9ad.htm" />
+  <HelpKINode Title="resizeLabel method" Url="html/7aae09a3-2dc3-5bc7-19ad-a55248135a4c.htm" />
+  <HelpKINode Title="resizeleft field" Url="html/a19057f3-181c-e56c-5ad6-96d863ff08b0.htm" />
+  <HelpKINode Title="Result field" Url="html/271b8975-150e-d533-2ae7-25a88e4bf592.htm" />
+  <HelpKINode Title="ResumePaint method" Url="html/2dd2f6f0-8a6b-1803-1947-eaa204f6c0f3.htm" />
+  <HelpKINode Title="returnvalue field">
+    <HelpKINode Title="GetStringBox.returnvalue Field" Url="html/d3c10b4c-b0ab-da10-9b72-5fa4cdb4a3ce.htm" />
+    <HelpKINode Title="GetStringImageCompare.returnvalue Field" Url="html/46cc7caa-f827-b4fb-24f6-4c8850a4c8d2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="returnvalues field">
+    <HelpKINode Title="SelectItemFromListBox.returnvalues Field" Url="html/b7fcf1c2-45b2-487c-262b-aaba1a8a8ec8.htm" />
+    <HelpKINode Title="SelectItemFromListView.returnvalues Field" Url="html/979bf5b4-ca5f-a9a5-b808-15a307a2ab08.htm" />
+    <HelpKINode Title="SelectItemsFromCheckBox.returnvalues Field" Url="html/81ab3f4d-d7fd-de8d-5640-7ecf886153b5.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ReturnValues field" Url="html/f116daff-36b8-d65e-d6ea-ad79fa2e5e49.htm" />
+  <HelpKINode Title="RotateArray(Of T) method" Url="html/be28292c-d8d9-f386-38ca-17d57a3c7a87.htm" />
+  <HelpKINode Title="RotateArray&lt;T&gt; method" Url="html/be28292c-d8d9-f386-38ca-17d57a3c7a87.htm" />
+  <HelpKINode Title="RowOrColIsColour method" Url="html/186e1703-03fd-9c1b-6ce1-7b4a3e3d14bd.htm" />
+  <HelpKINode Title="RunSync method" Url="html/8ed07e0b-44cf-ee84-f571-968dfa7bbc4e.htm" />
+  <HelpKINode Title="SaveConfig method" Url="html/1778b092-e142-d60d-b830-7e8c602f23b5.htm" />
+  <HelpKINode Title="SaveFileDialogExtras class">
+    <HelpKINode Title="SaveFileDialogExtras Class" Url="html/c6ccd539-8847-6afc-842e-57329f4dfcc0.htm" />
+    <HelpKINode Title="about SaveFileDialogExtras class" Url="html/c6ccd539-8847-6afc-842e-57329f4dfcc0.htm" />
+    <HelpKINode Title="fields" Url="html/a10c0540-fe0b-a6c0-043f-866989227b97.htm" />
+    <HelpKINode Title="methods" Url="html/0893ce95-4bbf-dd17-6268-041ebb7dbb3d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SaveFileDialogExtras.createFilter method" Url="html/56777b26-f07b-4063-b432-96c61f593268.htm" />
+  <HelpKINode Title="SaveFileDialogExtras.sep field" Url="html/4844e57b-17b1-9f9e-e1a6-29f101ed4f65.htm" />
+  <HelpKINode Title="SaveFileIntoTree(Of T) method" Url="html/6d00027d-2fcc-5c4e-b29c-30e4ed4104e9.htm" />
+  <HelpKINode Title="SaveFileIntoTree&lt;T&gt; method" Url="html/6d00027d-2fcc-5c4e-b29c-30e4ed4104e9.htm" />
+  <HelpKINode Title="SaveProperty method" Url="html/ed69b283-c56f-ae31-e958-d9aa278f4566.htm" />
+  <HelpKINode Title="SaveToFile method" Url="html/59ea6e21-258c-d9ff-f674-d7b8d132db56.htm" />
+  <HelpKINode Title="SaveTree(Of T) method" Url="html/ceda4c88-6499-8b2a-de92-b2cf1118a2d9.htm" />
+  <HelpKINode Title="SaveTree&lt;T&gt; method" Url="html/ceda4c88-6499-8b2a-de92-b2cf1118a2d9.htm" />
+  <HelpKINode Title="scale class">
+    <HelpKINode Title="fields" Url="html/4949ce5b-fbad-459e-5b55-df0a3303aa1d.htm" />
+    <HelpKINode Title="methods" Url="html/77b85471-1f9b-4415-3336-a46f91b20fb2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ScaleColour property" Url="html/331c6092-0f86-2685-5d2d-f299977c8faa.htm" />
+  <HelpKINode Title="scales field" Url="html/c4d0ff20-2978-8828-b348-e8917a89c148.htm" />
+  <HelpKINode Title="scaleWidth field" Url="html/052dcf8a-3e64-cf03-3dea-9565818e1d88.htm" />
+  <HelpKINode Title="ScrollToEnd method" Url="html/3d23bb39-ba80-56e3-7fcf-503571d6eff8.htm" />
+  <HelpKINode Title="SelectAllItems method" Url="html/634ba782-49cc-2fde-d3e7-c2d8f08de181.htm" />
+  <HelpKINode Title="SelectItem class">
+    <HelpKINode Title="fields" Url="html/94ba32fe-8863-5d32-86d6-0d6bdcd69778.htm" />
+    <HelpKINode Title="methods" Url="html/a818ee29-186f-a4e3-660f-53537b900d95.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SelectItemFromListBox class">
+    <HelpKINode Title="SelectItemFromListBox Class" Url="html/58384579-d01f-3839-8aa3-4eb41b6e7ed7.htm" />
+    <HelpKINode Title="about SelectItemFromListBox class" Url="html/58384579-d01f-3839-8aa3-4eb41b6e7ed7.htm" />
+    <HelpKINode Title="constructor" Url="html/c4aa5b89-1dc5-403b-9ab0-60a4c576393d.htm" />
+    <HelpKINode Title="events" Url="html/620153ca-4084-b020-8e2d-e9a28d580ea4.htm" />
+    <HelpKINode Title="fields" Url="html/daf65fe7-7cdd-5393-8f44-7854815acfe5.htm" />
+    <HelpKINode Title="methods" Url="html/df7b5f08-a167-a2fc-88c8-92d0941b6b8b.htm" />
+    <HelpKINode Title="properties" Url="html/f1da5878-3eb6-7830-d709-86d283835dee.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SelectItemFromListBox.cancelbutton field" Url="html/82fff8d6-8bae-d4cb-5fc0-ce104a0f2db8.htm" />
+  <HelpKINode Title="SelectItemFromListBox.cancelbutton_Click method" Url="html/917395a5-cff0-1af6-dc80-01882dd9bd9c.htm" />
+  <HelpKINode Title="SelectItemFromListBox.components field" Url="html/c22841d7-30d3-1f67-c1ff-fd9d0880b7b8.htm" />
+  <HelpKINode Title="SelectItemFromListBox.Dispose method" Url="html/d6d9aaad-8ce4-8b52-9901-af47d02e41a0.htm" />
+  <HelpKINode Title="SelectItemFromListBox.InitializeComponent method" Url="html/78360d80-e01a-b004-9887-72dea60034bb.htm" />
+  <HelpKINode Title="SelectItemFromListBox.label2 field" Url="html/3a51c62d-1089-6957-c10f-f5bab3cd6002.htm" />
+  <HelpKINode Title="SelectItemFromListBox.listBox1 field" Url="html/970069ce-528b-e990-a8c2-c0ea3cbbdc54.htm" />
+  <HelpKINode Title="SelectItemFromListBox.mustSelectCount field" Url="html/899ce61d-fd0e-f446-aa03-b394cee5380a.htm" />
+  <HelpKINode Title="SelectItemFromListBox.okbutton field" Url="html/3e515b67-ae55-c65b-c8fb-03517ec1df64.htm" />
+  <HelpKINode Title="SelectItemFromListBox.okbutton_Click method" Url="html/281e1cb2-944a-55a9-46b7-8aea0553d242.htm" />
+  <HelpKINode Title="SelectItemFromListBox.returnvalues field" Url="html/b7fcf1c2-45b2-487c-262b-aaba1a8a8ec8.htm" />
+  <HelpKINode Title="SelectItemFromListBox.SelectItem class">
+    <HelpKINode Title="SelectItemFromListBox.SelectItem Class" Url="html/798aa58d-a673-2cf2-cd4c-d79fe4c87a3c.htm" />
+    <HelpKINode Title="about SelectItemFromListBox.SelectItem class" Url="html/798aa58d-a673-2cf2-cd4c-d79fe4c87a3c.htm" />
+    <HelpKINode Title="constructor" Url="html/19248267-bc59-4df2-6c8e-6c828e569155.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SelectItemFromListBox.SelectItem.preselected field" Url="html/9744023c-a93f-69fd-cc58-d951a4efe513.htm" />
+  <HelpKINode Title="SelectItemFromListBox.SelectItem.SelectItem constructor" Url="html/19248267-bc59-4df2-6c8e-6c828e569155.htm" />
+  <HelpKINode Title="SelectItemFromListBox.SelectItem.Text field" Url="html/a940d5c6-94a4-f767-bd77-3285befa22a6.htm" />
+  <HelpKINode Title="SelectItemFromListBox.SelectItemFromListBox constructor" Url="html/c4aa5b89-1dc5-403b-9ab0-60a4c576393d.htm" />
+  <HelpKINode Title="SelectItemFromListBox.selectItemFromListBox_Load method" Url="html/bdbae2b9-ea45-3611-773b-e1efa940e424.htm" />
+  <HelpKINode Title="SelectItemFromListBox.selectItemFromListBox_SizeChanged method" Url="html/7be734fb-c451-b57a-c486-6528f2655dc3.htm" />
+  <HelpKINode Title="SelectItemFromListBox.ShowDialog method" Url="html/0c3dd2cd-1090-538f-f16f-2c40afed12f9.htm" />
+  <HelpKINode Title="selectItemFromListBox_Load method">
+    <HelpKINode Title="SelectItemFromListBox.selectItemFromListBox_Load Method " Url="html/bdbae2b9-ea45-3611-773b-e1efa940e424.htm" />
+    <HelpKINode Title="SelectItemFromListView.selectItemFromListBox_Load Method " Url="html/bbc7e8fe-a045-bfa9-024c-4986b90160e4.htm" />
+  </HelpKINode>
+  <HelpKINode Title="selectItemFromListBox_SizeChanged method">
+    <HelpKINode Title="SelectItemFromListBox.selectItemFromListBox_SizeChanged Method " Url="html/7be734fb-c451-b57a-c486-6528f2655dc3.htm" />
+    <HelpKINode Title="SelectItemFromListView.selectItemFromListBox_SizeChanged Method " Url="html/e8b7070b-58bc-8678-614a-cd1928072c6d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SelectItemFromListView class">
+    <HelpKINode Title="SelectItemFromListView Class" Url="html/2f70bc08-0d7c-2978-6522-070a187f7048.htm" />
+    <HelpKINode Title="about SelectItemFromListView class" Url="html/2f70bc08-0d7c-2978-6522-070a187f7048.htm" />
+    <HelpKINode Title="constructor" Url="html/aaae1f09-8592-3cdf-77b7-fb8b3dd30ab6.htm" />
+    <HelpKINode Title="events" Url="html/831ebee4-fa38-a6e3-a213-a1bfd9eb1939.htm" />
+    <HelpKINode Title="fields" Url="html/d7987882-fcb1-58ae-9fba-e1b1e7f13e8f.htm" />
+    <HelpKINode Title="methods" Url="html/28c379fb-089d-75ab-21a7-e5a4a1e1d98b.htm" />
+    <HelpKINode Title="properties" Url="html/58fa5b5c-c70f-cfcd-e841-1b89d5d7a87c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SelectItemFromListView.cancelbutton field" Url="html/b2ccef5a-b27b-e5e7-9b54-c90cd4019b80.htm" />
+  <HelpKINode Title="SelectItemFromListView.cancelbutton_Click method" Url="html/99dd0557-744f-f661-888e-30ecacf4f2e7.htm" />
+  <HelpKINode Title="SelectItemFromListView.components field" Url="html/aa660f4c-a23b-63a2-acea-9b351e452ccc.htm" />
+  <HelpKINode Title="SelectItemFromListView.Dispose method" Url="html/33dcb0b1-df9f-b578-2760-9be6bb7cf5df.htm" />
+  <HelpKINode Title="SelectItemFromListView.InitializeComponent method" Url="html/5c7a43f8-393d-6d08-45b8-a32f6cc91115.htm" />
+  <HelpKINode Title="SelectItemFromListView.label2 field" Url="html/e1631fb7-254d-c41f-32fc-3ad08abefe64.htm" />
+  <HelpKINode Title="SelectItemFromListView.listView field" Url="html/16bdd590-ceae-8b01-0112-11ae5659d0be.htm" />
+  <HelpKINode Title="SelectItemFromListView.mustSelectCount field" Url="html/ebe0b0e5-4559-464b-a0d0-96fb7f710838.htm" />
+  <HelpKINode Title="SelectItemFromListView.okbutton field" Url="html/632c6a83-f7a3-2d49-6ae1-c29a54c05b59.htm" />
+  <HelpKINode Title="SelectItemFromListView.okbutton_Click method" Url="html/05dc9b8d-457e-0e02-4ff0-a9b3a4c0266a.htm" />
+  <HelpKINode Title="SelectItemFromListView.returnvalues field" Url="html/979bf5b4-ca5f-a9a5-b808-15a307a2ab08.htm" />
+  <HelpKINode Title="SelectItemFromListView.selectItemFromListBox_Load method" Url="html/bbc7e8fe-a045-bfa9-024c-4986b90160e4.htm" />
+  <HelpKINode Title="SelectItemFromListView.selectItemFromListBox_SizeChanged method" Url="html/e8b7070b-58bc-8678-614a-cd1928072c6d.htm" />
+  <HelpKINode Title="SelectItemFromListView.SelectItemFromListView constructor" Url="html/aaae1f09-8592-3cdf-77b7-fb8b3dd30ab6.htm" />
+  <HelpKINode Title="SelectItemFromListView.ShowDialog method" Url="html/48c9a9d3-e544-0ee9-1209-57c1076c2759.htm" />
+  <HelpKINode Title="SelectItemsFromCheckBox class">
+    <HelpKINode Title="SelectItemsFromCheckBox Class" Url="html/e428dcca-ee80-9664-14ac-5f95896e8334.htm" />
+    <HelpKINode Title="about SelectItemsFromCheckBox class" Url="html/e428dcca-ee80-9664-14ac-5f95896e8334.htm" />
+    <HelpKINode Title="constructor" Url="html/6ca2ffa8-dafa-3d4f-adee-938d2e90eaca.htm" />
+    <HelpKINode Title="events" Url="html/af23cf80-fde0-5d8f-b680-ea8d159f15e4.htm" />
+    <HelpKINode Title="fields" Url="html/182693b5-434a-e942-74c3-9d323b2682b7.htm" />
+    <HelpKINode Title="methods" Url="html/1cf872fb-a672-49c6-674f-a34a521b4bc1.htm" />
+    <HelpKINode Title="properties" Url="html/836a329f-c171-922b-bd0e-83c3e5440049.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SelectItemsFromCheckBox.cancelbutton field" Url="html/0a87910b-5d37-8b06-16e7-91d4a4c39801.htm" />
+  <HelpKINode Title="SelectItemsFromCheckBox.cancelbutton_Click method" Url="html/9ff139cd-8dc7-0c8e-61a6-dc3f73f77586.htm" />
+  <HelpKINode Title="SelectItemsFromCheckBox.checkedListBox1 field" Url="html/8f7933ea-5a40-c437-dc37-7ed833a8e462.htm" />
+  <HelpKINode Title="SelectItemsFromCheckBox.components field" Url="html/e62f2a4e-947a-baa5-1a3c-20e457af5943.htm" />
+  <HelpKINode Title="SelectItemsFromCheckBox.Dispose method" Url="html/29730bb0-b7cb-8981-056b-dab3bafed84f.htm" />
+  <HelpKINode Title="SelectItemsFromCheckBox.InitializeComponent method" Url="html/cb774dd0-80f7-c98a-546b-8bfe53fefa47.htm" />
+  <HelpKINode Title="SelectItemsFromCheckBox.label1 field" Url="html/29121272-86d9-1c8c-376f-c8f1f0956b5d.htm" />
+  <HelpKINode Title="SelectItemsFromCheckBox.mustSelectCount field" Url="html/e6eaf7e5-2f89-d633-e224-c308cad4b39a.htm" />
+  <HelpKINode Title="SelectItemsFromCheckBox.okbutton field" Url="html/00b5a3a4-6cec-8052-730a-02f8c67d1ce6.htm" />
+  <HelpKINode Title="SelectItemsFromCheckBox.okbutton_Click method" Url="html/a92f08cf-d433-92c0-954e-0f51810782a0.htm" />
+  <HelpKINode Title="SelectItemsFromCheckBox.returnvalues field" Url="html/81ab3f4d-d7fd-de8d-5640-7ecf886153b5.htm" />
+  <HelpKINode Title="SelectItemsFromCheckBox.SelectItemsFromCheckBox constructor" Url="html/6ca2ffa8-dafa-3d4f-adee-938d2e90eaca.htm" />
+  <HelpKINode Title="SelectItemsFromCheckBox.SelectItemsFromCheckBox_Load method" Url="html/d2ee6211-1d11-82bc-e768-14e6a8304bf1.htm" />
+  <HelpKINode Title="SelectItemsFromCheckBox.ShowDialog method" Url="html/6bafd248-025d-e3b5-e88c-64dc454b27d6.htm" />
+  <HelpKINode Title="SelectItemsFromCheckBox_Load method" Url="html/d2ee6211-1d11-82bc-e768-14e6a8304bf1.htm" />
+  <HelpKINode Title="Send method" Url="html/30b78b11-7caa-af93-b3d1-d54660cd1aa5.htm" />
+  <HelpKINode Title="SendARP method" Url="html/960956f3-fdda-f575-d37f-37809a8e3c9f.htm" />
+  <HelpKINode Title="SendUDPPacketGetBlockingResponse method" Url="html/d6f0471c-f44e-a917-1888-cdeeead4a011.htm" />
+  <HelpKINode Title="sep field" Url="html/4844e57b-17b1-9f9e-e1a6-29f101ed4f65.htm" />
+  <HelpKINode Title="Separator field">
+    <HelpKINode Title="FormConfigRestore.Separator Field" Url="html/a6988330-4327-83ee-04d7-b477882d7da9.htm" />
+    <HelpKINode Title="Reflection.Separator Field" Url="html/50379632-5970-0170-18f4-926e8f8ecf2a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Serialise method">
+    <HelpKINode Title="DictionaryExtras.Serialise Method " Url="html/6956ed9b-f242-6091-987c-4438a5e9de43.htm" />
+    <HelpKINode Title="HistogramOCR.HistogramLetter.Serialise Method " Url="html/a3a27b7c-f1a0-a9b7-6702-44ff99af5a1a.htm" />
+    <HelpKINode Title="HistogramOCR.Serialise Method " Url="html/f96b6d39-959c-4c04-1499-17a1e7f7b35e.htm" />
+    <HelpKINode Title="ListExtras.Serialise Method " Url="html/a05ea6e4-ce59-25e1-e7d5-8c65cb1afabf.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SerialiseMatrix(Of T) method" Url="html/8ac10fa9-7c6d-7e01-ca4b-6df8914f0230.htm" />
+  <HelpKINode Title="SerialiseMatrix&lt;T&gt; method" Url="html/8ac10fa9-7c6d-7e01-ca4b-6df8914f0230.htm" />
+  <HelpKINode Title="SerialiseObject method" Url="html/73a71f9c-ef18-0f74-2884-915dd12c3007.htm" />
+  <HelpKINode Title="SerializableDictionary(Of TKey, TValue) class">
+    <HelpKINode Title="SerializableDictionary(TKey, TValue) Class" Url="html/e7db5c2c-8648-5ca1-b983-56bd0b072b81.htm" />
+    <HelpKINode Title="about SerializableDictionary(Of TKey, TValue) class" Url="html/e7db5c2c-8648-5ca1-b983-56bd0b072b81.htm" />
+    <HelpKINode Title="constructor" Url="html/fb45321a-94ed-cd26-df64-63738222e82a.htm" />
+    <HelpKINode Title="methods" Url="html/15fa6dc0-28e4-a7d6-83d4-ffa5c0922cc3.htm" />
+    <HelpKINode Title="properties" Url="html/0295ee0f-1204-5589-b7a0-5df3c03f5173.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SerializableDictionary(Of TKey, TValue).GetSchema method" Url="html/320b9ec5-6a1c-10a9-2fb0-3eba292340e8.htm" />
+  <HelpKINode Title="SerializableDictionary(Of TKey, TValue).ReadXml method" Url="html/b55cba7c-4cf9-8f0d-d8bc-2da787965eb0.htm" />
+  <HelpKINode Title="SerializableDictionary(Of TKey, TValue).SerializableDictionary constructor" Url="html/fb45321a-94ed-cd26-df64-63738222e82a.htm" />
+  <HelpKINode Title="SerializableDictionary(Of TKey, TValue).WriteXml method" Url="html/5bfec233-134f-c7ac-54d6-fa41e866f830.htm" />
+  <HelpKINode Title="SerializableDictionary&lt;TKey, TValue&gt; class">
+    <HelpKINode Title="SerializableDictionary(TKey, TValue) Class" Url="html/e7db5c2c-8648-5ca1-b983-56bd0b072b81.htm" />
+    <HelpKINode Title="about SerializableDictionary&lt;TKey, TValue&gt; class" Url="html/e7db5c2c-8648-5ca1-b983-56bd0b072b81.htm" />
+    <HelpKINode Title="constructor" Url="html/fb45321a-94ed-cd26-df64-63738222e82a.htm" />
+    <HelpKINode Title="methods" Url="html/15fa6dc0-28e4-a7d6-83d4-ffa5c0922cc3.htm" />
+    <HelpKINode Title="properties" Url="html/0295ee0f-1204-5589-b7a0-5df3c03f5173.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SerializableDictionary&lt;TKey, TValue&gt;.GetSchema method" Url="html/320b9ec5-6a1c-10a9-2fb0-3eba292340e8.htm" />
+  <HelpKINode Title="SerializableDictionary&lt;TKey, TValue&gt;.ReadXml method" Url="html/b55cba7c-4cf9-8f0d-d8bc-2da787965eb0.htm" />
+  <HelpKINode Title="SerializableDictionary&lt;TKey, TValue&gt;.SerializableDictionary constructor" Url="html/fb45321a-94ed-cd26-df64-63738222e82a.htm" />
+  <HelpKINode Title="SerializableDictionary&lt;TKey, TValue&gt;.WriteXml method" Url="html/5bfec233-134f-c7ac-54d6-fa41e866f830.htm" />
+  <HelpKINode Title="Set field" Url="html/323e35c8-b56e-b4ca-dc7a-58d2e13f1bd4.htm" />
+  <HelpKINode Title="Set method" Url="html/267c61a5-3e63-cdb2-d898-fb4d70c811f3.htm" />
+  <HelpKINode Title="SetAll(Of T) method" Url="html/e37d6951-9772-0131-0c58-6b302913c03b.htm" />
+  <HelpKINode Title="SetAll&lt;T&gt; method" Url="html/e37d6951-9772-0131-0c58-6b302913c03b.htm" />
+  <HelpKINode Title="SetColumn method" Url="html/9259406d-e2e8-2700-7084-4406e08321a9.htm" />
+  <HelpKINode Title="SetCurrentDirectoryToDefault method" Url="html/45e261ab-9e64-dff5-98dc-584ceba6a79c.htm" />
+  <HelpKINode Title="SetEnableOnAllTabPageControls method" Url="html/e227b22d-cf00-59ac-9595-dea74a3a4b12.htm" />
+  <HelpKINode Title="SetEnableOnAllTabPagesInTabControl method" Url="html/7fa0424c-429a-d9db-dd8f-6765cc7fe9a6.htm" />
+  <HelpKINode Title="SetGapBetweenItems method" Url="html/ae1c9662-8a7a-0a77-f994-64322a1c26a2.htm" />
+  <HelpKINode Title="SetUDPTimeout method" Url="html/26a1e533-c551-a1b6-9b66-dfc5134b16c0.htm" />
+  <HelpKINode Title="ShowDialog method">
+    <HelpKINode Title="GetStringBox.ShowDialog Method " Url="html/78c11746-fe59-8ac3-2d25-5afd4dbeb78a.htm" />
+    <HelpKINode Title="GetStringImageCompare.ShowDialog Method " Url="html/fd0d734d-aee8-f0e5-edcc-afc5ff2e7f62.htm" />
+    <HelpKINode Title="MassVariableEdit.ShowDialog Method " Url="html/dbfb631a-0ec2-1ebd-ce18-c0758d7faca6.htm" />
+    <HelpKINode Title="SelectItemFromListBox.ShowDialog Method " Url="html/0c3dd2cd-1090-538f-f16f-2c40afed12f9.htm" />
+    <HelpKINode Title="SelectItemFromListView.ShowDialog Method " Url="html/48c9a9d3-e544-0ee9-1209-57c1076c2759.htm" />
+    <HelpKINode Title="SelectItemsFromCheckBox.ShowDialog Method " Url="html/6bafd248-025d-e3b5-e88c-64dc454b27d6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ShowDialogStatic method" Url="html/2fd1e6ac-c53f-1a42-522e-41bb1aa4d784.htm" />
+  <HelpKINode Title="ShowingAbout field" Url="html/39d9f75e-4341-d3b5-fc34-d4b0e5be45f5.htm" />
+  <HelpKINode Title="ShowingHelp field" Url="html/6d3c5cfe-be35-8377-0055-3cc8d8519193.htm" />
+  <HelpKINode Title="shownOnScale field" Url="html/4bdd54b7-3521-4da4-d14f-579e0f0b9128.htm" />
+  <HelpKINode Title="SolutionDetails class">
+    <HelpKINode Title="fields" Url="html/2928c17d-2b8c-6a85-b849-728446237966.htm" />
+    <HelpKINode Title="methods" Url="html/3aa6ae93-5b39-e3ee-23dc-ab481cf81328.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Sort method" Url="html/eedb89f0-f959-c07a-b6fe-749780dba3d0.htm" />
+  <HelpKINode Title="Split method" Url="html/0a2c0dc1-f06f-9c4b-a443-e35848a2efd9.htm" />
+  <HelpKINode Title="SplitString method" Url="html/63ff7bd6-8bf3-26c5-49d2-be30aa78732f.htm" />
+  <HelpKINode Title="SplitStrings method" Url="html/ad166b6c-21aa-7fa9-3106-c9e527c92d3f.htm" />
+  <HelpKINode Title="splitter1 field">
+    <HelpKINode Title="GetStringBox.splitter1 Field" Url="html/c089a8e5-ab53-199d-d3e0-f514149f24e7.htm" />
+    <HelpKINode Title="GetStringImageCompare.splitter1 Field" Url="html/7777d25c-6084-6e72-bc92-a861a8afe049.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SplitTwo method" Url="html/57f572d2-2b94-f610-ed14-01e1996d4fed.htm" />
+  <HelpKINode Title="SplitTwoInt method" Url="html/0759531d-3fba-968c-7cb6-544c04d0a424.htm" />
+  <HelpKINode Title="SplitUp method" Url="html/7f6d528b-3720-43a2-52be-7a18175e9fd3.htm" />
+  <HelpKINode Title="StartRight(Of T) method" Url="html/fe1bbff8-faea-8416-0991-ac402195fd67.htm" />
+  <HelpKINode Title="StartRight&lt;T&gt; method" Url="html/fe1bbff8-faea-8416-0991-ac402195fd67.htm" />
+  <HelpKINode Title="StopAll method" Url="html/c4bb5207-8d83-28cf-2c19-8582b80ab4ac.htm" />
+  <HelpKINode Title="StopAllUDP method" Url="html/29f0d53f-32cb-ac05-8e62-02ad3eb38fc9.htm" />
+  <HelpKINode Title="StopUDPClient method" Url="html/c76de078-3518-542b-a06a-318b5ef6863f.htm" />
+  <HelpKINode Title="storage field" Url="html/9b8f71ea-88c7-f707-9c03-82342f911a59.htm" />
+  <HelpKINode Title="Storage property" Url="html/a3415363-cd29-8b7c-bf87-7f99374e8ffc.htm" />
+  <HelpKINode Title="StretchBitmap method" Url="html/1b3ed258-ae69-04a5-75ad-c68bdca3f06a.htm" />
+  <HelpKINode Title="StringExtras class">
+    <HelpKINode Title="StringExtras Class" Url="html/1a9cb3fe-1ac3-b532-2f42-e5133055fe32.htm" />
+    <HelpKINode Title="about StringExtras class" Url="html/1a9cb3fe-1ac3-b532-2f42-e5133055fe32.htm" />
+    <HelpKINode Title="methods" Url="html/ab7653ac-3322-30a5-c8cd-9ad74e742b1f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="StringExtras.AddText method" Url="html/5cd0bbcd-30c3-3196-f1be-3f6a499ff7c8.htm" />
+  <HelpKINode Title="StringExtras.ApplyTrim method" Url="html/3303fe91-cb2d-e431-ffcd-c456ef882f31.htm" />
+  <HelpKINode Title="StringExtras.CleanString method" Url="html/1a311cd3-adca-f0b9-1355-e770d4f1e860.htm" />
+  <HelpKINode Title="StringExtras.ContainsSubStringCount method" Url="html/7c9dbe66-5117-c8a0-2ff7-8009b8057e53.htm" />
+  <HelpKINode Title="StringExtras.GetFirstRepetition method" Url="html/b5dd7712-dd62-f8d6-537a-9ba410cd814c.htm" />
+  <HelpKINode Title="StringExtras.GetMd5Hash method" Url="html/77336248-0669-9431-6b13-b6c9f0f225b4.htm" />
+  <HelpKINode Title="StringExtras.GetMD5OfString method" Url="html/374b2634-1b23-e885-96bd-e0b28ec03e01.htm" />
+  <HelpKINode Title="StringExtras.MergeWhiteSpace method" Url="html/9146f54c-6eb4-227e-155b-e09555375849.htm" />
+  <HelpKINode Title="StringExtras.PadString method" Url="html/7eb275a1-4fd4-7a19-c38e-ef99b2edb332.htm" />
+  <HelpKINode Title="StringExtras.RemoveAllNonAlphabetChars method" Url="html/43663c68-7f57-e6d1-8ccb-075fce6a0c45.htm" />
+  <HelpKINode Title="StringExtras.RemoveComments method" Url="html/50a00dbe-f9e5-47ee-ebc0-1ba59c9054c4.htm" />
+  <HelpKINode Title="StringExtras.ReplaceAllChars method" Url="html/a461e93a-261b-6bf6-c4f4-54f27c6c1941.htm" />
+  <HelpKINode Title="StringExtras.ReplaceCharAtPosition method" Url="html/caecc800-2be1-0a00-ae53-28474a39cab7.htm" />
+  <HelpKINode Title="StringExtras.ReplaceStringAtPosition method" Url="html/66a1813f-ea01-be03-c3fd-129fe370d194.htm" />
+  <HelpKINode Title="StringExtras.SplitString method" Url="html/63ff7bd6-8bf3-26c5-49d2-be30aa78732f.htm" />
+  <HelpKINode Title="StringExtras.SplitStrings method" Url="html/ad166b6c-21aa-7fa9-3106-c9e527c92d3f.htm" />
+  <HelpKINode Title="StringExtras.SplitTwo method" Url="html/57f572d2-2b94-f610-ed14-01e1996d4fed.htm" />
+  <HelpKINode Title="StringExtras.SplitTwoInt method" Url="html/0759531d-3fba-968c-7cb6-544c04d0a424.htm" />
+  <HelpKINode Title="StringExtras.StringIsNumber method" Url="html/bbc456db-7d25-6f53-a960-8e75cf3f6853.htm" />
+  <HelpKINode Title="StringExtras.StringStartsWithLetter method" Url="html/93a5d47c-f65e-d3cf-c9f3-38f25d6c0abd.htm" />
+  <HelpKINode Title="StringExtras.ToCamelCase method" Url="html/c532b515-3dc5-d09f-cbda-233c17fb1af1.htm" />
+  <HelpKINode Title="StringExtras.Truncate method" Url="html/1356816a-bed9-942a-566c-cadd909aef45.htm" />
+  <HelpKINode Title="StringIsNumber method" Url="html/bbc456db-7d25-6f53-a960-8e75cf3f6853.htm" />
+  <HelpKINode Title="StringStartsWithLetter method" Url="html/93a5d47c-f65e-d3cf-c9f3-38f25d6c0abd.htm" />
+  <HelpKINode Title="STUNServer method" Url="html/4dc1dd3d-6e7d-8c9b-5cc6-c6f09978f3e6.htm" />
+  <HelpKINode Title="SubItemCollectionToRange method" Url="html/cc148871-a2b9-753a-7852-8c954a051fea.htm" />
+  <HelpKINode Title="SuspendPaint method" Url="html/557f8be4-9270-4920-ccc7-d909cae424ed.htm" />
+  <HelpKINode Title="Swap(Of T) method" Url="html/5e02cc1e-8c15-285b-ea62-12780821db43.htm" />
+  <HelpKINode Title="Swap&lt;T&gt; method" Url="html/5e02cc1e-8c15-285b-ea62-12780821db43.htm" />
+  <HelpKINode Title="SwapControls method" Url="html/900e9d48-7e60-e82a-934e-06c55b274bc4.htm" />
+  <HelpKINode Title="SwapIndicies method" Url="html/bde09388-cd2e-0111-f21a-270d7ea0a2c1.htm" />
+  <HelpKINode Title="SwitchControlLocations method" Url="html/6d8034cc-012e-8bd3-00cf-7c181dfee934.htm" />
+  <HelpKINode Title="TabPageExtras class">
+    <HelpKINode Title="TabPageExtras Class" Url="html/e2ded14f-0525-fefc-6a29-af30e6055019.htm" />
+    <HelpKINode Title="about TabPageExtras class" Url="html/e2ded14f-0525-fefc-6a29-af30e6055019.htm" />
+    <HelpKINode Title="methods" Url="html/f2f81a2f-fb5c-e872-c002-b927fae35343.htm" />
+  </HelpKINode>
+  <HelpKINode Title="TabPageExtras.SetEnableOnAllTabPageControls method" Url="html/e227b22d-cf00-59ac-9595-dea74a3a4b12.htm" />
+  <HelpKINode Title="TabPageExtras.SetEnableOnAllTabPagesInTabControl method" Url="html/7fa0424c-429a-d9db-dd8f-6765cc7fe9a6.htm" />
+  <HelpKINode Title="tb_KeyPress method" Url="html/58978dc9-e5c2-15da-b66e-8420c856b26f.htm" />
+  <HelpKINode Title="TestColourByRGB method" Url="html/64321dbf-6914-feed-e717-92a2cfa7660d.htm" />
+  <HelpKINode Title="Text field" Url="html/a940d5c6-94a4-f767-bd77-3285befa22a6.htm" />
+  <HelpKINode Title="Text property" Url="html/4e2f3fd4-b2ea-edec-fd17-5c789f4ade55.htm" />
+  <HelpKINode Title="textarea field" Url="html/ab4fd1a3-4acc-7c14-0aa1-a0362934f751.htm" />
+  <HelpKINode Title="textbox field" Url="html/fb9c75dd-bc9c-2556-67b2-0a9872ffcf46.htm" />
+  <HelpKINode Title="textBox1 field" Url="html/cf741605-880f-1976-bb53-9fea5467c23f.htm" />
+  <HelpKINode Title="textBox1_KeyPress method" Url="html/8f11746f-e213-d839-1aa2-09dfe90f3ccd.htm" />
+  <HelpKINode Title="textboxes field" Url="html/e99fa6bb-8976-0a3e-cbde-081dcc840a8e.htm" />
+  <HelpKINode Title="TextboxExtras class">
+    <HelpKINode Title="TextboxExtras Class" Url="html/84dc5ebb-3296-5521-bdb0-d7c194ac8035.htm" />
+    <HelpKINode Title="about TextboxExtras class" Url="html/84dc5ebb-3296-5521-bdb0-d7c194ac8035.htm" />
+    <HelpKINode Title="methods" Url="html/924c70d2-a86e-40a1-ebfb-ea98a4021e81.htm" />
+  </HelpKINode>
+  <HelpKINode Title="TextboxExtras.GetFutureTextBoxAfterKeyPress method" Url="html/3c57a17f-3e9d-6bde-bd0c-a9176c5ac9eb.htm" />
+  <HelpKINode Title="TextboxExtras.GetSelection method" Url="html/72d7b441-401f-5c93-49a3-91885c454ac5.htm" />
+  <HelpKINode Title="TextboxExtras.HandleInput method" Url="html/c2c9f1c2-6b3f-4dba-ce6f-f820bb8cfb79.htm" />
+  <HelpKINode Title="TextboxExtras.HandleInputAsFloat method" Url="html/42ef60d5-fb11-6e39-69dd-e6c780da8ca6.htm" />
+  <HelpKINode Title="TextboxExtras.InputType class">
+    <HelpKINode Title="TextboxExtras.InputType Class" Url="html/2f75e590-d38d-d040-4a4e-285879a36973.htm" />
+    <HelpKINode Title="about TextboxExtras.InputType class" Url="html/2f75e590-d38d-d040-4a4e-285879a36973.htm" />
+    <HelpKINode Title="constructor" Url="html/558f8186-d02a-6f71-0854-46ea1c26f1ef.htm" />
+  </HelpKINode>
+  <HelpKINode Title="TextboxExtras.InputType.AllowChars field" Url="html/11d75c9c-efc3-331a-2924-6ba951827e3a.htm" />
+  <HelpKINode Title="TextboxExtras.InputType.AllowDot field" Url="html/71e510b2-763e-167b-eefa-b2f8cf51a22a.htm" />
+  <HelpKINode Title="TextboxExtras.InputType.AllowNumbers field" Url="html/9c910f28-9a13-d11d-f7c9-80989fc50205.htm" />
+  <HelpKINode Title="TextboxExtras.InputType.AllowWhiteSpace field" Url="html/671602c7-4262-6a00-e965-38aad90597fd.htm" />
+  <HelpKINode Title="TextboxExtras.InputType.Create method" Url="html/cf8bbb95-0d5c-be97-16b0-0c4636645464.htm" />
+  <HelpKINode Title="TextboxExtras.InputType.CreateAllTrue method" Url="html/161b641e-1d10-0adf-63c3-654f77b692cc.htm" />
+  <HelpKINode Title="TextboxExtras.InputType.InputType constructor" Url="html/558f8186-d02a-6f71-0854-46ea1c26f1ef.htm" />
+  <HelpKINode Title="TextboxExtras.IsSpecial method" Url="html/c0782582-bdb9-8469-a23f-674bdbcfc8c2.htm" />
+  <HelpKINode Title="TextboxExtras.ScrollToEnd method" Url="html/3d23bb39-ba80-56e3-7fcf-503571d6eff8.htm" />
+  <HelpKINode Title="TextBoxItems class">
+    <HelpKINode Title="fields" Url="html/e03ab805-b486-a5d8-b117-7c6f23acb537.htm" />
+    <HelpKINode Title="methods" Url="html/66dd9143-7685-17eb-7b4e-9b0c5e613c20.htm" />
+  </HelpKINode>
+  <HelpKINode Title="TextBoxName field" Url="html/65e588a2-34c0-d4c3-f955-24ad54f8ed03.htm" />
+  <HelpKINode Title="TextBoxPreSetText field" Url="html/0fea06ca-bcb4-6375-eb65-9cc8b1355528.htm" />
+  <HelpKINode Title="TimeInWords method" Url="html/b9a3a771-615f-0355-38d3-ae08897e2abb.htm" />
+  <HelpKINode Title="Timeout property" Url="html/3dd2002d-c5c4-5df9-5529-9ef31adbc708.htm" />
+  <HelpKINode Title="TimeUpdates class">
+    <HelpKINode Title="TimeUpdates Class" Url="html/0c612dae-844f-c797-47be-e0f4d1863398.htm" />
+    <HelpKINode Title="about TimeUpdates class" Url="html/0c612dae-844f-c797-47be-e0f4d1863398.htm" />
+    <HelpKINode Title="methods" Url="html/81fa4b36-c7d6-3922-aeb8-d86f8e3758ab.htm" />
+  </HelpKINode>
+  <HelpKINode Title="TimeUpdates.GetDays method" Url="html/39fb04ea-49a3-f76d-7195-b313e809d48c.htm" />
+  <HelpKINode Title="TimeUpdates.GetHours method" Url="html/2eaa2aea-252b-23a4-12c2-992866e5a5cd.htm" />
+  <HelpKINode Title="TimeUpdates.GetMinutes method" Url="html/f177b7a4-2eab-e189-aff7-3d93b7d9c23c.htm" />
+  <HelpKINode Title="TimeUpdates.Pluralise method" Url="html/d0283a9e-b6f0-5563-4b02-4b5c11467c73.htm" />
+  <HelpKINode Title="TimeUpdates.TimeInWords method" Url="html/b9a3a771-615f-0355-38d3-ae08897e2abb.htm" />
+  <HelpKINode Title="ToCamelCase method" Url="html/c532b515-3dc5-d09f-cbda-233c17fb1af1.htm" />
+  <HelpKINode Title="ToDictionary method" Url="html/1b6571bf-bcf7-9ba0-fe12-de45b26112eb.htm" />
+  <HelpKINode Title="ToExpando method" Url="html/3515a772-bdaf-2605-275b-1bfb1ed8ae31.htm" />
+  <HelpKINode Title="ToString method" Url="html/6ba161ae-480c-d5b2-6b72-ad8c473477c3.htm" />
+  <HelpKINode Title="ToStringBytes method" Url="html/897c028c-d424-e2c4-afb2-866dee0e3589.htm" />
+  <HelpKINode Title="ToStringKB method" Url="html/156c9a2e-d2b8-9329-6fca-28ea35a7a9bd.htm" />
+  <HelpKINode Title="ToStringMB method" Url="html/d5a80976-197c-0ac4-887f-b733530ea87d.htm" />
+  <HelpKINode Title="Train method" Url="html/1e887819-439d-0057-eb16-20718cd0db99.htm" />
+  <HelpKINode Title="TrimFileName method" Url="html/214cabfe-edd5-c4f9-283a-5b2beae57356.htm" />
+  <HelpKINode Title="Truncate method">
+    <HelpKINode Title="MathExtras.Truncate Method " Url="html/424fcb94-1619-bdd1-f74a-7b0b1d7809db.htm" />
+    <HelpKINode Title="StringExtras.Truncate Method " Url="html/1356816a-bed9-942a-566c-cadd909aef45.htm" />
+  </HelpKINode>
+  <HelpKINode Title="TypeSep field" Url="html/628b3e06-b95c-7fab-48f1-fb43b3da8b64.htm" />
+  <HelpKINode Title="UDPListener field" Url="html/ddab4961-24ff-3247-24a7-9de9c7e61b3a.htm" />
+  <HelpKINode Title="UDPSenders field" Url="html/6a6b8f85-16af-603d-6496-97742a486995.htm" />
+  <HelpKINode Title="UnselectableRichTextBox class">
+    <HelpKINode Title="UnselectableRichTextBox Class" Url="html/7859ee68-c0de-d452-70b3-c55635e3b54e.htm" />
+    <HelpKINode Title="about UnselectableRichTextBox class" Url="html/7859ee68-c0de-d452-70b3-c55635e3b54e.htm" />
+    <HelpKINode Title="constructor" Url="html/23ce2dee-aab4-ceba-2e41-1f1b1f4e07ae.htm" />
+    <HelpKINode Title="events" Url="html/d589a4fc-4f52-669a-2039-d5d4ac8065b0.htm" />
+    <HelpKINode Title="methods" Url="html/6907774c-acdd-644f-6ea6-9ae329b2676b.htm" />
+    <HelpKINode Title="properties" Url="html/e7df5932-8703-0359-8da4-3a5f6aaaff5e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UnselectableRichTextBox.OnGotFocus method" Url="html/92cfb0d9-e7c7-562d-94bf-bec7076f6238.htm" />
+  <HelpKINode Title="UnselectableRichTextBox.UnselectableRichTextBox constructor" Url="html/23ce2dee-aab4-ceba-2e41-1f1b1f4e07ae.htm" />
+  <HelpKINode Title="UnselectableRichTextBox.UnselectableTextBox method" Url="html/41434a92-40a9-5498-3600-56fb101ea142.htm" />
+  <HelpKINode Title="UnselectableRichTextBox.WndProc method" Url="html/341a46ef-be5e-db38-35ba-c3e13563943f.htm" />
+  <HelpKINode Title="UnselectableTextBox method" Url="html/41434a92-40a9-5498-3600-56fb101ea142.htm" />
+  <HelpKINode Title="UpdateApplication method" Url="html/5a4a94da-adea-792c-ba91-456d63718429.htm" />
+  <HelpKINode Title="UTCoffset field" Url="html/f9262703-7751-e09c-4534-6ef4d8fea443.htm" />
+  <HelpKINode Title="v field" Url="html/10dddb7a-80b9-c3d8-59e1-d106b2816b0e.htm" />
+  <HelpKINode Title="VerMajor field" Url="html/479654e1-4156-6988-5130-08a451054bec.htm" />
+  <HelpKINode Title="VerMinor field" Url="html/01a1efd2-b116-24a4-923e-d07b140b6502.htm" />
+  <HelpKINode Title="Version field" Url="html/6e6eb831-c601-ebda-846f-b58935b81663.htm" />
+  <HelpKINode Title="w field" Url="html/66f8f3f4-d0a4-4c67-7ad2-d37349403187.htm" />
+  <HelpKINode Title="WebClientEx class">
+    <HelpKINode Title="events" Url="html/2b297cf1-1490-138a-1f48-3ca2ff1f82a4.htm" />
+    <HelpKINode Title="methods" Url="html/1b7926cf-2f20-5e0e-4497-81895ea1a814.htm" />
+    <HelpKINode Title="properties" Url="html/c724f01c-e0d8-7356-9e7e-0241d261354c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WhiteBitmap field" Url="html/133f0f89-742c-a99e-0b9f-709868c10392.htm" />
+  <HelpKINode Title="wki100_computername field" Url="html/5ee6aaed-d312-6487-c016-58a9b5776e7a.htm" />
+  <HelpKINode Title="wki100_langroup field" Url="html/604f1035-b252-2802-05c1-397548796c16.htm" />
+  <HelpKINode Title="wki100_platform_id field" Url="html/b56ac401-0c67-483e-8736-a97d2dbf203a.htm" />
+  <HelpKINode Title="wki100_ver_major field" Url="html/4625e2d8-db91-20eb-4ab9-2e5a84142ed2.htm" />
+  <HelpKINode Title="wki100_ver_minor field" Url="html/3f7432e7-6c81-d478-a9d1-fb123f95dd06.htm" />
+  <HelpKINode Title="WKSTA_INFO_100 structure">
+    <HelpKINode Title="fields" Url="html/c46bef64-42e8-423e-ebe2-208018e2f608.htm" />
+    <HelpKINode Title="methods" Url="html/04f4bbf4-17ea-8fff-4475-8d80fb2f6f8e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WM_SETREDRAW field" Url="html/b9a5a5e8-eb23-fcf1-5118-4dcaf6fb8a5c.htm" />
+  <HelpKINode Title="WndProc method" Url="html/341a46ef-be5e-db38-35ba-c3e13563943f.htm" />
+  <HelpKINode Title="workItemsWaiting field" Url="html/e0f2cfd1-ece6-f1bc-b590-65b16f8bce5e.htm" />
+  <HelpKINode Title="WrapBar method" Url="html/67f29d02-fe28-1c7b-cb76-0f7a1b61dae0.htm" />
+  <HelpKINode Title="WriteXml method" Url="html/5bfec233-134f-c7ac-54d6-fa41e866f830.htm" />
+  <HelpKINode Title="xval field" Url="html/783f3e10-f989-364c-c0e9-40c6e0400543.htm" />
+  <HelpKINode Title="XValues field" Url="html/0c3a8c76-9934-1209-3e72-c0a127054a6a.htm" />
+  <HelpKINode Title="YValues field" Url="html/ac55a4a6-eb42-9f11-06d3-4e5dba15a304.htm" />
+  <HelpKINode Title="ZipExtras class">
+    <HelpKINode Title="ZipExtras Class" Url="html/c2b3d7e5-4fd5-6383-614c-f48ea78af866.htm" />
+    <HelpKINode Title="about ZipExtras class" Url="html/c2b3d7e5-4fd5-6383-614c-f48ea78af866.htm" />
+    <HelpKINode Title="methods" Url="html/9a6facf4-6231-cf8b-de80-a24efa0d4e54.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ZipExtras.ExtractZipFile method" Url="html/b768c2c7-b901-d568-4333-77a178c0ae21.htm" />
+  <HelpKINode Title="ZipFileLocation field" Url="html/21115d60-3a07-c23b-d731-53d151630f23.htm" />
+  <HelpKINode Title="Zones field" Url="html/25d7efd0-399e-8b24-38b0-7f5173bd4325.htm" />
+  <HelpKINode Title="_callback field" Url="html/0178ea95-917b-3d63-442f-5e5d6dc3717f.htm" />
+  <HelpKINode Title="_sd field" Url="html/2e6a560e-a065-dcaa-6423-f0dff31256e7.htm" />
+</HelpKI>

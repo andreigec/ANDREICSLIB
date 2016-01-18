@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2015.10.10.0" projectFile="C:\src\andreicslib-GH\proj.shfbproj" started="19/01/2016 10:26:35 AM">
+<buildStep step="Initializing">
+    Last step completed in 00:00:00.0010
+</buildStep>
+<buildStep step="Failed">
+
+SHFB: Error BE0034: The &#39;OutputPath&#39; property resolved to &#39;C:\src\andreicslib-GH\&#39; which is a reserved folder name that cannot be used for build output or as the working files folder.  See the error or property topic in the help file for more details.
+   at SandcastleBuilder.Utils.BuildEngine.BuildProcess.VerifySafePath(String propertyName, String propertyValue, String projectPath)
+   at SandcastleBuilder.Utils.BuildEngine.BuildProcess.Build()
+
+</buildStep>
+</shfbBuild>
