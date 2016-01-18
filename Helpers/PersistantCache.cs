@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,7 +14,7 @@ using Newtonsoft.Json.Linq;
 namespace ANDREICSLIB.Helpers
 {
     /// <summary>
-    /// example usage:https://github.com/andreigec/GithubSensitiveSearch
+    /// example usage: https://github.com/andreigec/GithubSensitiveSearch
     /// </summary>
     public class PersistantCache : IDisposable
     {

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +6,7 @@ using System.Text;
 namespace ANDREICSLIB.ClassExtras
 {
     /// <summary>
-    /// example usage:https://github.com/andreigec/Crossword-Puzzle-Solver
+    /// example usage: https://github.com/andreigec/Crossword-Puzzle-Solver
     /// </summary>
     public class ArrayExtras
     {
