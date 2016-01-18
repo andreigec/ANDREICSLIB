@@ -14,7 +14,7 @@ namespace ANDREICSLIB.ClassExtras
             {
                 FileStream fs = File.OpenRead(archiveFilenameIn);
                 zf = new ZipFile(fs);
-                if (!String.IsNullOrEmpty(password))
+                if (!string.IsNullOrEmpty(password))
                 {
                     zf.Password = password; // AES encrypted entries are handled automatically
                 }

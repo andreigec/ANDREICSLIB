@@ -5,14 +5,14 @@ namespace ANDREICSLIB.NewControls
 {
     public partial class getStringBox : Form
     {
-        public String returnvalue = "";
+        public string returnvalue = "";
 
         public getStringBox()
         {
             InitializeComponent();
         }
 
-        public String ShowDialog(String labelText, String title,bool multiline=false)
+        public string ShowDialog(string labelText, string title,bool multiline=false)
         {
             Text = title;
             label1.Text = labelText;

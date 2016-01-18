@@ -101,7 +101,7 @@ namespace ANDREICSLIB.ClassExtras
         /// Initialise the columns to be those in a list of strings
         /// </summary>
         /// <param name="columnList">The list of strings to be made columns of</param>
-        public static void InitColumnHeaders(ListView lv, List<String> columnList)
+        public static void InitColumnHeaders(ListView lv, List<string> columnList)
         {
             if (columnList == null)
                 return;
@@ -143,7 +143,7 @@ namespace ANDREICSLIB.ClassExtras
         /// </summary>
         /// <param name="columnName">the column name</param>
         /// <returns>the index of the column, -1 if not found</returns>
-        public static int GetColumnNumber(ListView lv, String columnName, String LVIField = "Text")
+        public static int GetColumnNumber(ListView lv, string columnName, string LVIField = "Text")
         {
             int count = -1;
             foreach (ColumnHeader CH in lv.Columns)
@@ -210,8 +210,8 @@ namespace ANDREICSLIB.ClassExtras
             return lvi;
         }
 
-        public static bool SetColumn(ListView lv, ListViewItem lvi, String columnName, String columnValue,
-                                     String LVIField = "Text")
+        public static bool SetColumn(ListView lv, ListViewItem lvi, string columnName, string columnValue,
+                                     string LVIField = "Text")
         {
             int col = GetColumnNumber(lv, columnName, LVIField);
 
@@ -225,7 +225,7 @@ namespace ANDREICSLIB.ClassExtras
             return true;
         }
 
-        public static string GetColumn(ListView lv, ListViewItem lvi, String columnName, String LVIField = "Text")
+        public static string GetColumn(ListView lv, ListViewItem lvi, string columnName, string LVIField = "Text")
         {
             int col = GetColumnNumber(lv, columnName);
 
@@ -278,10 +278,10 @@ namespace ANDREICSLIB.ClassExtras
         /// <param name="LVI"></param>
         /// <param name="LVIField"></param>
         /// <returns>column header name,row value</returns>
-        public static List<Tuple<String, String>> GetListViewItemRowValuesAndColumnName(ListView lv, ListViewItem LVI,
-                                                                                        String LVIField = "Text")
+        public static List<Tuple<string, string>> GetListViewItemRowValuesAndColumnName(ListView lv, ListViewItem LVI,
+                                                                                        string LVIField = "Text")
         {
-            var ret = new List<Tuple<String, String>>();
+            var ret = new List<Tuple<string, string>>();
             for (int a = 0; a < LVI.SubItems.Count; a++)
             {
                 object val = Reflection.GetFieldValue(LVI.SubItems[a], LVIField);

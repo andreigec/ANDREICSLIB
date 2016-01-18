@@ -163,7 +163,7 @@ namespace ANDREICSLIB.Licensing
                 return;
             }
 
-            if (String.IsNullOrEmpty(dsd.ChangeLog) == false)
+            if (string.IsNullOrEmpty(dsd.ChangeLog) == false)
             {
                 dsd.ChangeLog = StringExtras.ApplyTrim(dsd.ChangeLog, true, 500);
                 versionS += "\n\nCHANGELOG:\n" + dsd.ChangeLog;
@@ -186,8 +186,8 @@ namespace ANDREICSLIB.Licensing
 
         private static void UpdateApplication(DownloadedSolutionDetails dsd)
         {
-            String folder;
-            String localfile;
+            string folder;
+            string localfile;
             //we need the exe file for later execution
             string exefile = "";
             string exefolder;
@@ -328,9 +328,9 @@ namespace ANDREICSLIB.Licensing
         public class SolutionDetails
         {
             private LicenseCallback _callback;
-            public String AboutScreenOtherText;
-            public String FormTitle;
-            public String HelpText;
+            public string AboutScreenOtherText;
+            public string FormTitle;
+            public string HelpText;
             public double AppVersion;
 
             public SolutionDetails(LicenseCallback dsd, string helpText = null, string formTitle = null, double? version = null, string aboutScreenOtherText = null)

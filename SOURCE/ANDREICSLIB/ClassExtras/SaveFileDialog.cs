@@ -12,7 +12,7 @@ namespace ANDREICSLIB.ClassExtras
         /// </summary>
         /// <param name="descAndExt">tuple with description, fileext eg: JPeg Image, *.jpg</param>
         /// <returns></returns>
-        public static String createFilter(List<Tuple<String, String>> descAndExt)
+        public static string createFilter(List<Tuple<string, string>> descAndExt)
         {
             string ret = "";
             foreach (var v in descAndExt)
@@ -28,7 +28,7 @@ namespace ANDREICSLIB.ClassExtras
         /// <param name="description">eg: JPeg Image</param>
         /// <param name="extension">eg  *.jpg</param>
         /// <returns></returns>
-        public static String createFilter(String description, String extension)
+        public static string createFilter(string description, string extension)
         {
             return description + sep + extension;
         }

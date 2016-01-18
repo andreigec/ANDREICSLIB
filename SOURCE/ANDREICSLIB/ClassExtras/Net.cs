@@ -174,7 +174,7 @@ namespace ANDREICSLIB.ClassExtras
             return true;
         }
 
-        public static bool IsIPAddress(String s)
+        public static bool IsIPAddress(string s)
         {
             try
             {
@@ -234,7 +234,7 @@ namespace ANDREICSLIB.ClassExtras
         {
             try
             {
-                String addr = DownloadWebPage(WebCheckIPURL);
+                string addr = DownloadWebPage(WebCheckIPURL);
                 if (string.IsNullOrEmpty(addr) == false)
                 {
                     //remove up to :
@@ -268,7 +268,7 @@ namespace ANDREICSLIB.ClassExtras
             return 0;
         }
 
-        public static String GetMAC(IPAddress ip)
+        public static string GetMAC(IPAddress ip)
         {
             try
             {
@@ -312,7 +312,7 @@ namespace ANDREICSLIB.ClassExtras
         }
 
         //admin rights required
-        public static Dictionary<String, String> GetRemoteInfo(IPAddress ip, String hostname, int extraInfoTimeout)
+        public static Dictionary<string, string> GetRemoteInfo(IPAddress ip, string hostname, int extraInfoTimeout)
         {
             var options = new ConnectionOptions();
             options.Impersonation = ImpersonationLevel.Impersonate;

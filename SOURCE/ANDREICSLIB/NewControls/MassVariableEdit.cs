@@ -14,7 +14,7 @@ namespace ANDREICSLIB.NewControls
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public delegate bool AcceptFinalTextBoxText(String s);
+        public delegate bool AcceptFinalTextBoxText(string s);
 
         /// <summary>
         /// will get called on textbox.keypress if set
@@ -26,7 +26,7 @@ namespace ANDREICSLIB.NewControls
 
         #endregion
 
-        public List<Tuple<String, String>> ReturnValues;
+        public List<Tuple<string, string>> ReturnValues;
         public List<TextBox> textboxes;
 
         public MassVariableEdit()
@@ -34,7 +34,7 @@ namespace ANDREICSLIB.NewControls
             InitializeComponent();
         }
 
-        public static List<Tuple<String, String>> ShowDialogStatic(String formText, object classInstance,
+        public static List<Tuple<string, string>> ShowDialogStatic(string formText, object classInstance,
                                                                    List<TextBoxItems> overload = null)
         {
             var mve = new MassVariableEdit();
@@ -48,7 +48,7 @@ namespace ANDREICSLIB.NewControls
         /// <param name="classInstance"> </param>
         /// <param name="overload"> </param>
         /// <returns></returns>
-        public List<Tuple<String, String>> ShowDialog(String formText, object classInstance,
+        public List<Tuple<string, string>> ShowDialog(string formText, object classInstance,
                                                       List<TextBoxItems> overload = null)
         {
             Type ty = classInstance.GetType();
@@ -90,7 +90,7 @@ namespace ANDREICSLIB.NewControls
         /// </summary>
         /// <param name="items">list of items to add. param name,preset value,keypress validation</param>
         /// <returns></returns>
-        public List<Tuple<String, String>> ShowDialog(String formText, List<TextBoxItems> items)
+        public List<Tuple<string, string>> ShowDialog(string formText, List<TextBoxItems> items)
         {
             Text = formText;
             textboxes = new List<TextBox>();
@@ -99,7 +99,7 @@ namespace ANDREICSLIB.NewControls
                 var l = new Label();
                 l.Width = this.Width-50;
                 l.Text = k.LabelText;
-                itemspanel.addControl(l, false);
+                itemspanel.AddControl(l, false);
 
                 var tb = new TextBox();
                 tb.Name = k.TextBoxName;
@@ -108,7 +108,7 @@ namespace ANDREICSLIB.NewControls
                 tb.KeyPress += tb_KeyPress;
                 textboxes.Add(tb);
 
-                itemspanel.addControl(tb, false);
+                itemspanel.AddControl(tb, false);
             }
 
             ShowDialog();
@@ -175,7 +175,7 @@ namespace ANDREICSLIB.NewControls
             /// <param name="handleKeyPressH">will get called on textbox.keypress if set</param>
             /// <param name="acceptFinalTextBoxTextH"> will get called to do final validations on textbox text before accepting </param>
             /// <param name="errortext">will get shown in a dialog if the acceptfinaltext delegate fails</param>
-            public TextBoxItems(String fieldname, string presetvalue = "",
+            public TextBoxItems(string fieldname, string presetvalue = "",
                                               HandleKeyPress handleKeyPressH = null,
                                               AcceptFinalTextBoxText acceptFinalTextBoxTextH = null,
                                               string errortext = "")

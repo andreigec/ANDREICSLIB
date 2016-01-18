@@ -29,7 +29,7 @@ namespace ANDREICSLIB
         /// </summary>
         /// <param name="filename">pass the file name</param>
         /// <returns></returns>
-        public static string ReadEmbeddedResource(String filename)
+        public static string ReadEmbeddedResource(string filename)
         {
             StreamReader rs = GetResourceStream(filename, Assembly.GetCallingAssembly());
             if (rs == null)
@@ -45,7 +45,7 @@ namespace ANDREICSLIB
         /// <param name="filename"></param>
         /// <param name="a">assembly.getexecutingassembly</param>
         /// <returns>make sure to close the streamreader if not null</returns>
-        private static StreamReader GetResourceStream(String filename, Assembly a)
+        private static StreamReader GetResourceStream(string filename, Assembly a)
         {
             if (a == null || string.IsNullOrEmpty(filename))
                 return null;

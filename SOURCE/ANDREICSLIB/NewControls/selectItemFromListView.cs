@@ -28,7 +28,7 @@ namespace ANDREICSLIB.NewControls
         /// <param name="multiselect"></param>
         /// <param name="mustSelectCountIN"></param>
         /// <returns></returns>
-        public static List<ListViewItem> ShowDialog(String labelText, String title, List<ListViewItem> listBoxItems,
+        public static List<ListViewItem> ShowDialog(string labelText, string title, List<ListViewItem> listBoxItems,
                                               bool multiselect, int mustSelectCountIN = -1)
         {
             var s = new selectItemFromListView();

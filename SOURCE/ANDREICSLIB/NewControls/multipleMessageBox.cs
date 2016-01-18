@@ -26,7 +26,7 @@ namespace ANDREICSLIB.NewControls
             {
                 var b = new Button {Text = s};
                 b.Click += buttonpress;
-                buttonpanel.addControl(b, true);
+                buttonpanel.AddControl(b, true);
                 Control last = buttonpanel.controlStack[buttonpanel.controlStack.Count - 1];
                 count++;
                 if (count > 3)

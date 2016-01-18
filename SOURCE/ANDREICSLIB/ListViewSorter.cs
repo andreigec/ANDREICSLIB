@@ -76,7 +76,7 @@ namespace ANDREICSLIB
             lv.Sort();
         }
 
-        private static int CompareNatural(String x, String y)
+        private static int CompareNatural(string x, string y)
         {
             if (x == null && y == null) return 0;
             if (x == null) return -1;

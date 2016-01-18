@@ -39,7 +39,7 @@ namespace ANDREICSLIB
             return ret;
         }
 
-        public static string Pluralise(String word, int val)
+        public static string Pluralise(string word, int val)
         {
             string ret = word;
             if (val != 1)

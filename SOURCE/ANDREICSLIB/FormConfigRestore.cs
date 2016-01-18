@@ -72,7 +72,7 @@ namespace ANDREICSLIB
         /// <param name="c"></param>
         /// <param name="propertyName"></param>
         /// <param name="value"></param>
-        private static bool LoadProperty(object c, String propertyName, object value)
+        private static bool LoadProperty(object c, string propertyName, object value)
         {
             //manually resolve first if possible
             bool ok = LoadPropertyManual(c, propertyName, value);
@@ -93,7 +93,7 @@ namespace ANDREICSLIB
             return false;
         }
 
-        private static bool LoadPropertyManual(object c, String propertyName, object value)
+        private static bool LoadPropertyManual(object c, string propertyName, object value)
         {
             if (value == null)
                 return false;
@@ -133,7 +133,7 @@ namespace ANDREICSLIB
         /// <param name="name"></param>
         /// <param name="propertyName"></param>
         /// <param name="value"></param>
-        private static void LoadProperty(Form baseform, String name, String propertyName, object value = null)
+        private static void LoadProperty(Form baseform, string name, string propertyName, object value = null)
         {
             foreach (Control c in baseform.Controls)
             {
@@ -163,7 +163,7 @@ namespace ANDREICSLIB
             }
         }
 
-        private static bool LoadProperty(String name, String propertyName, Control checkthis, object value)
+        private static bool LoadProperty(string name, string propertyName, Control checkthis, object value)
         {
             foreach (Control c in checkthis.Controls)
             {
@@ -195,7 +195,7 @@ namespace ANDREICSLIB
             return false;
         }
 
-        private static bool LoadProperty(String name, String propertyName, ToolStripItem checkthis, object value)
+        private static bool LoadProperty(string name, string propertyName, ToolStripItem checkthis, object value)
         {
             if (checkthis is ToolStripMenuItem)
             {
@@ -223,9 +223,9 @@ namespace ANDREICSLIB
         /// <param name="baseform">pass the base form</param>
         /// <param name="filename">the saved config flename</param>
         /// <returns>returns null on error, and a list of tuples of saved literal strings otherwise</returns>
-        public static List<Tuple<String, String>> LoadConfig(Form baseform, String filename)
+        public static List<Tuple<string, string>> LoadConfig(Form baseform, string filename)
         {
-            var ret = new List<Tuple<String, String>>();
+            var ret = new List<Tuple<string, string>>();
             try
             {
                 if (File.Exists(filename) == false)
@@ -244,7 +244,7 @@ namespace ANDREICSLIB
                     if (split.Length < 2)
                         continue;
 
-                    String v = null;
+                    string v = null;
                     if (split.Length >= 3)
                         v = split[2];
 
@@ -291,7 +291,7 @@ namespace ANDREICSLIB
         /// <param name="saveToolStripItems">list of tool strip menu items which the checked value should be saved for</param>
         /// <param name="literalStrings">a list of tuple string/strings to manually save</param>
         /// <returns></returns>
-        public static bool SaveConfig(Form baseform, String filename, IEnumerable<Control> saveControls = null,
+        public static bool SaveConfig(Form baseform, string filename, IEnumerable<Control> saveControls = null,
                                       IEnumerable<ToolStripItem> saveToolStripItems = null,
                                       IEnumerable<Tuple<string, string>> literalStrings = null)
         {
@@ -300,7 +300,7 @@ namespace ANDREICSLIB
                 if (File.Exists(filename))
                     File.Delete(filename);
 
-                String output = "";
+                string output = "";
                 if (saveControls != null)
                 {
                     foreach (Control c in saveControls)

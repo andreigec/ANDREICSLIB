@@ -76,8 +76,8 @@ namespace ANDREICSLIB
             return outm;
         }
 
-        public static String SerialiseMatrix<T>(T[][] matrix, int width, int height, String rowsep = ",",
-                                                String linesep = "\r\n")
+        public static string SerialiseMatrix<T>(T[][] matrix, int width, int height, string rowsep = ",",
+                                                string linesep = "\r\n")
         {
             string ret = "";
             for (int y = 0; y < height; y++)

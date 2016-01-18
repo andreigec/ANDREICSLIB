@@ -18,7 +18,7 @@ namespace ANDREICSLIB.NewControls
 
         public string[] returnvalue;
 
-        public string[] ShowDialog(String labelText, String title,Image i,int maxlen=-1,ImageLayout il=ImageLayout.Center)
+        public string[] ShowDialog(string labelText, string title,Image i,int maxlen=-1,ImageLayout il=ImageLayout.Center)
         {
             Text = title;
             label.Text = labelText;

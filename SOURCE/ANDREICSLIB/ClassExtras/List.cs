@@ -58,7 +58,7 @@ namespace ANDREICSLIB.ClassExtras
             list[index2] = temp;
         }
 
-        public static string Serialise(List<object> list, String sep = ", ")
+        public static string Serialise(List<object> list, string sep = ", ")
         {
             string ret = "";
             foreach (object v in list)

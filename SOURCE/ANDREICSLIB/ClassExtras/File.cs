@@ -39,7 +39,7 @@ namespace ANDREICSLIB.ClassExtras
         /// load a file from a path into a string
         /// </summary>
         /// <param name="filename"></param>
-        public static string LoadFile(String filename)
+        public static string LoadFile(string filename)
         {
             try
             {
@@ -56,7 +56,7 @@ namespace ANDREICSLIB.ClassExtras
             }
         }
 
-        public static bool SaveToFile(String filename, String text, bool append = false)
+        public static bool SaveToFile(string filename, string text, bool append = false)
         {
             try
             {
@@ -94,7 +94,7 @@ namespace ANDREICSLIB.ClassExtras
         /// </summary>
         /// <param name="based">dest directory,=</param>
         /// <param name="merge">directory to moverge into dest</param>
-        public static void MergeDirectories(String based, string merge)
+        public static void MergeDirectories(string based, string merge)
         {
             CreateDirectory(based);
 
@@ -119,7 +119,7 @@ namespace ANDREICSLIB.ClassExtras
         /// delete directory if exists
         /// </summary>
         /// <param name="dir"></param>
-        public static void DeleteDirectory(String dir)
+        public static void DeleteDirectory(string dir)
         {
             int trycount = 5;
             int @try = 0;
@@ -145,7 +145,7 @@ namespace ANDREICSLIB.ClassExtras
         /// </summary>
         /// <param name="filepath"></param>
         /// <returns></returns>
-        public static bool CreateFile(String filepath)
+        public static bool CreateFile(string filepath)
         {
             try
             {
@@ -163,7 +163,7 @@ namespace ANDREICSLIB.ClassExtras
         /// create directory if doesnt exist
         /// </summary>
         /// <param name="dir"></param>
-        public static void CreateDirectory(String dir)
+        public static void CreateDirectory(string dir)
         {
             int trycount = 5;
             int @try = 0;
@@ -184,11 +184,11 @@ namespace ANDREICSLIB.ClassExtras
             }
         }
 
-        public static string TrimFileName(String fn, bool basepath, bool filename, bool extension)
+        public static string TrimFileName(string fn, bool basepath, bool filename, bool extension)
         {
             int i1 = fn.LastIndexOf('\\') + 1;
             int i2 = fn.LastIndexOf('.');
-            String bp = fn.Substring(0, i1);
+            string bp = fn.Substring(0, i1);
             string fin = fn.Substring(i1, i2 - i1);
             string ex = fn.Substring(i2);
             string ret = "";
@@ -208,7 +208,7 @@ namespace ANDREICSLIB.ClassExtras
         /// <param name="partialFN">a part of the file name to look for</param>
         /// <param name="basedir"></param>
         /// <returns></returns>
-        public static string GetAbsoluteFilePath(String partialFN, String basedir)
+        public static string GetAbsoluteFilePath(string partialFN, string basedir)
         {
             IEnumerable<string> f = DirectoryExtras.GetFilesRecursive(basedir);
 

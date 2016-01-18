@@ -5,7 +5,7 @@ namespace ANDREICSLIB
 {
     public abstract class DeviceUpdates
     {
-        public static String AutodetectCOMPort(String description)
+        public static string AutodetectCOMPort(string description)
         {
             var connectionScope = new ManagementScope();
             var serialQuery = new SelectQuery("SELECT * FROM Win32_SerialPort");

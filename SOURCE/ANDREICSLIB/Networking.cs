@@ -71,7 +71,7 @@ namespace ANDREICSLIB
         public UdpClient UDPListener = null;
         public List<UdpClient> UDPSenders = null;
 
-        public void AddUDPClient(int udpPort, String ip = null, int receiveTimeout = 2000)
+        public void AddUDPClient(int udpPort, string ip = null, int receiveTimeout = 2000)
         {
             UdpClient udpClient = null;
             if (ip != null)

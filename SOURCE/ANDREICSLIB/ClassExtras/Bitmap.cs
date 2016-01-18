@@ -79,7 +79,7 @@ namespace ANDREICSLIB.ClassExtras
             return Bmp;
         }
 
-        public static Color[][] ImageFileToColorMatrix(String filename)
+        public static Color[][] ImageFileToColorMatrix(string filename)
         {
             try
             {

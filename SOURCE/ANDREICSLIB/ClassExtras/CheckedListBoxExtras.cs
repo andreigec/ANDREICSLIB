@@ -13,7 +13,7 @@ namespace ANDREICSLIB.ClassExtras
             }
         }
 
-        public static void CheckItem(CheckedListBox cb, String item)
+        public static void CheckItem(CheckedListBox cb, string item)
         {
             for (int a = 0; a < cb.Items.Count; a++)
             {

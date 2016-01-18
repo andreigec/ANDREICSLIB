@@ -27,7 +27,7 @@ namespace ANDREICSLIB.NewControls
             public bool preselected = false;
             public string Text = "";
 
-            public SelectItem(String text, bool isSelected)
+            public SelectItem(string text, bool isSelected)
             {
                 Text = text;
                 preselected = isSelected;
@@ -43,7 +43,7 @@ namespace ANDREICSLIB.NewControls
         /// <param name="multiselect"></param>
         /// <param name="mustSelectCountIN"></param>
         /// <returns></returns>
-        public static List<string> ShowDialog(String labelText, String title, List<SelectItem> listBoxItems,
+        public static List<string> ShowDialog(string labelText, string title, List<SelectItem> listBoxItems,
                                               bool multiselect, int mustSelectCountIN = -1)
         {
             var s = new selectItemFromListBox();

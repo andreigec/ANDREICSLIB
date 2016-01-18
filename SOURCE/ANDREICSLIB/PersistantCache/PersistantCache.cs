@@ -14,6 +14,9 @@ using Newtonsoft.Json.Linq;
 
 namespace ANDREICSLIB.PersistantCache
 {
+    /// <summary>
+    /// example usage:https://github.com/andreigec/GithubSensitiveSearch
+    /// </summary>
     public class PersistantCache : IDisposable
     {
         private string filename;
@@ -30,7 +33,7 @@ namespace ANDREICSLIB.PersistantCache
 
                 using (var fs = new FileStream(filename, FileMode.Open))
                 {
-                    storage = FileExtras.Deserialize(fs) ?? new Dictionary<string, object>();
+                    storage = DictionaryExtras.Deserialize(fs) ?? new Dictionary<string, object>();
                     return storage;
                 }
             }
@@ -94,9 +97,9 @@ namespace ANDREICSLIB.PersistantCache
                     //its either the object on current session
                     if (Storage[cacheKey] is T)
                         return (T)Storage[cacheKey];
-                    
-                   //or jobject when loaded from disk
-                   var ob = (JObject)Storage[cacheKey];
+
+                    //or jobject when loaded from disk
+                    var ob = (JObject)Storage[cacheKey];
                     var ty = ob.ToObject<T>();
                     return ty;
                 }

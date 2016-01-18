@@ -41,7 +41,7 @@ namespace ANDREICSLIB
         /// <param name="classInstance"></param>
         /// <param name="fieldname"></param>
         /// <returns></returns>
-        public static object GetFieldValue(object classInstance, String fieldname)
+        public static object GetFieldValue(object classInstance, string fieldname)
         {
             object ret = null;
             Type ty = classInstance.GetType();
@@ -99,7 +99,7 @@ namespace ANDREICSLIB
         /// <returns></returns>
         public static string SerialiseObject(object classInstance)
         {
-            String r = "";
+            string r = "";
             List<Tuple<string, object>> ol = GetFieldNamesAndValues(classInstance);
 
             foreach (var o in ol)
@@ -116,7 +116,7 @@ namespace ANDREICSLIB
         /// <param name="filename"></param>
         /// <param name="ignoreErrors"></param>
         /// <returns></returns>
-        public static object DeserialiseObject(String filename, Type objectType, bool ignoreErrors = true)
+        public static object DeserialiseObject(string filename, Type objectType, bool ignoreErrors = true)
         {
             if (File.Exists(filename) == false)
                 return null;
@@ -137,11 +137,11 @@ namespace ANDREICSLIB
         /// <param name="serialisedObjectString"></param>
         /// <param name="ignoreErrors"></param>
         /// <returns></returns>
-        public static object DeserialiseObject(Type objectType, String serialisedObjectString, bool ignoreErrors = true)
+        public static object DeserialiseObject(Type objectType, string serialisedObjectString, bool ignoreErrors = true)
         {
             string[] s2 = StringExtras.SplitString(serialisedObjectString, Newline);
 
-            var tl = new List<Tuple<string, String>>();
+            var tl = new List<Tuple<string, string>>();
             foreach (string s3 in s2)
             {
                 string[] s4 = StringExtras.SplitString(s3, Separator.ToString());
@@ -168,7 +168,7 @@ namespace ANDREICSLIB
         /// <param name="objectFieldNameAndValues">field name,field val</param>
         /// <param name="ignoreErrors"></param>
         /// <returns></returns>
-        public static object DeserialiseObject(Type objectType, List<Tuple<String, String>> objectFieldNameAndValues,
+        public static object DeserialiseObject(Type objectType, List<Tuple<string, string>> objectFieldNameAndValues,
                                                bool ignoreErrors = true)
         {
             object instance = Activator.CreateInstance(objectType);

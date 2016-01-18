@@ -33,7 +33,7 @@ namespace ANDREICSLIB.ClassExtras
 
         public static string GetFutureTextBoxAfterKeyPress(char keyChar, Control c)
         {
-            String t = c.Text;
+            string t = c.Text;
 
             Tuple<int, int> l = GetSelection(c);
 

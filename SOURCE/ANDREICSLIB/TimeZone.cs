@@ -13,7 +13,7 @@ namespace ANDREICSLIB
         public TimeZoneInfo Id;
         public string name;
 
-        public CustomTimeZones(TimeZoneInfo idIN, String nameIN, TimeSpan UTCIN)
+        public CustomTimeZones(TimeZoneInfo idIN, string nameIN, TimeSpan UTCIN)
         {
             Id = idIN;
             name = nameIN;
@@ -43,7 +43,7 @@ namespace ANDREICSLIB
             return "(UTC" + sign + UTCoffset.Hours + ":" + mins + ")" + " " + name;
         }
 
-        public static CustomTimeZones FromString(String s)
+        public static CustomTimeZones FromString(string s)
         {
             return Zones.FirstOrDefault(v => v.ToString().Equals(s));
         }
@@ -56,7 +56,7 @@ namespace ANDREICSLIB
         public static void Sort(bool byName)
         {
             if (byName)
-                Zones.Sort((p1, p2) => String.Compare(p1.name, p2.name, StringComparison.Ordinal));
+                Zones.Sort((p1, p2) => string.Compare(p1.name, p2.name, StringComparison.Ordinal));
             else
                 Zones.Sort(ComparisonTime);
         }
@@ -70,7 +70,7 @@ namespace ANDREICSLIB
             DateTime timenow = DateTime.Now;
             foreach (TimeZoneInfo y in x)
             {
-                String n;
+                string n;
                 TimeSpan UTCoff;
                 if (y.IsDaylightSavingTime(timenow))
                 {

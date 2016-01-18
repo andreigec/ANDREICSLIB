@@ -18,7 +18,7 @@ namespace ANDREICSLIB.NewControls
         {
         }
 
-        public static List<String> ShowDialog(String labelText, String title, List<selectItemFromListBox.SelectItem> listBoxItems,
+        public static List<string> ShowDialog(string labelText, string title, List<selectItemFromListBox.SelectItem> listBoxItems,
                                               int mustSelectCountIN = -1)
         {
             var s = new SelectItemsFromCheckBox();

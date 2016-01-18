@@ -14,7 +14,7 @@ namespace ANDREICSLIB.ClassExtras
         /// </summary>
         /// <param name="C">the control to add the tooltip to</param>
         /// <param name="text">the tooltip text</param>
-        public static void AddToolTip(Control C, String text)
+        public static void AddToolTip(Control C, string text)
         {
             if (C == null)
                 return;
@@ -62,7 +62,7 @@ namespace ANDREICSLIB.ClassExtras
 
             if (o is ComboBox)
             {
-                foreach (String s in ((ComboBox) o).Items)
+                foreach (string s in ((ComboBox) o).Items)
                 {
                     ((ComboBox) p).Items.Add(s);
                 }
@@ -70,7 +70,7 @@ namespace ANDREICSLIB.ClassExtras
 
             else if (o is ListBox)
             {
-                foreach (String s in ((ListBox) o).Items)
+                foreach (string s in ((ListBox) o).Items)
                 {
                     ((ListBox) p).Items.Add(s);
                 }

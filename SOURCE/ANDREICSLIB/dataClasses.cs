@@ -12,7 +12,7 @@ namespace ANDREICSLIB
 
         public class Btree
         {
-            public static void SaveFileIntoTree<T>(String filename, Btree<T> root, String levelSeparator = "\t")
+            public static void SaveFileIntoTree<T>(string filename, Btree<T> root, string levelSeparator = "\t")
             {
                 var fs = new FileStream(filename, FileMode.Create);
                 var sw = new StreamWriter(fs);
@@ -25,7 +25,7 @@ namespace ANDREICSLIB
                 fs.Close();
             }
 
-            private static void SaveTree<T>(Btree<T> node, ref String ret, int level, String levelSeparator = "\t")
+            private static void SaveTree<T>(Btree<T> node, ref string ret, int level, string levelSeparator = "\t")
             {
                 if (node.Name != null)
                 {
@@ -65,8 +65,8 @@ namespace ANDREICSLIB
             /// <param name="addfunc">T must be able to be instantiated with a string. call with a=>new T(a) where T is your class, or the return string method</param>
             /// <param name="levelSeparator"></param>
             /// <param name="RecreateFileIfInvalid"></param>
-            public static void LoadFileIntoTree<T>(string filename, Btree<T> root, Func<String, T> addfunc,
-                                                   String levelSeparator = "\t", bool RecreateFileIfInvalid = true)
+            public static void LoadFileIntoTree<T>(string filename, Btree<T> root, Func<string, T> addfunc,
+                                                   string levelSeparator = "\t", bool RecreateFileIfInvalid = true)
             {
                 root.Children = new List<Btree<T>>();
 

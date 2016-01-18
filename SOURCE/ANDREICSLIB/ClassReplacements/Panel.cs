@@ -92,7 +92,7 @@ namespace ANDREICSLIB.ClassReplacements
         /// <summary>
         /// make sure the panel fits all the controls in it
         /// </summary>
-        public static void fitPanel(Control resize, Control checkControls, int extrawidth = 0, int extraheight = 0)
+        public static void FitPanel(Control resize, Control checkControls, int extrawidth = 0, int extraheight = 0)
         {
             int maxx = -1;
             int maxy = -1;
@@ -110,7 +110,7 @@ namespace ANDREICSLIB.ClassReplacements
             resize.Height = maxy + extraheight;
         }
 
-        public void removeControl(String name)
+        public void RemoveControl(string name)
         {
             //remove control
             Control rem = null;
@@ -175,7 +175,7 @@ namespace ANDREICSLIB.ClassReplacements
             }
         }
 
-        public void clearControls()
+        public void ClearControls()
         {
             lastX = 0;
             lastY = 0;
@@ -183,7 +183,7 @@ namespace ANDREICSLIB.ClassReplacements
             controlStack.Clear();
         }
 
-        public void switchControlLocations(int indexone, int indextwo)
+        public void SwitchControlLocations(int indexone, int indextwo)
         {
             Control one = Controls[indexone];
             Control two = Controls[indextwo];
@@ -197,10 +197,10 @@ namespace ANDREICSLIB.ClassReplacements
             two.Location = new Point(x, y);
 
             //switch the item locs
-            swapControls(one, two);
+            SwapControls(one, two);
         }
 
-        public void swapControls(Control one, Control two)
+        public void SwapControls(Control one, Control two)
         {
             int alphaIndex = Controls.IndexOf(one);
             int betaIndex = Controls.IndexOf(two);
@@ -208,7 +208,7 @@ namespace ANDREICSLIB.ClassReplacements
             Controls.SetChildIndex(two, alphaIndex);
         }
 
-        public Control addControl(Control C, bool nextItemOnSameLine, int manualYAdd = 0, int manualXAdd = 0)
+        public Control AddControl(Control C, bool nextItemOnSameLine, int manualYAdd = 0, int manualXAdd = 0)
         {
             int gapy = gap, gapx = gap;
             lastX += manualXAdd;
@@ -236,7 +236,7 @@ namespace ANDREICSLIB.ClassReplacements
             return Controls[Controls.Count - 1];
         }
 
-        public Control getControlByName(String name)
+        public Control GetControlByName(string name)
         {
             return controlStack.FirstOrDefault(c => c.Name.Equals(name));
         }
@@ -250,7 +250,7 @@ namespace ANDREICSLIB.ClassReplacements
             return O;
         }
 
-        public void removeLastControl()
+        public void RemoveLastControl()
         {
             if (controlStack.Count == 0)
                 return;

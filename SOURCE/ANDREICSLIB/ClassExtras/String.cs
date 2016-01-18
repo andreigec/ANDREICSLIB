@@ -10,7 +10,7 @@ namespace ANDREICSLIB.ClassExtras
 {
 	public static class StringExtras
 	{
-        public static string GetMD5OfString(String s)
+        public static string GetMD5OfString(string s)
         {
             using (var md5Hash = MD5.Create())
             {
@@ -39,14 +39,14 @@ namespace ANDREICSLIB.ClassExtras
             return sBuilder.ToString();
         }
 
-		public static string[] SplitString(String instr, String split, bool removeempty = true)
+		public static string[] SplitString(string instr, string split, bool removeempty = true)
 		{
 			var s = new string[1];
 			s[0] = split;
 			return instr.Split(s, removeempty ? StringSplitOptions.RemoveEmptyEntries : StringSplitOptions.None);
 		}
 
-		public static Tuple<string, string> SplitTwo(String instr, char sep)
+		public static Tuple<string, string> SplitTwo(string instr, char sep)
 		{
 			var sep2 = new[] { sep };
 			string[] sep3 = instr.Split(sep2);
@@ -56,7 +56,7 @@ namespace ANDREICSLIB.ClassExtras
 			return new Tuple<string, string>(sep3[0], sep3[1]);
 		}
 
-		public static Tuple<int, int> SplitTwoInt(String instr, char sep)
+		public static Tuple<int, int> SplitTwoInt(string instr, char sep)
 		{
 			Tuple<string, string> x = SplitTwo(instr, sep);
 			return new Tuple<int, int>(Int32.Parse(x.Item1), Int32.Parse(x.Item2));
@@ -68,7 +68,7 @@ namespace ANDREICSLIB.ClassExtras
 		/// <param name="instr"></param>
 		/// <param name="substring"></param>
 		/// <returns></returns>
-		public static int ContainsSubStringCount(String instr, String substring)
+		public static int ContainsSubStringCount(string instr, string substring)
 		{
 			int count = 0;
 
@@ -92,7 +92,7 @@ namespace ANDREICSLIB.ClassExtras
 		/// <param name="instr"></param>
 		/// <param name="max"></param>
 		/// <returns></returns>
-		public static List<string> SplitStrings(String instr, int max)
+		public static List<string> SplitStrings(string instr, int max)
 		{
 			string line = "";
 			var ls = new List<string>();
@@ -102,7 +102,7 @@ namespace ANDREICSLIB.ClassExtras
 			string[] splitspace = instr.Split(splitchar);
 			foreach (string s in splitspace)
 			{
-				if (String.IsNullOrEmpty(s))
+				if (string.IsNullOrEmpty(s))
 					continue;
 
 				if ((count + s.Length) > max)
@@ -129,7 +129,7 @@ namespace ANDREICSLIB.ClassExtras
 		/// <param name="instr"></param>
 		/// <param name="maxlen"></param>
 		/// <returns></returns>
-		public static String PadString(String instr, int maxlen)
+		public static string PadString(string instr, int maxlen)
 		{
 			string ret = "";
 			int len = instr.Length;
@@ -143,9 +143,9 @@ namespace ANDREICSLIB.ClassExtras
 			return ret;
 		}
 
-		public static string Truncate(String instr, int maxlen, string trucatedend = "...")
+		public static string Truncate(string instr, int maxlen, string trucatedend = "...")
 		{
-			String outstr = instr;
+			string outstr = instr;
 			if (outstr.Length > maxlen)
 			{
 				outstr = outstr.Substring(0, maxlen);
@@ -161,12 +161,12 @@ namespace ANDREICSLIB.ClassExtras
 		/// <param name="newChar">The new character to be used</param>
 		/// <param name="position">The position to use the new character</param>
 		/// <returns>a string with the character replaced</returns>
-		public static void ReplaceCharAtPosition(ref String str, char newChar, int position)
+		public static void ReplaceCharAtPosition(ref string str, char newChar, int position)
 		{
 			if (position < 0)
 				return;
 
-			if (String.IsNullOrEmpty(str))
+			if (string.IsNullOrEmpty(str))
 				return;
 
 			string bef = str.Substring(0, position);
@@ -181,12 +181,12 @@ namespace ANDREICSLIB.ClassExtras
 		/// <param name="newstr"></param>
 		/// <param name="startpos"></param>
 		/// <param name="endpos"></param>
-		public static string ReplaceStringAtPosition(String str, string newstr, int startpos, int endpos)
+		public static string ReplaceStringAtPosition(string str, string newstr, int startpos, int endpos)
 		{
 			if (startpos < 0 || endpos < 0)
 				return str;
 
-			if (String.IsNullOrEmpty(str))
+			if (string.IsNullOrEmpty(str))
 				return str;
 
 			string bef = str.Substring(0, startpos);
@@ -202,25 +202,25 @@ namespace ANDREICSLIB.ClassExtras
 		/// <param name="replaceThis"></param>
 		/// <param name="withThis"></param>
 		/// <returns></returns>
-		public static String ReplaceAllChars(String origString, char replaceThis, char withThis)
+		public static string ReplaceAllChars(string origString, char replaceThis, char withThis)
 		{
-			if (String.IsNullOrEmpty(origString))
+			if (string.IsNullOrEmpty(origString))
 				return origString;
 
 			return origString.Replace(replaceThis, withThis);
 		}
 
-		public static String ReplaceAllChars(String origString, String replaceThis, String withThis)
+		public static string ReplaceAllChars(string origString, string replaceThis, string withThis)
 		{
-			if (String.IsNullOrEmpty(origString))
+			if (string.IsNullOrEmpty(origString))
 				return origString;
 
 			return origString.Replace(replaceThis, withThis);
 		}
 
-		public static String RemoveAllNonAlphabetChars(String origString)
+		public static string RemoveAllNonAlphabetChars(string origString)
 		{
-			String outstr = "";
+			string outstr = "";
 			for (int a = 0; a < origString.Length; a++)
 			{
 				char c = origString[a];
@@ -233,9 +233,9 @@ namespace ANDREICSLIB.ClassExtras
 			return outstr;
 		}
 
-		public static String ReplaceAllChars(String origString, String replaceTheseChars, char withThis)
+		public static string ReplaceAllChars(string origString, string replaceTheseChars, char withThis)
 		{
-			String outstr = "";
+			string outstr = "";
 			for (int a = 0; a < origString.Length; a++)
 			{
 				char c = origString[a];
@@ -256,7 +256,7 @@ namespace ANDREICSLIB.ClassExtras
 		/// <param name="length"></param>
 		/// <param name="relativeStart">front=true, start=relativestart. front=end, start=end-length+relativestart</param>
 		/// <returns></returns>
-		public static String ApplyTrim(String origString, bool isFront, int length, int relativeStart = 0)
+		public static string ApplyTrim(string origString, bool isFront, int length, int relativeStart = 0)
 		{
 			//relative start is bad or length is more than the entire length, then cancel
 			if (relativeStart < 0 ||
@@ -340,9 +340,9 @@ namespace ANDREICSLIB.ClassExtras
 		/// </summary>
 		/// <param name="origString"></param>
 		/// <returns>the 'cleaned' string</returns>
-		public static String CleanString(String origString)
+		public static string CleanString(string origString)
 		{
-			if (String.IsNullOrEmpty(origString))
+			if (string.IsNullOrEmpty(origString))
 				return origString;
 
 			char[] bad = { '\n', '\r', '\0', ' ' };
@@ -396,7 +396,7 @@ namespace ANDREICSLIB.ClassExtras
 		/// <param name="addText"></param>
 		/// <param name="isFront"></param>
 		/// <returns></returns>
-		public static String AddText(String origString, String addText, bool isFront)
+		public static string AddText(string origString, string addText, bool isFront)
 		{
 			if (isFront)
 				return addText + origString;
@@ -412,7 +412,7 @@ namespace ANDREICSLIB.ClassExtras
 		/// <param name="capitaliseInitial">Should the first letter be capitalised?</param>
 		/// <param name="capitaliseWordString"> </param>
 		/// <returns>the auto capitalised string</returns>
-		public static String ToCamelCase(String origString, Boolean capitaliseInitial,
+		public static string ToCamelCase(string origString, Boolean capitaliseInitial,
 										 List<string> capitaliseWordString = null, bool spaceAfter = true)
 		{
 			if (string.IsNullOrEmpty(origString))
@@ -515,7 +515,7 @@ namespace ANDREICSLIB.ClassExtras
 			}
 		}
 
-		public static bool StringStartsWithLetter(String s)
+		public static bool StringStartsWithLetter(string s)
 		{
 			if (s.Length == 0)
 				return false;
