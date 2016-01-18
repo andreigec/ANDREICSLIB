@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using ANDREICSLIB.ClassExtras;
 
-namespace ANDREICSLIB
+namespace ANDREICSLIB.Helpers
 {
     /// <summary>
     /// example usage: https://github.com/andreigec/Backgrounder

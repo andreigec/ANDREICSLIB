@@ -1,7 +1,6 @@
-﻿using System;
-using System.Management;
+﻿using System.Management;
 
-namespace ANDREICSLIB
+namespace ANDREICSLIB.Helpers
 {
     public abstract class DeviceUpdates
     {

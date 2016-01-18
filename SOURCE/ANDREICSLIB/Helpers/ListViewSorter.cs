@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Net;
 using System.Windows.Forms;
 
-namespace ANDREICSLIB
+namespace ANDREICSLIB.Helpers
 {
     /// <summary>
     /// example usage: https://github.com/andreigec/IP-Scanrar

@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 
-namespace ANDREICSLIB
+namespace ANDREICSLIB.Helpers
 {
     /// <summary>
     /// example usage: https://github.com/andreigec/FireWind

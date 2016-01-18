@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Text;
 using ANDREICSLIB.ClassExtras;
 
-namespace ANDREICSLIB
+namespace ANDREICSLIB.Helpers
 {
     /// <summary>
     /// example usage: https://github.com/andreigec/Word-Find-Solver

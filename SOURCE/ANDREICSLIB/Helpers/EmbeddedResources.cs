@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace ANDREICSLIB
+namespace ANDREICSLIB.Helpers
 {
     /// <summary>
     /// example usage: https://github.com/andreigec/Crypto-Gram-Solve

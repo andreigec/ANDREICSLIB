@@ -1,4 +1,4 @@
-﻿namespace ANDREICSLIB.ClassExtras
+﻿namespace ANDREICSLIB.Models
 {
     public class FileSizes
     {

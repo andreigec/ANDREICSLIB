@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ANDREICSLIB
+﻿namespace ANDREICSLIB.Helpers
 {
     /// <summary>
     /// example usage: https://github.com/andreigec/Sudoku-Solver

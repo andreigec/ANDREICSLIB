@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using ANDREICSLIB.ClassExtras;
 
-namespace ANDREICSLIB
+namespace ANDREICSLIB.Helpers
 {
     public class FormConfigRestore
     {

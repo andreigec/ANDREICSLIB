@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
@@ -12,7 +11,7 @@ using ANDREICSLIB.ClassExtras;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace ANDREICSLIB.PersistantCache
+namespace ANDREICSLIB.Helpers
 {
     /// <summary>
     /// example usage:https://github.com/andreigec/GithubSensitiveSearch
