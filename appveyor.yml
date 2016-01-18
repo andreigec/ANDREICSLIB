@@ -3,6 +3,9 @@ before_build:
   
 build:
   project: ANDREICSLIB.csproj
+  
+after_build:
+  - nuget pack ANDREICSLIB.csproj
 
 branches:
   except:
