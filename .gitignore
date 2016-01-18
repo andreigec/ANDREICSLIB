@@ -1,2 +1,4 @@
 SOURCE/.vs/
 .suo
+obj/
+bin/
