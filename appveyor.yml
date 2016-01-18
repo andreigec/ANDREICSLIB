@@ -7,6 +7,12 @@ build:
 after_build:
   - nuget pack ANDREICSLIB.csproj
 
+deploy:
+  provider: NuGet
+  api_key: ccf3f7ea-db57-4636-aaea-3a371f63a5d8
+  skip_symbols: false
+  artifact: /.*\.nupkg/
+  
 branches:
   except:
     - /.*-osx/
