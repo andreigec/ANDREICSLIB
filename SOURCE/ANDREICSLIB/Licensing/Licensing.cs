@@ -5,7 +5,7 @@ using System.Net;
 using System.Windows.Forms;
 using ANDREICSLIB.ClassExtras;
 
-namespace ANDREICSLIB
+namespace ANDREICSLIB.Licensing
 {
     public static class Licensing
     {

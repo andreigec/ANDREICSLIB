@@ -3,7 +3,7 @@ using System.IO;
 using ICSharpCode.SharpZipLib.Core;
 using ICSharpCode.SharpZipLib.Zip;
 
-namespace ANDREICSLIB
+namespace ANDREICSLIB.ClassExtras
 {
     public static class ZipExtras
     {

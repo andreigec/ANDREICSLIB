@@ -9,7 +9,7 @@ using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace ANDREICSLIB
+namespace ANDREICSLIB.ClassExtras
 {
     public abstract class NetExtras
     {

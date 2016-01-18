@@ -6,17 +6,19 @@ namespace ANDREICSLIB.ClassExtras
 {
     public static class ListExtras
     {
-        public static List<TNewType> ChangeListTyping<TNewType>(List<object> inlist) where TNewType : class
+        public static IEnumerable<TSource> DistinctBy<TSource, TKey>
+  (this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
         {
-            return inlist.Select(o => o as TNewType).ToList();
+            var seenKeys = new HashSet<TKey>();
+            return source.Where(element => seenKeys.Add(keySelector(element)));
         }
 
-        public static List<List<T>> GetAllCombinations<T>(List<T> inlist, int minlength = 1, int maxlength = -1)
+        public static List<List<T>> GetAllCombinations<T>(this List<T> inlist, int minlength = 1, int maxlength = -1)
         {
             var temp = new Dictionary<string, List<T>>();
 
             //gradually take more and more items
-            for (int takesize = minlength; takesize <= inlist.Count; takesize++)
+            for (var takesize = minlength; takesize <= inlist.Count; takesize++)
             {
                 if (takesize > maxlength && maxlength > -1)
                     return temp.Select(s => s.Value).ToList();
@@ -56,7 +58,7 @@ namespace ANDREICSLIB.ClassExtras
             list[index2] = temp;
         }
 
-        public static String Serialise(List<object> list, String sep = ", ")
+        public static string Serialise(List<object> list, String sep = ", ")
         {
             string ret = "";
             foreach (object v in list)

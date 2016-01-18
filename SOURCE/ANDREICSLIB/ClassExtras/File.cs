@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
-using ANDREICSLIB.ClassExtras;
+using Newtonsoft.Json;
 
-//using tree = ANDREICSLIB.DataClasses.Btree<System.String>;
-
-namespace ANDREICSLIB
+namespace ANDREICSLIB.ClassExtras
 {
     public class FileSizes
     {
@@ -20,17 +18,17 @@ namespace ANDREICSLIB
 
         public string ToStringBytes()
         {
-            var str = string.Format("{0}B", Bytes);
+            var str = $"{Bytes}B";
             return str;
         }
         public string ToStringKB()
         {
-            var str = string.Format("{0}KB", Bytes / 1024);
+            var str = $"{Bytes / 1024}KB";
             return str;
         }
         public string ToStringMB()
         {
-            var str = string.Format("{0}MB", Bytes / 1048576);
+            var str = $"{Bytes / 1048576}MB";
             return str;
         }
     }
@@ -123,6 +121,8 @@ namespace ANDREICSLIB
         /// <param name="dir"></param>
         public static void DeleteDirectory(String dir)
         {
+            int trycount = 5;
+            int @try = 0;
             //wait for directory to be deleted
             while (Directory.Exists(dir))
             {
@@ -132,9 +132,11 @@ namespace ANDREICSLIB
                 }
                 catch (Exception ex)
                 {
-                    Thread.Sleep(100);
-                    continue;
+                    Thread.Sleep(500);
                 }
+                @try++;
+                if (@try >= trycount)
+                    throw new Exception("Can't delete directory");
             }
         }
 
@@ -147,7 +149,7 @@ namespace ANDREICSLIB
         {
             try
             {
-                var fs = new FileStream(filepath, FileMode.CreateNew);
+                var fs = new FileStream(filepath, FileMode.OpenOrCreate);
                 fs.Close();
                 return true;
             }
@@ -163,6 +165,8 @@ namespace ANDREICSLIB
         /// <param name="dir"></param>
         public static void CreateDirectory(String dir)
         {
+            int trycount = 5;
+            int @try = 0;
             //wait for directory to be created
             while (Directory.Exists(dir) == false)
             {
@@ -173,8 +177,10 @@ namespace ANDREICSLIB
                 catch (Exception ex)
                 {
                     Thread.Sleep(100);
-                    continue;
                 }
+                @try++;
+                if (@try >= trycount)
+                    throw new Exception("Can't create directory");
             }
         }
 

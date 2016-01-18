@@ -2,7 +2,7 @@ using System;
 using mm = System.Windows.Media.Matrix;
 using dm = System.Drawing.Drawing2D.Matrix;
 
-namespace ANDREICSLIB
+namespace ANDREICSLIB.ClassExtras
 {
     public static class MathExtras
     {

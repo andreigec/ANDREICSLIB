@@ -1,4 +1,6 @@
-﻿namespace ANDREICSLIB.NewControls
+﻿using ANDREICSLIB.ClassReplacements;
+
+namespace ANDREICSLIB.NewControls
 {
     partial class MassVariableEdit
     {
@@ -28,7 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.itemspanel = new ANDREICSLIB.PanelReplacement();
+            this.itemspanel = new PanelReplacement();
             this.okbutton = new System.Windows.Forms.Button();
             this.cancelbutton = new System.Windows.Forms.Button();
             this.SuspendLayout();

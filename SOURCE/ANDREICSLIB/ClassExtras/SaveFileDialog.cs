@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ANDREICSLIB
+namespace ANDREICSLIB.ClassExtras
 {
     public static class SaveFileDialogExtras
     {

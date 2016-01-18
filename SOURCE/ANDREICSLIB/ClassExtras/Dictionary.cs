@@ -1,17 +1,19 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
-namespace ANDREICSLIB
+namespace ANDREICSLIB.ClassExtras
 {
-    public class DictionaryExtras
+    public static class DictionaryExtras
     {
         public static T GetKeyByValue<T, Y>(Dictionary<T, Y> dict, Y val)
         {
             IEnumerable<KeyValuePair<T, Y>> bc = dict.Where(s => s.Value.Equals(val));
-            if (bc.Count() == 0)
+            if (!bc.Any())
                 return default(T);
 
             return bc.First().Key;
@@ -40,14 +42,14 @@ namespace ANDREICSLIB
         /// </summary>
         /// <param name="origDict">Input Dictionary, string as the key for the text/name, and a list of strings in the value, for subitems</param>
         /// <returns>a list of listviewitems made from a dictionary</returns>
-        public static List<ListViewItem> DictToListOfListViewItems(Dictionary<String, List<String>> origDict)
+        public static List<ListViewItem> DictToListOfListViewItems(this Dictionary<string, List<string>> origDict)
         {
             var lvil = new List<ListViewItem>();
 
             foreach (var kvp in origDict)
             {
-                var lvi = new ListViewItem {Text = kvp.Key, Name = kvp.Key};
-                foreach (string s in kvp.Value)
+                var lvi = new ListViewItem { Text = kvp.Key, Name = kvp.Key };
+                foreach (var s in kvp.Value)
                     lvi.SubItems.Add(s);
                 lvil.Add(lvi);
             }
@@ -59,35 +61,48 @@ namespace ANDREICSLIB
         /// </summary>
         /// <param name="origDict">Input Dictionary, string as the key for the text/name, and a string in the value, for a subitem</param>
         /// <returns>a list of listviewitems made from a dictionary</returns>
-        public static List<ListViewItem> DictToListOfListViewItems(Dictionary<String, String> origDict)
+        public static List<ListViewItem> DictToListOfListViewItems(this Dictionary<string, string> origDict)
         {
             var result = new Dictionary<string, List<string>>();
 
             foreach (var kvp in origDict)
             {
-                var newl = new List<string> {kvp.Value};
+                var newl = new List<string> { kvp.Value };
                 result.Add(kvp.Key, newl);
             }
             return DictToListOfListViewItems(result);
         }
 
-        /// <summary>
-        /// delete a directory and all its files
-        /// </summary>
-        /// <param name="FolderName"></param>
-        public static void DeleteDirectory(string FolderName)
+        public static void Serialise(this Dictionary<string, object> d, JsonSerializer js, FileStream fs)
         {
-            DirectoryInfo dir = new DirectoryInfo(FolderName);
-
-            foreach (FileInfo fi in dir.GetFiles())
+            //erase
+            fs.SetLength(0);
+            using (var writer = new StreamWriter(fs))
             {
-                fi.Delete();
+                using (var jsonWriter = new JsonTextWriter(writer))
+                {
+                    JsonSerializer ser = new JsonSerializer();
+                    ser.Serialize(jsonWriter, d);
+                    jsonWriter.Flush();
+                }
             }
+        }
 
-            foreach (DirectoryInfo di in dir.GetDirectories())
+        /// <summary>
+        /// load json from a filestream into a dictionary
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static Dictionary<string, object> Deserialize(FileStream s)
+        {
+            using (var reader = new StreamReader(s))
             {
-                DeleteDirectory(di.FullName);
-                di.Delete();
+                using (var jsonReader = new JsonTextReader(reader))
+                {
+                    JsonSerializer ser = new JsonSerializer();
+                    var ret = ser.Deserialize<Dictionary<string, object>>(jsonReader);
+                    return ret;
+                }
             }
         }
     }

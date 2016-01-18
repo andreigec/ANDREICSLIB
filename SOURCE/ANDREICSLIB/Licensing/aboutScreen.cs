@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Windows.Forms;
 
-namespace ANDREICSLIB
+namespace ANDREICSLIB.Licensing
 {
     public partial class aboutScreen : Form
     {

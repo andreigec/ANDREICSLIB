@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace ANDREICSLIB
+namespace ANDREICSLIB.ClassExtras
 {
     public class ColorExtras
     {

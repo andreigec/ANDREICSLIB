@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace ANDREICSLIB
+namespace ANDREICSLIB.ClassExtras
 {
 	public static class StringExtras
 	{

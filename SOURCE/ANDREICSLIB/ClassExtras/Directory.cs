@@ -26,7 +26,7 @@ namespace ANDREICSLIB.ClassExtras
         {
             // Process the list of files found in the directory.
             string[] fileEntries = Directory.GetFiles(absolutePath);
-            foreach (string fileName in fileEntries)
+            foreach (var fileName in fileEntries)
             {
                 // do something with fileName
                 yield return fileName;
@@ -46,8 +46,28 @@ namespace ANDREICSLIB.ClassExtras
                     ret.AddRange(GetFilesRecursive(subdir));
             }
 
-            foreach (string r in ret)
+            foreach (var r in ret)
                 yield return r;
+        }
+
+        /// <summary>
+        /// delete a directory and all its files
+        /// </summary>
+        /// <param name="folderName"></param>
+        public static void DeleteDirectory(string folderName)
+        {
+            DirectoryInfo dir = new DirectoryInfo(folderName);
+
+            foreach (FileInfo fi in dir.GetFiles())
+            {
+                fi.Delete();
+            }
+
+            foreach (DirectoryInfo di in dir.GetDirectories())
+            {
+                DeleteDirectory(di.FullName);
+                di.Delete();
+            }
         }
     }
 }

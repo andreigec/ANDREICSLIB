@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
 
-namespace ANDREICSLIB
+namespace ANDREICSLIB.ClassExtras
 {
     public abstract class ObjectExtras
     {
@@ -138,7 +138,6 @@ namespace ANDREICSLIB
             {
                 return default(T);
             }
-
         }
     }
 }

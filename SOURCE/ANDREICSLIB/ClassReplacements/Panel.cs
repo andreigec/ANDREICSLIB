@@ -6,7 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using ANDREICSLIB.ClassExtras;
 
-namespace ANDREICSLIB
+namespace ANDREICSLIB.ClassReplacements
 {
     public class PanelReplacement : Panel
     {

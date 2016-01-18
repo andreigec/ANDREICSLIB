@@ -1,4 +1,4 @@
-﻿namespace ANDREICSLIB
+﻿namespace ANDREICSLIB.Licensing
 {
 	partial class aboutScreen
 	{

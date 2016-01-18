@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
 
 //andrei gec
 
-namespace ANDREICSLIB
+namespace ANDREICSLIB.ClassExtras
 {
     public static class ListViewExtras
     {
