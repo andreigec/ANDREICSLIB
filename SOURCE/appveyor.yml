@@ -1,2 +1,15 @@
 before_build:
   - nuget restore
+  
+build:
+  project: ANDREICSLIB.sln
+
+branches:
+  except:
+    - /.*-osx/
+
+configuration:
+  - Release
+
+platform:
+  - x64
