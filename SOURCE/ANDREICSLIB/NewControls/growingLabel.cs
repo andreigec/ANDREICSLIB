@@ -4,11 +4,11 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB.NewControls
 {
-    public partial class growingLabel : Label
+    public partial class GrowingLabel : Label
     {
         private bool mGrowing;
 
-        public growingLabel()
+        public GrowingLabel()
         {
             AutoSize = false;
         }

@@ -8,7 +8,10 @@ using System.Text.RegularExpressions;
 
 namespace ANDREICSLIB.ClassExtras
 {
-	public static class StringExtras
+    /// <summary>
+    /// example usage: https://github.com/andreigec/Folder-View
+    /// </summary>
+    public static class StringExtras
 	{
         public static string GetMD5OfString(string s)
         {

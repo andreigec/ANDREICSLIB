@@ -7,6 +7,9 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB.ClassExtras
 {
+    /// <summary>
+    /// example usage: https://github.com/andreigec/Consultant-Plus
+    /// </summary>
     public static class ListViewExtras
     {
         private static ListViewItem.ListViewSubItem[] SubItemCollectionToRange(

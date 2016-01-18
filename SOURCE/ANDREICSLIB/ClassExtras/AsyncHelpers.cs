@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace ANDREICSLIB.ClassExtras
 {
+    /// <summary>
+    /// example usage: https://github.com/andreigec/Backgrounder
+    /// </summary>
     public static class AsyncHelpers
     {
         /// <summary>

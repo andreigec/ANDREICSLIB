@@ -5,6 +5,11 @@ using System.Xml.Serialization;
 
 namespace ANDREICSLIB.NewControls
 {
+    /// <summary>
+    /// example usage: https://github.com/andreigec/FireWind
+    /// </summary>
+    /// <typeparam name="TKey"></typeparam>
+    /// <typeparam name="TValue"></typeparam>
     [XmlRoot("dictionary")]
     public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IXmlSerializable
     {

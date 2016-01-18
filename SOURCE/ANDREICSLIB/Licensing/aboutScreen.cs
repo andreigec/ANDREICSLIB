@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB.Licensing
 {
-    public partial class aboutScreen : Form
+    public partial class AboutScreen : Form
     {
-        public aboutScreen()
+        public AboutScreen()
         {
             InitializeComponent();
         }

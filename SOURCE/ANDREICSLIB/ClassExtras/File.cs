@@ -7,32 +7,9 @@ using Newtonsoft.Json;
 
 namespace ANDREICSLIB.ClassExtras
 {
-    public class FileSizes
-    {
-        public long Bytes;
-
-        public FileSizes(long bytes)
-        {
-            Bytes = bytes;
-        }
-
-        public string ToStringBytes()
-        {
-            var str = $"{Bytes}B";
-            return str;
-        }
-        public string ToStringKB()
-        {
-            var str = $"{Bytes / 1024}KB";
-            return str;
-        }
-        public string ToStringMB()
-        {
-            var str = $"{Bytes / 1048576}MB";
-            return str;
-        }
-    }
-
+    /// <summary>
+    /// example usage: https://github.com/andreigec/Dwarf-Fortress-Mod-Merger
+    /// </summary>
     public static class FileExtras
     {
         /// <summary>

@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace ANDREICSLIB.ClassExtras
 {
+    /// <summary>
+    /// example usage: https://github.com/andreigec/Phrase-Profiler
+    /// </summary>
     public static class ListExtras
     {
         public static IEnumerable<TSource> DistinctBy<TSource, TKey>

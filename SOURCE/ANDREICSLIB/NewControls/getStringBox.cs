@@ -3,11 +3,14 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB.NewControls
 {
-    public partial class getStringBox : Form
+    /// <summary>
+    /// example usage: https://github.com/andreigec/COD4-Server-Tool
+    /// </summary>
+    public partial class GetStringBox : Form
     {
         public string returnvalue = "";
 
-        public getStringBox()
+        public GetStringBox()
         {
             InitializeComponent();
         }

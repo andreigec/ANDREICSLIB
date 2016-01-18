@@ -5,7 +5,10 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB.NewControls
 {
-    public partial class selectItemFromListBox : Form
+    /// <summary>
+    /// example usage: https://github.com/andreigec/Meal-Chooser
+    /// </summary>
+    public partial class SelectItemFromListBox : Form
     {
         private int mustSelectCount;
 
@@ -14,7 +17,7 @@ namespace ANDREICSLIB.NewControls
         /// <summary>
         /// call from static showdialog
         /// </summary>
-        private selectItemFromListBox()
+        private SelectItemFromListBox()
         {
             InitializeComponent();
         }
@@ -46,7 +49,7 @@ namespace ANDREICSLIB.NewControls
         public static List<string> ShowDialog(string labelText, string title, List<SelectItem> listBoxItems,
                                               bool multiselect, int mustSelectCountIN = -1)
         {
-            var s = new selectItemFromListBox();
+            var s = new SelectItemFromListBox();
             s.mustSelectCount = mustSelectCountIN;
             if (multiselect)
                 s.listBox1.SelectionMode = SelectionMode.MultiExtended;

@@ -11,6 +11,9 @@ using System.Text;
 
 namespace ANDREICSLIB.ClassExtras
 {
+    /// <summary>
+    /// example usage: https://github.com/andreigec/ExtractTransform
+    /// </summary>
     public abstract class NetExtras
     {
         /// <summary>

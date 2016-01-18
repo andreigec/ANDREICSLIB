@@ -5,6 +5,9 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB.NewControls
 {
+    /// <summary>
+    /// example usage: https://github.com/andreigec/Word-Find-Solver
+    /// </summary>
     public partial class MassVariableEdit : Form
     {
         #region Delegates

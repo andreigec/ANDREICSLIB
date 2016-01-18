@@ -4,6 +4,9 @@ using dm = System.Drawing.Drawing2D.Matrix;
 
 namespace ANDREICSLIB.ClassExtras
 {
+    /// <summary>
+    /// example usage: https://github.com/andreigec/Meal-Chooser
+    /// </summary>
     public static class MathExtras
     {
         public static int Floor(int v)

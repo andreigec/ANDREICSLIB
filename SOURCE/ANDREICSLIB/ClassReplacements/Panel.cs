@@ -8,6 +8,9 @@ using ANDREICSLIB.ClassExtras;
 
 namespace ANDREICSLIB.ClassReplacements
 {
+    /// <summary>
+    /// example usage: https://github.com/andreigec/XQueens
+    /// </summary>
     public class PanelReplacement : Panel
     {
         #region border painting

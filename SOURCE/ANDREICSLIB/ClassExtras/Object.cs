@@ -7,6 +7,9 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB.ClassExtras
 {
+    /// <summary>
+    /// example usage: https://github.com/andreigec/Image-Scripter
+    /// </summary>
     public abstract class ObjectExtras
     {
         /// <summary>

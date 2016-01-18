@@ -5,7 +5,10 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB.NewControls
 {
-    public partial class selectItemFromListView : Form
+    /// <summary>
+    /// example usage: https://github.com/andreigec/MTG-Proxy-Maker
+    /// </summary>
+    public partial class SelectItemFromListView : Form
     {
         private int mustSelectCount;
 
@@ -14,7 +17,7 @@ namespace ANDREICSLIB.NewControls
         /// <summary>
         /// call from static showdialog
         /// </summary>
-        private selectItemFromListView()
+        private SelectItemFromListView()
         {
             InitializeComponent();
         }
@@ -31,7 +34,7 @@ namespace ANDREICSLIB.NewControls
         public static List<ListViewItem> ShowDialog(string labelText, string title, List<ListViewItem> listBoxItems,
                                               bool multiselect, int mustSelectCountIN = -1)
         {
-            var s = new selectItemFromListView();
+            var s = new SelectItemFromListView();
             s.mustSelectCount = mustSelectCountIN;
             s.listView.MultiSelect = multiselect;
 

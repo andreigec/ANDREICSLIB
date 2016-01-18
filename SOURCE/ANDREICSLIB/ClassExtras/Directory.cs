@@ -4,6 +4,9 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB.ClassExtras
 {
+    /// <summary>
+    /// example usage: https://github.com/andreigec/MTG-Proxy-Maker
+    /// </summary>
     public static class DirectoryExtras
     {
         public static string GetExePath()

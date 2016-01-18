@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ANDREICSLIB.ClassExtras
 {
+    /// <summary>
+    /// example usage:https://github.com/andreigec/Crossword-Puzzle-Solver
+    /// </summary>
     public class ArrayExtras
     {
         public static void AddItemToArray<T>(ref T[] inarr, T item)

@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB.NewControls
 {
+    /// <summary>
+    /// example usage: https://github.com/andreigec/Timezone-Sleep-Converter
+    /// </summary>
     public partial class DragBar : UserControl
     {
         #region Delegates

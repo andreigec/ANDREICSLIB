@@ -6,6 +6,9 @@ using System.IO;
 
 namespace ANDREICSLIB.ClassExtras
 {
+    /// <summary>
+    /// example usage: https://github.com/andreigec/MTG-Proxy-Maker
+    /// </summary>
     public class BitmapExtras
     {
         public static Bitmap GrayScale(Bitmap Bmp)

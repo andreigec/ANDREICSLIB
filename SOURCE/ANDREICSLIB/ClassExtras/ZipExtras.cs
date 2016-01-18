@@ -5,6 +5,9 @@ using ICSharpCode.SharpZipLib.Zip;
 
 namespace ANDREICSLIB.ClassExtras
 {
+    /// <summary>
+    /// example usage: https://github.com/andreigec/Dwarf-Fortress-Mod-Merger
+    /// </summary>
     public static class ZipExtras
     {
         public static void ExtractZipFile(string archiveFilenameIn, string outFolder, string password = null)

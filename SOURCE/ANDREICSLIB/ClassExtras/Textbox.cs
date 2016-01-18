@@ -3,9 +3,11 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB.ClassExtras
 {
+    /// <summary>
+    /// example usage: https://github.com/andreigec/Squarification
+    /// </summary>
     public static class TextboxExtras
     {
-
 	    public static void ScrollToEnd(TextBox tb)
 	    {
 			tb.SelectionStart = tb.TextLength;

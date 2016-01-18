@@ -1,6 +1,6 @@
 ﻿namespace ANDREICSLIB.NewControls
 {
-	partial class selectItemFromListBox
+	partial class SelectItemFromListBox
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -89,7 +89,7 @@
             this.Controls.Add(this.cancelbutton);
             this.Controls.Add(this.okbutton);
             this.Controls.Add(this.listBox1);
-            this.Name = "selectItemFromListBox";
+            this.Name = "SelectItemFromListBox";
             this.Text = "selectItemFromListBox";
             this.Load += new System.EventHandler(this.selectItemFromListBox_Load);
             this.SizeChanged += new System.EventHandler(this.selectItemFromListBox_SizeChanged);

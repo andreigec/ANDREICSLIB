@@ -2,7 +2,7 @@
 
 namespace ANDREICSLIB.NewControls
 {
-	partial class multipleMessageBox
+	partial class MultipleMessageBox
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -60,7 +60,7 @@ namespace ANDREICSLIB.NewControls
 			this.ClientSize = new System.Drawing.Size(306, 129);
 			this.Controls.Add(this.buttonpanel);
 			this.Controls.Add(this.textarea);
-			this.Name = "multipleMessageBox";
+			this.Name = "MultipleMessageBox";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "multipleMessageBox";
 			this.ResumeLayout(false);

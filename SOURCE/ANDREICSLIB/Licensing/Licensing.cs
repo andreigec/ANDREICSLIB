@@ -105,7 +105,7 @@ namespace ANDREICSLIB.Licensing
 
         private static void Aboutbox(object sender, EventArgs e)
         {
-            var AS = new aboutScreen
+            var AS = new AboutScreen
                          {
                              Text = "About " + _sd.FormTitle,
                              appversionlabel = { Text = "Version " + _sd.AppVersion },
@@ -122,7 +122,7 @@ namespace ANDREICSLIB.Licensing
 
         private static void Helpbox(object sender, EventArgs e)
         {
-            var hs = new helpScreen { Text = _sd.FormTitle + " Help", helpbox = { Text = _sd.HelpText } };
+            var hs = new HelpScreen { Text = _sd.FormTitle + " Help", helpbox = { Text = _sd.HelpText } };
 
             if (ShowingHelp == false)
             {

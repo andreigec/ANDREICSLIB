@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB.Licensing
 {
-    public partial class helpScreen : Form
+    public partial class HelpScreen : Form
     {
-        public helpScreen()
+        public HelpScreen()
         {
             InitializeComponent();
             AutoSize = true;

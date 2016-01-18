@@ -4,6 +4,9 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB.NewControls
 {
+    /// <summary>
+    /// example usage: https://github.com/andreigec/BeadSprite-Pro
+    /// </summary>
     public partial class SelectItemsFromCheckBox : Form
     {
         private int mustSelectCount;
@@ -18,7 +21,7 @@ namespace ANDREICSLIB.NewControls
         {
         }
 
-        public static List<string> ShowDialog(string labelText, string title, List<selectItemFromListBox.SelectItem> listBoxItems,
+        public static List<string> ShowDialog(string labelText, string title, List<SelectItemFromListBox.SelectItem> listBoxItems,
                                               int mustSelectCountIN = -1)
         {
             var s = new SelectItemsFromCheckBox();
@@ -29,7 +32,7 @@ namespace ANDREICSLIB.NewControls
 
             s.checkedListBox1.Items.Clear();
             int a = 0;
-            foreach (selectItemFromListBox.SelectItem v in listBoxItems)
+            foreach (SelectItemFromListBox.SelectItem v in listBoxItems)
             {
                 s.checkedListBox1.Items.Add(v.Text);
                 s.checkedListBox1.SetSelected(a, v.preselected);

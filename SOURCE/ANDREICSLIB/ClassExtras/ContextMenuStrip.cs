@@ -3,6 +3,9 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB.ClassExtras
 {
+    /// <summary>
+    /// example usage: https://github.com/andreigec/Word-Find-Solver
+    /// </summary>
     public static class ContextMenuStripExtras
     {
         /// <summary>

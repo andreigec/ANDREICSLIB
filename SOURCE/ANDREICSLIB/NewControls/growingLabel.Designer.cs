@@ -1,6 +1,6 @@
 ﻿namespace ANDREICSLIB.NewControls
 {
-	partial class growingLabel
+	partial class GrowingLabel
 	{
 		/// <summary> 
 		/// Required designer variable.

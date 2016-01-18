@@ -9,6 +9,9 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB.NewControls
 {
+    /// <summary>
+    /// example usage: https://github.com/andreigec/Histogram-OCR-Trainer
+    /// </summary>
     public partial class GetStringImageCompare : Form
     {
         public GetStringImageCompare()

@@ -1,6 +1,6 @@
 ﻿namespace ANDREICSLIB.Licensing
 {
-	partial class aboutScreen
+	partial class AboutScreen
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -117,7 +117,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
-			this.Name = "aboutScreen";
+			this.Name = "AboutScreen";
 			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "aboutScreen";

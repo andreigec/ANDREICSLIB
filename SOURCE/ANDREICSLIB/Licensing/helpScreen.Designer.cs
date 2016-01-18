@@ -1,6 +1,6 @@
 ﻿namespace ANDREICSLIB.Licensing
 {
-	partial class helpScreen
+	partial class HelpScreen
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -76,7 +76,7 @@
 			this.ClientSize = new System.Drawing.Size(456, 556);
 			this.Controls.Add(this.helpbox);
 			this.Controls.Add(this.panel1);
-			this.Name = "helpScreen";
+			this.Name = "HelpScreen";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "helpScreen";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.helpScreen_FormClosing);

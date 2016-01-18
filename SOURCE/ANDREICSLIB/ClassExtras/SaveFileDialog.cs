@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace ANDREICSLIB.ClassExtras
 {
+    /// <summary>
+    /// example usage: https://github.com/andreigec/Histogram-OCR-Trainer
+    /// </summary>
     public static class SaveFileDialogExtras
     {
         private const char sep = '|';

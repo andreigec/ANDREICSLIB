@@ -3,6 +3,9 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB.ClassExtras
 {
+    /// <summary>
+    /// example usage: https://github.com/andreigec/Consultant-Plus
+    /// </summary>
     public static class TabPageExtras
     {
         public static void SetEnableOnAllTabPageControls(TabPage tp, bool enabled)

@@ -7,6 +7,9 @@ using ANDREICSLIB.ClassExtras;
 
 namespace ANDREICSLIB.NewControls
 {
+    /// <summary>
+    /// example usage: https://github.com/andreigec/BeadSprite-Pro
+    /// </summary>
     public partial class ImageDraw : UserControl
     {
         public ImageDraw()

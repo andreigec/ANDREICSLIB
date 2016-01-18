@@ -4,6 +4,9 @@ using System.Drawing;
 
 namespace ANDREICSLIB.ClassExtras
 {
+    /// <summary>
+    /// example usage: https://github.com/andreigec/Meal-Chooser
+    /// </summary>
     public class ColorExtras
     {
         private static Dictionary<Tuple<int, int>, Dictionary<int, Color>> colourCache;

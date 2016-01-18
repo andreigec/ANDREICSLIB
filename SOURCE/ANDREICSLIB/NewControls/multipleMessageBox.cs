@@ -5,13 +5,16 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB.NewControls
 {
-    public partial class multipleMessageBox : Form
+    /// <summary>
+    /// example usage: https://github.com/andreigec/Music-File-Info-Editor
+    /// </summary>
+    public partial class MultipleMessageBox : Form
     {
         private const int Gap = 20;
         public string Result = "";
         public bool Set;
 
-        public multipleMessageBox(string windowText, string labelText, IEnumerable<string> Buttons)
+        public MultipleMessageBox(string windowText, string labelText, IEnumerable<string> Buttons)
         {
             labelText = labelText.Replace("\r\n", "\n");
             labelText = labelText.Replace("\n", Environment.NewLine);

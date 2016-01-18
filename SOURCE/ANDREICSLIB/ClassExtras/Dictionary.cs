@@ -8,6 +8,9 @@ using Newtonsoft.Json;
 
 namespace ANDREICSLIB.ClassExtras
 {
+    /// <summary>
+    /// example usage: https://github.com/andreigec/Music-File-Info-Editor
+    /// </summary>
     public static class DictionaryExtras
     {
         public static T GetKeyByValue<T, Y>(Dictionary<T, Y> dict, Y val)
