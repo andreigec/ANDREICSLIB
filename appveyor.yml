@@ -38,7 +38,19 @@ build:
 after_build:
 - ps: 
 after_test:
-- ps: "if ((Test-Path(\"$env:SandCastleZipFile\")) -eq 0)\n{\necho \"Start-FileDownload\"\necho \"$env:SandCastleUri\"\necho \"$env:SandCastleZipFile\"\nmkdir \"$env:SandCastleBase\"\nInvoke-WebRequest \"$env:SandCastleUri\" -OutFile \"$env:SandCastleZipFile\"\n}\n\necho \"7z\"\ncd \"$env:SandCastleBase\"\n7z x \"$env:SandCastleZipFile\" -y\n\nif ((Test-Path(\"$env:SHFBTESTINSTALL\")) -eq 0)\n{\necho \"msiexec\"\nmsiexec /i \"$env:SHFBInstall\" /quiet /qn /norestart /log \"C:\\projects\\andrei\\install.log\"\nStart-Sleep -s 10\n}\n\nwhile ((Test-Path(\"$env:SHFBTESTINSTALL\")) -eq 0)\n{\necho \"Sleeping\"\nStart-Sleep -s 10\n}\n\necho \"SHFB run\"\ncd \"$env:ProjectBase\"\necho \"dir\"\ndir\nmsbuild proj.shfbproj /logger:\"C:\\Program Files\\AppVeyor\\BuildAgent\\Appveyor.MSBuildLogger.dll\" \n\nif ((Test-Path(\"$env:SHFBTEST\")) -eq 0)\n{\necho \"SHFB Fail\"\ncd \"C:\\projects\\andreicslib\\help\"\necho \"dir\"\ndir\nthrow \"SHFB Fail\"\n}\n\necho \"pack\"\n7z a documentation.zip \"C:\\projects\\andreicslib\\help\\*\""
+- ps: echo "branch = "\n echo $
+# download zip file for SHFB
+- ps: if ((Test-Path(\"$env:SandCastleZipFile\")) -eq 0 -and (%APPVEYOR_REPO_BRANCH% -eq "DOCUMENTATION"){echo \"Start-FileDownload\"\necho \"$env:SandCastleUri\"\necho \"$env:SandCastleZipFile\"\nmkdir \"$env:SandCastleBase\"\nInvoke-WebRequest \"$env:SandCastleUri\" -OutFile \"$env:SandCastleZipFile\"}
+#unzip zip file for SHFB
+- ps: if (%APPVEYOR_REPO_BRANCH% -eq "DOCUMENTATION"){echo \"7z\"\n cd \"$env:SandCastleBase\"\n 7z x \"$env:SandCastleZipFile\" -y}
+#install SHFB
+- ps: if ((Test-Path(\"$env:SHFBTESTINSTALL\")) -eq 0 -and (%APPVEYOR_REPO_BRANCH% -eq "DOCUMENTATION")){echo \"msiexec\"\nmsiexec /i \"$env:SHFBInstall\" /quiet /qn /norestart /log \"C:\\projects\\andrei\\install.log\"\nStart-Sleep -s 10}
+#wait until SHFB install is complete, and run documentation
+- ps: if (%APPVEYOR_REPO_BRANCH% -eq "DOCUMENTATION"){ while ((Test-Path(\"$env:SHFBTESTINSTALL\")) -eq 0){\necho \"Sleeping\"\nStart-Sleep -s 10\n}echo \"SHFB run\"\n cd \"$env:ProjectBase\"\necho \"dir\"\n dir\n msbuild proj.shfbproj /logger:\"C:\\Program Files\\AppVeyor\\BuildAgent\\Appveyor.MSBuildLogger.dll\" }
+#SHFB fail
+- ps: if ((Test-Path(\"$env:SHFBTEST\")) -eq 0 -and (%APPVEYOR_REPO_BRANCH% -eq "DOCUMENTATION")\n{\necho \"SHFB Fail\"\ncd \"C:\\projects\\andreicslib\\help\"\necho \"dir\"\ndir\nthrow \"SHFB Fail\"\n}
+#pack SHFB
+- ps: if (%APPVEYOR_REPO_BRANCH% -eq "DOCUMENTATION"){echo \"pack\"\n 7z a documentation.zip \"C:\\projects\\andreicslib\\help\\*\""}
 artifacts:
 - path: '**ANDREICSLIB**\*.nupkg'
 - path: '**documentation.zip'
@@ -55,4 +67,6 @@ deploy:
     secure: iMD2xJGiQSxN9K6L5kArtXJCkexP8VZoUoLJFMyzrl1rGH2DAxJ9FJoeehcv1Ml0
   artifact: '**documentation.zip'
   draft: false
-  prerelease: false  
+  prerelease: false
+  on:
+    branch: DOCUMENTATION  

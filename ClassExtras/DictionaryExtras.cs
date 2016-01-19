@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.IO;
@@ -96,7 +96,7 @@ namespace ANDREICSLIB.ClassExtras
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public static Dictionary<string, object> Deserialize(FileStream s)
+        public static Dictionary<string, object> Deserialize(Stream s)
         {
             using (var reader = new StreamReader(s))
             {
