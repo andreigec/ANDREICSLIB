@@ -14,9 +14,10 @@ environment:
   SandCastleUri: https://github.com/EWSoftware/SHFB/releases/download/v2015.10.10.0/SHFBInstaller_v2015.10.10.0.zip
   SandCastleBase: C:\projects\andrei\
   SHFBROOT: C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\
-  SHFBTEST: C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\SandcastleHelpFileBuilder.targets
+  SHFBTESTINSTALL: C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\SandcastleHelpFileBuilder.targets
   SHFBInstall: C:\projects\andrei\InstallResources\SandcastleHelpFileBuilder.msi
   ProjectBase: C:\projects\andreicslib
+  SHFBTest: C:\projects\andreicslib\Help\index.html
 cache:
 - C:\projects\andrei\SHFBInstaller.zip
 - C:\Program Files (x86)\EWSoftware
