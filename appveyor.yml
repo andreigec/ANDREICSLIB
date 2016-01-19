@@ -55,6 +55,4 @@ deploy:
     secure: iMD2xJGiQSxN9K6L5kArtXJCkexP8VZoUoLJFMyzrl1rGH2DAxJ9FJoeehcv1Ml0
   artifact: '**documentation.zip'
   draft: false
-  prerelease: false
-  on:
-    appveyor_repo_tag: true        # deploy on tag push only
+  prerelease: false  
