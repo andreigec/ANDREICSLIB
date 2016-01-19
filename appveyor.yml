@@ -48,12 +48,12 @@ deploy:
   api_key:
     secure: nBk9yEkwOweQxGzUzFoXsL1f48WYY2s9h+JHx3MMU9qecKoDEkI6BylMKWXkohcK
   skip_symbols: false
-  artifact: /**ANDREICSLIB**\*.nupkg/
+  artifact: '**ANDREICSLIB**\*.nupkg'
 
 - provider: GitHub
   api_key:
     secure: iMD2xJGiQSxN9K6L5kArtXJCkexP8VZoUoLJFMyzrl1rGH2DAxJ9FJoeehcv1Ml0
-  artifact: /**documentation.zip/
+  artifact: '**documentation.zip'
   draft: false
   prerelease: false
   on:
