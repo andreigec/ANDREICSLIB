@@ -63,7 +63,7 @@ deploy:
   artifact: '**ANDREICSLIB**\*.nupkg'
 
 - provider: GitHub
-  api_key:
+  auth_token:
     secure: iMD2xJGiQSxN9K6L5kArtXJCkexP8VZoUoLJFMyzrl1rGH2DAxJ9FJoeehcv1Ml0
   artifact: '**documentation.zip'
   draft: false
