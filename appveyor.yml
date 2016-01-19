@@ -1,0 +1,88 @@
+version: 1.0.{build}
+branches:
+  only:
+  - NUGET
+shallow_clone: true
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
+environment:
+  SandCastleZipFile: C:\projects\andrei\SHFBInstaller.zip
+  SandCastleUri: https://github.com/EWSoftware/SHFB/releases/download/v2015.10.10.0/SHFBInstaller_v2015.10.10.0.zip
+  SandCastleBase: C:\projects\andrei\
+  SHFBROOT: C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\
+  SHFBTEST: C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\SandcastleHelpFileBuilder.targets
+  SHFBInstall: C:\projects\andrei\InstallResources\SandcastleHelpFileBuilder.msi
+  ProjectBase: C:\projects\andreicslib
+cache:
+- C:\projects\andrei\SHFBInstaller.zip
+- C:\Program Files (x86)\EWSoftware
+nuget:
+  account_feed: true
+  project_feed: true
+before_build:
+- ps: >-
+    echo "nuget restore"
+    nuget restore
+build:
+  project: ANDREICSLIB.csproj
+  publish_nuget: true
+  publish_nuget_symbols: true
+  include_nuget_references: true
+  parallel: true
+  verbosity: minimal
+after_build:
+- ps: 
+after_test:
+- ps: 
+	if ((Test-Path("$env:SandCastleZipFile")) -eq 0)
+	{
+		echo "Start-FileDownload"
+		echo "$env:SandCastleUri"
+		echo "$env:SandCastleZipFile"
+		mkdir "$env:SandCastleBase"
+		Invoke-WebRequest "$env:SandCastleUri" -OutFile "$env:SandCastleZipFile"
+	}
+
+	echo "7z"
+	cd "$env:SandCastleBase"
+	7z x "$env:SandCastleZipFile" -y
+
+	if ((Test-Path("$env:SHFBTESTINSTALL")) -eq 0)
+	{
+		echo "msiexec"
+		msiexec /i "$env:SHFBInstall" /quiet /qn /norestart /log "C:\projects\andrei\install.log"
+		Start-Sleep -s 10
+	}
+
+	while ((Test-Path("$env:SHFBTESTINSTALL")) -eq 0)
+	{
+		echo "Sleeping"
+		Start-Sleep -s 10
+	}
+
+	echo "SHFB run"
+	cd "$env:ProjectBase"
+	echo "dir"
+	dir
+	msbuild proj.shfbproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" 
+
+	if ((Test-Path("$env:SHFBTEST")) -eq 0)
+	{
+		echo "SHFB Fail"
+		cd "C:\projects\andreicslib\help"
+		echo "dir"
+		dir
+		throw "SHFB Fail"
+	}
+
+	echo "pack"
+	7z a documentation.zip "C:\projects\andreicslib\help\*"
+		
+artifacts:
+  - path: '**ANDREICSLIB**\*.nupkg'
+  - path: '**documentation.zip'
+deploy: off
