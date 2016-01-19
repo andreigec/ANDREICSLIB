@@ -13,7 +13,7 @@
     <RootNamespace>Documentation</RootNamespace>
     <Name>Documentation</Name>
     <!-- SHFB properties -->
-    <FrameworkVersion>.NET Framework 4.5</FrameworkVersion>
+    <FrameworkVersion>.NET Framework 4.5.1</FrameworkVersion>
     <OutputPath>Help\</OutputPath>
     <HtmlHelpName>Documentation</HtmlHelpName>
     <Language>en-US</Language>
@@ -36,8 +36,9 @@
     <ContentPlacement>AboveNamespaces</ContentPlacement>
     <DocumentationSources>
       <DocumentationSource sourceFile="ANDREICSLIB.csproj" />
-<DocumentationSource sourceFile="bin\Release\ANDREICSLIB.XML" />
-<DocumentationSource sourceFile="bin\Release\ANDREICSLIB.dll" /></DocumentationSources>
+      <DocumentationSource sourceFile="bin\Release\ANDREICSLIB.XML" />
+      <DocumentationSource sourceFile="bin\Release\ANDREICSLIB.dll" />
+    </DocumentationSources>
     <VisibleItems>Attributes, ExplicitInterfaceImplementations, InheritedMembers, InheritedFrameworkMembers, Internals, Privates, PrivateFields, Protected, ProtectedInternalAsProtected</VisibleItems>
     <MissingTags>AutoDocumentCtors, AutoDocumentDispose</MissingTags>
     <PlugInConfigurations>
