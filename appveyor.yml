@@ -49,7 +49,7 @@ deploy:
   api_key:
     secure: nBk9yEkwOweQxGzUzFoXsL1f48WYY2s9h+JHx3MMU9qecKoDEkI6BylMKWXkohcK
   skip_symbols: false
-   artifact:   
+  artifact:   
   on:
     branch: NUGET
 

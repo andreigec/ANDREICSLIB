@@ -57,10 +57,31 @@ namespace ANDREICSLIB.Helpers
             if (Storage[cacheKey] is T)
                 return (T)Storage[cacheKey];
 
-            //or jobject when loaded from disk
-            var ob = (JObject)Storage[cacheKey];
-            var ty = ob.ToObject<T>();
-            return ty;
+            return ReturnType<T>(Storage[cacheKey]);
+        }
+
+        private T ReturnType<T>(object o) where T : class
+        {
+            //base type = return
+            if (o is T)
+                return (T)o;
+
+            //object - straight cast
+            if (o is JObject)
+            {
+                //or jobject when loaded from disk
+                var ob = (JObject)o;
+                var ty = ob.ToObject<T>();
+                return ty;
+            }
+            // its a list
+            if (o is JArray)
+            {
+                var oba = (o as JArray).ToObject<T>();
+                return oba;
+            }
+
+            return null;
         }
 
         public PersistantCache(string filename)
