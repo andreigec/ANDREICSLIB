@@ -48,6 +48,18 @@ namespace ANDREICSLIB.Helpers
             }
         }
 
+        public T Get<T>(string cacheKey)
+        {
+            //its either the object on current session
+            if (Storage[cacheKey] is T)
+                return (T)Storage[cacheKey];
+
+            //or jobject when loaded from disk
+            var ob = (JObject)Storage[cacheKey];
+            var ty = ob.ToObject<T>();
+            return ty;
+        }
+
         public PersistantCache(string filename)
         {
             this.filename = filename;
@@ -86,14 +98,7 @@ namespace ANDREICSLIB.Helpers
             {
                 if (Storage.ContainsKey(cacheKey))
                 {
-                    //its either the object on current session
-                    if (Storage[cacheKey] is T)
-                        return (T)Storage[cacheKey];
-
-                    //or jobject when loaded from disk
-                    var ob = (JObject)Storage[cacheKey];
-                    var ty = ob.ToObject<T>();
-                    return ty;
+                    return Get<T>(cacheKey);
                 }
             }
             catch (Exception ex)
