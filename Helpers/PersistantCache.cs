@@ -48,8 +48,11 @@ namespace ANDREICSLIB.Helpers
             }
         }
 
-        public T Get<T>(string cacheKey)
+        public T Get<T>(string cacheKey) where T : class
         {
+            if (!Storage.ContainsKey(cacheKey))
+                return null;
+
             //its either the object on current session
             if (Storage[cacheKey] is T)
                 return (T)Storage[cacheKey];
