@@ -108,5 +108,12 @@ namespace ANDREICSLIB.ClassExtras
                 }
             }
         }
+
+        public static Dictionary<string, object> Deserialize(string url)
+        {
+            var res = NetExtras.GetWebPageStream(url);
+            var ret = Deserialize(res.Item1);
+            return ret;
+        }
     }
 }
