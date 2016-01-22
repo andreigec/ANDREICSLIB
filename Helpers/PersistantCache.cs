@@ -16,27 +16,29 @@ namespace ANDREICSLIB.Helpers
     /// <summary>
     /// example usage: https://github.com/andreigec/GithubSensitiveSearch
     /// </summary>
-    public class PersistantCache : IDisposable
+    public class PersistantCache
     {
         private string filename;
         private JsonSerializer js;
 
-        private Dictionary<string, object> storage;
+        private Dictionary<string, object> Storage { get; set; }
 
-        public Dictionary<string, object> Storage
+        public PersistantCache(string filename)
         {
-            get
-            {
-                if (storage != null)
-                    return storage;
+            this.filename = filename;
 
-                using (var fs = new FileStream(filename, FileMode.Open))
-                {
-                    storage = DictionaryExtras.Deserialize(fs) ?? new Dictionary<string, object>();
-                    return storage;
-                }
+            if (filename.EndsWith(".agdb") == false)
+                throw new Exception("must end with .agdb");
+
+            FileExtras.CreateFile(filename);
+
+            using (var fs = new FileStream(filename, FileMode.Open))
+            {
+                Storage = DictionaryExtras.Deserialize(fs) ?? new Dictionary<string, object>();
             }
-            private set { }
+
+            js = new JsonSerializer();
+            Set("", null);
         }
 
         public void Set(string key, object value)
@@ -44,7 +46,7 @@ namespace ANDREICSLIB.Helpers
             Storage[key] = value;
             using (var fs = new FileStream(filename, FileMode.Create))
             {
-                DictionaryExtras.Serialise(storage, js, fs);
+                Storage.Serialise(js, fs);
             }
         }
 
@@ -82,22 +84,6 @@ namespace ANDREICSLIB.Helpers
             }
 
             return null;
-        }
-
-        public PersistantCache(string filename)
-        {
-            this.filename = filename;
-
-            if (filename.EndsWith(".agdb") == false)
-                throw new Exception("must end with .agdb");
-
-            FileExtras.CreateFile(filename);
-            js = new JsonSerializer();
-            Set("", null);
-        }
-
-        public void Dispose()
-        {
         }
 
         /// <summary>
