@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,6 +8,7 @@ using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ANDREICSLIB.ClassExtras
 {
@@ -57,7 +58,7 @@ namespace ANDREICSLIB.ClassExtras
             }
         }
 
-        public static string DownloadWebPage(string url)
+        public static async Task<string> DownloadWebPage(string url)
         {
             var t = GetWebPageStream(url);
             var webStream = t.Item1;
@@ -69,7 +70,7 @@ namespace ANDREICSLIB.ClassExtras
                 var reader = new StreamReader(webStream);
 
                 // Read the entire stream content:
-                string pageContent = reader.ReadToEnd();
+                string pageContent = await reader.ReadToEndAsync();
 
                 // Cleanup
                 reader.Close();
@@ -138,7 +139,7 @@ namespace ANDREICSLIB.ClassExtras
                 if (rep != null)
                     return rep.Status != IPStatus.TtlExpired && rep.Status != IPStatus.TimedOut && rep.Status != IPStatus.TimeExceeded;
             }
-            catch 
+            catch
             {
 
             }
@@ -211,9 +212,9 @@ namespace ANDREICSLIB.ClassExtras
             return null;
         }
 
-        public static string GetExternalDefaultLocalAddress(string WebCheckIPURL = null)
+        public static async Task<string> GetExternalDefaultLocalAddress(string WebCheckIPURL = null)
         {
-            string ret = WebCheckIPURL == null ? GetExternalAddress() : GetExternalAddress(WebCheckIPURL);
+            string ret = await (WebCheckIPURL == null ? GetExternalAddress() : GetExternalAddress(WebCheckIPURL));
 
             if (ret == null)
                 ret = GetLocalAddress();
@@ -227,11 +228,11 @@ namespace ANDREICSLIB.ClassExtras
             return (from ip in host.AddressList where ip.AddressFamily == AddressFamily.InterNetwork select ip.ToString()).FirstOrDefault();
         }
 
-        public static string GetExternalAddress(string WebCheckIPURL = "http://checkip.dyndns.org")
+        public static async Task<string> GetExternalAddress(string WebCheckIPURL = "http://checkip.dyndns.org")
         {
             try
             {
-                string addr = DownloadWebPage(WebCheckIPURL);
+                string addr = await DownloadWebPage(WebCheckIPURL);
                 if (string.IsNullOrEmpty(addr) == false)
                 {
                     //remove up to :
@@ -291,7 +292,7 @@ namespace ANDREICSLIB.ClassExtras
 
                 return macAddressString.ToString();
             }
-            catch 
+            catch
             {
                 return null;
             }

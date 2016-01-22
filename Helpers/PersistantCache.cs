@@ -100,6 +100,64 @@ namespace ANDREICSLIB.Helpers
         {
         }
 
+        /// <summary>
+        /// pass in a sync action
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="action"></param>
+        /// <param name="memberName"></param>
+        /// <returns></returns>
+        public T Cache<T>(Expression<Func<T>> action, [CallerMemberName] string memberName = "")
+            where T : class
+        {
+            var builder = new StringBuilder(100);
+            builder.Append("AUTOCACHE.");
+            builder.Append(memberName);
+
+            (from MemberExpression expression in ((MethodCallExpression)action.Body).Arguments
+             select ((FieldInfo)expression.Member).GetValue(((ConstantExpression)expression.Expression).Value))
+                .ToList()
+                .ForEach(x =>
+                {
+                    builder.Append("_");
+                    builder.Append(x);
+                });
+
+            string cacheKey = builder.ToString();
+
+            try
+            {
+                if (Storage.ContainsKey(cacheKey))
+                {
+                    return Get<T>(cacheKey);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error on cache read:", ex);
+            }
+
+            var res = action.Compile().Invoke();
+
+            try
+            {
+                Set(cacheKey, res);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error on cache write:", ex);
+            }
+
+            return res;
+        }
+
+        /// <summary>
+        /// pass in an async action
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="action"></param>
+        /// <param name="memberName"></param>
+        /// <returns></returns>
         public async Task<T> Cache<T>(Expression<Func<Task<T>>> action, [CallerMemberName] string memberName = "")
             where T : class
         {
