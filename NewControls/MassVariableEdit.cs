@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -38,8 +38,8 @@ namespace ANDREICSLIB.NewControls
             InitializeComponent();
         }
 
-        public static List<Tuple<string, string>> ShowDialogStatic(string formText, object classInstance,
-                                                                   List<TextBoxItems> overload = null)
+        public static T ShowDialogStatic<T>(string formText, T classInstance,
+                                                                   List<TextBoxItems> overload = null) where T:class
         {
             var mve = new MassVariableEdit();
             return mve.ShowDialog(formText, classInstance, overload);
@@ -52,8 +52,8 @@ namespace ANDREICSLIB.NewControls
         /// <param name="classInstance"> </param>
         /// <param name="overload"> </param>
         /// <returns></returns>
-        public List<Tuple<string, string>> ShowDialog(string formText, object classInstance,
-                                                      List<TextBoxItems> overload = null)
+        public T ShowDialog<T>(string formText, T classInstance,
+                                                      List<TextBoxItems> overload = null) where T : class
         {
             Type ty = classInstance.GetType();
             List<string> fields = Reflection.GetFieldNames(ty);
@@ -86,7 +86,13 @@ namespace ANDREICSLIB.NewControls
                 }
             }
 
-            return ShowDialog(formText, k);
+            var res = ShowDialog(formText, k);
+            if (res == null)
+                return null;
+            //construct using field names
+            var retob = (T)Reflection.DeserialiseObject(ty, res);
+            return retob;
+
         }
 
         /// <summary>
@@ -101,7 +107,7 @@ namespace ANDREICSLIB.NewControls
             foreach (TextBoxItems k in items)
             {
                 var l = new Label();
-                l.Width = this.Width-50;
+                l.Width = this.Width - 50;
                 l.Text = k.LabelText;
                 itemspanel.AddControl(l, false);
 

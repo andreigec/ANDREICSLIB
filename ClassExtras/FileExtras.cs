@@ -95,7 +95,7 @@ namespace ANDREICSLIB.ClassExtras
                 {
                     Directory.Delete(dir, true);
                 }
-                catch 
+                catch
                 {
                     Thread.Sleep(500);
                 }
@@ -114,9 +114,10 @@ namespace ANDREICSLIB.ClassExtras
         {
             try
             {
-                var fs = new FileStream(filepath, FileMode.OpenOrCreate);
-                fs.Close();
-                return true;
+                using (var fs = new FileStream(filepath, FileMode.OpenOrCreate))
+                {
+                    return true;
+                }
             }
             catch (Exception)
             {
