@@ -105,6 +105,7 @@
     <Compile Include="ClassExtras\CheckedListBoxExtras.cs" />
     <Compile Include="ClassExtras\ContextMenuStripExtras.cs" />
     <Compile Include="ClassExtras\DirectoryExtras.cs" />
+    <Compile Include="Helpers\IPersistantCache.cs" />
     <Compile Include="Models\FileSizes.cs" />
     <Compile Include="ClassExtras\ListExtras.cs" />
     <Compile Include="ClassExtras\TabPageExtras.cs" />

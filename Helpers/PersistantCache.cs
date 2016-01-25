@@ -17,40 +17,32 @@ namespace ANDREICSLIB.Helpers
     /// <summary>
     /// example usage: https://github.com/andreigec/GithubSensitiveSearch
     /// </summary>
-    public class PersistantCache : IDisposable
+    public class PersistantCache : IPersistantCache
     {
         private string filename;
         private JsonSerializer js;
         private object @lock = new object();
 
-        private Dictionary<string, object> storage;
-
-        public Dictionary<string, object> Storage
+        private Dictionary<string, object> Storage { get; set; }
+        public PersistantCache(string filename)
         {
-            get
+            if (filename.EndsWith(".json") == false)
+                filename += ".json";
+
+            this.filename = filename;
+
+            lock (@lock)
             {
-                if (storage != null)
-                    return storage;
+                FileExtras.CreateFile(filename);
 
-                lock (@lock)
+                using (var fs = new FileStream(filename, FileMode.Open))
                 {
-
-                    using (var fs = new FileStream(filename, FileMode.Open))
-                    {
-                        try
-                        {
-                            storage = DictionaryExtras.Deserialize(fs) ?? new Dictionary<string, object>();
-                        }
-                        catch (Exception ex)
-                        {
-                            storage = new Dictionary<string, object>();
-                        }
-
-                        return storage;
-                    }
+                    Storage = DictionaryExtras.Deserialize(fs) ?? new Dictionary<string, object>();
                 }
             }
-            private set { }
+
+            js = new JsonSerializer();
+            Set("", null);
         }
 
         public void Set(string key, object value)
@@ -61,7 +53,7 @@ namespace ANDREICSLIB.Helpers
             {
                 using (var fs = new FileStream(filename, FileMode.Create))
                 {
-                    DictionaryExtras.Serialise(storage, js, fs);
+                    Storage.Serialise(js, fs);
                 }
             }
         }
@@ -102,22 +94,6 @@ namespace ANDREICSLIB.Helpers
             return null;
         }
 
-        public PersistantCache(string filename)
-        {
-            this.filename = filename;
-
-            if (filename.EndsWith(".agdb") == false)
-                throw new Exception("must end with .agdb");
-
-            FileExtras.CreateFile(filename);
-            js = new JsonSerializer();
-            Set("", null);
-        }
-
-        public void Dispose()
-        {
-        }
-
         /// <summary>
         /// 
         /// </summary>
@@ -151,7 +127,7 @@ namespace ANDREICSLIB.Helpers
         /// <param name="memberName"></param>
         /// <returns></returns>
         public T Cache<T>(Expression<Func<T>> action, [CallerMemberName] string memberName = "")
-            where T : class
+           where T : class
         {
             var cacheKey = GetKey<T>(memberName, ((MethodCallExpression)action.Body));
 
@@ -211,7 +187,7 @@ namespace ANDREICSLIB.Helpers
             {
                 try
                 {
-                    var zipped = res.ToString().CompressString();
+                    var zipped = res.CompressString();
                     Set(cacheKey, zipped);
                 }
                 catch (Exception ex)
