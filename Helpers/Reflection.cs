@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,10 +25,10 @@ namespace ANDREICSLIB.Helpers
         {
             MemberExpression me = null;
             if (memberExpression.Body is MemberExpression)
-                me = ((MemberExpression) memberExpression.Body);
+                me = ((MemberExpression)memberExpression.Body);
             else if (memberExpression.Body is UnaryExpression)
             {
-                var ue = ((UnaryExpression) memberExpression.Body);
+                var ue = ((UnaryExpression)memberExpression.Body);
                 me = ue.Operand as MemberExpression;
             }
 
@@ -74,8 +74,11 @@ namespace ANDREICSLIB.Helpers
         public static List<string> GetFieldNames(Type ty)
         {
             FieldInfo[] fields = ty.GetFields();
-
-            return fields.Select(v => v.Name).ToList();
+            PropertyInfo[] propInfos = ty.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            var l1 = propInfos.Select(s => s.Name).ToList();
+            var l2 = fields.Select(v => v.Name).ToList();
+            l1.AddRange(l2);
+            return l1;
         }
 
         /// <summary>
@@ -175,27 +178,50 @@ namespace ANDREICSLIB.Helpers
                                                bool ignoreErrors = true)
         {
             object instance = Activator.CreateInstance(objectType);
+
             foreach (var t in objectFieldNameAndValues)
             {
+                //try field
                 FieldInfo field = objectType.GetField(t.Item1);
-                if (field == null)
+                if (field != null)
                 {
-                    if (ignoreErrors)
-                        continue;
-                    return null;
+                    try
+                    {
+                        field.SetValue(instance, Convert.ChangeType(t.Item2, field.FieldType));
+                    }
+                    catch (Exception)
+                    {
+                        if (ignoreErrors)
+                            continue;
+                        return null;
+                    }
                 }
 
-                try
+                //try property
+                PropertyInfo pi = objectType.GetProperty(t.Item1);
+                if (pi != null)
                 {
-                    field.SetValue(instance, Convert.ChangeType(t.Item2, field.FieldType));
+                    try
+                    {
+                        pi.SetValue(instance, Convert.ChangeType(t.Item2, pi.PropertyType));
+                    }
+                    catch (Exception)
+                    {
+                        if (ignoreErrors)
+                            continue;
+                        return null;
+                    }
                 }
-                catch (Exception)
+
+                //field hasnt been set
+                if (field == null && pi == null)
                 {
                     if (ignoreErrors)
                         continue;
                     return null;
                 }
             }
+
             return instance;
         }
     }

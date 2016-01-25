@@ -25,10 +25,10 @@ namespace ANDREICSLIB.Helpers
 
         public PersistantCache(string filename)
         {
-            this.filename = filename;
+            if (filename.EndsWith(".json") == false)
+                filename += ".json";
 
-            if (filename.EndsWith(".agdb") == false)
-                throw new Exception("must end with .agdb");
+            this.filename = filename;
 
             FileExtras.CreateFile(filename);
 
