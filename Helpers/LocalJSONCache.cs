@@ -17,14 +17,14 @@ namespace ANDREICSLIB.Helpers
     /// <summary>
     /// example usage: https://github.com/andreigec/GithubSensitiveSearch
     /// </summary>
-    public class PersistantCache : IPersistantCache
+    public class LocalJSONCache : ICache
     {
         private string filename;
         private JsonSerializer js;
         private object @lock = new object();
 
         private Dictionary<string, object> Storage { get; set; }
-        public PersistantCache(string filename)
+        public LocalJSONCache(string filename)
         {
             if (filename.EndsWith(".json") == false)
                 filename += ".json";
@@ -42,10 +42,9 @@ namespace ANDREICSLIB.Helpers
             }
 
             js = new JsonSerializer();
-            Set("", null);
         }
 
-        public void Set(string key, object value)
+        public async Task<bool> Set<T>(string key, T value)
         {
             Storage[key] = value;
 
@@ -54,11 +53,12 @@ namespace ANDREICSLIB.Helpers
                 using (var fs = new FileStream(filename, FileMode.Create))
                 {
                     Storage.Serialise(js, fs);
+                    return true;
                 }
             }
         }
 
-        public T Get<T>(string cacheKey) where T : class
+        public async Task<T> Get<T>(string cacheKey) where T : class
         {
             if (!Storage.ContainsKey(cacheKey))
                 return null;
@@ -126,7 +126,7 @@ namespace ANDREICSLIB.Helpers
         /// <param name="action"></param>
         /// <param name="memberName"></param>
         /// <returns></returns>
-        public T Cache<T>(Expression<Func<T>> action, [CallerMemberName] string memberName = "")
+        public async Task<T> Cache<T>(Expression<Func<T>> action, [CallerMemberName] string memberName = "")
            where T : class
         {
             var cacheKey = GetKey<T>(memberName, ((MethodCallExpression)action.Body));
@@ -135,7 +135,7 @@ namespace ANDREICSLIB.Helpers
             {
                 if (Storage.ContainsKey(cacheKey))
                 {
-                    return Get<T>(cacheKey);
+                    return await Get<T>(cacheKey);
                 }
             }
             catch (Exception ex)
@@ -168,7 +168,7 @@ namespace ANDREICSLIB.Helpers
             {
                 if (Storage.ContainsKey(cacheKey))
                 {
-                    var val = Get<string>(cacheKey);
+                    var val = await Get<string>(cacheKey);
                     if (compress == false)
                         return val;
 
@@ -215,7 +215,7 @@ namespace ANDREICSLIB.Helpers
             {
                 if (Storage.ContainsKey(cacheKey))
                 {
-                    return Get<T>(cacheKey);
+                    return await Get<T>(cacheKey);
                 }
             }
             catch (Exception ex)
