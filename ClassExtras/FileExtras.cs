@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
+using System.Windows.Forms;
 using Newtonsoft.Json;
 
 namespace ANDREICSLIB.ClassExtras
@@ -75,6 +76,7 @@ namespace ANDREICSLIB.ClassExtras
 
                 string dirt = based + d + "\\" + mFile.Name;
                 mFile.CopyTo(dirt, true);
+                Application.DoEvents();
             }
         }
 

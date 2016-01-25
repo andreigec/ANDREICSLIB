@@ -605,5 +605,26 @@ namespace ANDREICSLIB.ClassExtras
 
 			return new Tuple<int, int, int>(count, firstpos, lastpos);
 		}
+		
+        public static string Trim(this string s, string refstr, char[] trimchars = null, StringComparison sc = StringComparison.CurrentCultureIgnoreCase)
+        {
+            if (s.StartsWith(refstr, sc))
+                s = s.Substring(refstr.Length);
+
+            if (s.EndsWith(refstr, sc))
+                s = s.Substring(0, s.Length - refstr.Length);
+
+            s = s.Trim();
+            if (trimchars != null)
+                s = s.Trim(trimchars);
+            s = s.Trim();
+
+            return s;
+        }
+
+        public static bool IsNullOrEmpty(this string s)
+        {
+            return string.IsNullOrEmpty(s);
+        }
 	}
 }

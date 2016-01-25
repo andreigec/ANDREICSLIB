@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using ANDREICSLIB.ClassExtras;
 using Newtonsoft.Json;
@@ -20,6 +21,7 @@ namespace ANDREICSLIB.Helpers
     {
         private string filename;
         private JsonSerializer js;
+        private object @lock = new object();
 
         private Dictionary<string, object> storage;
 
@@ -30,10 +32,22 @@ namespace ANDREICSLIB.Helpers
                 if (storage != null)
                     return storage;
 
-                using (var fs = new FileStream(filename, FileMode.Open))
+                lock (@lock)
                 {
-                    storage = DictionaryExtras.Deserialize(fs) ?? new Dictionary<string, object>();
-                    return storage;
+
+                    using (var fs = new FileStream(filename, FileMode.Open))
+                    {
+                        try
+                        {
+                            storage = DictionaryExtras.Deserialize(fs) ?? new Dictionary<string, object>();
+                        }
+                        catch (Exception ex)
+                        {
+                            storage = new Dictionary<string, object>();
+                        }
+
+                        return storage;
+                    }
                 }
             }
             private set { }
@@ -42,9 +56,13 @@ namespace ANDREICSLIB.Helpers
         public void Set(string key, object value)
         {
             Storage[key] = value;
-            using (var fs = new FileStream(filename, FileMode.Create))
+
+            lock (@lock)
             {
-                DictionaryExtras.Serialise(storage, js, fs);
+                using (var fs = new FileStream(filename, FileMode.Create))
+                {
+                    DictionaryExtras.Serialise(storage, js, fs);
+                }
             }
         }
 
@@ -101,20 +119,18 @@ namespace ANDREICSLIB.Helpers
         }
 
         /// <summary>
-        /// pass in a sync action
+        /// 
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="action"></param>
         /// <param name="memberName"></param>
+        /// <param name="action">((MethodCallExpression)action.Body)</param>
         /// <returns></returns>
-        public T Cache<T>(Expression<Func<T>> action, [CallerMemberName] string memberName = "")
-            where T : class
+        private string GetKey<T>(string memberName, MethodCallExpression action) where T : class
         {
             var builder = new StringBuilder(100);
             builder.Append("AUTOCACHE.");
             builder.Append(memberName);
 
-            (from MemberExpression expression in ((MethodCallExpression)action.Body).Arguments
+            (from MemberExpression expression in action.Arguments
              select ((FieldInfo)expression.Member).GetValue(((ConstantExpression)expression.Expression).Value))
                 .ToList()
                 .ForEach(x =>
@@ -124,6 +140,20 @@ namespace ANDREICSLIB.Helpers
                 });
 
             string cacheKey = builder.ToString();
+            return cacheKey;
+        }
+
+        /// <summary>
+        /// pass in a sync action
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="action"></param>
+        /// <param name="memberName"></param>
+        /// <returns></returns>
+        public T Cache<T>(Expression<Func<T>> action, [CallerMemberName] string memberName = "")
+            where T : class
+        {
+            var cacheKey = GetKey<T>(memberName, ((MethodCallExpression)action.Body));
 
             try
             {
@@ -139,13 +169,55 @@ namespace ANDREICSLIB.Helpers
 
             var res = action.Compile().Invoke();
 
+            lock (@lock)
+            {
+                try
+                {
+                    Set(cacheKey, res);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error on cache write:", ex);
+                }
+            }
+
+            return res;
+        }
+
+        public async Task<string> Cache(Expression<Func<Task<string>>> action, bool compress = false, [CallerMemberName] string memberName = "")
+        {
+            var cacheKey = GetKey<string>(memberName, ((MethodCallExpression)action.Body));
+
             try
             {
-                Set(cacheKey, res);
+                if (Storage.ContainsKey(cacheKey))
+                {
+                    var val = Get<string>(cacheKey);
+                    if (compress == false)
+                        return val;
+
+                    var unzip = val.DecompressString();
+                    return unzip;
+                }
             }
             catch (Exception ex)
             {
-                throw new Exception("Error on cache write:", ex);
+                throw new Exception("Error on cache read:", ex);
+            }
+
+            var res = await action.Compile().Invoke();
+
+            lock (@lock)
+            {
+                try
+                {
+                    var zipped = res.ToString().CompressString();
+                    Set(cacheKey, zipped);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error on cache write:", ex);
+                }
             }
 
             return res;
@@ -161,20 +233,7 @@ namespace ANDREICSLIB.Helpers
         public async Task<T> Cache<T>(Expression<Func<Task<T>>> action, [CallerMemberName] string memberName = "")
             where T : class
         {
-            var builder = new StringBuilder(100);
-            builder.Append("AUTOCACHE.");
-            builder.Append(memberName);
-
-            (from MemberExpression expression in ((MethodCallExpression)action.Body).Arguments
-             select ((FieldInfo)expression.Member).GetValue(((ConstantExpression)expression.Expression).Value))
-                .ToList()
-                .ForEach(x =>
-                {
-                    builder.Append("_");
-                    builder.Append(x);
-                });
-
-            string cacheKey = builder.ToString();
+            var cacheKey = GetKey<T>(memberName, ((MethodCallExpression)action.Body));
 
             try
             {
@@ -190,13 +249,16 @@ namespace ANDREICSLIB.Helpers
 
             var res = await action.Compile().Invoke();
 
-            try
+            lock (@lock)
             {
-                Set(cacheKey, res);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error on cache write:", ex);
+                try
+                {
+                    Set(cacheKey, res);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error on cache write:", ex);
+                }
             }
 
             return res;
