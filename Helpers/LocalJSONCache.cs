@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using ANDREICSLIB.ClassExtras;
 using Newtonsoft.Json;
@@ -16,41 +17,48 @@ namespace ANDREICSLIB.Helpers
     /// <summary>
     /// example usage: https://github.com/andreigec/GithubSensitiveSearch
     /// </summary>
-    public class PersistantCache
+    public class LocalJSONCache : ICache
     {
         private string filename;
         private JsonSerializer js;
+        private object @lock = new object();
 
         private Dictionary<string, object> Storage { get; set; }
-
-        public PersistantCache(string filename)
+        public LocalJSONCache(string filename)
         {
             if (filename.EndsWith(".json") == false)
                 filename += ".json";
 
             this.filename = filename;
 
-            FileExtras.CreateFile(filename);
-
-            using (var fs = new FileStream(filename, FileMode.Open))
+            lock (@lock)
             {
-                Storage = DictionaryExtras.Deserialize(fs) ?? new Dictionary<string, object>();
+                FileExtras.CreateFile(filename);
+
+                using (var fs = new FileStream(filename, FileMode.Open))
+                {
+                    Storage = DictionaryExtras.Deserialize(fs) ?? new Dictionary<string, object>();
+                }
             }
 
             js = new JsonSerializer();
-            Set("", null);
         }
 
-        public void Set(string key, object value)
+        public async Task<bool> Set<T>(string key, T value)
         {
             Storage[key] = value;
-            using (var fs = new FileStream(filename, FileMode.Create))
+
+            lock (@lock)
             {
-                Storage.Serialise(js, fs);
+                using (var fs = new FileStream(filename, FileMode.Create))
+                {
+                    Storage.Serialise(js, fs);
+                    return true;
+                }
             }
         }
 
-        public T Get<T>(string cacheKey) where T : class
+        public async Task<T> Get<T>(string cacheKey) where T : class
         {
             if (!Storage.ContainsKey(cacheKey))
                 return null;
@@ -87,20 +95,18 @@ namespace ANDREICSLIB.Helpers
         }
 
         /// <summary>
-        /// pass in a sync action
+        /// 
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="action"></param>
         /// <param name="memberName"></param>
+        /// <param name="action">((MethodCallExpression)action.Body)</param>
         /// <returns></returns>
-        public T Cache<T>(Expression<Func<T>> action, [CallerMemberName] string memberName = "")
-            where T : class
+        private string GetKey<T>(string memberName, MethodCallExpression action) where T : class
         {
             var builder = new StringBuilder(100);
             builder.Append("AUTOCACHE.");
             builder.Append(memberName);
 
-            (from MemberExpression expression in ((MethodCallExpression)action.Body).Arguments
+            (from MemberExpression expression in action.Arguments
              select ((FieldInfo)expression.Member).GetValue(((ConstantExpression)expression.Expression).Value))
                 .ToList()
                 .ForEach(x =>
@@ -110,12 +116,26 @@ namespace ANDREICSLIB.Helpers
                 });
 
             string cacheKey = builder.ToString();
+            return cacheKey;
+        }
+
+        /// <summary>
+        /// pass in a sync action
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="action"></param>
+        /// <param name="memberName"></param>
+        /// <returns></returns>
+        public async Task<T> Cache<T>(Expression<Func<T>> action, [CallerMemberName] string memberName = "")
+           where T : class
+        {
+            var cacheKey = GetKey<T>(memberName, ((MethodCallExpression)action.Body));
 
             try
             {
                 if (Storage.ContainsKey(cacheKey))
                 {
-                    return Get<T>(cacheKey);
+                    return await Get<T>(cacheKey);
                 }
             }
             catch (Exception ex)
@@ -125,13 +145,55 @@ namespace ANDREICSLIB.Helpers
 
             var res = action.Compile().Invoke();
 
+            lock (@lock)
+            {
+                try
+                {
+                    Set(cacheKey, res);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error on cache write:", ex);
+                }
+            }
+
+            return res;
+        }
+
+        public async Task<string> Cache(Expression<Func<Task<string>>> action, bool compress = false, [CallerMemberName] string memberName = "")
+        {
+            var cacheKey = GetKey<string>(memberName, ((MethodCallExpression)action.Body));
+
             try
             {
-                Set(cacheKey, res);
+                if (Storage.ContainsKey(cacheKey))
+                {
+                    var val = await Get<string>(cacheKey);
+                    if (compress == false)
+                        return val;
+
+                    var unzip = val.DecompressString();
+                    return unzip;
+                }
             }
             catch (Exception ex)
             {
-                throw new Exception("Error on cache write:", ex);
+                throw new Exception("Error on cache read:", ex);
+            }
+
+            var res = await action.Compile().Invoke();
+
+            lock (@lock)
+            {
+                try
+                {
+                    var zipped = res.CompressString();
+                    Set(cacheKey, zipped);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error on cache write:", ex);
+                }
             }
 
             return res;
@@ -147,26 +209,13 @@ namespace ANDREICSLIB.Helpers
         public async Task<T> Cache<T>(Expression<Func<Task<T>>> action, [CallerMemberName] string memberName = "")
             where T : class
         {
-            var builder = new StringBuilder(100);
-            builder.Append("AUTOCACHE.");
-            builder.Append(memberName);
-
-            (from MemberExpression expression in ((MethodCallExpression)action.Body).Arguments
-             select ((FieldInfo)expression.Member).GetValue(((ConstantExpression)expression.Expression).Value))
-                .ToList()
-                .ForEach(x =>
-                {
-                    builder.Append("_");
-                    builder.Append(x);
-                });
-
-            string cacheKey = builder.ToString();
+            var cacheKey = GetKey<T>(memberName, ((MethodCallExpression)action.Body));
 
             try
             {
                 if (Storage.ContainsKey(cacheKey))
                 {
-                    return Get<T>(cacheKey);
+                    return await Get<T>(cacheKey);
                 }
             }
             catch (Exception ex)
@@ -176,13 +225,16 @@ namespace ANDREICSLIB.Helpers
 
             var res = await action.Compile().Invoke();
 
-            try
+            lock (@lock)
             {
-                Set(cacheKey, res);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error on cache write:", ex);
+                try
+                {
+                    Set(cacheKey, res);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error on cache write:", ex);
+                }
             }
 
             return res;

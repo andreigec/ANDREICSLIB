@@ -105,6 +105,7 @@
     <Compile Include="ClassExtras\CheckedListBoxExtras.cs" />
     <Compile Include="ClassExtras\ContextMenuStripExtras.cs" />
     <Compile Include="ClassExtras\DirectoryExtras.cs" />
+    <Compile Include="Helpers\ICache.cs" />
     <Compile Include="Models\FileSizes.cs" />
     <Compile Include="ClassExtras\ListExtras.cs" />
     <Compile Include="ClassExtras\TabPageExtras.cs" />
@@ -196,7 +197,7 @@
     </Compile>
     <Compile Include="NewControls\SerializableDictionary.cs" />
     <Compile Include="ClassExtras\ExpandoObjectHelpers.cs" />
-    <Compile Include="Helpers\PersistantCache.cs" />
+    <Compile Include="Helpers\LocalJSONCache.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>

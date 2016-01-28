@@ -15,7 +15,7 @@ namespace ANDREICSLIB.ClassExtras
     /// <summary>
     /// example usage: https://github.com/andreigec/ExtractTransform
     /// </summary>
-    public abstract class NetExtras
+    public static class NetExtras
     {
         /// <summary>
         /// add timeout to web client
@@ -35,7 +35,7 @@ namespace ANDREICSLIB.ClassExtras
             }
         }
 
-        public static string MakeStringURLSafe(string instr)
+        public static string MakeStringURLSafe(this string instr)
         {
             //changes
             instr = instr.Replace("://", "_");
