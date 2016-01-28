@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -80,6 +80,46 @@ namespace ANDREICSLIB.ClassExtras
         public static bool ContainsLoopThrough<T>(List<object> list, T val)
         {
             return Enumerable.Contains(list, val);
+        }
+
+        public class IntersectResult<T>
+        {
+            public IntersectResult(List<T> sameElements, List<T> oneOnly, List<T> twoOnly)
+            {
+                SameElements = sameElements;
+                OneOnly = oneOnly;
+                TwoOnly = twoOnly;
+            }
+
+            public List<T> SameElements { get; set; }
+            public List<T> OneOnly { get; set; }
+            public List<T> TwoOnly { get; set; }
+        }
+
+        public static IntersectResult<T> Intersect<T>(List<T> one, List<T> two)
+        {
+            var same = new List<T>();
+            var oneonly = new List<T>();
+            var twoonly = new List<T>();
+
+            var merged = one.Select(s => s).ToList();
+            merged.AddRange(two);
+            merged = merged.Distinct().ToList();
+
+            foreach (var t in merged)
+            {
+                var onehas = one.Contains(t);
+                var twohas = two.Contains(t);
+                if (onehas && twohas)
+                    same.Add(t);
+                else if (onehas)
+                    oneonly.Add(t);
+                else
+                    twoonly.Add(t);
+            }
+
+            var ret = new IntersectResult<T>(same, oneonly, twoonly);
+            return ret;
         }
     }
 }
