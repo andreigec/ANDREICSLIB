@@ -121,5 +121,16 @@ namespace ANDREICSLIB.ClassExtras
             var ret = new IntersectResult<T>(same, oneonly, twoonly);
             return ret;
         }
+
+        public static List<T> Initialise<T>(int count, T val) where T : class
+        {
+            var ret = new List<T>(count);
+            foreach (var i in ret)
+            {
+                ret[count] = val;
+            }
+
+            return ret;
+        }
     }
 }

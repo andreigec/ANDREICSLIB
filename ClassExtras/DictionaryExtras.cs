@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Dynamic;
 using System.IO;
 using System.Linq;
@@ -114,6 +115,24 @@ namespace ANDREICSLIB.ClassExtras
             var res = NetExtras.GetWebPageStream(url);
             var ret = Deserialize(res.Item1);
             return ret;
+        }
+
+        public static void RemoveEmptyKeyValues(ref Dictionary<string, object> d)
+        {
+            var keys = d.Keys.ToList();
+            //remove empty keys
+            var remove = keys.Where(s => string.IsNullOrWhiteSpace(s)).ToList();
+            //remove empty values
+            foreach (var kvp in d)
+            {
+                var v = kvp.Value?.ToString();
+                if (string.IsNullOrEmpty(v))
+                    remove.Add(kvp.Key);
+            }
+            foreach (var r in remove)
+            {
+                d.Remove(r);
+            }
         }
     }
 }

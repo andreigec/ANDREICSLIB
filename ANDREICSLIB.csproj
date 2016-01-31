@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassExtras\ArrayExtras.cs" />
+    <Compile Include="ClassExtras\DateTimeExtras.cs" />
     <Compile Include="Extracters\DynamicJSONConverter.cs" />
     <Compile Include="Extracters\IExtract.cs" />
     <Compile Include="Extracters\JSONExtract.cs" />
