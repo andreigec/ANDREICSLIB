@@ -124,13 +124,26 @@ namespace ANDREICSLIB.ClassExtras
 
         public static List<T> Initialise<T>(int count, T val) where T : class
         {
-            var ret = new List<T>(count);
-            foreach (var i in ret)
-            {
-                ret[count] = val;
-            }
+            var ret = new List<T>();
+            for (int a = 0; a < count; a++)
+                ret.Add(val);
 
             return ret;
+        }
+
+        public static void InsertAlphabetically(ref List<string> l, List<string> toAdd)
+        {
+            foreach (var ta in toAdd)
+            {
+                InsertAlphabetically(ref l, ta);
+            }
+        }
+
+        public static void InsertAlphabetically(ref List<string> l, string toAdd)
+        {
+            int loc;
+            for (loc = 0; loc < l.Count && l[loc].CompareTo(toAdd) < 0; loc++) ;
+            l.Insert(loc, toAdd);
         }
     }
 }

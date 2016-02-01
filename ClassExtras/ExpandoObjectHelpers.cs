@@ -1,6 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.Linq;
+using System.Web.Routing;
 
 namespace ANDREICSLIB.ClassExtras
 {
@@ -10,6 +12,13 @@ namespace ANDREICSLIB.ClassExtras
         {
             var ret = new Dictionary<string, object>(item);
             return ret;
+        }
+
+        public static Dictionary<string, object> ToDictionary(dynamic item)
+        {
+            var ret = new RouteValueDictionary(item);
+            var d = ret.ToDictionary(s => s.Key, s2 => s2.Value);
+            return d;
         }
 
         /// <summary>
