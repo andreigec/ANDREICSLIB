@@ -8,33 +8,34 @@ using ANDREICSLIB.ClassExtras;
 
 namespace ANDREICSLIB.Licensing
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class Licensing
     {
         private static SolutionDetails _sd;
 
         /// <summary>
-        /// so we dont allow 2 instances of the about dialog
+        ///     so we dont allow 2 instances of the about dialog
         /// </summary>
         internal static bool ShowingAbout;
 
         /// <summary>
-        /// so we dont allow 2 instances of the help dialog
+        ///     so we dont allow 2 instances of the help dialog
         /// </summary>
         internal static bool ShowingHelp;
 
-        public class DownloadedSolutionDetails
-        {
-            public string FileLocation { get; set; }
-            public string ChangeLog { get; set; }
-            public Version Version { get; set; }
-        }
-
+        /// <summary>
+        /// Gets the item.
+        /// </summary>
+        /// <param name="ms">The ms.</param>
+        /// <returns></returns>
         private static ToolStripMenuItem GetItem(MenuStrip ms)
         {
             //see if a help item exists
             foreach (ToolStripMenuItem i in ms.Items)
             {
-                string t = i.Text;
+                var t = i.Text;
                 t = t.ToLower();
                 t = t.Replace("&", "");
 
@@ -58,19 +59,19 @@ namespace ANDREICSLIB.Licensing
         /// Adds functionality for auto updating application, and creation of about screen.
         /// Inserts about tab on menu strip
         /// </summary>
-        /// <param name="baseform"></param>
-        /// <param name="newsd"></param>
-        /// <param name="existingMenuStrip"></param>
+        /// <param name="baseform">The baseform.</param>
+        /// <param name="existingMenuStrip">The existing menu strip.</param>
+        /// <param name="newsd">The newsd.</param>
         public static void CreateLicense(Form baseform, MenuStrip existingMenuStrip, SolutionDetails newsd)
         {
             _sd = newsd;
 
             baseform.Text = _sd.AppName + " Version:" + _sd.AppVersion;
 
-            bool existed = false;
+            var existed = false;
             const string help = "&Help";
 
-            ToolStripMenuItem helpToolStripItem = GetItem(existingMenuStrip);
+            var helpToolStripItem = GetItem(existingMenuStrip);
             if (helpToolStripItem != null)
                 existed = true;
             else
@@ -104,14 +105,19 @@ namespace ANDREICSLIB.Licensing
             }
         }
 
+        /// <summary>
+        /// Aboutboxes the specified sender.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private static void Aboutbox(object sender, EventArgs e)
         {
             var AS = new AboutScreen
             {
                 Text = "About " + _sd.AppName,
-                appversionlabel = { Text = "Version " + _sd.AppVersion },
-                apptitlelabel = { Text = _sd.AppName },
-                otherapptext = { Text = _sd.AboutScreenOtherText }
+                appversionlabel = {Text = "Version " + _sd.AppVersion},
+                apptitlelabel = {Text = _sd.AppName},
+                otherapptext = {Text = _sd.AboutScreenOtherText}
             };
 
             if (ShowingAbout == false)
@@ -121,9 +127,14 @@ namespace ANDREICSLIB.Licensing
             }
         }
 
+        /// <summary>
+        /// Helpboxes the specified sender.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private static void Helpbox(object sender, EventArgs e)
         {
-            var hs = new HelpScreen { Text = _sd.AppName + " Help", helpbox = { Text = _sd.HelpText } };
+            var hs = new HelpScreen {Text = _sd.AppName + " Help", helpbox = {Text = _sd.HelpText}};
 
             if (ShowingHelp == false)
             {
@@ -132,9 +143,15 @@ namespace ANDREICSLIB.Licensing
             }
         }
 
+        /// <summary>
+        /// Updates the application.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <returns></returns>
         private static async Task UpdateApplication(object sender, EventArgs e)
         {
-            DialogResult dr1 =
+            var dr1 =
                 MessageBox.Show(
                     _sd.AppName +
                     " will now connect to the internet to find  the newest version.\nDo you wish to continue?",
@@ -152,9 +169,9 @@ namespace ANDREICSLIB.Licensing
                 return;
             }
 
-            string versionS = "Your version of " + _sd.AppName + ":" + _sd.AppVersion +
-                              "\nNewest version online:" +
-                              dsd.Version;
+            var versionS = "Your version of " + _sd.AppName + ":" + _sd.AppVersion +
+                           "\nNewest version online:" +
+                           dsd.Version;
 
             if (_sd.AppVersion >= dsd.Version)
             {
@@ -175,7 +192,7 @@ namespace ANDREICSLIB.Licensing
                 return;
             }
 
-            DialogResult dr =
+            var dr =
                 MessageBox.Show(
                     versionS +
                     "\n\nDo you wish to update to this version? \n(Be aware that this program will restart; please save your data beforehand)",
@@ -184,13 +201,16 @@ namespace ANDREICSLIB.Licensing
                 UpdateApplication(dsd);
         }
 
-
+        /// <summary>
+        /// Updates the application.
+        /// </summary>
+        /// <param name="dsd">The DSD.</param>
         private static void UpdateApplication(DownloadedSolutionDetails dsd)
         {
             string folder;
             string localfile;
             //we need the exe file for later execution
-            string exefile = "";
+            var exefile = "";
             string exefolder;
 
             try
@@ -221,7 +241,7 @@ namespace ANDREICSLIB.Licensing
 
             try
             {
-                string myname = AppDomain.CurrentDomain.FriendlyName;
+                var myname = AppDomain.CurrentDomain.FriendlyName;
                 const string vshost = ".vshost.";
                 //remove .vshost for testing
                 if (myname.Contains(vshost))
@@ -231,7 +251,7 @@ namespace ANDREICSLIB.Licensing
                 ZipExtras.ExtractZipFile(localfile, folder);
 
                 //2.2 find exe
-                foreach (string f in DirectoryExtras.GetFilesRecursive(folder))
+                foreach (var f in DirectoryExtras.GetFilesRecursive(folder))
                 {
                     if (f.Contains(".exe"))
                         exefile = f;
@@ -245,10 +265,10 @@ namespace ANDREICSLIB.Licensing
                 //ignore everything above this dir
                 while (exefile.Length > 0)
                 {
-                    int c = StringExtras.ContainsSubStringCount(exefile, br);
+                    var c = StringExtras.ContainsSubStringCount(exefile, br);
                     if (c > 0)
                     {
-                        string s = exefile.Substring(0, exefile.IndexOf(br, StringComparison.Ordinal));
+                        var s = exefile.Substring(0, exefile.IndexOf(br, StringComparison.Ordinal));
                         exefolder += s + br;
                         exefile = exefile.Substring(exefile.IndexOf(br, StringComparison.Ordinal) + 1);
                     }
@@ -263,7 +283,7 @@ namespace ANDREICSLIB.Licensing
             }
 
             //3: Run async cmd prompt to move unpacked files and remove the folder in a second, and rerun the exe
-            OperatingSystem osInfo = Environment.OSVersion;
+            var osInfo = Environment.OSVersion;
             try
             {
                 //move folder/* to the local dir
@@ -271,10 +291,10 @@ namespace ANDREICSLIB.Licensing
                 //delete folder remnants
                 //start the exefile we found before
 
-                string operations = "move /Y \"" + exefolder + "\"\\* . " +
-                                    "& del /Q \"" + localfile + "\" " +
-                                    "& rmdir /Q /S \"" + folder + "\" " +
-                                    "& start \"\" \"" + exefile + "\" ";
+                var operations = "move /Y \"" + exefolder + "\"\\* . " +
+                                 "& del /Q \"" + localfile + "\" " +
+                                 "& rmdir /Q /S \"" + folder + "\" " +
+                                 "& start \"\" \"" + exefile + "\" ";
 
                 if (osInfo.Platform == PlatformID.Win32NT && osInfo.Version.Major > 5)
                 {
@@ -323,28 +343,56 @@ namespace ANDREICSLIB.Licensing
             Application.Exit();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public class DownloadedSolutionDetails
+        {
+            public string FileLocation { get; set; }
+            public string ChangeLog { get; set; }
+            public Version Version { get; set; }
+        }
+
         #region Nested type: SolutionDetails
 
         public delegate Task<DownloadedSolutionDetails> LicenseCallback(string appRepo);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public class SolutionDetails
         {
-            private LicenseCallback _callback;
+            private readonly LicenseCallback _callback;
             public string AboutScreenOtherText;
             public string AppName;
-            public string HelpText;
-            public Version AppVersion;
             public string AppRepo;
+            public Version AppVersion;
+            public string HelpText;
 
-            public SolutionDetails(LicenseCallback dsd, string helpText = null, string AppName = null, string AppRepoName = null, Version version = null, string aboutScreenOtherText = null)
+            /// <summary>
+            /// Initializes a new instance of the <see cref="SolutionDetails"/> class.
+            /// </summary>
+            /// <param name="dsd">The DSD.</param>
+            /// <param name="helpText">The help text.</param>
+            /// <param name="AppName">Name of the application.</param>
+            /// <param name="AppRepoName">Name of the application repo.</param>
+            /// <param name="version">The version.</param>
+            /// <param name="aboutScreenOtherText">The about screen other text.</param>
+            public SolutionDetails(LicenseCallback dsd, string helpText = null, string AppName = null,
+                string AppRepoName = null, Version version = null, string aboutScreenOtherText = null)
             {
                 _callback = dsd;
-                this.AppRepo = AppRepoName;
+                AppRepo = AppRepoName;
                 AppVersion = version;
                 HelpText = helpText;
                 this.AppName = AppName;
                 AboutScreenOtherText = aboutScreenOtherText;
             }
 
+            /// <summary>
+            /// Callbacks this instance.
+            /// </summary>
+            /// <returns></returns>
             public async Task<DownloadedSolutionDetails> Callback()
             {
                 if (_callback != null)

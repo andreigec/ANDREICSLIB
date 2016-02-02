@@ -13,28 +13,15 @@ using System.Threading.Tasks;
 namespace ANDREICSLIB.ClassExtras
 {
     /// <summary>
-    /// example usage: https://github.com/andreigec/ExtractTransform
+    ///     example usage: https://github.com/andreigec/ExtractTransform
     /// </summary>
     public static class NetExtras
     {
         /// <summary>
-        /// add timeout to web client
+        /// Makes the string URL safe.
         /// </summary>
-        public class WebClientEx : WebClient
-        {
-            /// <summary>
-            /// timeout in MS
-            /// </summary>
-            public int Timeout { get; set; }
-
-            protected override WebRequest GetWebRequest(Uri address)
-            {
-                var request = base.GetWebRequest(address);
-                request.Timeout = Timeout;
-                return request;
-            }
-        }
-
+        /// <param name="instr">The instr.</param>
+        /// <returns></returns>
         public static string MakeStringURLSafe(this string instr)
         {
             //changes
@@ -45,19 +32,28 @@ namespace ANDREICSLIB.ClassExtras
             instr = instr.Replace("{", "_");
             instr = instr.Replace("}", "_");
             instr = instr.Replace("__", "_");
-            instr = instr.Trim(new[] { '_' });
+            instr = instr.Trim('_');
             return instr;
         }
 
-
+        /// <summary>
+        /// Downloads the file.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <param name="filename">The filename.</param>
         public static void DownloadFile(string url, string filename)
         {
-            using (WebClient client = new WebClient())
+            using (var client = new WebClient())
             {
                 client.DownloadFile(url, filename);
             }
         }
 
+        /// <summary>
+        /// Downloads the web page.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <returns></returns>
         public static async Task<string> DownloadWebPage(string url)
         {
             var t = GetWebPageStream(url);
@@ -70,7 +66,7 @@ namespace ANDREICSLIB.ClassExtras
                 var reader = new StreamReader(webStream);
 
                 // Read the entire stream content:
-                string pageContent = await reader.ReadToEndAsync();
+                var pageContent = await reader.ReadToEndAsync();
 
                 // Cleanup
                 reader.Close();
@@ -82,10 +78,15 @@ namespace ANDREICSLIB.ClassExtras
             return null;
         }
 
+        /// <summary>
+        /// Gets the web page stream.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <returns></returns>
         public static Tuple<Stream, WebResponse> GetWebPageStream(string url)
         {
             // Open a connection
-            var webRequestObject = (HttpWebRequest)WebRequest.Create(url);
+            var webRequestObject = (HttpWebRequest) WebRequest.Create(url);
 
             // You can also specify additional header values like 
             // the user agent or the referer:
@@ -98,10 +99,15 @@ namespace ANDREICSLIB.ClassExtras
 
 
             // Open data stream:
-            Stream webStream = response.GetResponseStream();
+            var webStream = response.GetResponseStream();
             return new Tuple<Stream, WebResponse>(webStream, response);
         }
 
+        /// <summary>
+        /// Gets the name of the host.
+        /// </summary>
+        /// <param name="externalIP">The external ip.</param>
+        /// <returns></returns>
         public static string GetHostName(IPAddress externalIP = null)
         {
             if (externalIP == null)
@@ -109,6 +115,11 @@ namespace ANDREICSLIB.ClassExtras
             return Dns.GetHostEntry(externalIP).HostName;
         }
 
+        /// <summary>
+        /// Determines whether [is lan ip] [the specified address].
+        /// </summary>
+        /// <param name="address">The address.</param>
+        /// <returns></returns>
         public static bool IsLanIP(IPAddress address)
         {
             var interfaces = NetworkInterface.GetAllNetworkInterfaces();
@@ -126,26 +137,38 @@ namespace ANDREICSLIB.ClassExtras
             return false;
         }
 
+        /// <summary>
+        /// Determines whether [is lan ip check TTL] [the specified address].
+        /// </summary>
+        /// <param name="address">The address.</param>
+        /// <returns></returns>
         public static bool IsLanIPCheckTTL(IPAddress address)
         {
             var ping = new Ping();
             try
             {
-                var rep = ping.Send(address, 100, new byte[] { 1 }, new PingOptions()
+                var rep = ping.Send(address, 100, new byte[] {1}, new PingOptions
                 {
                     DontFragment = true,
                     Ttl = 1
                 });
                 if (rep != null)
-                    return rep.Status != IPStatus.TtlExpired && rep.Status != IPStatus.TimedOut && rep.Status != IPStatus.TimeExceeded;
+                    return rep.Status != IPStatus.TtlExpired && rep.Status != IPStatus.TimedOut &&
+                           rep.Status != IPStatus.TimeExceeded;
             }
             catch
             {
-
             }
             return false;
         }
 
+        /// <summary>
+        /// Checks the mask.
+        /// </summary>
+        /// <param name="address">The address.</param>
+        /// <param name="mask">The mask.</param>
+        /// <param name="target">The target.</param>
+        /// <returns></returns>
         private static bool CheckMask(IPAddress address, IPAddress mask, IPAddress target)
         {
             if (mask == null)
@@ -162,8 +185,8 @@ namespace ANDREICSLIB.ClassExtras
             {
                 int m = bm[i];
 
-                int a = ba[i] & m;
-                int b = bb[i] & m;
+                var a = ba[i] & m;
+                var b = bb[i] & m;
 
                 if (a != b)
                     return false;
@@ -172,6 +195,11 @@ namespace ANDREICSLIB.ClassExtras
             return true;
         }
 
+        /// <summary>
+        /// Determines whether [is ip address] [the specified s].
+        /// </summary>
+        /// <param name="s">The s.</param>
+        /// <returns></returns>
         public static bool IsIPAddress(string s)
         {
             try
@@ -185,6 +213,12 @@ namespace ANDREICSLIB.ClassExtras
             return true;
         }
 
+        /// <summary>
+        /// Hostnames to ip.
+        /// </summary>
+        /// <param name="hostName">Name of the host.</param>
+        /// <param name="asIPV4">if set to <c>true</c> [as ip v4].</param>
+        /// <returns></returns>
         public static IPAddress HostnameToIP(string hostName, bool asIPV4 = true)
         {
             IPAddress ret;
@@ -192,11 +226,11 @@ namespace ANDREICSLIB.ClassExtras
             if (IPAddress.TryParse(hostName, out ret))
                 return ret;
 
-            IPHostEntry he = Dns.GetHostEntry(hostName);
+            var he = Dns.GetHostEntry(hostName);
 
             try
             {
-                foreach (IPAddress i in he.AddressList)
+                foreach (var i in he.AddressList)
                 {
                     if ((i.AddressFamily == AddressFamily.InterNetwork && asIPV4 ||
                          (i.AddressFamily == AddressFamily.InterNetworkV6 && asIPV4 == false)))
@@ -212,9 +246,14 @@ namespace ANDREICSLIB.ClassExtras
             return null;
         }
 
+        /// <summary>
+        /// Gets the external default local address.
+        /// </summary>
+        /// <param name="WebCheckIPURL">The web check ipurl.</param>
+        /// <returns></returns>
         public static async Task<string> GetExternalDefaultLocalAddress(string WebCheckIPURL = null)
         {
-            string ret = await (WebCheckIPURL == null ? GetExternalAddress() : GetExternalAddress(WebCheckIPURL));
+            var ret = await (WebCheckIPURL == null ? GetExternalAddress() : GetExternalAddress(WebCheckIPURL));
 
             if (ret == null)
                 ret = GetLocalAddress();
@@ -222,17 +261,28 @@ namespace ANDREICSLIB.ClassExtras
             return ret;
         }
 
+        /// <summary>
+        /// Gets the local address.
+        /// </summary>
+        /// <returns></returns>
         public static string GetLocalAddress()
         {
-            IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
-            return (from ip in host.AddressList where ip.AddressFamily == AddressFamily.InterNetwork select ip.ToString()).FirstOrDefault();
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            return
+                (from ip in host.AddressList where ip.AddressFamily == AddressFamily.InterNetwork select ip.ToString())
+                    .FirstOrDefault();
         }
 
+        /// <summary>
+        /// Gets the external address.
+        /// </summary>
+        /// <param name="WebCheckIPURL">The web check ipurl.</param>
+        /// <returns></returns>
         public static async Task<string> GetExternalAddress(string WebCheckIPURL = "http://checkip.dyndns.org")
         {
             try
             {
-                string addr = await DownloadWebPage(WebCheckIPURL);
+                var addr = await DownloadWebPage(WebCheckIPURL);
                 if (string.IsNullOrEmpty(addr) == false)
                 {
                     //remove up to :
@@ -250,13 +300,18 @@ namespace ANDREICSLIB.ClassExtras
             }
         }
 
+        /// <summary>
+        /// Ips to long.
+        /// </summary>
+        /// <param name="ip">The ip.</param>
+        /// <returns></returns>
         public static long IPToLong(IPAddress ip)
         {
-            byte[] ab = ip.GetAddressBytes();
+            var ab = ip.GetAddressBytes();
 
             if (ip.AddressFamily == AddressFamily.InterNetwork)
             {
-                int a = BitConverter.ToInt32(ab, 0);
+                var a = BitConverter.ToInt32(ab, 0);
                 return a;
             }
 
@@ -266,24 +321,29 @@ namespace ANDREICSLIB.ClassExtras
             return 0;
         }
 
+        /// <summary>
+        /// Gets the mac.
+        /// </summary>
+        /// <param name="ip">The ip.</param>
+        /// <returns></returns>
         public static string GetMAC(IPAddress ip)
         {
             try
             {
-                IPHostEntry hostEntry = Dns.GetHostEntry(ip);
+                var hostEntry = Dns.GetHostEntry(ip);
 
                 if (hostEntry.AddressList.Length == 0)
                     return null;
 
-                var intAddress = (int)IPToLong(ip);
+                var intAddress = (int) IPToLong(ip);
                 var macAddr = new byte[6];
-                var macAddrLen = (uint)macAddr.Length;
+                var macAddrLen = (uint) macAddr.Length;
 
                 if (SendARP(intAddress, 0, macAddr, ref macAddrLen) != 0)
                     return null;
 
                 var macAddressString = new StringBuilder();
-                for (int i = 0; i < macAddr.Length; i++)
+                for (var i = 0; i < macAddr.Length; i++)
                 {
                     if (macAddressString.Length > 0)
                         macAddressString.Append(":");
@@ -298,35 +358,47 @@ namespace ANDREICSLIB.ClassExtras
             }
         }
 
+        /// <summary>
+        /// Gets the net bios information.
+        /// </summary>
+        /// <param name="ip">The ip.</param>
+        /// <returns></returns>
         public static NetBiosInfo GetNetBiosInfo(IPAddress ip)
         {
-            WKSTA_INFO_100? wk = getMachineNetBiosInfo(ip);
+            var wk = getMachineNetBiosInfo(ip);
             if (wk == null)
                 return null;
 
-            var nbi = new NetBiosInfo((WKSTA_INFO_100)wk);
+            var nbi = new NetBiosInfo((WKSTA_INFO_100) wk);
 
             return nbi;
         }
 
         //admin rights required
+        /// <summary>
+        /// Gets the remote information.
+        /// </summary>
+        /// <param name="ip">The ip.</param>
+        /// <param name="hostname">The hostname.</param>
+        /// <param name="extraInfoTimeout">The extra information timeout.</param>
+        /// <returns></returns>
         public static Dictionary<string, string> GetRemoteInfo(IPAddress ip, string hostname, int extraInfoTimeout)
         {
             var options = new ConnectionOptions();
             options.Impersonation = ImpersonationLevel.Impersonate;
             options.Authentication = AuthenticationLevel.None;
 
-            int s = extraInfoTimeout;
+            var s = extraInfoTimeout;
 
-            int H = s * 3600;
-            s -= H * 3600;
+            var H = s*3600;
+            s -= H*3600;
 
-            int M = s / 60;
-            s -= M * 60;
+            var M = s/60;
+            s -= M*60;
 
-            int S = s;
+            var S = s;
 
-            DateTime startTime = DateTime.Now;
+            var startTime = DateTime.Now;
 
 
             options.Timeout = new TimeSpan(H, M, S);
@@ -355,12 +427,12 @@ namespace ANDREICSLIB.ClassExtras
 
             var results = new Dictionary<string, string>();
 
-            foreach (ManagementBaseObject envVar in searcher.Get())
+            foreach (var envVar in searcher.Get())
             {
-                foreach (PropertyData PD in envVar.Properties)
+                foreach (var PD in envVar.Properties)
                 {
-                    DateTime currentTime = DateTime.Now;
-                    TimeSpan TS = currentTime - startTime;
+                    var currentTime = DateTime.Now;
+                    var TS = currentTime - startTime;
 
                     if (TS.TotalSeconds > extraInfoTimeout)
                     {
@@ -369,8 +441,8 @@ namespace ANDREICSLIB.ClassExtras
 
                     if (PD.Value != null && results.ContainsKey(PD.Name) == false)
                     {
-                        string val = PD.Value.ToString();
-                        if (PD.Value.GetType() == typeof(string[]))
+                        var val = PD.Value.ToString();
+                        if (PD.Value.GetType() == typeof (string[]))
                         {
                             var ss = PD.Value as string[];
                             val = ss.Aggregate("", (current, ss2) => current + (ss2 + "|"));
@@ -381,17 +453,17 @@ namespace ANDREICSLIB.ClassExtras
                 }
             }
 
-            foreach (ManagementBaseObject envVar in searcher1.Get())
+            foreach (var envVar in searcher1.Get())
             {
-                DateTime currentTime = DateTime.Now;
-                TimeSpan TS = currentTime - startTime;
+                var currentTime = DateTime.Now;
+                var TS = currentTime - startTime;
 
                 if (TS.TotalSeconds > extraInfoTimeout)
                 {
                     return results;
                 }
 
-                foreach (PropertyData PD in envVar.Properties)
+                foreach (var PD in envVar.Properties)
                 {
                     if (PD.Value != null && results.ContainsKey(PD.Name) == false)
                         results.Add(PD.Name, PD.Value.ToString());
@@ -400,6 +472,12 @@ namespace ANDREICSLIB.ClassExtras
             return results;
         }
 
+        /// <summary>
+        /// Gets the next free port.
+        /// </summary>
+        /// <param name="min">The minimum.</param>
+        /// <param name="max">The maximum.</param>
+        /// <returns></returns>
         public static int GetNextFreePort(int min = 1000, int max = 50000)
         {
             var listeners = IPGlobalProperties.GetIPGlobalProperties().GetActiveTcpListeners();
@@ -416,7 +494,7 @@ namespace ANDREICSLIB.ClassExtras
                 portArray.Add(u.LocalEndPoint.Port, true);
             }
 
-            for (int p = min; p < max; p++)
+            for (var p = min; p < max; p++)
             {
                 if (portArray.ContainsKey(p) == false)
                     return p;
@@ -425,28 +503,58 @@ namespace ANDREICSLIB.ClassExtras
             return -1;
         }
 
+        #region mac address
+
+        [DllImport("iphlpapi.dll", ExactSpelling = true)]
+        private static extern int SendARP(int DestIP, int SrcIP, byte[] pMacAddr, ref uint PhyAddrLen);
+
+        #endregion mac address
+
+        /// <summary>
+        ///     add timeout to web client
+        /// </summary>
+        public class WebClientEx : WebClient
+        {
+            /// <summary>
+            ///     timeout in MS
+            /// </summary>
+            public int Timeout { get; set; }
+
+            /// <summary>
+            /// Gets the web request.
+            /// </summary>
+            /// <param name="address">The address.</param>
+            /// <returns></returns>
+            protected override WebRequest GetWebRequest(Uri address)
+            {
+                var request = base.GetWebRequest(address);
+                request.Timeout = Timeout;
+                return request;
+            }
+        }
+
         #region netbios info
 
         //group name/domain name/work group/ whatever its called
         [DllImport("netapi32.dll", CharSet = CharSet.Auto)]
         private static extern int NetWkstaGetInfo(string server,
-                                                  int level,
-                                                  out IntPtr info);
+            int level,
+            out IntPtr info);
 
         private static WKSTA_INFO_100? getMachineNetBiosInfo(IPAddress ip)
         {
-            IPHostEntry hostEntry = Dns.GetHostEntry(ip);
+            var hostEntry = Dns.GetHostEntry(ip);
 
             if (hostEntry.AddressList.Length == 0)
                 return null;
 
-            IntPtr pBuffer = IntPtr.Zero;
+            var pBuffer = IntPtr.Zero;
 
-            int retval = NetWkstaGetInfo(ip.ToString(), 100, out pBuffer);
+            var retval = NetWkstaGetInfo(ip.ToString(), 100, out pBuffer);
             if (retval != 0)
                 return null;
 
-            return (WKSTA_INFO_100)Marshal.PtrToStructure(pBuffer, typeof(WKSTA_INFO_100));
+            return (WKSTA_INFO_100) Marshal.PtrToStructure(pBuffer, typeof (WKSTA_INFO_100));
         }
 
         #region Nested type: NetBiosInfo
@@ -477,10 +585,8 @@ namespace ANDREICSLIB.ClassExtras
         public struct WKSTA_INFO_100
         {
             public int wki100_platform_id;
-            [MarshalAs(UnmanagedType.LPWStr)]
-            public string wki100_computername;
-            [MarshalAs(UnmanagedType.LPWStr)]
-            public string wki100_langroup;
+            [MarshalAs(UnmanagedType.LPWStr)] public string wki100_computername;
+            [MarshalAs(UnmanagedType.LPWStr)] public string wki100_langroup;
             public int wki100_ver_major;
             public int wki100_ver_minor;
         }
@@ -488,12 +594,5 @@ namespace ANDREICSLIB.ClassExtras
         #endregion
 
         #endregion netbios info
-
-        #region mac address
-
-        [DllImport("iphlpapi.dll", ExactSpelling = true)]
-        private static extern int SendARP(int DestIP, int SrcIP, byte[] pMacAddr, ref uint PhyAddrLen);
-
-        #endregion mac address
     }
 }

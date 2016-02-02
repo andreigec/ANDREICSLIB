@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 namespace ANDREICSLIB.Helpers
 {
     /// <summary>
-    /// example usage: https://github.com/andreigec/Backgrounder
+    ///     example usage: https://github.com/andreigec/Backgrounder
     /// </summary>
     public static class AsyncHelpers
     {
         /// <summary>
-        /// Execute's an async Task<T> method which has a void return value synchronously
+        /// Runs the synchronize.
         /// </summary>
-        /// <param name="task">Task<T> method to execute</param>
+        /// <param name="task">The task.</param>
         public static void RunSync(Func<Task> task)
         {
             var oldContext = SynchronizationContext.Current;
@@ -41,18 +41,17 @@ namespace ANDREICSLIB.Helpers
         }
 
         /// <summary>
-        /// Execute's an async Task<T> method which has a T return type synchronously
-        /// 
+        /// Runs the synchronize.
         /// </summary>
-        /// <typeparam name="T">Return Type. eg () => CODE</typeparam>
-        /// <param name="task">Task<T> method to execute</param>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="task">The task.</param>
         /// <returns></returns>
         public static T RunSync<T>(Func<Task<T>> task)
         {
             var oldContext = SynchronizationContext.Current;
             var synch = new ExclusiveSynchronizationContext();
             SynchronizationContext.SetSynchronizationContext(synch);
-            T ret = default(T);
+            var ret = default(T);
             synch.Post(async _ =>
             {
                 try
@@ -76,17 +75,29 @@ namespace ANDREICSLIB.Helpers
 
         private class ExclusiveSynchronizationContext : SynchronizationContext
         {
-            private bool done;
-            public Exception InnerException { get; set; }
-            readonly AutoResetEvent workItemsWaiting = new AutoResetEvent(false);
-            readonly Queue<Tuple<SendOrPostCallback, object>> items =
+            private readonly Queue<Tuple<SendOrPostCallback, object>> items =
                 new Queue<Tuple<SendOrPostCallback, object>>();
 
+            private readonly AutoResetEvent workItemsWaiting = new AutoResetEvent(false);
+            private bool done;
+            public Exception InnerException { get; set; }
+
+            /// <summary>
+            /// Sends the specified d.
+            /// </summary>
+            /// <param name="d">The d.</param>
+            /// <param name="state">The state.</param>
+            /// <exception cref="NotSupportedException">We cannot send to our same thread</exception>
             public override void Send(SendOrPostCallback d, object state)
             {
                 throw new NotSupportedException("We cannot send to our same thread");
             }
 
+            /// <summary>
+            /// Posts the specified d.
+            /// </summary>
+            /// <param name="d">The d.</param>
+            /// <param name="state">The state.</param>
             public override void Post(SendOrPostCallback d, object state)
             {
                 lock (items)
@@ -96,11 +107,18 @@ namespace ANDREICSLIB.Helpers
                 workItemsWaiting.Set();
             }
 
+            /// <summary>
+            /// Ends the message loop.
+            /// </summary>
             public void EndMessageLoop()
             {
                 Post(_ => done = true, null);
             }
 
+            /// <summary>
+            /// Begins the message loop.
+            /// </summary>
+            /// <exception cref="AggregateException">AsyncHelpers.Run method threw an exception.</exception>
             public void BeginMessageLoop()
             {
                 while (!done)
@@ -128,6 +146,12 @@ namespace ANDREICSLIB.Helpers
                 }
             }
 
+            /// <summary>
+            /// When overridden in a derived class, creates a copy of the synchronization context.
+            /// </summary>
+            /// <returns>
+            /// A new <see cref="T:System.Threading.SynchronizationContext" /> object.
+            /// </returns>
             public override SynchronizationContext CreateCopy()
             {
                 return this;

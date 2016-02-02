@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -6,7 +6,7 @@ using System.Windows.Forms;
 namespace ANDREICSLIB.NewControls
 {
     /// <summary>
-    /// example usage: https://github.com/andreigec/Music-File-Info-Editor
+    ///     example usage: https://github.com/andreigec/Music-File-Info-Editor
     /// </summary>
     public partial class MultipleMessageBox : Form
     {
@@ -14,6 +14,12 @@ namespace ANDREICSLIB.NewControls
         public string Result = "";
         public bool Set;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MultipleMessageBox"/> class.
+        /// </summary>
+        /// <param name="windowText">The window text.</param>
+        /// <param name="labelText">The label text.</param>
+        /// <param name="Buttons">The buttons.</param>
         public MultipleMessageBox(string windowText, string labelText, IEnumerable<string> Buttons)
         {
             labelText = labelText.Replace("\r\n", "\n");
@@ -24,13 +30,13 @@ namespace ANDREICSLIB.NewControls
 
             Text = windowText;
             textarea.Text = labelText;
-            int count = 0;
-            foreach (string s in Buttons)
+            var count = 0;
+            foreach (var s in Buttons)
             {
                 var b = new Button {Text = s};
                 b.Click += buttonpress;
                 buttonpanel.AddControl(b, true);
-                Control last = buttonpanel.controlStack[buttonpanel.controlStack.Count - 1];
+                var last = buttonpanel.controlStack[buttonpanel.controlStack.Count - 1];
                 count++;
                 if (count > 3)
                 {
@@ -45,6 +51,11 @@ namespace ANDREICSLIB.NewControls
             set { base.Text = value; }
         }
 
+        /// <summary>
+        /// Buttonpresses the specified sender.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void buttonpress(object sender, EventArgs e)
         {
             Set = true;

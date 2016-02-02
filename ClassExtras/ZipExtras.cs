@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.IO.Compression;
 using System.Text;
@@ -9,16 +9,22 @@ using ICSharpCode.SharpZipLib.Zip;
 namespace ANDREICSLIB.ClassExtras
 {
     /// <summary>
-    /// example usage: https://github.com/andreigec/Dwarf-Fortress-Mod-Merger
+    ///     example usage: https://github.com/andreigec/Dwarf-Fortress-Mod-Merger
     /// </summary>
     public static class ZipExtras
     {
+        /// <summary>
+        /// Extracts the zip file.
+        /// </summary>
+        /// <param name="archiveFilenameIn">The archive filename in.</param>
+        /// <param name="outFolder">The out folder.</param>
+        /// <param name="password">The password.</param>
         public static void ExtractZipFile(string archiveFilenameIn, string outFolder, string password = null)
         {
             ZipFile zf = null;
             try
             {
-                FileStream fs = File.OpenRead(archiveFilenameIn);
+                var fs = File.OpenRead(archiveFilenameIn);
                 zf = new ZipFile(fs);
                 if (!string.IsNullOrEmpty(password))
                 {
@@ -30,24 +36,24 @@ namespace ANDREICSLIB.ClassExtras
                     {
                         continue; // Ignore directories
                     }
-                    string entryFileName = zipEntry.Name;
+                    var entryFileName = zipEntry.Name;
                     // to remove the folder from the entry:- entryFileName = Path.GetFileName(entryFileName);
                     // Optionally match entrynames against a selection list here to skip as desired.
                     // The unpacked length is available in the zipEntry.Size property.
 
                     var buffer = new byte[4096]; // 4K is optimum
-                    Stream zipStream = zf.GetInputStream(zipEntry);
+                    var zipStream = zf.GetInputStream(zipEntry);
 
                     // Manipulate the output filename here as desired.
-                    string fullZipToPath = Path.Combine(outFolder, entryFileName);
-                    string directoryName = Path.GetDirectoryName(fullZipToPath);
+                    var fullZipToPath = Path.Combine(outFolder, entryFileName);
+                    var directoryName = Path.GetDirectoryName(fullZipToPath);
                     if (directoryName.Length > 0)
                         Directory.CreateDirectory(directoryName);
 
                     // Unzip file in buffered chunks. This is just as fast as unpacking to a buffer the full size
                     // of the file, but does not waste memory.
                     // The "using" will close the stream even if an exception occurs.
-                    using (FileStream streamWriter = File.Create(fullZipToPath))
+                    using (var streamWriter = File.Create(fullZipToPath))
                     {
                         StreamUtils.Copy(zipStream, streamWriter, buffer);
                     }
@@ -64,9 +70,14 @@ namespace ANDREICSLIB.ClassExtras
             }
         }
 
+        /// <summary>
+        /// Compresses the string.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        /// <returns></returns>
         public static string CompressString(this string text)
         {
-            byte[] buffer = Encoding.UTF8.GetBytes(text);
+            var buffer = Encoding.UTF8.GetBytes(text);
             var memoryStream = new MemoryStream();
             using (var gZipStream = new GZipStream(memoryStream, CompressionMode.Compress, true))
             {
@@ -91,10 +102,10 @@ namespace ANDREICSLIB.ClassExtras
         /// <returns></returns>
         public static string DecompressString(this string compressedText)
         {
-            byte[] gZipBuffer = Convert.FromBase64String(compressedText);
+            var gZipBuffer = Convert.FromBase64String(compressedText);
             using (var memoryStream = new MemoryStream())
             {
-                int dataLength = BitConverter.ToInt32(gZipBuffer, 0);
+                var dataLength = BitConverter.ToInt32(gZipBuffer, 0);
                 memoryStream.Write(gZipBuffer, 4, gZipBuffer.Length - 4);
 
                 var buffer = new byte[dataLength];
@@ -108,6 +119,5 @@ namespace ANDREICSLIB.ClassExtras
                 return Encoding.UTF8.GetString(buffer);
             }
         }
-
     }
 }

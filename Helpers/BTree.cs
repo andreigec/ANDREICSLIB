@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,18 +6,24 @@ using ANDREICSLIB.ClassExtras;
 
 namespace ANDREICSLIB.Helpers
 {
-
     /// <summary>
     /// example usage: https://github.com/andreigec/Meal-Chooser
     /// </summary>
     public class BTree
     {
+        /// <summary>
+        /// Saves the file into tree.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="filename">The filename.</param>
+        /// <param name="root">The root.</param>
+        /// <param name="levelSeparator">The level separator.</param>
         public static void SaveFileIntoTree<T>(string filename, Btree<T> root, string levelSeparator = "\t")
         {
             var fs = new FileStream(filename, FileMode.Create);
             var sw = new StreamWriter(fs);
 
-            string ret = "";
+            var ret = "";
             SaveTree(root, ref ret, 0, levelSeparator);
             sw.Write(ret);
 
@@ -25,6 +31,14 @@ namespace ANDREICSLIB.Helpers
             fs.Close();
         }
 
+        /// <summary>
+        /// Saves the tree.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="node">The node.</param>
+        /// <param name="ret">The ret.</param>
+        /// <param name="level">The level.</param>
+        /// <param name="levelSeparator">The level separator.</param>
         private static void SaveTree<T>(Btree<T> node, ref string ret, int level, string levelSeparator = "\t")
         {
             if (node.Name != null)
@@ -36,7 +50,7 @@ namespace ANDREICSLIB.Helpers
             {
                 foreach (var c in node.Children)
                 {
-                    for (int a = 0; a < level; a++)
+                    for (var a = 0; a < level; a++)
                         ret += levelSeparator;
                     SaveTree(c, ref ret, level + 1, levelSeparator);
                 }
@@ -44,29 +58,32 @@ namespace ANDREICSLIB.Helpers
         }
 
         /// <summary>
-        /// default for strings
+        ///     default for strings
         /// </summary>
         /// <param name="filename"></param>
         /// <param name="root"></param>
         /// <param name="levelSeparator"></param>
         /// <param name="RecreateFileIfInvalid"></param>
         public static void LoadFileIntoTree(string filename, Btree<string> root, string levelSeparator = "\t",
-                                            bool RecreateFileIfInvalid = true)
+            bool RecreateFileIfInvalid = true)
         {
             LoadFileIntoTree(filename, root, s => s, levelSeparator, RecreateFileIfInvalid);
         }
 
         /// <summary>
-        /// Load a file into a tree structure based on levels. by default '1 \n \t 2' in a file will create a parent with a child node
+        /// Load a file into a tree structure based on levels. by default '1 \n \t 2' in a file will create a parent with a
+        /// child node
         /// </summary>
         /// <typeparam name="T">class type, usually string</typeparam>
-        /// <param name="filename"></param>
-        /// <param name="root"></param>
-        /// <param name="addfunc">T must be able to be instantiated with a string. call with a=>new T(a) where T is your class, or the return string method</param>
-        /// <param name="levelSeparator"></param>
-        /// <param name="RecreateFileIfInvalid"></param>
+        /// <param name="filename">The filename.</param>
+        /// <param name="root">The root.</param>
+        /// <param name="addfunc">T must be able to be instantiated with a string. call with a=&gt;new T(a) where T is your class, or
+        /// the return string method</param>
+        /// <param name="levelSeparator">The level separator.</param>
+        /// <param name="RecreateFileIfInvalid">if set to <c>true</c> [recreate file if invalid].</param>
+        /// <exception cref="Exception"></exception>
         public static void LoadFileIntoTree<T>(string filename, Btree<T> root, Func<string, T> addfunc,
-                                               string levelSeparator = "\t", bool RecreateFileIfInvalid = true)
+            string levelSeparator = "\t", bool RecreateFileIfInvalid = true)
         {
             root.Children = new List<Btree<T>>();
 
@@ -77,12 +94,12 @@ namespace ANDREICSLIB.Helpers
                 fs = new FileStream(filename, FileMode.OpenOrCreate);
                 sr = new StreamReader(fs);
 
-                string line = sr.ReadLine();
-                Btree<T> parentT = root;
-                int currentlevel = 0;
+                var line = sr.ReadLine();
+                var parentT = root;
+                var currentlevel = 0;
                 while (line != null)
                 {
-                    int level = StringExtras.ContainsSubStringCount(line, levelSeparator);
+                    var level = StringExtras.ContainsSubStringCount(line, levelSeparator);
                     if (level > (currentlevel + 1))
                     {
                         throw new Exception();
@@ -100,16 +117,16 @@ namespace ANDREICSLIB.Helpers
                         }
                     }
 
-                    string rc = StringExtras.ReplaceAllChars(line, levelSeparator, "");
+                    var rc = StringExtras.ReplaceAllChars(line, levelSeparator, "");
 
-                    var t = new Btree<T> { Name = addfunc(rc), Parent = parentT };
+                    var t = new Btree<T> {Name = addfunc(rc), Parent = parentT};
                     if (parentT.Children == null)
                         parentT.Children = new List<Btree<T>>();
 
                     parentT.Children.Add(t);
                     parentT = t;
                     currentlevel = level;
-                redo:
+                    redo:
                     line = sr.ReadLine();
                     if (line != null && line.Length == 0)
                         goto redo;
@@ -119,7 +136,7 @@ namespace ANDREICSLIB.Helpers
                 fs.Close();
             }
 
-            catch 
+            catch
             {
                 if (sr != null)
                     sr.Close();
@@ -139,12 +156,19 @@ namespace ANDREICSLIB.Helpers
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class Btree<T>
     {
         public List<Btree<T>> Children;
         public T Name;
         public Btree<T> Parent;
 
+        /// <summary>
+        /// Clears the children.
+        /// </summary>
         public void ClearChildren()
         {
             if (Children == null)
@@ -152,6 +176,11 @@ namespace ANDREICSLIB.Helpers
             Children.Clear();
         }
 
+        /// <summary>
+        /// Gets the name of the child by.
+        /// </summary>
+        /// <param name="nameC">The name c.</param>
+        /// <returns></returns>
         public Btree<T> GetChildByName(T nameC)
         {
             if (Children == null)
@@ -159,6 +188,11 @@ namespace ANDREICSLIB.Helpers
             return Children.FirstOrDefault(v => v.Name.Equals(nameC));
         }
 
+        /// <summary>
+        /// Adds the child.
+        /// </summary>
+        /// <param name="nameC">The name c.</param>
+        /// <returns></returns>
         public Btree<T> AddChild(T nameC)
         {
             var t = new Btree<T>();
@@ -171,10 +205,14 @@ namespace ANDREICSLIB.Helpers
             return Children.Last();
         }
 
+        /// <summary>
+        /// Removes the child.
+        /// </summary>
+        /// <param name="nameC">The name c.</param>
         public void RemoveChild(T nameC)
         {
-        redo:
-            for (int a = 0; a < Children.Count; a++)
+            redo:
+            for (var a = 0; a < Children.Count; a++)
             {
                 if (Children[a].Name.Equals(nameC))
                 {

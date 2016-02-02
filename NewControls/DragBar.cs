@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -11,6 +11,7 @@ namespace ANDREICSLIB.NewControls
     /// <summary>
     /// example usage: https://github.com/andreigec/Timezone-Sleep-Converter
     /// </summary>
+    /// <seealso cref="System.Windows.Forms.UserControl" />
     public partial class DragBar : UserControl
     {
         #region Delegates
@@ -20,12 +21,12 @@ namespace ANDREICSLIB.NewControls
         #endregion
 
         /// <summary>
-        /// x value for the end of the bar (set on paint)
+        ///     x value for the end of the bar (set on paint)
         /// </summary>
         private int barEndX;
 
         /// <summary>
-        /// x value for the start of the bar (set on paint)
+        ///     x value for the start of the bar (set on paint)
         /// </summary>
         private int barX;
 
@@ -35,10 +36,13 @@ namespace ANDREICSLIB.NewControls
         private bool mouseMoveBar;
         private bool mouseResizeBar;
         private bool resizeleft;
+        private List<scale> scales;
         ////////////////
         private int scaleWidth;
-        private List<scale> scales;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DragBar"/> class.
+        /// </summary>
         public DragBar()
         {
             BarColour = Color.Tomato;
@@ -82,6 +86,9 @@ namespace ANDREICSLIB.NewControls
         [Description("Triggers when the bar value changes")]
         public event BarEvent BarValueChange;
 
+        /// <summary>
+        /// Called when [bar value change].
+        /// </summary>
         protected virtual void OnBarValueChange()
         {
             if (BarValueChange != null)
@@ -90,23 +97,32 @@ namespace ANDREICSLIB.NewControls
             }
         }
 
+        /// <summary>
+        /// Gets the size of the font.
+        /// </summary>
+        /// <returns></returns>
         private int getFontSize()
         {
-            int len = MaximumValue.ToString().Length;
+            var len = MaximumValue.ToString().Length;
 
             return (int) Font.Size*len + 5;
         }
 
+        /// <summary>
+        /// Handles the Paint event of the drawpanel control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
         private void drawpanel_Paint(object sender, PaintEventArgs e)
         {
-            Graphics G = e.Graphics;
+            var G = e.Graphics;
             G.Clear(BackColour);
             Brush b1 = new SolidBrush(BarColour);
 
             if (BarMaximumValue > BarMinimumValue)
             {
-                int v1 = scales.Where(item => item.number == BarMinimumValue).First().xval;
-                int v2 = scales.Where(item => item.number == BarMaximumValue).First().xval;
+                var v1 = scales.Where(item => item.number == BarMinimumValue).First().xval;
+                var v2 = scales.Where(item => item.number == BarMaximumValue).First().xval;
                 var R = new Rectangle(v1, 0, v2 - v1, drawpanel.Height);
                 G.FillRectangle(b1, R);
                 barX = v1;
@@ -115,13 +131,13 @@ namespace ANDREICSLIB.NewControls
             else
             {
                 //start part
-                int v2 = scales.Where(item => item.number == BarMaximumValue).First().xval;
+                var v2 = scales.Where(item => item.number == BarMaximumValue).First().xval;
                 var R = new Rectangle(0, 0, v2, drawpanel.Height);
                 G.FillRectangle(b1, R);
 
                 //end part
-                int v1 = scales.Where(item => item.number == BarMinimumValue).First().xval;
-                int v3 = drawpanel.Width - v1;
+                var v1 = scales.Where(item => item.number == BarMinimumValue).First().xval;
+                var v3 = drawpanel.Width - v1;
                 R = new Rectangle(v1, 0, v3, drawpanel.Height);
                 G.FillRectangle(b1, R);
 
@@ -133,12 +149,17 @@ namespace ANDREICSLIB.NewControls
 
             Brush b2 = new SolidBrush(Color.Black);
             //draw number bars
-            foreach (scale s in scales)
+            foreach (var s in scales)
             {
                 G.FillRectangle(b2, s.xval, drawpanel.Height - 5, 2, 5);
             }
         }
 
+        /// <summary>
+        /// Handles the Resize event of the DragBar control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void DragBar_Resize(object sender, EventArgs e)
         {
             InitScale();
@@ -146,42 +167,55 @@ namespace ANDREICSLIB.NewControls
             listpanel.Invalidate();
         }
 
+        /// <summary>
+        /// Initializes the scale.
+        /// </summary>
         private void InitScale()
         {
             scales = new List<scale>();
-            int width = getFontSize();
+            var width = getFontSize();
             //int count = 23;
-            int count = listpanel.Width/width;
+            var count = listpanel.Width/width;
             if (count >= MaximumValue) count = MaximumValue;
             width = (listpanel.Width)/MaximumValue;
             scaleWidth = width;
 
-            for (int a = 0; a <= MaximumValue; a++)
+            for (var a = 0; a <= MaximumValue; a++)
             {
                 scales.Add(new scale {number = a, xval = width*a});
             }
 
-            for (int a = 0; a < count; a++)
+            for (var a = 0; a < count; a++)
             {
                 var val = (int) ((a/(float) count)*MaximumValue);
                 scales[val].shownOnScale = true;
             }
         }
 
+        /// <summary>
+        /// Handles the Paint event of the listpanel control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
         private void listpanel_Paint(object sender, PaintEventArgs e)
         {
             if (DrawScale == false)
                 return;
-            Graphics G = e.Graphics;
+            var G = e.Graphics;
             G.Clear(ScaleColour);
             Brush b1 = new HatchBrush(HatchStyle.DarkHorizontal, ForeColor);
 
-            foreach (scale v in scales.Where(item => item.shownOnScale))
+            foreach (var v in scales.Where(item => item.shownOnScale))
             {
                 G.DrawString(v.number.ToString(), Font, b1, v.xval, 0);
             }
         }
 
+        /// <summary>
+        /// Handles the Load event of the DragBar control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void DragBar_Load(object sender, EventArgs e)
         {
             if (DrawScale == false)
@@ -195,6 +229,9 @@ namespace ANDREICSLIB.NewControls
             }
         }
 
+        /// <summary>
+        /// Wraps the bar.
+        /// </summary>
         private void WrapBar()
         {
             BarMinimumValue %= MaximumValue;
@@ -205,6 +242,11 @@ namespace ANDREICSLIB.NewControls
                 BarMaximumValue = MaximumValue + BarMaximumValue;
         }
 
+        /// <summary>
+        /// Handles the MouseDown event of the drawpanel control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         private void drawpanel_MouseDown(object sender, MouseEventArgs e)
         {
             if (overCenter(e.X) == false)
@@ -214,6 +256,11 @@ namespace ANDREICSLIB.NewControls
             mouseDownButton = true;
         }
 
+        /// <summary>
+        /// Handles the MouseUp event of the drawpanel control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         private void drawpanel_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDownButton = false;
@@ -221,16 +268,31 @@ namespace ANDREICSLIB.NewControls
             mouseResizeBar = false;
         }
 
+        /// <summary>
+        /// Overs the left resize.
+        /// </summary>
+        /// <param name="x">The x.</param>
+        /// <returns></returns>
         private bool overLeftResize(int x)
         {
             return (x >= (barX - 10) && x <= (barX + 10));
         }
 
+        /// <summary>
+        /// Overs the right resize.
+        /// </summary>
+        /// <param name="x">The x.</param>
+        /// <returns></returns>
         private bool overRightResize(int x)
         {
             return (x >= (barEndX - 10) && x <= (barEndX + 10));
         }
 
+        /// <summary>
+        /// Overs the center.
+        /// </summary>
+        /// <param name="x">The x.</param>
+        /// <returns></returns>
         private bool overCenter(int x)
         {
             if (barEndX < barX)
@@ -240,6 +302,11 @@ namespace ANDREICSLIB.NewControls
             return (x >= barX && x <= barEndX);
         }
 
+        /// <summary>
+        /// Handles the MouseMove event of the drawpanel control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         private void drawpanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (mouseDownButton == false)
@@ -273,8 +340,8 @@ namespace ANDREICSLIB.NewControls
             if (mouseResizeBar == false && mouseMoveBar == false)
                 return;
 
-            int dif = 0;
-            bool forward = true;
+            var dif = 0;
+            var forward = true;
             if (e.X == mouseDownX)
                 return;
             if (e.X > mouseDownX)
@@ -288,7 +355,7 @@ namespace ANDREICSLIB.NewControls
             if (dif < scaleWidth)
                 return;
 
-            double dif2 = (double) dif/drawpanel.Width;
+            var dif2 = (double) dif/drawpanel.Width;
 
             var amount = (int) (MaximumValue*dif2);
             if (amount == 0)

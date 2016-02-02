@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Windows.Forms;
 using ANDREICSLIB.Helpers;
 
@@ -9,16 +8,21 @@ using ANDREICSLIB.Helpers;
 namespace ANDREICSLIB.ClassExtras
 {
     /// <summary>
-    /// example usage: https://github.com/andreigec/Consultant-Plus
+    ///     example usage: https://github.com/andreigec/Consultant-Plus
     /// </summary>
     public static class ListViewExtras
     {
+        /// <summary>
+        /// Subs the item collection to range.
+        /// </summary>
+        /// <param name="lvsic">The lvsic.</param>
+        /// <returns></returns>
         private static ListViewItem.ListViewSubItem[] SubItemCollectionToRange(
             ListViewItem.ListViewSubItemCollection lvsic)
         {
             var result = new ListViewItem.ListViewSubItem[lvsic.Count];
 
-            int count = -1;
+            var count = -1;
             foreach (ListViewItem.ListViewSubItem LVSI in lvsic)
             {
                 count++;
@@ -34,7 +38,7 @@ namespace ANDREICSLIB.ClassExtras
         /// <summary>
         /// swap two rows given by their index
         /// </summary>
-        /// <param name="lv"> </param>
+        /// <param name="lv">The lv.</param>
         /// <param name="index1">First Index to Swap</param>
         /// <param name="index2">Second Index to Swap</param>
         public static void SwapIndicies(ListView lv, int index1, int index2)
@@ -63,16 +67,21 @@ namespace ANDREICSLIB.ClassExtras
             lv.Show();
         }
 
+        /// <summary>
+        /// Automatics the resize ListView column.
+        /// </summary>
+        /// <param name="lv">The lv.</param>
+        /// <param name="ch">The ch.</param>
         private static void AutoResizeListViewColumn(ListView lv, ColumnHeader ch)
         {
-            int headerWidth = ch.Text.Length;
+            var headerWidth = ch.Text.Length;
 
-            bool changeHeader = true;
+            var changeHeader = true;
 
             foreach (ListViewItem LVI in lv.Items)
             {
                 EnsureSubItemCount(lv, LVI);
-                int temp = ch.Index == 0 ? LVI.Text.Length : LVI.SubItems[ch.Index].Text.Length;
+                var temp = ch.Index == 0 ? LVI.Text.Length : LVI.SubItems[ch.Index].Text.Length;
 
                 if (temp > headerWidth)
                 {
@@ -82,14 +91,15 @@ namespace ANDREICSLIB.ClassExtras
             }
 
             lv.AutoResizeColumn(ch.Index,
-                                changeHeader
-                                    ? ColumnHeaderAutoResizeStyle.HeaderSize
-                                    : ColumnHeaderAutoResizeStyle.ColumnContent);
+                changeHeader
+                    ? ColumnHeaderAutoResizeStyle.HeaderSize
+                    : ColumnHeaderAutoResizeStyle.ColumnContent);
         }
 
         /// <summary>
         /// resize all columns to best fit the header and the contents
         /// </summary>
+        /// <param name="lv">The lv.</param>
         public static void AutoResize(ListView lv)
         {
             lv.Hide();
@@ -104,6 +114,7 @@ namespace ANDREICSLIB.ClassExtras
         /// <summary>
         /// Initialise the columns to be those in a list of strings
         /// </summary>
+        /// <param name="lv">The lv.</param>
         /// <param name="columnList">The list of strings to be made columns of</param>
         public static void InitColumnHeaders(ListView lv, List<string> columnList)
         {
@@ -111,7 +122,7 @@ namespace ANDREICSLIB.ClassExtras
                 return;
 
             lv.Columns.Clear();
-            foreach (string s in columnList)
+            foreach (var s in columnList)
             {
                 lv.Columns.Add(s, s);
             }
@@ -120,12 +131,12 @@ namespace ANDREICSLIB.ClassExtras
         /// <summary>
         /// init the column headers from a class' public variables
         /// </summary>
-        /// <param name="lv"></param>
-        /// <param name="t"></param>
+        /// <param name="lv">The lv.</param>
+        /// <param name="ty">The ty.</param>
         public static void InitColumnHeaders(ListView lv, Type ty)
         {
             //get session vars
-            List<string> sv = Reflection.GetFieldNames(ty);
+            var sv = Reflection.GetFieldNames(ty);
 
             InitColumnHeaders(lv, sv);
         }
@@ -133,6 +144,7 @@ namespace ANDREICSLIB.ClassExtras
         /// <summary>
         /// Select all the items in the list view
         /// </summary>
+        /// <param name="lv">The lv.</param>
         public static void SelectAllItems(ListView lv)
         {
             lv.SelectedItems.Clear();
@@ -145,16 +157,20 @@ namespace ANDREICSLIB.ClassExtras
         /// <summary>
         /// get the index of a column name
         /// </summary>
+        /// <param name="lv">The lv.</param>
         /// <param name="columnName">the column name</param>
-        /// <returns>the index of the column, -1 if not found</returns>
+        /// <param name="LVIField">The lvi field.</param>
+        /// <returns>
+        /// the index of the column, -1 if not found
+        /// </returns>
         public static int GetColumnNumber(ListView lv, string columnName, string LVIField = "Text")
         {
-            int count = -1;
+            var count = -1;
             foreach (ColumnHeader CH in lv.Columns)
             {
                 count++;
 
-                object val = Reflection.GetFieldValue(CH, LVIField);
+                var val = Reflection.GetFieldValue(CH, LVIField);
                 if (val == null)
                     continue;
 
@@ -167,15 +183,15 @@ namespace ANDREICSLIB.ClassExtras
         /// <summary>
         /// add a line item comparing the header text with the object field names
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="lv"></param>
-        /// <param name="classInstance"></param>
-        /// <param name="overwrite"></param>
+        /// <param name="lv">The lv.</param>
+        /// <param name="classInstance">The class instance.</param>
+        /// <param name="overwrite">The overwrite.</param>
+        /// <returns></returns>
         public static ListViewItem CopyClassToListView(ListView lv, object classInstance, ListViewItem overwrite = null)
         {
-            Type t = classInstance.GetType();
-            PropertyInfo[] pi = t.GetProperties();
-            FieldInfo[] fi = t.GetFields();
+            var t = classInstance.GetType();
+            var pi = t.GetProperties();
+            var fi = t.GetFields();
 
             ListViewItem lvi = null;
             if (overwrite != null)
@@ -186,22 +202,22 @@ namespace ANDREICSLIB.ClassExtras
             var itemlist = new List<Tuple<string, object>>();
 
             //get all the properties and fields for the class
-            foreach (PropertyInfo prop in pi)
+            foreach (var prop in pi)
             {
                 //see if a column matches
-                object o = prop.GetValue(classInstance, null);
+                var o = prop.GetValue(classInstance, null);
                 if (o != null)
                     itemlist.Add(new Tuple<string, object>(prop.Name, o));
             }
 
-            foreach (FieldInfo field in fi)
+            foreach (var field in fi)
             {
-                object o = field.GetValue(classInstance);
+                var o = field.GetValue(classInstance);
                 if (o != null)
                     itemlist.Add(new Tuple<string, object>(field.Name, o));
             }
 
-            string fn = Reflection.GetFieldName(() => lvi.Name);
+            var fn = Reflection.GetFieldName(() => lvi.Name);
             //match with the lvi columns
             foreach (var i in itemlist)
             {
@@ -214,10 +230,19 @@ namespace ANDREICSLIB.ClassExtras
             return lvi;
         }
 
+        /// <summary>
+        /// Sets the column.
+        /// </summary>
+        /// <param name="lv">The lv.</param>
+        /// <param name="lvi">The lvi.</param>
+        /// <param name="columnName">Name of the column.</param>
+        /// <param name="columnValue">The column value.</param>
+        /// <param name="LVIField">The lvi field.</param>
+        /// <returns></returns>
         public static bool SetColumn(ListView lv, ListViewItem lvi, string columnName, string columnValue,
-                                     string LVIField = "Text")
+            string LVIField = "Text")
         {
-            int col = GetColumnNumber(lv, columnName, LVIField);
+            var col = GetColumnNumber(lv, columnName, LVIField);
 
             if (col == -1)
                 return false;
@@ -229,9 +254,17 @@ namespace ANDREICSLIB.ClassExtras
             return true;
         }
 
+        /// <summary>
+        /// Gets the column.
+        /// </summary>
+        /// <param name="lv">The lv.</param>
+        /// <param name="lvi">The lvi.</param>
+        /// <param name="columnName">Name of the column.</param>
+        /// <param name="LVIField">The lvi field.</param>
+        /// <returns></returns>
         public static string GetColumn(ListView lv, ListViewItem lvi, string columnName, string LVIField = "Text")
         {
-            int col = GetColumnNumber(lv, columnName);
+            var col = GetColumnNumber(lv, columnName);
 
             if (col == -1)
                 return null;
@@ -239,16 +272,16 @@ namespace ANDREICSLIB.ClassExtras
             if (lvi.SubItems.Count < col)
                 return null;
 
-            ListViewItem.ListViewSubItem si = lvi.SubItems[col];
-            object val = Reflection.GetFieldValue(si, LVIField);
+            var si = lvi.SubItems[col];
+            var val = Reflection.GetFieldValue(si, LVIField);
             return val.ToString();
         }
 
         /// <summary>
         /// make the LVI subitem count match the column count
         /// </summary>
-        /// <param name="lv"></param>
-        /// <param name="lvi"></param>
+        /// <param name="lv">The lv.</param>
+        /// <param name="lvi">The lvi.</param>
         public static void EnsureSubItemCount(ListView lv, ListViewItem lvi)
         {
             while (lvi.SubItems.Count > lv.Columns.Count)
@@ -259,6 +292,12 @@ namespace ANDREICSLIB.ClassExtras
             ;
         }
 
+        /// <summary>
+        /// Gets the objects from ListView items.
+        /// </summary>
+        /// <param name="lv">The lv.</param>
+        /// <param name="ty">The ty.</param>
+        /// <returns></returns>
         public static List<object> GetObjectsFromListViewItems(ListView lv, Type ty)
         {
             var ret = new List<object>();
@@ -269,26 +308,36 @@ namespace ANDREICSLIB.ClassExtras
             return ret;
         }
 
+        /// <summary>
+        /// Gets the object from ListView item.
+        /// </summary>
+        /// <param name="lv">The lv.</param>
+        /// <param name="LVI">The lvi.</param>
+        /// <param name="ty">The ty.</param>
+        /// <returns></returns>
         public static object GetObjectFromListViewItem(ListView lv, ListViewItem LVI, Type ty)
         {
-            List<Tuple<string, string>> ls = GetListViewItemRowValuesAndColumnName(lv, LVI);
-            object o = Reflection.DeserialiseObject(ty, ls);
+            var ls = GetListViewItemRowValuesAndColumnName(lv, LVI);
+            var o = Reflection.DeserialiseObject(ty, ls);
             return o;
         }
 
         /// <summary>
         /// returns a tuple of column header name, and the row value for this LVI
         /// </summary>
-        /// <param name="LVI"></param>
-        /// <param name="LVIField"></param>
-        /// <returns>column header name,row value</returns>
+        /// <param name="lv">The lv.</param>
+        /// <param name="LVI">The lvi.</param>
+        /// <param name="LVIField">The lvi field.</param>
+        /// <returns>
+        /// column header name,row value
+        /// </returns>
         public static List<Tuple<string, string>> GetListViewItemRowValuesAndColumnName(ListView lv, ListViewItem LVI,
-                                                                                        string LVIField = "Text")
+            string LVIField = "Text")
         {
             var ret = new List<Tuple<string, string>>();
-            for (int a = 0; a < LVI.SubItems.Count; a++)
+            for (var a = 0; a < LVI.SubItems.Count; a++)
             {
-                object val = Reflection.GetFieldValue(LVI.SubItems[a], LVIField);
+                var val = Reflection.GetFieldValue(LVI.SubItems[a], LVIField);
                 if (val == null)
                     continue;
 

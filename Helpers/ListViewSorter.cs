@@ -1,22 +1,26 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Windows.Forms;
 
 namespace ANDREICSLIB.Helpers
 {
     /// <summary>
-    /// example usage: https://github.com/andreigec/IP-Scanrar
+    ///     example usage: https://github.com/andreigec/IP-Scanrar
     /// </summary>
     public class ListViewSorter : IComparer
     {
         public bool Enabled = true;
-
         public int ByColumn { get; set; }
-
         public int LastSort { get; set; }
 
         #region IComparer Members
 
+        /// <summary>
+        /// Compares the specified o1.
+        /// </summary>
+        /// <param name="o1">The o1.</param>
+        /// <param name="o2">The o2.</param>
+        /// <returns></returns>
         public int Compare(object o1, object o2)
         {
             if (Enabled == false)
@@ -27,12 +31,12 @@ namespace ANDREICSLIB.Helpers
             if (o2 == null || !(o2 is ListViewItem))
                 return (0);
 
-            var lvi1 = (ListViewItem)o2;
-            string str1 = lvi1.SubItems[ByColumn].Text;
-            var lvi2 = (ListViewItem)o1;
-            string str2 = lvi2.SubItems[ByColumn].Text;
+            var lvi1 = (ListViewItem) o2;
+            var str1 = lvi1.SubItems[ByColumn].Text;
+            var lvi2 = (ListViewItem) o1;
+            var str2 = lvi2.SubItems[ByColumn].Text;
 
-            int r = CompareNatural(str1, str2);
+            var r = CompareNatural(str1, str2);
 
             if (lvi1.ListView.Sorting == SortOrder.Descending)
                 return r;
@@ -43,11 +47,11 @@ namespace ANDREICSLIB.Helpers
         #endregion
 
         /// <summary>
-        /// call this from column click. 
+        /// call this from column click.
         /// </summary>
         /// <param name="lvs">an instance of listviewsorter</param>
-        /// <param name="lv"></param>
-        /// <param name="column"></param>
+        /// <param name="lv">The lv.</param>
+        /// <param name="column">The column.</param>
         /// <param name="forceorder">if set to a value, will sort by that all the time, otherwise will sort as normal</param>
         public static void ColumnSort(ListViewSorter lvs, ListView lv, int column, SortOrder? forceorder = null)
         {
@@ -56,7 +60,7 @@ namespace ANDREICSLIB.Helpers
                 lv.ListViewItemSorter = lvs;
                 if (!(lv.ListViewItemSorter is ListViewSorter))
                     return;
-                lvs = (ListViewSorter)lv.ListViewItemSorter;
+                lvs = (ListViewSorter) lv.ListViewItemSorter;
             }
             catch (Exception)
             {
@@ -65,7 +69,7 @@ namespace ANDREICSLIB.Helpers
 
             if (forceorder != null)
             {
-                lv.Sorting = (SortOrder)forceorder;
+                lv.Sorting = (SortOrder) forceorder;
             }
             else
             {
@@ -77,6 +81,12 @@ namespace ANDREICSLIB.Helpers
             lv.Sort();
         }
 
+        /// <summary>
+        /// Compares the natural.
+        /// </summary>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        /// <returns></returns>
         private static int CompareNatural(string x, string y)
         {
             if (x == null && y == null) return 0;
@@ -92,10 +102,10 @@ namespace ANDREICSLIB.Helpers
                     long vx = 0, vy = 0;
 
                     for (; mx < lx && char.IsDigit(x[mx]); mx++)
-                        vx = vx * 10 + x[mx] - '0';
+                        vx = vx*10 + x[mx] - '0';
 
                     for (; my < ly && char.IsDigit(y[my]); my++)
-                        vy = vy * 10 + y[my] - '0';
+                        vy = vy*10 + y[my] - '0';
 
                     if (vx != vy)
                         return vx > vy ? 1 : -1;

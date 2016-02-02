@@ -9,7 +9,7 @@ using ANDREICSLIB.ClassExtras;
 namespace ANDREICSLIB.Helpers
 {
     /// <summary>
-    /// example usage: https://github.com/andreigec/Backgrounder
+    ///     example usage: https://github.com/andreigec/Backgrounder
     /// </summary>
     public static class Reflection
     {
@@ -19,16 +19,18 @@ namespace ANDREICSLIB.Helpers
         /// <summary>
         /// get the name of a passed parameter
         /// </summary>
-        /// <param name="memberExpression">() => variable</param>
-        /// <returns>variable name</returns>
+        /// <param name="memberExpression">() =&gt; variable</param>
+        /// <returns>
+        /// variable name
+        /// </returns>
         public static string GetFieldName(Expression<Func<object>> memberExpression)
         {
             MemberExpression me = null;
             if (memberExpression.Body is MemberExpression)
-                me = ((MemberExpression)memberExpression.Body);
+                me = ((MemberExpression) memberExpression.Body);
             else if (memberExpression.Body is UnaryExpression)
             {
-                var ue = ((UnaryExpression)memberExpression.Body);
+                var ue = ((UnaryExpression) memberExpression.Body);
                 me = ue.Operand as MemberExpression;
             }
 
@@ -41,15 +43,15 @@ namespace ANDREICSLIB.Helpers
         /// <summary>
         /// get a field or property of a class instance
         /// </summary>
-        /// <param name="classInstance"></param>
-        /// <param name="fieldname"></param>
+        /// <param name="classInstance">The class instance.</param>
+        /// <param name="fieldname">The fieldname.</param>
         /// <returns></returns>
         public static object GetFieldValue(object classInstance, string fieldname)
         {
             object ret = null;
-            Type ty = classInstance.GetType();
-            FieldInfo field = ty.GetField(fieldname);
-            PropertyInfo field2 = ty.GetProperty(fieldname);
+            var ty = classInstance.GetType();
+            var field = ty.GetField(fieldname);
+            var field2 = ty.GetProperty(fieldname);
 
             if (field != null)
                 ret = field.GetValue(classInstance);
@@ -65,16 +67,21 @@ namespace ANDREICSLIB.Helpers
         /// <returns></returns>
         public static List<Tuple<string, object>> GetFieldNamesAndValues(object classInstance)
         {
-            Type ty = classInstance.GetType();
-            FieldInfo[] fields = ty.GetFields();
+            var ty = classInstance.GetType();
+            var fields = ty.GetFields();
 
             return fields.Select(v => new Tuple<string, object>(v.Name, v.GetValue(classInstance))).ToList();
         }
 
+        /// <summary>
+        /// Gets the field names.
+        /// </summary>
+        /// <param name="ty">The ty.</param>
+        /// <returns></returns>
         public static List<string> GetFieldNames(Type ty)
         {
-            FieldInfo[] fields = ty.GetFields();
-            PropertyInfo[] propInfos = ty.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            var fields = ty.GetFields();
+            var propInfos = ty.GetProperties(BindingFlags.Public | BindingFlags.Instance);
             var l1 = propInfos.Select(s => s.Name).ToList();
             var l2 = fields.Select(v => v.Name).ToList();
             l1.AddRange(l2);
@@ -84,15 +91,15 @@ namespace ANDREICSLIB.Helpers
         /// <summary>
         /// serialise an object to a file
         /// </summary>
-        /// <param name="classInstance"></param>
-        /// <param name="filename"></param>
+        /// <param name="classInstance">The class instance.</param>
+        /// <param name="filename">The filename.</param>
         /// <returns></returns>
         public static bool SerialiseObject(object classInstance, string filename)
         {
             if (File.Exists(filename) == false)
                 FileExtras.CreateFile(filename);
 
-            string r = SerialiseObject(classInstance);
+            var r = SerialiseObject(classInstance);
 
             FileExtras.SaveToFile(filename, r);
             return true;
@@ -101,12 +108,12 @@ namespace ANDREICSLIB.Helpers
         /// <summary>
         /// serialise an object to a return string
         /// </summary>
-        /// <param name="classInstance"></param>
+        /// <param name="classInstance">The class instance.</param>
         /// <returns></returns>
         public static string SerialiseObject(object classInstance)
         {
-            string r = "";
-            List<Tuple<string, object>> ol = GetFieldNamesAndValues(classInstance);
+            var r = "";
+            var ol = GetFieldNamesAndValues(classInstance);
 
             foreach (var o in ol)
             {
@@ -118,39 +125,39 @@ namespace ANDREICSLIB.Helpers
         /// <summary>
         /// deserialise a file to an object from a file
         /// </summary>
-        /// <param name="objectType"></param>
-        /// <param name="filename"></param>
-        /// <param name="ignoreErrors"></param>
+        /// <param name="filename">The filename.</param>
+        /// <param name="objectType">Type of the object.</param>
+        /// <param name="ignoreErrors">if set to <c>true</c> [ignore errors].</param>
         /// <returns></returns>
         public static object DeserialiseObject(string filename, Type objectType, bool ignoreErrors = true)
         {
             if (File.Exists(filename) == false)
                 return null;
 
-            string s = FileExtras.LoadFile(filename);
+            var s = FileExtras.LoadFile(filename);
 
             if (string.IsNullOrEmpty(s))
                 return null;
 
-            object instance = DeserialiseObject(objectType, s, ignoreErrors);
+            var instance = DeserialiseObject(objectType, s, ignoreErrors);
             return instance;
         }
 
         /// <summary>
         /// deserialise an object from a serialised string
         /// </summary>
-        /// <param name="objectType"></param>
-        /// <param name="serialisedObjectString"></param>
-        /// <param name="ignoreErrors"></param>
+        /// <param name="objectType">Type of the object.</param>
+        /// <param name="serialisedObjectString">The serialised object string.</param>
+        /// <param name="ignoreErrors">if set to <c>true</c> [ignore errors].</param>
         /// <returns></returns>
         public static object DeserialiseObject(Type objectType, string serialisedObjectString, bool ignoreErrors = true)
         {
-            string[] s2 = StringExtras.SplitString(serialisedObjectString, Newline);
+            var s2 = StringExtras.SplitString(serialisedObjectString, Newline);
 
             var tl = new List<Tuple<string, string>>();
-            foreach (string s3 in s2)
+            foreach (var s3 in s2)
             {
-                string[] s4 = StringExtras.SplitString(s3, Separator.ToString());
+                var s4 = StringExtras.SplitString(s3, Separator.ToString());
                 if (s4.Length != 2)
                 {
                     if (ignoreErrors)
@@ -158,31 +165,31 @@ namespace ANDREICSLIB.Helpers
                     return null;
                 }
 
-                string fieldname = s4[0];
-                string fieldval = s4[1];
+                var fieldname = s4[0];
+                var fieldval = s4[1];
 
                 tl.Add(new Tuple<string, string>(fieldname, fieldval));
             }
-            object instance = DeserialiseObject(objectType, tl, ignoreErrors);
+            var instance = DeserialiseObject(objectType, tl, ignoreErrors);
             return instance;
         }
 
         /// <summary>
         /// deserialise an object from a list of tuple string,string s
         /// </summary>
-        /// <param name="objectType"></param>
+        /// <param name="objectType">Type of the object.</param>
         /// <param name="objectFieldNameAndValues">field name,field val</param>
-        /// <param name="ignoreErrors"></param>
+        /// <param name="ignoreErrors">if set to <c>true</c> [ignore errors].</param>
         /// <returns></returns>
         public static object DeserialiseObject(Type objectType, List<Tuple<string, string>> objectFieldNameAndValues,
-                                               bool ignoreErrors = true)
+            bool ignoreErrors = true)
         {
-            object instance = Activator.CreateInstance(objectType);
+            var instance = Activator.CreateInstance(objectType);
 
             foreach (var t in objectFieldNameAndValues)
             {
                 //try field
-                FieldInfo field = objectType.GetField(t.Item1);
+                var field = objectType.GetField(t.Item1);
                 if (field != null)
                 {
                     try
@@ -198,7 +205,7 @@ namespace ANDREICSLIB.Helpers
                 }
 
                 //try property
-                PropertyInfo pi = objectType.GetProperty(t.Item1);
+                var pi = objectType.GetProperty(t.Item1);
                 if (pi != null)
                 {
                     try

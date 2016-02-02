@@ -1,20 +1,24 @@
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ANDREICSLIB.ClassExtras
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class DateTimeExtras
     {
+        public static CultureInfo MyCulture = new CultureInfo("en-au");
+        public static TimeZoneInfo MyTimeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById("AUS Eastern Standard Time");
+
         #region returns local
         /// <summary>
         /// UTC to AEST conversion
         /// </summary>
         /// <param name="date">input date</param>
-        /// <returns>Converted time</returns>
+        /// <returns>
+        /// Converted time
+        /// </returns>
         public static DateTime ToLocal(this DateTime date)
         {
             if (date.Kind == DateTimeKind.Local)
@@ -23,18 +27,18 @@ namespace ANDREICSLIB.ClassExtras
             if (date.Kind == DateTimeKind.Unspecified)
                 date = DateTime.SpecifyKind(date, DateTimeKind.Utc);
 
-            var ret = TimeZoneInfo.ConvertTimeFromUtc(date, GetTimeZoneInfo());
+            var ret = TimeZoneInfo.ConvertTimeFromUtc(date, MyTimeZoneInfo);
             return DateTime.SpecifyKind(ret, DateTimeKind.Local);
         }
 
         /// <summary>
         /// AEST string to AEST datetime
         /// </summary>
-        /// <param name="localDateTime"></param>
+        /// <param name="localDateTime">The local date time.</param>
         /// <returns></returns>
         public static DateTime ToLocal(string localDateTime)
         {
-            var ret = ParseDateExactForTimeZone(localDateTime, GetTimeZoneInfo());
+            var ret = ParseDateExactForTimeZone(localDateTime, MyTimeZoneInfo);
             return DateTime.SpecifyKind(ret, DateTimeKind.Local);
         }
 
@@ -47,13 +51,16 @@ namespace ANDREICSLIB.ClassExtras
             var ret = DateTime.UtcNow.ToLocal();
             return DateTime.SpecifyKind(ret, DateTimeKind.Local);
         }
+
         #endregion returns local
 
         #region returns UTC
+
         /// <summary>
         /// AEST string to AEST datetime (default will use now), 12am, to UTC datetime (optional offset)
         /// </summary>
         /// <param name="localDateTime">if null will use current datetime</param>
+        /// <param name="hoursOffset">The hours offset.</param>
         /// <returns></returns>
         public static DateTime GetLocalMidnightInUtc(string localDateTime = null, int? hoursOffset = null)
         {
@@ -62,17 +69,34 @@ namespace ANDREICSLIB.ClassExtras
             return ToUTCWithHoursOffset(d, offset);
         }
 
+        /// <summary>
+        /// Gets the local midnight in UTC.
+        /// </summary>
+        /// <param name="anyDateTime">Any date time.</param>
+        /// <param name="hoursOffset">The hours offset.</param>
+        /// <returns></returns>
         public static DateTime GetLocalMidnightInUtc(this DateTime anyDateTime, int? hoursOffset = null)
         {
             var d = anyDateTime.ToLocal().Date;
             return ToUTCWithHoursOffset(d, hoursOffset);
         }
 
+        /// <summary>
+        /// To the UTC with hours offset.
+        /// </summary>
+        /// <param name="hoursOffset">The hours offset.</param>
+        /// <returns></returns>
         public static DateTime ToUTCWithHoursOffset(int? hoursOffset)
         {
             return ToUTCWithHoursOffset(GetLocal(), hoursOffset);
         }
 
+        /// <summary>
+        /// To the UTC with hours offset.
+        /// </summary>
+        /// <param name="localDateTime">The local date time.</param>
+        /// <param name="hoursOffset">The hours offset.</param>
+        /// <returns></returns>
         public static DateTime ToUTCWithHoursOffset(string localDateTime = null, int? hoursOffset = null)
         {
             var d = (localDateTime == null ? DateTime.UtcNow.ToLocal() : ToLocal(localDateTime));
@@ -82,11 +106,12 @@ namespace ANDREICSLIB.ClassExtras
         /// <summary>
         /// convert date to utc, use 12am, and offset
         /// </summary>
-        /// <param name="localDateTime"></param>
+        /// <param name="localDateTime">The local date time.</param>
+        /// <param name="hoursOffset">The hours offset.</param>
         /// <returns></returns>
         public static DateTime ToUTCWithHoursOffset(this DateTime localDateTime, int? hoursOffset)
         {
-            DateTime ret = localDateTime;
+            var ret = localDateTime;
             if (ret.Kind != DateTimeKind.Utc)
                 ret = ret.ToUniversalTime();
 
@@ -95,47 +120,59 @@ namespace ANDREICSLIB.ClassExtras
 
             return DateTime.SpecifyKind(ret, DateTimeKind.Utc);
         }
+
         #endregion returns UTC
 
         #region helpers
-        private static TimeZoneInfo GetTimeZoneInfo()
-        {
-            var cstZone = TimeZoneInfo.FindSystemTimeZoneById("AUS Eastern Standard Time");
-            return cstZone;
-        }
 
-        private static CultureInfo GetCultureInfo()
-        {
-            return new CultureInfo("en-au");
-        }
+        /// <summary>
+        /// Parses the date for time zone.
+        /// </summary>
+        /// <param name="dateTime">The date time.</param>
+        /// <param name="timezone">The timezone.</param>
+        /// <returns></returns>
         private static DateTime ParseDateExactForTimeZone(string dateTime, TimeZoneInfo timezone)
         {
-            var parsedDateLocal = DateTimeOffset.Parse(dateTime, GetCultureInfo());
+            var parsedDateLocal = DateTimeOffset.Parse(dateTime, MyCulture);
             var tzOffset = timezone.GetUtcOffset(parsedDateLocal.DateTime);
             var parsedDateTimeZone = new DateTimeOffset(parsedDateLocal.DateTime, tzOffset);
             return parsedDateTimeZone.DateTime;
         }
+
         #endregion helpers
 
         #region two
+
+        /// <summary>
+        /// Truncates the date
+        /// </summary>
+        /// <param name="dateTime">The date time.</param>
+        /// <param name="seconds">The seconds.</param>
+        /// <returns></returns>
         public static DateTime TruncateAndRound(this DateTime dateTime, int seconds)
         {
-            return seconds <= 0 ? dateTime : dateTime.Truncate().Round(TimeSpan.FromSeconds(seconds));
+            return seconds <= 0 ? dateTime : dateTime.TruncateToSeconds(1).Round(TimeSpan.FromSeconds(seconds));
         }
 
         /// <summary>
-        /// truncate to the second
+        /// truncate to seconds
         /// </summary>
-        /// <param name="dateTime"></param>
-        /// <param name="timeSpan"></param>
+        /// <param name="dateTime">The date time.</param>
         /// <returns></returns>
-        private static DateTime Truncate(this DateTime dateTime)
+        private static DateTime TruncateToSeconds(this DateTime dateTime, int seconds)
         {
             //truncate to nearest second
-            return dateTime.AddTicks(-(dateTime.Ticks % TimeSpan.FromSeconds(1).Ticks));
+            return dateTime.AddTicks(-(dateTime.Ticks % TimeSpan.FromSeconds(seconds).Ticks));
         }
 
-        private static TimeSpan Round(this TimeSpan time, TimeSpan roundingInterval, MidpointRounding roundingType)
+        /// <summary>
+        /// Rounds the specified rounding interval.
+        /// </summary>
+        /// <param name="time">The time.</param>
+        /// <param name="roundingInterval">The rounding interval.</param>
+        /// <param name="roundingType">Type of the rounding.</param>
+        /// <returns></returns>
+        private static TimeSpan Round(this TimeSpan time, TimeSpan roundingInterval, MidpointRounding roundingType = MidpointRounding.ToEven)
         {
             var r = Math.Round(time.Ticks / (decimal)roundingInterval.Ticks, roundingType
                 );
@@ -144,11 +181,12 @@ namespace ANDREICSLIB.ClassExtras
             return new TimeSpan(v);
         }
 
-        private static TimeSpan Round(this TimeSpan time, TimeSpan roundingInterval)
-        {
-            return Round(time, roundingInterval, MidpointRounding.ToEven);
-        }
-
+        /// <summary>
+        /// Rounds the specified date
+        /// </summary>
+        /// <param name="datetime">The datetime.</param>
+        /// <param name="roundingInterval">The rounding interval.</param>
+        /// <returns></returns>
         private static DateTime Round(this DateTime datetime, TimeSpan roundingInterval)
         {
             var t = (datetime - DateTime.MinValue).Round(roundingInterval).Ticks;

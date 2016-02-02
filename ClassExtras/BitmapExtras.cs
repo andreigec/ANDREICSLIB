@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
@@ -7,91 +7,116 @@ using System.IO;
 namespace ANDREICSLIB.ClassExtras
 {
     /// <summary>
-    /// example usage: https://github.com/andreigec/MTG-Proxy-Maker
+    ///     example usage: https://github.com/andreigec/MTG-Proxy-Maker
     /// </summary>
     public class BitmapExtras
     {
-        public static Bitmap GrayScale(Bitmap Bmp)
+
+        /// <summary>
+        /// Applies the grayscale.
+        /// </summary>
+        /// <param name="bitmap">The bitmap.</param>
+        /// <returns></returns>
+        public static Bitmap ApplyGrayscale(Bitmap bitmap)
         {
             int rgb;
             Color c;
 
-            for (int y = 0; y < Bmp.Height; y++)
-                for (int x = 0; x < Bmp.Width; x++)
+            for (var y = 0; y < bitmap.Height; y++)
+                for (var x = 0; x < bitmap.Width; x++)
                 {
-                    c = Bmp.GetPixel(x, y);
-                    rgb = (int)((c.R + c.G + c.B) / 3);
-                    Bmp.SetPixel(x, y, Color.FromArgb(rgb, rgb, rgb));
+                    c = bitmap.GetPixel(x, y);
+                    rgb = (c.R + c.G + c.B) / 3;
+                    bitmap.SetPixel(x, y, Color.FromArgb(rgb, rgb, rgb));
                 }
-            return Bmp;
+            return bitmap;
         }
 
-        public static Bitmap InitBitmap(int width, int height, Color c)
+        /// <summary>
+        /// Initializes the bitmap.
+        /// </summary>
+        /// <param name="width">The width.</param>
+        /// <param name="height">The height.</param>
+        /// <param name="defaultColour">The default colour.</param>
+        /// <returns></returns>
+        public static Bitmap InitBitmap(int width, int height, Color defaultColour)
         {
             var b = new Bitmap(width, height);
-            for (int y = 0; y < b.Height; y++)
+            for (var y = 0; y < b.Height; y++)
             {
-                for (int x = 0; x < b.Width; x++)
+                for (var x = 0; x < b.Width; x++)
                 {
-                    b.SetPixel(x, y, c);
-                }
-            }
-            return b;
-        }
-
-        public static Bitmap NonWhiteToBlack(Bitmap b, Color c)
-        {
-            for (int y = 0; y < b.Height; y++)
-            {
-                for (int x = 0; x < b.Width; x++)
-                {
-                    var p = b.GetPixel(x, y);
-                    bool white = !(p.R != 255 || p.G != 255 || p.B != 255);
-                    b.SetPixel(x, y, white ? Color.White : Color.Black);
+                    b.SetPixel(x, y, defaultColour);
                 }
             }
             return b;
         }
 
         /// <summary>
-        /// replace all colours apart from the one passed in with white, and the passed in colour as black
+        /// Changes all non white pixels to black.
         /// </summary>
-        /// <param name="Bmp"></param>
-        /// <param name="r"></param>
-        /// <param name="g"></param>
-        /// <param name="b"></param>
+        /// <param name="bitmap">The bitmap.</param>
         /// <returns></returns>
-        public static Bitmap OnlyAllowBlackAndColour(Bitmap Bmp, int r, int g, int b)
+        public static Bitmap ChangeAllNonWhitePixelsToColour(Bitmap bitmap, Color replace)
+        {
+            for (var y = 0; y < bitmap.Height; y++)
+            {
+                for (var x = 0; x < bitmap.Width; x++)
+                {
+                    var p = bitmap.GetPixel(x, y);
+                    var white = !(p.R != 255 || p.G != 255 || p.B != 255);
+                    bitmap.SetPixel(x, y, white ? Color.White : replace);
+                }
+            }
+            return bitmap;
+        }
+
+
+
+        /// <summary>
+        /// Transforms all grey pixels to black.
+        /// </summary>
+        /// <param name="bitmap">The bitmap.</param>
+        /// <param name="r">The r.</param>
+        /// <param name="g">The g.</param>
+        /// <param name="b">The b.</param>
+        /// <returns></returns>
+        public static Bitmap TransformAllGreyPixelsToBlack(Bitmap bitmap, int r, int g, int b)
         {
             //int rgb;
             Color c;
 
-            for (int y = 0; y < Bmp.Height; y++)
-                for (int x = 0; x < Bmp.Width; x++)
+            for (var y = 0; y < bitmap.Height; y++)
+                for (var x = 0; x < bitmap.Width; x++)
                 {
-                    c = Bmp.GetPixel(x, y);
-                    int rgb = 255;
+                    c = bitmap.GetPixel(x, y);
+                    var rgb = 255;
                     const int blackd = 50;
                     if ((c.R <= blackd && c.G <= blackd && c.B <= blackd) || (c.R == r && c.G == g && c.B == b))
                     {
                         rgb = 0;
                     }
-                    //rgb = (int)((c.R + c.G + c.B) / 3);
-                    Bmp.SetPixel(x, y, Color.FromArgb(rgb, rgb, rgb));
+                    bitmap.SetPixel(x, y, Color.FromArgb(rgb, rgb, rgb));
                 }
-            return Bmp;
+            return bitmap;
         }
 
-        public static Color[][] ImageFileToColorMatrix(string filename)
+
+        /// <summary>
+        /// Loads the file to colour matrix.
+        /// </summary>
+        /// <param name="filename">The filename.</param>
+        /// <returns></returns>
+        public static Color[][] LoadFileToColourMatrix(string filename)
         {
             try
             {
                 var fs = new FileStream(filename, FileMode.Open);
 
-                Image s = Image.FromStream(fs);
+                var s = Image.FromStream(fs);
                 var b = new Bitmap(s);
 
-                return BitmapToColorMatrix(b);
+                return ConvertBitmapToColourMatrix(b);
             }
             catch (Exception)
             {
@@ -99,38 +124,56 @@ namespace ANDREICSLIB.ClassExtras
             }
         }
 
-        public static Bitmap StretchBitmap(Bitmap sourceBMP, int width, int height)
+        /// <summary>
+        /// Stretches the bitmap.
+        /// </summary>
+        /// <param name="bitmap">The bitmap.</param>
+        /// <param name="width">The width.</param>
+        /// <param name="height">The height.</param>
+        /// <returns></returns>
+        public static Bitmap StretchBitmap(Bitmap bitmap, int width, int height)
         {
-            var ret = new Bitmap(sourceBMP, width, height);
+            var ret = new Bitmap(bitmap, width, height);
             return ret;
         }
 
-
-        public static Bitmap ResizeBitmap(Bitmap sourceBMP, int width, int height, bool antiAlias = false)
+        /// <summary>
+        /// Resizes the bitmap.
+        /// </summary>
+        /// <param name="bitmap">The bitmap.</param>
+        /// <param name="width">The width.</param>
+        /// <param name="height">The height.</param>
+        /// <param name="antiAlias">if set to <c>true</c> [anti alias].</param>
+        /// <returns></returns>
+        public static Bitmap ResizeBitmap(Bitmap bitmap, int width, int height, bool antiAlias = false)
         {
             var bmp = new Bitmap(width, height);
             var graph = Graphics.FromImage(bmp);
             graph.InterpolationMode = antiAlias ? InterpolationMode.High : InterpolationMode.NearestNeighbor;
             graph.CompositingQuality = antiAlias ? CompositingQuality.HighQuality : CompositingQuality.Default;
             graph.SmoothingMode = antiAlias ? SmoothingMode.AntiAlias : SmoothingMode.None;
-            graph.DrawImage(sourceBMP, new Rectangle(0, 0, width, height));
+            graph.DrawImage(bitmap, new Rectangle(0, 0, width, height));
             return bmp;
         }
 
-
-        private static Color[][] BitmapToColorMatrix(Bitmap b)
+        /// <summary>
+        /// Converts the bitmap to a colour matrix.
+        /// </summary>
+        /// <param name="b">The b.</param>
+        /// <returns></returns>
+        private static Color[][] ConvertBitmapToColourMatrix(Bitmap b)
         {
-            int w = b.Width;
-            int h = b.Height;
+            var w = b.Width;
+            var h = b.Height;
 
             var ret = new Color[h][];
 
-            for (int y = 0; y < h; y++)
+            for (var y = 0; y < h; y++)
             {
                 ret[y] = new Color[w];
-                for (int x = 0; x < w; x++)
+                for (var x = 0; x < w; x++)
                 {
-                    Color p = b.GetPixel(x, y);
+                    var p = b.GetPixel(x, y);
                     ret[y][x] = Color.FromArgb(p.R, p.G, p.B);
                 }
             }
@@ -138,74 +181,95 @@ namespace ANDREICSLIB.ClassExtras
             return ret;
         }
 
-        public static void DrawLine(Bitmap b, Color c, Tuple<int, int> one, Tuple<int, int> two)
+        /// <summary>
+        /// Draws a line.
+        /// </summary>
+        /// <param name="bitmap">The bitmap.</param>
+        /// <param name="colour">The colour.</param>
+        /// <param name="pointXYOne">The point xy one.</param>
+        /// <param name="pointXYTwo">The point xy two.</param>
+        public static void DrawLine(Bitmap bitmap, Color colour, Tuple<int, int> pointXYOne, Tuple<int, int> pointXYTwo)
         {
-            int x = one.Item1;
-            int y = one.Item2;
-            while (x != two.Item1 || y != two.Item2)
+            var x = pointXYOne.Item1;
+            var y = pointXYOne.Item2;
+            while (x != pointXYTwo.Item1 || y != pointXYTwo.Item2)
             {
-                if (x < 0 || y < 0 || x >= b.Width || y >= b.Height)
+                if (x < 0 || y < 0 || x >= bitmap.Width || y >= bitmap.Height)
                     return;
-                b.SetPixel(x, y, c);
-                if (x > two.Item1)
+                bitmap.SetPixel(x, y, colour);
+                if (x > pointXYTwo.Item1)
                     x--;
-                else if (x < two.Item1)
+                else if (x < pointXYTwo.Item1)
                     x++;
 
-                if (y > two.Item2)
+                if (y > pointXYTwo.Item2)
                     y--;
-                else if (y < two.Item2)
+                else if (y < pointXYTwo.Item2)
                     y++;
             }
         }
 
-        public static void LockBitmap(Bitmap b, bool doLock)
+        /// <summary>
+        /// Locks the bitmap.
+        /// </summary>
+        /// <param name="bitmap">The bitmap.</param>
+        /// <param name="doLock">if set to <c>true</c> [do lock].</param>
+        public static void LockBitmap(Bitmap bitmap, bool doLock)
         {
-            b.LockBits(new Rectangle(0, 0, b.Width, b.Height), ImageLockMode.WriteOnly, b.PixelFormat);
+            bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height), ImageLockMode.WriteOnly, bitmap.PixelFormat);
         }
 
         /// <summary>
         /// crop the image based on a new width and height
         /// </summary>
-        /// <param name="inbit">in image</param>
+        /// <param name="bitmap">in image</param>
         /// <param name="newWidth">a size, or -1 for the input size</param>
         /// <param name="newHeight">a size, or -1 for the input size</param>
         /// <param name="startx"> </param>
         /// <param name="starty"> </param>
         /// <returns></returns>
-        public static Bitmap Crop(Bitmap inbit, int newWidth = -1, int newHeight = -1, int startx = 0, int starty = 0)
+        public static Bitmap Crop(Bitmap bitmap, int newWidth = -1, int newHeight = -1, int startx = 0, int starty = 0)
         {
-            int w = newWidth == -1 ? inbit.Width : newWidth;
-            int h = newHeight == -1 ? inbit.Height : newHeight;
+            var w = newWidth == -1 ? bitmap.Width : newWidth;
+            var h = newHeight == -1 ? bitmap.Height : newHeight;
             var rect = new Rectangle(startx, starty, w, h);
 
-            return inbit.Clone(rect, PixelFormat.DontCare);
+            return bitmap.Clone(rect, PixelFormat.DontCare);
         }
 
-        public static bool IsOnlyColour(Bitmap b, Color c)
+        /// <summary>
+        /// Determines whether [is all pixels a colour] [the specified bitmap].
+        /// </summary>
+        /// <param name="bitmap">The bitmap.</param>
+        /// <param name="colour">The colour.</param>
+        /// <returns></returns>
+        public static bool IsAllPixelsAColour(Bitmap bitmap, Color colour)
         {
-            for (int y = 0; y < b.Height; y++)
+            for (var y = 0; y < bitmap.Height; y++)
             {
-                if (RowOrColIsColour(b, y, true, c) == false)
+                if (IsRowOrColSameColour(bitmap, y, true, colour) == false)
                     return false;
             }
             return true;
         }
 
-        public static bool RowOrColIsColour(Bitmap b, int value, bool isRow, Color c)
+        /// <summary>
+        /// Determines whether the bitmap has the entire row/col of the same colour
+        /// </summary>
+        /// <param name="bitmap">The bitmap.</param>
+        /// <param name="rowOrCol">The row or col.</param>
+        /// <param name="isRow">if set to <c>true</c> [is row].</param>
+        /// <param name="c">The c.</param>
+        /// <returns></returns>
+        public static bool IsRowOrColSameColour(Bitmap bitmap, int rowOrCol, bool isRow, Color c)
         {
-            int w = b.Width;
-            int h = b.Height;
-            int to = isRow ? w : h;
+            var w = bitmap.Width;
+            var h = bitmap.Height;
+            var to = isRow ? w : h;
 
-            for (int v = 0; v < to; v++)
+            for (var v = 0; v < to; v++)
             {
-                Color c2;
-                if (isRow)
-                    c2 = b.GetPixel(v, value);
-                else
-                    c2 = b.GetPixel(value, v);
-
+                var c2 = isRow ? bitmap.GetPixel(v, rowOrCol) : bitmap.GetPixel(rowOrCol, v);
 
                 if (c2.R != c.R || c2.G != c.G || c2.B != c.B)
                     return false;
@@ -213,25 +277,34 @@ namespace ANDREICSLIB.ClassExtras
             return true;
         }
 
-        public static Bitmap RemoveExcessWhitespace(Bitmap b, bool keepPureWhite = true, int padx = 0, int pady = 0)
+        /// <summary>
+        /// Removes the excess whitespace.
+        /// </summary>
+        /// <param name="bitmap">The bitmap.</param>
+        /// <param name="keepPureWhite">if set to <c>true</c>, wont throw an exception if entire bitmap is white</param>
+        /// <param name="padx">The padx.</param>
+        /// <param name="pady">The pady.</param>
+        /// <returns></returns>
+        /// <exception cref="Exception">error resizing</exception>
+        public static Bitmap RemoveExcessWhitespace(Bitmap bitmap, bool keepPureWhite = true, int padx = 0, int pady = 0)
         {
             //remove rows of white
-            int starty = -1;
-            int endy = -1;
-            int startx = -1;
-            int endx = -1;
-            for (int y = 0; y < b.Height; y++)
+            var starty = -1;
+            var endy = -1;
+            var startx = -1;
+            var endx = -1;
+            for (var y = 0; y < bitmap.Height; y++)
             {
                 if (starty == -1)
                 {
-                    if (RowOrColIsColour(b, y, true, Color.White) == false)
+                    if (IsRowOrColSameColour(bitmap, y, true, Color.White) == false)
                         starty = y;
                 }
 
                 if (endy == -1)
                 {
-                    var ey = (b.Height - 1) - y;
-                    if (RowOrColIsColour(b, ey, true, Color.White) == false)
+                    var ey = (bitmap.Height - 1) - y;
+                    if (IsRowOrColSameColour(bitmap, ey, true, Color.White) == false)
                         endy = ey;
                 }
 
@@ -239,18 +312,18 @@ namespace ANDREICSLIB.ClassExtras
                     break;
             }
 
-            for (int x = 0; x < b.Width; x++)
+            for (var x = 0; x < bitmap.Width; x++)
             {
                 if (startx == -1)
                 {
-                    if (RowOrColIsColour(b, x, false, Color.White) == false)
+                    if (IsRowOrColSameColour(bitmap, x, false, Color.White) == false)
                         startx = x;
                 }
 
                 if (endx == -1)
                 {
-                    var ex = (b.Width - 1) - x;
-                    if (RowOrColIsColour(b, ex, false, Color.White) == false)
+                    var ex = (bitmap.Width - 1) - x;
+                    if (IsRowOrColSameColour(bitmap, ex, false, Color.White) == false)
                         endx = ex;
                 }
 
@@ -261,11 +334,11 @@ namespace ANDREICSLIB.ClassExtras
             if (starty == -1 || startx == -1 || endy == -1 || endx == -1)
             {
                 if (keepPureWhite)
-                    return b;
+                    return bitmap;
                 throw new Exception("error resizing");
             }
 
-            var nb = Crop(b, endx - startx, endy - starty, startx, starty);
+            var nb = Crop(bitmap, endx - startx, endy - starty, startx, starty);
 
             return nb;
         }

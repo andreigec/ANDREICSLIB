@@ -2,10 +2,13 @@ using System.Collections.Generic;
 
 namespace ANDREICSLIB.Transformers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Result
     {
-        public bool Status = false;
-        public List<string> Items = new List<string>();
         public string ErrorStatus = "";
+        public List<string> Items = new List<string>();
+        public bool Status = false;
     }
 }

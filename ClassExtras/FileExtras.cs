@@ -1,35 +1,41 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
-using Newtonsoft.Json;
 
 namespace ANDREICSLIB.ClassExtras
 {
     /// <summary>
-    /// example usage: https://github.com/andreigec/Dwarf-Fortress-Mod-Merger
+    ///     example usage: https://github.com/andreigec/Dwarf-Fortress-Mod-Merger
     /// </summary>
     public static class FileExtras
     {
         /// <summary>
         /// load a file from a path into a string
         /// </summary>
-        /// <param name="filename"></param>
+        /// <param name="filename">The filename.</param>
+        /// <returns></returns>
         public static string LoadFile(string filename)
         {
             var fs = new FileStream(filename, FileMode.Open);
             var sr = new StreamReader(fs);
-            string filestr = sr.ReadToEnd();
+            var filestr = sr.ReadToEnd();
             sr.Close();
             fs.Close();
             return filestr;
         }
 
+        /// <summary>
+        /// Saves to file.
+        /// </summary>
+        /// <param name="filename">The filename.</param>
+        /// <param name="text">The text.</param>
+        /// <param name="append">if set to <c>true</c> [append].</param>
+        /// <returns></returns>
         public static bool SaveToFile(string filename, string text, bool append = false)
         {
-            string exist = "";
+            var exist = "";
             if (append && File.Exists(filename))
                 exist = LoadFile(filename);
 
@@ -42,10 +48,15 @@ namespace ANDREICSLIB.ClassExtras
             return true;
         }
 
+        /// <summary>
+        /// Creates the directory tree.
+        /// </summary>
+        /// <param name="dirs">The dirs.</param>
+        /// <param name="basedir">The basedir.</param>
         private static void CreateDirectoryTree(string[] dirs, string basedir)
         {
-            string d = basedir;
-            foreach (string s in dirs)
+            var d = basedir;
+            foreach (var s in dirs)
             {
                 d += "\\" + s;
                 if (Directory.Exists(d) == false)
@@ -62,19 +73,19 @@ namespace ANDREICSLIB.ClassExtras
         {
             CreateDirectory(based);
 
-            List<string> mergefiles = Directory.GetFiles(merge, "*.*", SearchOption.AllDirectories).ToList();
-            foreach (string file in mergefiles)
+            var mergefiles = Directory.GetFiles(merge, "*.*", SearchOption.AllDirectories).ToList();
+            foreach (var file in mergefiles)
             {
                 var mFile = new FileInfo(file);
                 if (mFile.Directory == null)
                     continue;
 
                 //create directory parents
-                string d = mFile.Directory.FullName.Remove(0, merge.Length);
-                string[] ds = d.Split(new[] { "\\" }, StringSplitOptions.RemoveEmptyEntries);
+                var d = mFile.Directory.FullName.Remove(0, merge.Length);
+                var ds = d.Split(new[] {"\\"}, StringSplitOptions.RemoveEmptyEntries);
                 CreateDirectoryTree(ds, based);
 
-                string dirt = based + d + "\\" + mFile.Name;
+                var dirt = based + d + "\\" + mFile.Name;
                 mFile.CopyTo(dirt, true);
                 Application.DoEvents();
             }
@@ -83,11 +94,12 @@ namespace ANDREICSLIB.ClassExtras
         /// <summary>
         /// delete directory if exists
         /// </summary>
-        /// <param name="dir"></param>
+        /// <param name="dir">The dir.</param>
+        /// <exception cref="Exception">Can't delete directory</exception>
         public static void DeleteDirectory(string dir)
         {
-            int trycount = 5;
-            int @try = 0;
+            var trycount = 5;
+            var @try = 0;
             //wait for directory to be deleted
             while (Directory.Exists(dir))
             {
@@ -108,7 +120,7 @@ namespace ANDREICSLIB.ClassExtras
         /// <summary>
         /// create a file and then close the stream
         /// </summary>
-        /// <param name="filepath"></param>
+        /// <param name="filepath">The filepath.</param>
         /// <returns></returns>
         public static bool CreateFile(string filepath)
         {
@@ -128,11 +140,12 @@ namespace ANDREICSLIB.ClassExtras
         /// <summary>
         /// create directory if doesnt exist
         /// </summary>
-        /// <param name="dir"></param>
+        /// <param name="dir">The dir.</param>
+        /// <exception cref="Exception">Can't create directory</exception>
         public static void CreateDirectory(string dir)
         {
-            int trycount = 5;
-            int @try = 0;
+            var trycount = 5;
+            var @try = 0;
             //wait for directory to be created
             while (Directory.Exists(dir) == false)
             {
@@ -150,14 +163,22 @@ namespace ANDREICSLIB.ClassExtras
             }
         }
 
+        /// <summary>
+        /// Trims the name of the file.
+        /// </summary>
+        /// <param name="fn">The function.</param>
+        /// <param name="basepath">if set to <c>true</c> [basepath].</param>
+        /// <param name="filename">if set to <c>true</c> [filename].</param>
+        /// <param name="extension">if set to <c>true</c> [extension].</param>
+        /// <returns></returns>
         public static string TrimFileName(string fn, bool basepath, bool filename, bool extension)
         {
-            int i1 = fn.LastIndexOf('\\') + 1;
-            int i2 = fn.LastIndexOf('.');
-            string bp = fn.Substring(0, i1);
-            string fin = fn.Substring(i1, i2 - i1);
-            string ex = fn.Substring(i2);
-            string ret = "";
+            var i1 = fn.LastIndexOf('\\') + 1;
+            var i2 = fn.LastIndexOf('.');
+            var bp = fn.Substring(0, i1);
+            var fin = fn.Substring(i1, i2 - i1);
+            var ex = fn.Substring(i2);
+            var ret = "";
             if (basepath)
                 ret = bp;
             if (filename)
@@ -172,21 +193,26 @@ namespace ANDREICSLIB.ClassExtras
         /// get the matching file for a substring of the file name
         /// </summary>
         /// <param name="partialFN">a part of the file name to look for</param>
-        /// <param name="basedir"></param>
+        /// <param name="basedir">The basedir.</param>
         /// <returns></returns>
         public static string GetAbsoluteFilePath(string partialFN, string basedir)
         {
-            IEnumerable<string> f = DirectoryExtras.GetFilesRecursive(basedir);
+            var f = DirectoryExtras.GetFilesRecursive(basedir);
 
-            foreach (string f2 in f)
+            foreach (var f2 in f)
             {
-                string f3 = TrimFileName(f2, false, true, false);
+                var f3 = TrimFileName(f2, false, true, false);
                 if (f3.Contains(partialFN))
                     return f2;
             }
             return null;
         }
 
+        /// <summary>
+        /// Generates the random name of the file.
+        /// </summary>
+        /// <param name="fileextension">The fileextension.</param>
+        /// <returns></returns>
         public static string GenerateRandomFileName(string fileextension = "txt")
         {
             var seed = DateTime.Now.Ticks.ToString();
