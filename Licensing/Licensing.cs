@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using ANDREICSLIB.ClassExtras;
 
@@ -23,9 +24,9 @@ namespace ANDREICSLIB.Licensing
 
         public class DownloadedSolutionDetails
         {
-            public string ZipFileLocation;
-            public string ChangeLog;
-            public double Version;
+            public string FileLocation { get; set; }
+            public string ChangeLog { get; set; }
+            public Version Version { get; set; }
         }
 
         private static ToolStripMenuItem GetItem(MenuStrip ms)
@@ -64,7 +65,7 @@ namespace ANDREICSLIB.Licensing
         {
             _sd = newsd;
 
-            baseform.Text = _sd.FormTitle + " Version:" + _sd.AppVersion;
+            baseform.Text = _sd.AppName + " Version:" + _sd.AppVersion;
 
             bool existed = false;
             const string help = "&Help";
@@ -88,7 +89,7 @@ namespace ANDREICSLIB.Licensing
 
             //check for updates button
             var updateitem = new ToolStripMenuItem("&Check For Updates");
-            updateitem.Click += UpdateApplication;
+            updateitem.Click += async (a, b) => { await UpdateApplication(a, b); };
             helpToolStripItem.DropDownItems.Add(updateitem);
 
             //about item
@@ -106,12 +107,12 @@ namespace ANDREICSLIB.Licensing
         private static void Aboutbox(object sender, EventArgs e)
         {
             var AS = new AboutScreen
-                         {
-                             Text = "About " + _sd.FormTitle,
-                             appversionlabel = { Text = "Version " + _sd.AppVersion },
-                             apptitlelabel = { Text = _sd.FormTitle },
-                             otherapptext = { Text = _sd.AboutScreenOtherText }
-                         };
+            {
+                Text = "About " + _sd.AppName,
+                appversionlabel = { Text = "Version " + _sd.AppVersion },
+                apptitlelabel = { Text = _sd.AppName },
+                otherapptext = { Text = _sd.AboutScreenOtherText }
+            };
 
             if (ShowingAbout == false)
             {
@@ -122,7 +123,7 @@ namespace ANDREICSLIB.Licensing
 
         private static void Helpbox(object sender, EventArgs e)
         {
-            var hs = new HelpScreen { Text = _sd.FormTitle + " Help", helpbox = { Text = _sd.HelpText } };
+            var hs = new HelpScreen { Text = _sd.AppName + " Help", helpbox = { Text = _sd.HelpText } };
 
             if (ShowingHelp == false)
             {
@@ -131,11 +132,11 @@ namespace ANDREICSLIB.Licensing
             }
         }
 
-        private static void UpdateApplication(object sender, EventArgs e)
+        private static async Task UpdateApplication(object sender, EventArgs e)
         {
             DialogResult dr1 =
                 MessageBox.Show(
-                    _sd.FormTitle +
+                    _sd.AppName +
                     " will now connect to the internet to find  the newest version.\nDo you wish to continue?",
                     "Notification", MessageBoxButtons.YesNo);
             if (dr1 == DialogResult.No)
@@ -143,7 +144,7 @@ namespace ANDREICSLIB.Licensing
 
             DownloadedSolutionDetails dsd;
 
-            dsd = _sd.Callback();
+            dsd = await _sd.Callback();
 
             if (dsd == null)
             {
@@ -151,14 +152,14 @@ namespace ANDREICSLIB.Licensing
                 return;
             }
 
-            string versionS = "Your version of " + _sd.FormTitle + ":" + _sd.AppVersion +
+            string versionS = "Your version of " + _sd.AppName + ":" + _sd.AppVersion +
                               "\nNewest version online:" +
                               dsd.Version;
 
             if (_sd.AppVersion >= dsd.Version)
             {
                 MessageBox.Show(
-                    versionS + "\n\nNo update required, you already have an up to date version of " + _sd.FormTitle,
+                    versionS + "\n\nNo update required, you already have an up to date version of " + _sd.AppName,
                     "No action required");
                 return;
             }
@@ -197,7 +198,7 @@ namespace ANDREICSLIB.Licensing
                 //0: reset current directory in case it was changed
                 Directory.SetCurrentDirectory(Application.StartupPath);
                 //1: Get the online files
-                folder = _sd.FormTitle + "v" + DateTime.Now.Ticks;
+                folder = _sd.AppName + "v" + DateTime.Now.Ticks;
                 Directory.CreateDirectory(folder);
             }
             catch (Exception ex)
@@ -209,8 +210,8 @@ namespace ANDREICSLIB.Licensing
             try
             {
                 var client = new WebClient();
-                localfile = dsd.ZipFileLocation.Substring(dsd.ZipFileLocation.LastIndexOf('/') + 1);
-                client.DownloadFile(dsd.ZipFileLocation, localfile);
+                localfile = dsd.FileLocation.Substring(dsd.FileLocation.LastIndexOf('/') + 1);
+                client.DownloadFile(dsd.FileLocation, localfile);
             }
             catch (Exception ex)
             {
@@ -324,29 +325,30 @@ namespace ANDREICSLIB.Licensing
 
         #region Nested type: SolutionDetails
 
-        public delegate DownloadedSolutionDetails LicenseCallback();
+        public delegate Task<DownloadedSolutionDetails> LicenseCallback(string appRepo);
         public class SolutionDetails
         {
             private LicenseCallback _callback;
             public string AboutScreenOtherText;
-            public string FormTitle;
+            public string AppName;
             public string HelpText;
-            public double AppVersion;
+            public Version AppVersion;
+            public string AppRepo;
 
-            public SolutionDetails(LicenseCallback dsd, string helpText = null, string formTitle = null, double? version = null, string aboutScreenOtherText = null)
+            public SolutionDetails(LicenseCallback dsd, string helpText = null, string AppName = null, string AppRepoName = null, Version version = null, string aboutScreenOtherText = null)
             {
                 _callback = dsd;
-
-                AppVersion = version ?? -1;
+                this.AppRepo = AppRepoName;
+                AppVersion = version;
                 HelpText = helpText;
-                FormTitle = formTitle;
+                this.AppName = AppName;
                 AboutScreenOtherText = aboutScreenOtherText;
             }
 
-            public DownloadedSolutionDetails Callback()
+            public async Task<DownloadedSolutionDetails> Callback()
             {
                 if (_callback != null)
-                    return _callback();
+                    return await _callback(AppRepo);
                 return null;
             }
         }

@@ -98,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassExtras\ArrayExtras.cs" />
+    <Compile Include="ClassExtras\AssemblyExtras.cs" />
     <Compile Include="ClassExtras\DateTimeExtras.cs" />
     <Compile Include="Extracters\DynamicJSONConverter.cs" />
     <Compile Include="Extracters\IExtract.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="ClassExtras\ContextMenuStripExtras.cs" />
     <Compile Include="ClassExtras\DirectoryExtras.cs" />
     <Compile Include="Helpers\ICache.cs" />
+    <Compile Include="Licensing\GitHubLicensing.cs" />
     <Compile Include="Models\FileSizes.cs" />
     <Compile Include="ClassExtras\ListExtras.cs" />
     <Compile Include="ClassExtras\TabPageExtras.cs" />
@@ -199,7 +201,7 @@
       <DependentUpon>SelectItemsFromCheckBox.cs</DependentUpon>
     </Compile>
     <Compile Include="NewControls\SerializableDictionary.cs" />
-    <Compile Include="ClassExtras\ExpandoObjectHelpers.cs" />
+    <Compile Include="ClassExtras\ExpandoObjectExtras.cs" />
     <Compile Include="Helpers\LocalJSONCache.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

@@ -6,7 +6,7 @@ using System.Web.Routing;
 
 namespace ANDREICSLIB.ClassExtras
 {
-    public static class ExpandoObjectHelpers
+    public static class ExpandoObjectExtras
     {
         public static Dictionary<string, object> ToDictionary(this ExpandoObject item)
         {
