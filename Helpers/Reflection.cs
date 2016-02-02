@@ -13,8 +13,8 @@ namespace ANDREICSLIB.Helpers
     /// </summary>
     public static class Reflection
     {
-        public static char Separator = '\f';
-        public static string Newline = "\r\n";
+        private static char Separator = '\f';
+        private static string Newline = "\r\n";
 
         /// <summary>
         /// get the name of a passed parameter

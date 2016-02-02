@@ -8,7 +8,13 @@ namespace ANDREICSLIB.ClassExtras
     /// </summary>
     public static class DateTimeExtras
     {
+        /// <summary>
+        /// My culture
+        /// </summary>
         public static CultureInfo MyCulture = new CultureInfo("en-au");
+        /// <summary>
+        /// My time zone information
+        /// </summary>
         public static TimeZoneInfo MyTimeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById("AUS Eastern Standard Time");
 
         #region returns local
@@ -158,6 +164,7 @@ namespace ANDREICSLIB.ClassExtras
         /// truncate to seconds
         /// </summary>
         /// <param name="dateTime">The date time.</param>
+        /// <param name="seconds"></param>
         /// <returns></returns>
         private static DateTime TruncateToSeconds(this DateTime dateTime, int seconds)
         {

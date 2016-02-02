@@ -80,7 +80,7 @@ namespace ANDREICSLIB.Licensing
                 ret.ChangeLog = GetChangeLog(htmlText);
                 return ret;
             }
-            catch (Exception ex)
+            catch
             {
             }
             return null;

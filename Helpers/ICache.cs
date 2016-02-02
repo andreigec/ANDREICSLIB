@@ -1,10 +1,13 @@
-﻿using System;
+using System;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace ANDREICSLIB.Helpers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public interface ICache
     {
         /// <summary>

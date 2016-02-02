@@ -78,8 +78,20 @@ namespace ANDREICSLIB.Helpers
         }
 
 
-        public UdpClient UDPListener;
-        public List<UdpClient> UDPSenders = null;
+        /// <summary>
+        /// Gets or sets the UDP listener.
+        /// </summary>
+        /// <value>
+        /// The UDP listener.
+        /// </value>
+        public UdpClient UDPListener { get; set; }
+        /// <summary>
+        /// Gets or sets the UDP senders.
+        /// </summary>
+        /// <value>
+        /// The UDP senders.
+        /// </value>
+        public List<UdpClient> UDPSenders { get; set; }
 
         /// <summary>
         /// Adds the UDP client.
@@ -87,7 +99,7 @@ namespace ANDREICSLIB.Helpers
         /// <param name="udpPort">The UDP port.</param>
         /// <param name="ip">The ip.</param>
         /// <param name="receiveTimeout">The receive timeout.</param>
-        public void AddUDPClient(int udpPort, string ip = null, int receiveTimeout = 2000)
+        public void AddUdpClient(int udpPort, string ip = null, int receiveTimeout = 2000)
         {
             UdpClient udpClient = null;
             if (ip != null)

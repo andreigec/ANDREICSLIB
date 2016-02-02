@@ -4,6 +4,9 @@ using System.Reflection;
 
 namespace ANDREICSLIB.ClassExtras
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AssemblyExtras
     {
         /// <summary>

@@ -52,7 +52,7 @@ namespace ANDREICSLIB.NewControls
             foreach (var v in listBoxItems)
             {
                 s.checkedListBox1.Items.Add(v.Text);
-                s.checkedListBox1.SetSelected(a, v.preselected);
+                s.checkedListBox1.SetSelected(a, v.Preselected);
                 a++;
             }
 

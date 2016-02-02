@@ -56,7 +56,7 @@ namespace ANDREICSLIB.Helpers
         /// <param name="key"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        public async Task<bool> Set<T>(string key, T value)
+        public Task<bool> Set<T>(string key, T value)
         {
             Storage[key] = value;
 
@@ -65,7 +65,7 @@ namespace ANDREICSLIB.Helpers
                 using (var fs = new FileStream(filename, FileMode.Create))
                 {
                     Storage.Serialise(js, fs);
-                    return true;
+                    return new Task<bool>(() => true);
                 }
             }
         }
@@ -76,16 +76,16 @@ namespace ANDREICSLIB.Helpers
         /// <typeparam name="T"></typeparam>
         /// <param name="cacheKey"></param>
         /// <returns></returns>
-        public async Task<T> Get<T>(string cacheKey) where T : class
+        public Task<T> Get<T>(string cacheKey) where T : class
         {
             if (!Storage.ContainsKey(cacheKey))
                 return null;
 
             //its either the object on current session
             if (Storage[cacheKey] is T)
-                return (T) Storage[cacheKey];
+                return new Task<T>(() => (T)Storage[cacheKey]);
 
-            return ReturnType<T>(Storage[cacheKey]);
+            return new Task<T>(() => ReturnType<T>(Storage[cacheKey]));
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace ANDREICSLIB.Helpers
         public async Task<T> Cache<T>(Expression<Func<T>> action, [CallerMemberName] string memberName = "")
             where T : class
         {
-            var cacheKey = GetKey<T>(memberName, ((MethodCallExpression) action.Body));
+            var cacheKey = GetKey<T>(memberName, ((MethodCallExpression)action.Body));
 
             try
             {
@@ -121,7 +121,7 @@ namespace ANDREICSLIB.Helpers
             {
                 try
                 {
-                    Set(cacheKey, res);
+                    AsyncHelpers.RunSync(() => Set(cacheKey, res));
                 }
                 catch (Exception ex)
                 {
@@ -147,7 +147,7 @@ namespace ANDREICSLIB.Helpers
         public async Task<string> Cache(Expression<Func<Task<string>>> action, bool compress = false,
             [CallerMemberName] string memberName = "")
         {
-            var cacheKey = GetKey<string>(memberName, ((MethodCallExpression) action.Body));
+            var cacheKey = GetKey<string>(memberName, ((MethodCallExpression)action.Body));
 
             try
             {
@@ -173,7 +173,7 @@ namespace ANDREICSLIB.Helpers
                 try
                 {
                     var zipped = res.CompressString();
-                    Set(cacheKey, zipped);
+                    AsyncHelpers.RunSync(() => Set(cacheKey, zipped));
                 }
                 catch (Exception ex)
                 {
@@ -199,7 +199,7 @@ namespace ANDREICSLIB.Helpers
         public async Task<T> Cache<T>(Expression<Func<Task<T>>> action, [CallerMemberName] string memberName = "")
             where T : class
         {
-            var cacheKey = GetKey<T>(memberName, ((MethodCallExpression) action.Body));
+            var cacheKey = GetKey<T>(memberName, ((MethodCallExpression)action.Body));
 
             try
             {
@@ -219,7 +219,7 @@ namespace ANDREICSLIB.Helpers
             {
                 try
                 {
-                    Set(cacheKey, res);
+                    AsyncHelpers.RunSync(() => Set(cacheKey, res));
                 }
                 catch (Exception ex)
                 {
@@ -240,13 +240,13 @@ namespace ANDREICSLIB.Helpers
         {
             //base type = return
             if (o is T)
-                return (T) o;
+                return (T)o;
 
             //object - straight cast
             if (o is JObject)
             {
                 //or jobject when loaded from disk
-                var ob = (JObject) o;
+                var ob = (JObject)o;
                 var ty = ob.ToObject<T>();
                 return ty;
             }
@@ -274,7 +274,7 @@ namespace ANDREICSLIB.Helpers
             builder.Append(memberName);
 
             (from MemberExpression expression in action.Arguments
-                select ((FieldInfo) expression.Member).GetValue(((ConstantExpression) expression.Expression).Value))
+             select ((FieldInfo)expression.Member).GetValue(((ConstantExpression)expression.Expression).Value))
                 .ToList()
                 .ForEach(x =>
                 {

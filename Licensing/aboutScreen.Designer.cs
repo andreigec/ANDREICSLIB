@@ -1,4 +1,4 @@
-﻿namespace ANDREICSLIB.Licensing
+namespace ANDREICSLIB.Licensing
 {
 	partial class AboutScreen
 	{
@@ -129,11 +129,20 @@
 
 		}
 
-		#endregion
+        #endregion
 
-		public System.Windows.Forms.RichTextBox otherapptext;
-		public System.Windows.Forms.Label apptitlelabel;
-		public System.Windows.Forms.Label appversionlabel;
+        /// <summary>
+        /// The otherapptext
+        /// </summary>
+        public System.Windows.Forms.RichTextBox otherapptext;
+        /// <summary>
+        /// The apptitlelabel
+        /// </summary>
+        public System.Windows.Forms.Label apptitlelabel;
+        /// <summary>
+        /// The appversionlabel
+        /// </summary>
+        public System.Windows.Forms.Label appversionlabel;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Button closebutton;
 

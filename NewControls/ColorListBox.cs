@@ -11,6 +11,9 @@ namespace ANDREICSLIB.NewControls
     /// <seealso cref="System.Windows.Forms.ListBox" />
     public class ColorListBox : ListBox
     {
+        /// <summary>
+        /// The colours
+        /// </summary>
         public List<Color> colours;
 
         /// <summary>

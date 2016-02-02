@@ -6,6 +6,9 @@ using ANDREICSLIB.ClassExtras;
 
 namespace ANDREICSLIB.Helpers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class FormConfigRestore
     {
         private const string Separator = "\f";

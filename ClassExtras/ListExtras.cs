@@ -192,8 +192,18 @@ namespace ANDREICSLIB.ClassExtras
             l.Insert(loc, toAdd);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
         public class IntersectResult<T>
         {
+            /// <summary>
+            /// Initializes a new instance of the <see cref="IntersectResult{T}"/> class.
+            /// </summary>
+            /// <param name="sameElements">The same elements.</param>
+            /// <param name="oneOnly">The one only.</param>
+            /// <param name="twoOnly">The two only.</param>
             public IntersectResult(List<T> sameElements, List<T> oneOnly, List<T> twoOnly)
             {
                 SameElements = sameElements;
@@ -201,8 +211,26 @@ namespace ANDREICSLIB.ClassExtras
                 TwoOnly = twoOnly;
             }
 
+            /// <summary>
+            /// Gets or sets the same elements.
+            /// </summary>
+            /// <value>
+            /// The same elements.
+            /// </value>
             public List<T> SameElements { get; set; }
+            /// <summary>
+            /// Gets or sets the one only.
+            /// </summary>
+            /// <value>
+            /// The one only.
+            /// </value>
             public List<T> OneOnly { get; set; }
+            /// <summary>
+            /// Gets or sets the two only.
+            /// </summary>
+            /// <value>
+            /// The two only.
+            /// </value>
             public List<T> TwoOnly { get; set; }
         }
     }

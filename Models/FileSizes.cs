@@ -5,7 +5,7 @@ namespace ANDREICSLIB.Models
     /// </summary>
     public class FileSizes
     {
-        public long Bytes;
+        private readonly long Bytes;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FileSizes"/> class.

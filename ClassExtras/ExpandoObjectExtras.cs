@@ -6,6 +6,9 @@ using System.Web.Routing;
 
 namespace ANDREICSLIB.ClassExtras
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class ExpandoObjectExtras
     {
         /// <summary>

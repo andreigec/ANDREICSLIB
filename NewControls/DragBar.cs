@@ -16,6 +16,10 @@ namespace ANDREICSLIB.NewControls
     {
         #region Delegates
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entry">The entry.</param>
         public delegate void BarEvent(DragBar entry);
 
         #endregion
@@ -30,18 +34,39 @@ namespace ANDREICSLIB.NewControls
         /// </summary>
         private int barX;
 
+        /// <summary>
+        /// The mouse down button
+        /// </summary>
         private bool mouseDownButton;
+        /// <summary>
+        /// The mouse down x
+        /// </summary>
         private int mouseDownX;
         //dont set these
+        /// <summary>
+        /// The mouse move bar
+        /// </summary>
         private bool mouseMoveBar;
+        /// <summary>
+        /// The mouse resize bar
+        /// </summary>
         private bool mouseResizeBar;
+        /// <summary>
+        /// The resizeleft
+        /// </summary>
         private bool resizeleft;
+        /// <summary>
+        /// The scales
+        /// </summary>
         private List<scale> scales;
         ////////////////
+        /// <summary>
+        /// The scale width
+        /// </summary>
         private int scaleWidth;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DragBar"/> class.
+        /// Initializes a new instance of the <see cref="DragBar" /> class.
         /// </summary>
         public DragBar()
         {
@@ -58,30 +83,81 @@ namespace ANDREICSLIB.NewControls
 
         /////////////////
 
+        /// <summary>
+        /// Gets or sets the minimum value.
+        /// </summary>
+        /// <value>
+        /// The minimum value.
+        /// </value>
         [Description("The value the left of the control will be")]
         public int MinimumValue { get; set; }
 
+        /// <summary>
+        /// Gets or sets the maximum value.
+        /// </summary>
+        /// <value>
+        /// The maximum value.
+        /// </value>
         [Description("The value the right of the control will be")]
         public int MaximumValue { get; set; }
 
+        /// <summary>
+        /// Gets or sets the bar minimum value.
+        /// </summary>
+        /// <value>
+        /// The bar minimum value.
+        /// </value>
         [Description("The value the left of the bar will be")]
         public int BarMinimumValue { get; set; }
 
+        /// <summary>
+        /// Gets or sets the bar maximum value.
+        /// </summary>
+        /// <value>
+        /// The bar maximum value.
+        /// </value>
         [Description("The value the right of the bar will be")]
         public int BarMaximumValue { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether [draw scale].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [draw scale]; otherwise, <c>false</c>.
+        /// </value>
         [Description("Draw the scale on the bottom of the control")]
         public bool DrawScale { get; set; }
 
+        /// <summary>
+        /// Gets or sets the back colour.
+        /// </summary>
+        /// <value>
+        /// The back colour.
+        /// </value>
         [Description("The colour of the background")]
         public Color BackColour { get; set; }
 
+        /// <summary>
+        /// Gets or sets the scale colour.
+        /// </summary>
+        /// <value>
+        /// The scale colour.
+        /// </value>
         [Description("The colour of the scale")]
         public Color ScaleColour { get; set; }
 
+        /// <summary>
+        /// Gets or sets the bar colour.
+        /// </summary>
+        /// <value>
+        /// The bar colour.
+        /// </value>
         [Description("The colour of the bar")]
         public Color BarColour { get; set; }
 
+        /// <summary>
+        /// Occurs when [bar value change].
+        /// </summary>
         [Category("Action")]
         [Description("Triggers when the bar value changes")]
         public event BarEvent BarValueChange;

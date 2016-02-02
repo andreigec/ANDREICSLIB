@@ -162,8 +162,17 @@ namespace ANDREICSLIB.Helpers
     /// <typeparam name="T"></typeparam>
     public class Btree<T>
     {
+        /// <summary>
+        /// The children
+        /// </summary>
         public List<Btree<T>> Children;
+        /// <summary>
+        /// The name
+        /// </summary>
         public T Name;
+        /// <summary>
+        /// The parent
+        /// </summary>
         public Btree<T> Parent;
 
         /// <summary>

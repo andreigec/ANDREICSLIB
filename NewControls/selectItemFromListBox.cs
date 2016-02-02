@@ -47,7 +47,7 @@ namespace ANDREICSLIB.NewControls
             foreach (var v in listBoxItems)
             {
                 s.listBox1.Items.Add(v.Text);
-                s.listBox1.SetSelected(a, v.preselected);
+                s.listBox1.SetSelected(a, v.Preselected);
                 a++;
             }
 
@@ -110,7 +110,13 @@ namespace ANDREICSLIB.NewControls
         /// </summary>
         public class SelectItem
         {
-            public bool preselected;
+            /// <summary>
+            /// The preselected
+            /// </summary>
+            public bool Preselected;
+            /// <summary>
+            /// The text
+            /// </summary>
             public string Text = "";
 
             /// <summary>
@@ -121,7 +127,7 @@ namespace ANDREICSLIB.NewControls
             public SelectItem(string text, bool isSelected)
             {
                 Text = text;
-                preselected = isSelected;
+                Preselected = isSelected;
             }
         }
     }

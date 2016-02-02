@@ -30,22 +30,22 @@ namespace ANDREICSLIB.Helpers
         /// <param name="testup">if set to <c>true</c> [testup].</param>
         private static void StartRight<T>(ref MatrixO<T> grid, int startx, int starty, T test, T set, bool testup)
         {
-            if (starty < 0 || starty >= grid.h)
+            if (starty < 0 || starty >= grid.Height)
                 return;
 
-            for (var x = startx; x < grid.w; x++)
+            for (var x = startx; x < grid.Width; x++)
             {
-                var v1 = grid.m[starty][x];
+                var v1 = grid.Matrix[starty][x];
                 var v2 = test;
 
-                if ((grid.compareF == null && v1.Equals(v2)) || (grid.compareF != null && grid.compareF(v1, v2)))
+                if ((grid.CompareF == null && v1.Equals(v2)) || (grid.CompareF != null && grid.CompareF(v1, v2)))
                 {
-                    grid.m[starty][x] = set;
+                    grid.Matrix[starty][x] = set;
 
                     //test direction
-                    if (testup && starty > 0 && grid.m[starty - 1][x].Equals(test))
+                    if (testup && starty > 0 && grid.Matrix[starty - 1][x].Equals(test))
                         StartRight(ref grid, startx, starty - 1, test, set, testup);
-                    else if (testup == false && starty < (grid.h - 1) && grid.m[starty + 1][x].Equals(test))
+                    else if (testup == false && starty < (grid.Height - 1) && grid.Matrix[starty + 1][x].Equals(test))
                         StartRight(ref grid, startx, starty + 1, test, set, testup);
                 }
                 else
@@ -68,11 +68,11 @@ namespace ANDREICSLIB.Helpers
         public static void FloodFill<T>(ref T[][] grid, int startX, int startY, T test, T set,
             CompareDel<T> compareF = null)
         {
-            var g = new MatrixO<T> {m = grid, h = grid.Length, w = grid[0].Length, compareF = compareF};
+            var g = new MatrixO<T> {Matrix = grid, Height = grid.Length, Width = grid[0].Length, CompareF = compareF};
 
             StartRight(ref g, startX, startY, test, set, true);
             StartRight(ref g, startX, startY + 1, test, set, false);
-            grid = g.m;
+            grid = g.Matrix;
         }
 
         /// <summary>
@@ -224,10 +224,10 @@ namespace ANDREICSLIB.Helpers
             /// <summary>
             /// The compare f
             /// </summary>
-            public CompareDel<T> compareF;
-            public int h;
-            public T[][] m;
-            public int w;
+            internal CompareDel<T> CompareF;
+            internal int Height;
+            internal T[][] Matrix;
+            internal int Width;
         }
 
         #endregion

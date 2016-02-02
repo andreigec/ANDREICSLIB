@@ -173,10 +173,10 @@ namespace ANDREICSLIB.ClassExtras
         /// </summary>
         public class InputType
         {
-            public bool AllowChars;
-            public bool AllowDot;
-            public bool AllowNumbers;
-            public bool AllowWhiteSpace;
+            internal bool AllowChars;
+            internal bool AllowDot;
+            internal bool AllowNumbers;
+            internal bool AllowWhiteSpace;
 
             /// <summary>
             /// Creates the specified allow chars.

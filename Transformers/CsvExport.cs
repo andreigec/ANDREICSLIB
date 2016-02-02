@@ -70,12 +70,12 @@ namespace ANDREICSLIB.Transformers
         private string MakeValueCsvFriendly(object value)
         {
             if (value == null) return "";
-            if (value is INullable && ((INullable) value).IsNull) return "";
+            if (value is INullable && ((INullable)value).IsNull) return "";
             if (value is DateTime)
             {
-                if (((DateTime) value).TimeOfDay.TotalSeconds == 0)
-                    return ((DateTime) value).ToString("yyyy-MM-dd");
-                return ((DateTime) value).ToString("yyyy-MM-dd HH:mm:ss");
+                if (((DateTime)value).TimeOfDay.TotalSeconds == 0)
+                    return ((DateTime)value).ToString("yyyy-MM-dd");
+                return ((DateTime)value).ToString("yyyy-MM-dd HH:mm:ss");
             }
             var output = value.ToString();
             if (output.Contains(",") || output.Contains("\""))
@@ -120,29 +120,22 @@ namespace ANDREICSLIB.Transformers
         /// <param name="uniqueColumn">The unique column.</param>
         public void ExportToFile(string path, bool header, int? uniqueColumn)
         {
-            try
-            {
-                var e = Export(header);
+            var e = Export(header);
 
-                //check unique
-                if (uniqueColumn != null)
-                {
-                    var f = CSVTransform.Load(path);
-                    if (f != null)
-                    {
-                        var exist = f.Select(s => s[(int) uniqueColumn]).ToList();
-                        var toadd = e.Select(s => s[(int) uniqueColumn]).ToList();
-                        if (exist.Any(s => toadd.Any(s2 => s2 == s)))
-                            return;
-                    }
-                }
-                var c = string.Join("\r\n", e.Select(s1 => string.Join(",", s1)));
-                FileExtras.SaveToFile(path, c, true);
-            }
-            catch (Exception ex)
+            //check unique
+            if (uniqueColumn != null)
             {
-                throw;
+                var f = CSVTransform.Load(path);
+                if (f != null)
+                {
+                    var exist = f.Select(s => s[(int)uniqueColumn]).ToList();
+                    var toadd = e.Select(s => s[(int)uniqueColumn]).ToList();
+                    if (exist.Any(s => toadd.Any(s2 => s2 == s)))
+                        return;
+                }
             }
+            var c = string.Join("\r\n", e.Select(s1 => string.Join(",", s1)));
+            FileExtras.SaveToFile(path, c, true);
         }
     }
 }

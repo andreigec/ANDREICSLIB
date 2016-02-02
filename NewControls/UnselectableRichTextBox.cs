@@ -3,6 +3,10 @@ using System.Windows.Forms;
 
 namespace ANDREICSLIB.NewControls
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.RichTextBox" />
     public class UnselectableRichTextBox : RichTextBox
     {
         /// <summary>

@@ -10,7 +10,7 @@ namespace ANDREICSLIB.NewControls
     /// <seealso cref="System.Windows.Forms.Form" />
     public partial class GetStringImageCompare : Form
     {
-        public string[] returnvalue;
+        private string[] returnvalue;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GetStringImageCompare"/> class.

@@ -10,9 +10,21 @@ namespace ANDREICSLIB.Helpers
     /// </summary>
     public class CustomTimeZones
     {
+        /// <summary>
+        /// The zones
+        /// </summary>
         public static List<CustomTimeZones> Zones = new List<CustomTimeZones>();
+        /// <summary>
+        /// The identifier
+        /// </summary>
         public TimeZoneInfo Id;
+        /// <summary>
+        /// The name
+        /// </summary>
         public string name;
+        /// <summary>
+        /// The ut coffset
+        /// </summary>
         public TimeSpan UTCoffset;
 
         /// <summary>

@@ -86,7 +86,7 @@ namespace ANDREICSLIB.ClassExtras
         public static Tuple<Stream, WebResponse> GetWebPageStream(string url)
         {
             // Open a connection
-            var webRequestObject = (HttpWebRequest) WebRequest.Create(url);
+            var webRequestObject = (HttpWebRequest)WebRequest.Create(url);
 
             // You can also specify additional header values like 
             // the user agent or the referer:
@@ -147,7 +147,7 @@ namespace ANDREICSLIB.ClassExtras
             var ping = new Ping();
             try
             {
-                var rep = ping.Send(address, 100, new byte[] {1}, new PingOptions
+                var rep = ping.Send(address, 100, new byte[] { 1 }, new PingOptions
                 {
                     DontFragment = true,
                     Ttl = 1
@@ -335,9 +335,9 @@ namespace ANDREICSLIB.ClassExtras
                 if (hostEntry.AddressList.Length == 0)
                     return null;
 
-                var intAddress = (int) IPToLong(ip);
+                var intAddress = (int)IPToLong(ip);
                 var macAddr = new byte[6];
-                var macAddrLen = (uint) macAddr.Length;
+                var macAddrLen = (uint)macAddr.Length;
 
                 if (SendARP(intAddress, 0, macAddr, ref macAddrLen) != 0)
                     return null;
@@ -369,7 +369,7 @@ namespace ANDREICSLIB.ClassExtras
             if (wk == null)
                 return null;
 
-            var nbi = new NetBiosInfo((WKSTA_INFO_100) wk);
+            var nbi = new NetBiosInfo((WKSTA_INFO_100)wk);
 
             return nbi;
         }
@@ -390,11 +390,11 @@ namespace ANDREICSLIB.ClassExtras
 
             var s = extraInfoTimeout;
 
-            var H = s*3600;
-            s -= H*3600;
+            var H = s * 3600;
+            s -= H * 3600;
 
-            var M = s/60;
-            s -= M*60;
+            var M = s / 60;
+            s -= M * 60;
 
             var S = s;
 
@@ -442,7 +442,7 @@ namespace ANDREICSLIB.ClassExtras
                     if (PD.Value != null && results.ContainsKey(PD.Name) == false)
                     {
                         var val = PD.Value.ToString();
-                        if (PD.Value.GetType() == typeof (string[]))
+                        if (PD.Value.GetType() == typeof(string[]))
                         {
                             var ss = PD.Value as string[];
                             val = ss.Aggregate("", (current, ss2) => current + (ss2 + "|"));
@@ -554,19 +554,56 @@ namespace ANDREICSLIB.ClassExtras
             if (retval != 0)
                 return null;
 
-            return (WKSTA_INFO_100) Marshal.PtrToStructure(pBuffer, typeof (WKSTA_INFO_100));
+            return (WKSTA_INFO_100)Marshal.PtrToStructure(pBuffer, typeof(WKSTA_INFO_100));
         }
 
         #region Nested type: NetBiosInfo
 
+        /// <summary>
+        /// 
+        /// </summary>
         public class NetBiosInfo
         {
-            public string ComputerName;
-            public string LANGroup;
-            public int PlatformID;
-            public int VerMajor;
-            public int VerMinor;
+            /// <summary>
+            /// Gets or sets the name of the computer.
+            /// </summary>
+            /// <value>
+            /// The name of the computer.
+            /// </value>
+            public string ComputerName { get; set; }
+            /// <summary>
+            /// Gets or sets the lan group.
+            /// </summary>
+            /// <value>
+            /// The lan group.
+            /// </value>
+            public string LANGroup { get; set; }
+            /// <summary>
+            /// Gets or sets the platform identifier.
+            /// </summary>
+            /// <value>
+            /// The platform identifier.
+            /// </value>
+            public int PlatformID { get; set; }
+            /// <summary>
+            /// Gets or sets the ver major.
+            /// </summary>
+            /// <value>
+            /// The ver major.
+            /// </value>
+            public int VerMajor { get; set; }
+            /// <summary>
+            /// Gets or sets the ver minor.
+            /// </summary>
+            /// <value>
+            /// The ver minor.
+            /// </value>
+            public int VerMinor { get; set; }
 
+            /// <summary>
+            /// Initializes a new instance of the <see cref="NetBiosInfo"/> class.
+            /// </summary>
+            /// <param name="w">The w.</param>
             public NetBiosInfo(WKSTA_INFO_100 w)
             {
                 PlatformID = w.wki100_platform_id;
@@ -581,14 +618,44 @@ namespace ANDREICSLIB.ClassExtras
 
         #region Nested type: WKSTA_INFO_100
 
+        /// <summary>
+        /// 
+        /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
         public struct WKSTA_INFO_100
         {
-            public int wki100_platform_id;
-            [MarshalAs(UnmanagedType.LPWStr)] public string wki100_computername;
-            [MarshalAs(UnmanagedType.LPWStr)] public string wki100_langroup;
-            public int wki100_ver_major;
-            public int wki100_ver_minor;
+            /// <summary>
+            /// Gets or sets the wki100_platform_id.
+            /// </summary>
+            /// <value>
+            /// The wki100_platform_id.
+            /// </value>
+            public int wki100_platform_id { get; set; }
+            /// <summary>
+            /// The wki100_computername
+            /// </summary>
+            [MarshalAs(UnmanagedType.LPWStr)]
+            public string wki100_computername;
+
+            /// <summary>
+            /// The wki100_langroup
+            /// </summary>
+            [MarshalAs(UnmanagedType.LPWStr)]
+            public string wki100_langroup;
+            /// <summary>
+            /// Gets or sets the wki100_ver_major.
+            /// </summary>
+            /// <value>
+            /// The wki100_ver_major.
+            /// </value>
+            public int wki100_ver_major { get; set; }
+            /// <summary>
+            /// Gets or sets the wki100_ver_minor.
+            /// </summary>
+            /// <value>
+            /// The wki100_ver_minor.
+            /// </value>
+            public int wki100_ver_minor { get; set; }
         }
 
         #endregion

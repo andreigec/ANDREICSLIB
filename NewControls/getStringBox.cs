@@ -9,7 +9,7 @@ namespace ANDREICSLIB.NewControls
     /// <seealso cref="System.Windows.Forms.Form" />
     public partial class GetStringBox : Form
     {
-        public string returnvalue = "";
+        private string returnvalue = "";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GetStringBox"/> class.

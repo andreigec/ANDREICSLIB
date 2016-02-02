@@ -11,8 +11,14 @@ namespace ANDREICSLIB.NewControls
     /// </summary>
     public partial class MassVariableEdit : Form
     {
+        /// <summary>
+        /// The return values
+        /// </summary>
         public List<Tuple<string, string>> ReturnValues;
-        public List<TextBox> textboxes;
+        /// <summary>
+        /// The textboxes
+        /// </summary>
+        public List<TextBox> Textboxes;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MassVariableEdit"/> class.
@@ -96,7 +102,7 @@ namespace ANDREICSLIB.NewControls
         public List<Tuple<string, string>> ShowDialog(string formText, List<TextBoxItems> items)
         {
             Text = formText;
-            textboxes = new List<TextBox>();
+            Textboxes = new List<TextBox>();
             foreach (var k in items)
             {
                 var l = new Label();
@@ -109,7 +115,7 @@ namespace ANDREICSLIB.NewControls
                 tb.Text = k.TextBoxPreSetText;
                 tb.Tag = k;
                 tb.KeyPress += tb_KeyPress;
-                textboxes.Add(tb);
+                Textboxes.Add(tb);
 
                 itemspanel.AddControl(tb, false);
             }
@@ -130,10 +136,10 @@ namespace ANDREICSLIB.NewControls
             if (tb == null || tb.Tag == null)
                 return;
             var h = (TextBoxItems) tb.Tag;
-            if (h.handleKeyPress == null)
+            if (h.HandleKeyPress == null)
                 return;
 
-            e.Handled = h.handleKeyPress(e.KeyChar, tb);
+            e.Handled = h.HandleKeyPress(e.KeyChar, tb);
         }
 
         /// <summary>
@@ -143,20 +149,20 @@ namespace ANDREICSLIB.NewControls
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void okbutton_Click(object sender, EventArgs e)
         {
-            foreach (var tb in textboxes)
+            foreach (var tb in Textboxes)
             {
                 var h = (TextBoxItems) tb.Tag;
                 if (h == null)
                     continue;
 
-                if (h.acceptFinalText != null && h.acceptFinalText(tb.Text) == false)
+                if (h.AcceptFinalText != null && h.AcceptFinalText(tb.Text) == false)
                 {
                     MessageBox.Show("Error: " + h.FinalTextError);
                     return;
                 }
             }
 
-            ReturnValues = textboxes.Select(tb => new Tuple<string, string>(tb.Name, tb.Text)).ToList();
+            ReturnValues = Textboxes.Select(tb => new Tuple<string, string>(tb.Name, tb.Text)).ToList();
             Close();
         }
 
@@ -177,12 +183,12 @@ namespace ANDREICSLIB.NewControls
         /// </summary>
         public class TextBoxItems
         {
-            public AcceptFinalTextBoxText acceptFinalText;
-            public string FinalTextError;
-            public HandleKeyPress handleKeyPress;
-            public string LabelText;
-            public string TextBoxName;
-            public string TextBoxPreSetText;
+            internal AcceptFinalTextBoxText AcceptFinalText;
+            internal string FinalTextError;
+            internal HandleKeyPress HandleKeyPress;
+            internal string LabelText;
+            internal string TextBoxName;
+            internal string TextBoxPreSetText;
 
             /// <summary>
             /// Initializes a new instance of the <see cref="TextBoxItems"/> class.
@@ -197,9 +203,9 @@ namespace ANDREICSLIB.NewControls
                 AcceptFinalTextBoxText acceptFinalTextBoxTextH = null,
                 string errortext = "")
             {
-                acceptFinalText = acceptFinalTextBoxTextH;
+                AcceptFinalText = acceptFinalTextBoxTextH;
                 FinalTextError = errortext;
-                handleKeyPress = handleKeyPressH;
+                HandleKeyPress = handleKeyPressH;
                 LabelText = fieldname;
                 TextBoxName = fieldname;
                 TextBoxPreSetText = presetvalue;

@@ -9,8 +9,23 @@ namespace ANDREICSLIB.Helpers
     /// </summary>
     public class ListViewSorter : IComparer
     {
+        /// <summary>
+        /// The enabled
+        /// </summary>
         public bool Enabled = true;
+        /// <summary>
+        /// Gets or sets the by column.
+        /// </summary>
+        /// <value>
+        /// The by column.
+        /// </value>
         public int ByColumn { get; set; }
+        /// <summary>
+        /// Gets or sets the last sort.
+        /// </summary>
+        /// <value>
+        /// The last sort.
+        /// </value>
         public int LastSort { get; set; }
 
         #region IComparer Members

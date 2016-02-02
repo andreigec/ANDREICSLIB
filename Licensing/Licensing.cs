@@ -115,9 +115,9 @@ namespace ANDREICSLIB.Licensing
             var AS = new AboutScreen
             {
                 Text = "About " + _sd.AppName,
-                appversionlabel = {Text = "Version " + _sd.AppVersion},
-                apptitlelabel = {Text = _sd.AppName},
-                otherapptext = {Text = _sd.AboutScreenOtherText}
+                appversionlabel = { Text = "Version " + _sd.AppVersion },
+                apptitlelabel = { Text = _sd.AppName },
+                otherapptext = { Text = _sd.AboutScreenOtherText }
             };
 
             if (ShowingAbout == false)
@@ -134,7 +134,7 @@ namespace ANDREICSLIB.Licensing
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private static void Helpbox(object sender, EventArgs e)
         {
-            var hs = new HelpScreen {Text = _sd.AppName + " Help", helpbox = {Text = _sd.HelpText}};
+            var hs = new HelpScreen { Text = _sd.AppName + " Help", helpbox = { Text = _sd.HelpText } };
 
             if (ShowingHelp == false)
             {
@@ -348,13 +348,36 @@ namespace ANDREICSLIB.Licensing
         /// </summary>
         public class DownloadedSolutionDetails
         {
+            /// <summary>
+            /// Gets or sets the file location.
+            /// </summary>
+            /// <value>
+            /// The file location.
+            /// </value>
             public string FileLocation { get; set; }
+            /// <summary>
+            /// Gets or sets the change log.
+            /// </summary>
+            /// <value>
+            /// The change log.
+            /// </value>
             public string ChangeLog { get; set; }
+            /// <summary>
+            /// Gets or sets the version.
+            /// </summary>
+            /// <value>
+            /// The version.
+            /// </value>
             public Version Version { get; set; }
         }
 
         #region Nested type: SolutionDetails
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="appRepo">The application repo.</param>
+        /// <returns></returns>
         public delegate Task<DownloadedSolutionDetails> LicenseCallback(string appRepo);
 
         /// <summary>
@@ -363,11 +386,11 @@ namespace ANDREICSLIB.Licensing
         public class SolutionDetails
         {
             private readonly LicenseCallback _callback;
-            public string AboutScreenOtherText;
-            public string AppName;
-            public string AppRepo;
-            public Version AppVersion;
-            public string HelpText;
+            internal string AboutScreenOtherText;
+            internal string AppName;
+            internal string AppRepo;
+            internal Version AppVersion;
+            internal string HelpText;
 
             /// <summary>
             /// Initializes a new instance of the <see cref="SolutionDetails"/> class.

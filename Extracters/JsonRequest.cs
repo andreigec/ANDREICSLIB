@@ -13,6 +13,9 @@ namespace ANDREICSLIB.Extracters
     /// </summary>
     public class JsonRequest
     {
+        /// <summary>
+        /// The cookie container
+        /// </summary>
         public CookieContainer CookieContainer = new CookieContainer();
 
         /// <summary>
@@ -53,11 +56,26 @@ namespace ANDREICSLIB.Extracters
         }
 
         /// <summary>
-        ///     User and Password for Basic Authentication
+        /// User and Password for Basic Authentication
         /// </summary>
+        /// <value>
+        /// The credentials.
+        /// </value>
         public Credentials Credentials { get; set; }
 
+        /// <summary>
+        /// Gets the HTTP request.
+        /// </summary>
+        /// <value>
+        /// The HTTP request.
+        /// </value>
         public HttpWebRequest HttpRequest { get; internal set; }
+        /// <summary>
+        /// Gets the HTTP response.
+        /// </summary>
+        /// <value>
+        /// The HTTP response.
+        /// </value>
         public HttpWebResponse HttpResponse { get; internal set; }
 
         /// <summary>
@@ -233,6 +251,9 @@ namespace ANDREICSLIB.Extracters
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public class Credentials
     {
         /// <summary>
@@ -242,6 +263,12 @@ namespace ANDREICSLIB.Extracters
         /// The name of the user.
         /// </value>
         public string UserName { get; set; }
+        /// <summary>
+        /// Gets or sets the password.
+        /// </summary>
+        /// <value>
+        /// The password.
+        /// </value>
         public string Password { get; set; }
     }
 }

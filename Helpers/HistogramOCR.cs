@@ -16,10 +16,10 @@ namespace ANDREICSLIB.Helpers
         /// <summary>
         /// The white bitmap
         /// </summary>
-        public static Bitmap WhiteBitmap = new Bitmap(1, 1);
-        public int HistogramHeight;
-        public int HistogramWidth;
-        public List<HistogramLetter> Letters;
+        private static Bitmap WhiteBitmap = new Bitmap(1, 1);
+        private int HistogramHeight;
+        private int HistogramWidth;
+        private List<HistogramLetter> Letters;
 
         /// <summary>
         /// initialise with a file, or blank
@@ -34,6 +34,10 @@ namespace ANDREICSLIB.Helpers
             WhiteBitmap.SetPixel(0, 0, Color.White);
         }
 
+        /// <summary>
+        /// Serialises the specified filename.
+        /// </summary>
+        /// <param name="filename">The filename.</param>
         public void Serialise(string filename)
         {
             var ret = HistogramWidth + v.ToString(CultureInfo.InvariantCulture) + HistogramHeight +
@@ -433,9 +437,9 @@ namespace ANDREICSLIB.Helpers
         {
             private const char b = '\b';
             private const char f = '\f';
-            public char Letter;
-            public int[] XValues;
-            public int[] YValues;
+            internal char Letter;
+            internal int[] XValues;
+            internal int[] YValues;
 
             private HistogramLetter()
             {

@@ -9,6 +9,10 @@ using System.Web.Script.Serialization;
 
 namespace ANDREICSLIB.Extracters
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="System.Web.Script.Serialization.JavaScriptConverter" />
     public sealed class DynamicJsonConverter : JavaScriptConverter
     {
         /// <summary>
@@ -50,8 +54,17 @@ namespace ANDREICSLIB.Extracters
 
         #region Nested type: DynamicJsonObject
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <seealso cref="System.Dynamic.DynamicObject" />
         public class DynamicJsonObject : DynamicObject
         {
+            /// <summary>
+            /// Initializes a new instance of the <see cref="DynamicJsonObject" /> class.
+            /// </summary>
+            /// <param name="dictionary">The dictionary.</param>
+            /// <exception cref="ArgumentNullException">dictionary</exception>
             public DynamicJsonObject(IDictionary<string, object> dictionary)
             {
                 if (dictionary == null)
@@ -59,13 +72,32 @@ namespace ANDREICSLIB.Extracters
                 _dictionary = dictionary;
             }
 
+            /// <summary>
+            /// Gets the _dictionary.
+            /// </summary>
+            /// <value>
+            /// The _dictionary.
+            /// </value>
             public IDictionary<string, object> _dictionary { get; }
 
+            /// <summary>
+            /// Performs an implicit conversion />.
+            /// </summary>
+            /// <param name="d">The d.</param>
+            /// <returns>
+            /// The result of the conversion.
+            /// </returns>
             public static implicit operator Dictionary<string, object>(DynamicJsonObject d)
             {
                 return (Dictionary<string, object>) d._dictionary;
             }
 
+            /// <summary>
+            /// Returns a <see cref="System.String" /> that represents this instance.
+            /// </summary>
+            /// <returns>
+            /// A <see cref="System.String" /> that represents this instance.
+            /// </returns>
             public override string ToString()
             {
                 var sb = new StringBuilder("{");
@@ -73,6 +105,10 @@ namespace ANDREICSLIB.Extracters
                 return sb.ToString();
             }
 
+            /// <summary>
+            /// To the string.
+            /// </summary>
+            /// <param name="sb">The sb.</param>
             private void ToString(StringBuilder sb)
             {
                 var firstInDictionary = true;
@@ -117,6 +153,12 @@ namespace ANDREICSLIB.Extracters
                 sb.Append("}");
             }
 
+            /// <summary>
+            /// Tries the get member.
+            /// </summary>
+            /// <param name="binder">The binder.</param>
+            /// <param name="result">The result.</param>
+            /// <returns></returns>
             public override bool TryGetMember(GetMemberBinder binder, out object result)
             {
                 if (!_dictionary.TryGetValue(binder.Name, out result))
@@ -130,6 +172,13 @@ namespace ANDREICSLIB.Extracters
                 return true;
             }
 
+            /// <summary>
+            /// Tries the index of the get.
+            /// </summary>
+            /// <param name="binder">The binder.</param>
+            /// <param name="indexes">The indexes.</param>
+            /// <param name="result">The result.</param>
+            /// <returns></returns>
             public override bool TryGetIndex(GetIndexBinder binder, object[] indexes, out object result)
             {
                 if (indexes.Length == 1 && indexes[0] != null)
@@ -148,6 +197,11 @@ namespace ANDREICSLIB.Extracters
                 return base.TryGetIndex(binder, indexes, out result);
             }
 
+            /// <summary>
+            /// Wraps the result object.
+            /// </summary>
+            /// <param name="result">The result.</param>
+            /// <returns></returns>
             private static object WrapResultObject(object result)
             {
                 var dictionary = result as IDictionary<string, object>;

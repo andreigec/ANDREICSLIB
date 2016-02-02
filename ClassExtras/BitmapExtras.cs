@@ -56,6 +56,7 @@ namespace ANDREICSLIB.ClassExtras
         /// Changes all non white pixels to black.
         /// </summary>
         /// <param name="bitmap">The bitmap.</param>
+        /// <param name="replace"></param>
         /// <returns></returns>
         public static Bitmap ChangeAllNonWhitePixelsToColour(Bitmap bitmap, Color replace)
         {

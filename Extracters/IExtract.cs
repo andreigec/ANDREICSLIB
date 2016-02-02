@@ -3,6 +3,9 @@ using System.Threading.Tasks;
 
 namespace ANDREICSLIB.Extracters
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IExtract
     {
         /// <summary>

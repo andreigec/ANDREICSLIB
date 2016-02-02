@@ -1,4 +1,4 @@
-﻿namespace ANDREICSLIB.NewControls
+namespace ANDREICSLIB.NewControls
 {
 	partial class GetStringBox
 	{
@@ -128,9 +128,12 @@
 
 		}
 
-		#endregion
+        #endregion
 
-		public System.Windows.Forms.Label label1;
+        /// <summary>
+        /// The label1
+        /// </summary>
+        public System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.Button okbutton;
 		private System.Windows.Forms.Button cancelbutton;
