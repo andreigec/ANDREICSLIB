@@ -22,8 +22,8 @@ namespace ANDREICSLIB.Helpers
             public Func<TimeSpan, double> Get { get; }
             public double Limit { get; }
 
-            public static TimeR Ms = new TimeR("Millisecond", s => s.TotalMilliseconds, 1001);
-            public static TimeR S = new TimeR("Second", s => s.TotalSeconds, 61);
+            public static TimeR Ms = new TimeR("Millisecond", s => s.TotalMilliseconds, 2001);
+            public static TimeR S = new TimeR("Second", s => s.TotalSeconds, 121);
             public static TimeR M = new TimeR("Minute", s => s.TotalMinutes, 61);
             public static TimeR H = new TimeR("Hour", s => s.TotalHours, 24);
             public static TimeR D = new TimeR("Day", s => s.TotalDays, 265);
@@ -36,7 +36,7 @@ namespace ANDREICSLIB.Helpers
             foreach (var l in TimeR.Times)
             {
                 var val = l.Get(ts);
-                if (val < l.Limit)
+                if (val <= l.Limit)
                     return Pluralise(l.Name, val);
             }
 
