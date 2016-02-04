@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace ANDREICSLIB.ClassExtras
 {
     /// <summary>
-    /// example usage: https://github.com/andreigec/Histogram-OCR-Trainer
+    ///     example usage: https://github.com/andreigec/Histogram-OCR-Trainer
     /// </summary>
     public static class SaveFileDialogExtras
     {
@@ -17,7 +17,7 @@ namespace ANDREICSLIB.ClassExtras
         /// <returns></returns>
         public static string createFilter(List<Tuple<string, string>> descAndExt)
         {
-            string ret = "";
+            var ret = "";
             foreach (var v in descAndExt)
             {
                 ret += sep + createFilter(v.Item1, v.Item2);

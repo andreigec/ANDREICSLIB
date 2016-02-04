@@ -1,27 +1,26 @@
-﻿using System;
+using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace ANDREICSLIB.ClassExtras
 {
     /// <summary>
-    /// example usage: https://github.com/andreigec/Word-Find-Solver
+    ///     example usage: https://github.com/andreigec/Word-Find-Solver
     /// </summary>
     public static class ContextMenuStripExtras
     {
         /// <summary>
         /// get the parent of a context menu, either opening up, or a tool strip right click
         /// </summary>
-        /// <param name="senderToolStrip"></param>
-        /// <param name="t"></param>
+        /// <param name="senderToolStrip">The sender tool strip.</param>
+        /// <param name="t">The t.</param>
         /// <returns></returns>
-        public static object GetContextParent(object senderToolStrip, Type t)
+        public static object GetContextParent(IComponent senderToolStrip, Type t)
         {
             ContextMenuStrip lb2 = null;
             if (senderToolStrip is ToolStripDropDownItem)
             {
-                var lb1 = senderToolStrip as ToolStripDropDownItem;
-                if (lb1 == null)
-                    return null;
+                var lb1 = (ToolStripDropDownItem) senderToolStrip;
 
                 lb2 = lb1.Owner as ContextMenuStrip;
                 if (lb2 == null)
@@ -29,16 +28,15 @@ namespace ANDREICSLIB.ClassExtras
             }
             else if (senderToolStrip is ContextMenuStrip)
             {
-                lb2 = senderToolStrip as ContextMenuStrip;
-                if (lb2 == null)
-                    return null;
+                lb2 = (ContextMenuStrip) senderToolStrip;
             }
 
+            if (lb2 == null)
+                return null;
 
-            object ret = null;
             try
             {
-                ret = Convert.ChangeType(lb2.SourceControl, t);
+                var ret = Convert.ChangeType(lb2.SourceControl, t);
                 return ret;
             }
             catch (Exception)

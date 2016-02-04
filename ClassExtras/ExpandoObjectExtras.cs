@@ -6,14 +6,27 @@ using System.Web.Routing;
 
 namespace ANDREICSLIB.ClassExtras
 {
-    public static class ExpandoObjectHelpers
+    /// <summary>
+    /// 
+    /// </summary>
+    public static class ExpandoObjectExtras
     {
+        /// <summary>
+        /// To a dictionary.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        /// <returns></returns>
         public static Dictionary<string, object> ToDictionary(this ExpandoObject item)
         {
             var ret = new Dictionary<string, object>(item);
             return ret;
         }
 
+        /// <summary>
+        /// To a dictionary.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        /// <returns></returns>
         public static Dictionary<string, object> ToDictionary(dynamic item)
         {
             var ret = new RouteValueDictionary(item);
@@ -24,10 +37,12 @@ namespace ANDREICSLIB.ClassExtras
         /// <summary>
         /// Extension method that turns a dictionary of string and object to an ExpandoObject
         /// </summary>
+        /// <param name="dictionary">The dictionary.</param>
+        /// <returns></returns>
         public static ExpandoObject ToExpando(this IDictionary<string, object> dictionary)
         {
             var expando = new ExpandoObject();
-            var expandoDic = (IDictionary<string, object>)expando;
+            var expandoDic = (IDictionary<string, object>) expando;
 
             // go through the items in the dictionary and copy over the key value pairs)
             foreach (var kvp in dictionary)
@@ -35,7 +50,7 @@ namespace ANDREICSLIB.ClassExtras
                 // if the value can also be turned into an ExpandoObject, then do it!
                 if (kvp.Value is IDictionary<string, object>)
                 {
-                    var expandoValue = ((IDictionary<string, object>)kvp.Value).ToExpando();
+                    var expandoValue = ((IDictionary<string, object>) kvp.Value).ToExpando();
                     expandoDic.Add(kvp.Key, expandoValue);
                 }
                 else if (kvp.Value is ICollection)
@@ -43,11 +58,11 @@ namespace ANDREICSLIB.ClassExtras
                     // iterate through the collection and convert any strin-object dictionaries
                     // along the way into expando objects
                     var itemList = new List<object>();
-                    foreach (var item in (ICollection)kvp.Value)
+                    foreach (var item in (ICollection) kvp.Value)
                     {
                         if (item is IDictionary<string, object>)
                         {
-                            var expandoItem = ((IDictionary<string, object>)item).ToExpando();
+                            var expandoItem = ((IDictionary<string, object>) item).ToExpando();
                             itemList.Add(expandoItem);
                         }
                         else

@@ -1,6 +1,10 @@
-﻿namespace ANDREICSLIB.NewControls
+namespace ANDREICSLIB.NewControls
 {
-	partial class GrowingLabel
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.Label" />
+    partial class GrowingLabel
 	{
 		/// <summary> 
 		/// Required designer variable.

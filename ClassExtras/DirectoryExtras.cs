@@ -1,22 +1,29 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
 namespace ANDREICSLIB.ClassExtras
 {
     /// <summary>
-    /// example usage: https://github.com/andreigec/MTG-Proxy-Maker
+    ///     example usage: https://github.com/andreigec/MTG-Proxy-Maker
     /// </summary>
     public static class DirectoryExtras
     {
+        /// <summary>
+        /// Gets the executable path.
+        /// </summary>
+        /// <returns></returns>
         public static string GetExePath()
         {
             return Path.GetDirectoryName(Application.ExecutablePath);
         }
 
+        /// <summary>
+        /// Sets the current directory to default.
+        /// </summary>
         public static void SetCurrentDirectoryToDefault()
         {
-            string p = GetExePath();
+            var p = GetExePath();
             Directory.SetCurrentDirectory(p);
         }
 
@@ -28,7 +35,7 @@ namespace ANDREICSLIB.ClassExtras
         public static IEnumerable<string> GetFilesRecursive(string absolutePath)
         {
             // Process the list of files found in the directory.
-            string[] fileEntries = Directory.GetFiles(absolutePath);
+            var fileEntries = Directory.GetFiles(absolutePath);
             foreach (var fileName in fileEntries)
             {
                 // do something with fileName
@@ -36,10 +43,10 @@ namespace ANDREICSLIB.ClassExtras
             }
 
             // Recurse into subdirectories of this directory.
-            string[] subdirEntries = Directory.GetDirectories(absolutePath);
+            var subdirEntries = Directory.GetDirectories(absolutePath);
 
             var ret = new List<string>();
-            foreach (string subdir in subdirEntries)
+            foreach (var subdir in subdirEntries)
             {
                 // Do not iterate through reparse points
                 if ((File.GetAttributes(subdir) &
@@ -56,17 +63,17 @@ namespace ANDREICSLIB.ClassExtras
         /// <summary>
         /// delete a directory and all its files
         /// </summary>
-        /// <param name="folderName"></param>
+        /// <param name="folderName">Name of the folder.</param>
         public static void DeleteDirectory(string folderName)
         {
-            DirectoryInfo dir = new DirectoryInfo(folderName);
+            var dir = new DirectoryInfo(folderName);
 
-            foreach (FileInfo fi in dir.GetFiles())
+            foreach (var fi in dir.GetFiles())
             {
                 fi.Delete();
             }
 
-            foreach (DirectoryInfo di in dir.GetDirectories())
+            foreach (var di in dir.GetDirectories())
             {
                 DeleteDirectory(di.FullName);
                 di.Delete();

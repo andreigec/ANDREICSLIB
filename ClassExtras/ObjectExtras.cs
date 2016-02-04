@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Reflection;
 using System.Runtime.Serialization;
@@ -8,7 +8,7 @@ using System.Windows.Forms;
 namespace ANDREICSLIB.ClassExtras
 {
     /// <summary>
-    /// example usage: https://github.com/andreigec/Image-Scripter
+    ///     example usage: https://github.com/andreigec/Image-Scripter
     /// </summary>
     public abstract class ObjectExtras
     {
@@ -31,16 +31,19 @@ namespace ANDREICSLIB.ClassExtras
         /// </summary>
         /// <typeparam name="T">The type of object being copied.</typeparam>
         /// <param name="source">The object instance to copy.</param>
-        /// <returns>The copied object.</returns>
+        /// <returns>
+        /// The copied object.
+        /// </returns>
+        /// <exception cref="ArgumentException">The type must be serializable.;source</exception>
         public static T Clone<T>(T source)
         {
-            if (!typeof(T).IsSerializable)
+            if (!typeof (T).IsSerializable)
             {
                 throw new ArgumentException("The type must be serializable.", "source");
             }
 
             // Don't serialize a null object, simply return the default for that object
-            if (Object.ReferenceEquals(source, null))
+            if (ReferenceEquals(source, null))
             {
                 return default(T);
             }
@@ -51,17 +54,21 @@ namespace ANDREICSLIB.ClassExtras
             {
                 formatter.Serialize(stream, source);
                 stream.Seek(0, SeekOrigin.Begin);
-                return (T)formatter.Deserialize(stream);
+                return (T) formatter.Deserialize(stream);
             }
         }
 
-
+        /// <summary>
+        /// Clones the object.
+        /// </summary>
+        /// <param name="o">The o.</param>
+        /// <returns></returns>
         public static object CloneObject(object o)
         {
-            Type t = o.GetType();
-            PropertyInfo[] properties = t.GetProperties();
+            var t = o.GetType();
+            var properties = t.GetProperties();
 
-            object p = t.InvokeMember("", BindingFlags.CreateInstance, null, o, null);
+            var p = t.InvokeMember("", BindingFlags.CreateInstance, null, o, null);
 
             if (o is ComboBox)
             {
@@ -96,7 +103,7 @@ namespace ANDREICSLIB.ClassExtras
                 ((Control) o).Parent = null;
             }
 
-            foreach (PropertyInfo pi in properties)
+            foreach (var pi in properties)
             {
                 try
                 {
@@ -117,27 +124,33 @@ namespace ANDREICSLIB.ClassExtras
 
             return p;
         }
-		
-		
-		public static T GetFieldByName<T>(object instance, string fieldName)
+
+        /// <summary>
+        /// Gets the name of the field by.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="instance">The instance.</param>
+        /// <param name="fieldName">Name of the field.</param>
+        /// <returns></returns>
+        public static T GetFieldByName<T>(object instance, string fieldName)
         {
             try
             {
                 var myType = instance.GetType();
                 // Get the FieldInfo of MyClass.
-                FieldInfo[] myFields = myType.GetFields(BindingFlags.Public | BindingFlags.Instance);
+                var myFields = myType.GetFields(BindingFlags.Public | BindingFlags.Instance);
                 var ret = default(T);
                 foreach (var t in myFields)
                 {
                     if (t.Name == fieldName)
                     {
-                        ret = (T)t.GetValue(instance);
+                        ret = (T) t.GetValue(instance);
                         break;
                     }
                 }
                 return ret;
             }
-            catch 
+            catch
             {
                 return default(T);
             }

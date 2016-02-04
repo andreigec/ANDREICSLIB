@@ -1,9 +1,17 @@
-﻿using System.Management;
+using System.Management;
 
 namespace ANDREICSLIB.Helpers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public abstract class DeviceUpdates
     {
+        /// <summary>
+        /// Autodetects the COM port.
+        /// </summary>
+        /// <param name="description">The description.</param>
+        /// <returns></returns>
         public static string AutodetectCOMPort(string description)
         {
             var connectionScope = new ManagementScope();
@@ -14,8 +22,8 @@ namespace ANDREICSLIB.Helpers
             {
                 foreach (ManagementObject item in searcher.Get())
                 {
-                    string desc = item["Description"].ToString();
-                    string deviceId = item["DeviceID"].ToString();
+                    var desc = item["Description"].ToString();
+                    var deviceId = item["DeviceID"].ToString();
 
                     if (desc.Contains(description))
                     {

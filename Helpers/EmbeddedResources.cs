@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -8,42 +7,42 @@ using System.Reflection;
 namespace ANDREICSLIB.Helpers
 {
     /// <summary>
-    /// example usage: https://github.com/andreigec/Crypto-Gram-Solve
+    ///     example usage: https://github.com/andreigec/Crypto-Gram-Solve
     /// </summary>
     public static class EmbeddedResources
     {
         /// <summary>
-        /// get the contents of an embedded resource image
+        ///     get the contents of an embedded resource image
         /// </summary>
         /// <param name="filename">pass the file name</param>
         /// <returns></returns>
         public static Image ReadEmbeddedImage(string filename)
         {
-            StreamReader rs = GetResourceStream(filename, Assembly.GetCallingAssembly());
+            var rs = GetResourceStream(filename, Assembly.GetCallingAssembly());
             if (rs == null)
                 return null;
-            Image s = Image.FromStream(rs.BaseStream);
+            var s = Image.FromStream(rs.BaseStream);
             rs.Close();
             return s;
         }
 
         /// <summary>
-        /// get the contents of an embedded resource
+        ///     get the contents of an embedded resource
         /// </summary>
         /// <param name="filename">pass the file name</param>
         /// <returns></returns>
         public static string ReadEmbeddedResource(string filename)
         {
-            StreamReader rs = GetResourceStream(filename, Assembly.GetCallingAssembly());
+            var rs = GetResourceStream(filename, Assembly.GetCallingAssembly());
             if (rs == null)
                 return null;
-            string s = rs.ReadToEnd();
+            var s = rs.ReadToEnd();
             rs.Close();
             return s;
         }
 
         /// <summary>
-        /// get the underlying streamreader for the resource
+        ///     get the underlying streamreader for the resource
         /// </summary>
         /// <param name="filename"></param>
         /// <param name="a">assembly.getexecutingassembly</param>
@@ -55,12 +54,12 @@ namespace ANDREICSLIB.Helpers
 
             try
             {
-                string[] n = a.GetManifestResourceNames();
-                IEnumerable<string> n1 = n.Where(s => s.EndsWith(filename));
+                var n = a.GetManifestResourceNames();
+                var n1 = n.Where(s => s.EndsWith(filename));
                 if (n1.Count() == 1)
                 {
-                    string s1 = n1.First();
-                    Stream s2 = a.GetManifestResourceStream(s1);
+                    var s1 = n1.First();
+                    var s2 = a.GetManifestResourceStream(s1);
                     if (s2 != null)
                     {
                         var s3 = new StreamReader(s2);

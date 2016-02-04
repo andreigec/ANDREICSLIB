@@ -6,7 +6,6 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using ANDREICSLIB.ClassExtras;
 using Newtonsoft.Json;
@@ -17,13 +16,17 @@ namespace ANDREICSLIB.Helpers
     /// <summary>
     /// example usage: https://github.com/andreigec/GithubSensitiveSearch
     /// </summary>
+    /// <seealso cref="ANDREICSLIB.Helpers.ICache" />
     public class LocalJSONCache : ICache
     {
-        private string filename;
-        private JsonSerializer js;
-        private object @lock = new object();
+        private readonly string filename;
+        private readonly JsonSerializer js;
+        private readonly object @lock = new object();
 
-        private Dictionary<string, object> Storage { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LocalJSONCache"/> class.
+        /// </summary>
+        /// <param name="filename">The filename.</param>
         public LocalJSONCache(string filename)
         {
             if (filename.EndsWith(".json") == false)
@@ -44,7 +47,16 @@ namespace ANDREICSLIB.Helpers
             js = new JsonSerializer();
         }
 
-        public async Task<bool> Set<T>(string key, T value)
+        private Dictionary<string, object> Storage { get; }
+
+        /// <summary>
+        /// set a value using a key and a value
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public Task<bool> Set<T>(string key, T value)
         {
             Storage[key] = value;
 
@@ -53,70 +65,27 @@ namespace ANDREICSLIB.Helpers
                 using (var fs = new FileStream(filename, FileMode.Create))
                 {
                     Storage.Serialise(js, fs);
-                    return true;
+                    return new Task<bool>(() => true);
                 }
             }
         }
 
-        public async Task<T> Get<T>(string cacheKey) where T : class
+        /// <summary>
+        /// return a value using a key
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="cacheKey"></param>
+        /// <returns></returns>
+        public Task<T> Get<T>(string cacheKey) where T : class
         {
             if (!Storage.ContainsKey(cacheKey))
                 return null;
 
             //its either the object on current session
             if (Storage[cacheKey] is T)
-                return (T)Storage[cacheKey];
+                return new Task<T>(() => (T)Storage[cacheKey]);
 
-            return ReturnType<T>(Storage[cacheKey]);
-        }
-
-        private T ReturnType<T>(object o) where T : class
-        {
-            //base type = return
-            if (o is T)
-                return (T)o;
-
-            //object - straight cast
-            if (o is JObject)
-            {
-                //or jobject when loaded from disk
-                var ob = (JObject)o;
-                var ty = ob.ToObject<T>();
-                return ty;
-            }
-            // its a list
-            if (o is JArray)
-            {
-                var oba = (o as JArray).ToObject<T>();
-                return oba;
-            }
-
-            return null;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="memberName"></param>
-        /// <param name="action">((MethodCallExpression)action.Body)</param>
-        /// <returns></returns>
-        private string GetKey<T>(string memberName, MethodCallExpression action) where T : class
-        {
-            var builder = new StringBuilder(100);
-            builder.Append("AUTOCACHE.");
-            builder.Append(memberName);
-
-            (from MemberExpression expression in action.Arguments
-             select ((FieldInfo)expression.Member).GetValue(((ConstantExpression)expression.Expression).Value))
-                .ToList()
-                .ForEach(x =>
-                {
-                    builder.Append("_");
-                    builder.Append(x);
-                });
-
-            string cacheKey = builder.ToString();
-            return cacheKey;
+            return new Task<T>(() => ReturnType<T>(Storage[cacheKey]));
         }
 
         /// <summary>
@@ -126,8 +95,11 @@ namespace ANDREICSLIB.Helpers
         /// <param name="action"></param>
         /// <param name="memberName"></param>
         /// <returns></returns>
+        /// <exception cref="Exception">Error on cache read:
+        /// or
+        /// Error on cache write:</exception>
         public async Task<T> Cache<T>(Expression<Func<T>> action, [CallerMemberName] string memberName = "")
-           where T : class
+            where T : class
         {
             var cacheKey = GetKey<T>(memberName, ((MethodCallExpression)action.Body));
 
@@ -149,7 +121,7 @@ namespace ANDREICSLIB.Helpers
             {
                 try
                 {
-                    Set(cacheKey, res);
+                    AsyncHelpers.RunSync(() => Set(cacheKey, res));
                 }
                 catch (Exception ex)
                 {
@@ -160,7 +132,20 @@ namespace ANDREICSLIB.Helpers
             return res;
         }
 
-        public async Task<string> Cache(Expression<Func<Task<string>>> action, bool compress = false, [CallerMemberName] string memberName = "")
+        /// <summary>
+        /// pass in an async function that returns a string - can compress if type is known
+        /// </summary>
+        /// <param name="action"></param>
+        /// <param name="compress"></param>
+        /// <param name="memberName"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception">
+        /// Error on cache read:
+        /// or
+        /// Error on cache write:
+        /// </exception>
+        public async Task<string> Cache(Expression<Func<Task<string>>> action, bool compress = false,
+            [CallerMemberName] string memberName = "")
         {
             var cacheKey = GetKey<string>(memberName, ((MethodCallExpression)action.Body));
 
@@ -188,7 +173,7 @@ namespace ANDREICSLIB.Helpers
                 try
                 {
                     var zipped = res.CompressString();
-                    Set(cacheKey, zipped);
+                    AsyncHelpers.RunSync(() => Set(cacheKey, zipped));
                 }
                 catch (Exception ex)
                 {
@@ -206,6 +191,11 @@ namespace ANDREICSLIB.Helpers
         /// <param name="action"></param>
         /// <param name="memberName"></param>
         /// <returns></returns>
+        /// <exception cref="Exception">
+        /// Error on cache read:
+        /// or
+        /// Error on cache write:
+        /// </exception>
         public async Task<T> Cache<T>(Expression<Func<Task<T>>> action, [CallerMemberName] string memberName = "")
             where T : class
         {
@@ -229,7 +219,7 @@ namespace ANDREICSLIB.Helpers
             {
                 try
                 {
-                    Set(cacheKey, res);
+                    AsyncHelpers.RunSync(() => Set(cacheKey, res));
                 }
                 catch (Exception ex)
                 {
@@ -238,6 +228,62 @@ namespace ANDREICSLIB.Helpers
             }
 
             return res;
+        }
+
+        /// <summary>
+        /// Returns the type.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="o">The o.</param>
+        /// <returns></returns>
+        private T ReturnType<T>(object o) where T : class
+        {
+            //base type = return
+            if (o is T)
+                return (T)o;
+
+            //object - straight cast
+            if (o is JObject)
+            {
+                //or jobject when loaded from disk
+                var ob = (JObject)o;
+                var ty = ob.ToObject<T>();
+                return ty;
+            }
+            // its a list
+            if (o is JArray)
+            {
+                var oba = (o as JArray).ToObject<T>();
+                return oba;
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Gets the key.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="memberName">Name of the member.</param>
+        /// <param name="action">((MethodCallExpression)action.Body)</param>
+        /// <returns></returns>
+        private string GetKey<T>(string memberName, MethodCallExpression action) where T : class
+        {
+            var builder = new StringBuilder(100);
+            builder.Append("AUTOCACHE.");
+            builder.Append(memberName);
+
+            (from MemberExpression expression in action.Arguments
+             select ((FieldInfo)expression.Member).GetValue(((ConstantExpression)expression.Expression).Value))
+                .ToList()
+                .ForEach(x =>
+                {
+                    builder.Append("_");
+                    builder.Append(x);
+                });
+
+            var cacheKey = builder.ToString();
+            return cacheKey;
         }
     }
 }

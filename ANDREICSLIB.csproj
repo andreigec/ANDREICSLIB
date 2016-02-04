@@ -78,8 +78,9 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>.\ICSharpCode.SharpZipLib.dll</HintPath>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -98,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassExtras\ArrayExtras.cs" />
+    <Compile Include="ClassExtras\AssemblyExtras.cs" />
     <Compile Include="ClassExtras\DateTimeExtras.cs" />
     <Compile Include="Extracters\DynamicJSONConverter.cs" />
     <Compile Include="Extracters\IExtract.cs" />
@@ -109,6 +111,7 @@
     <Compile Include="ClassExtras\ContextMenuStripExtras.cs" />
     <Compile Include="ClassExtras\DirectoryExtras.cs" />
     <Compile Include="Helpers\ICache.cs" />
+    <Compile Include="Licensing\GitHubLicensing.cs" />
     <Compile Include="Models\FileSizes.cs" />
     <Compile Include="ClassExtras\ListExtras.cs" />
     <Compile Include="ClassExtras\TabPageExtras.cs" />
@@ -131,11 +134,11 @@
     <Compile Include="NewControls\GetStringImageCompare.Designer.cs">
       <DependentUpon>GetStringImageCompare.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewControls\growingLabel.cs">
+    <Compile Include="NewControls\GrowingLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="NewControls\growingLabel.Designer.cs">
-      <DependentUpon>growingLabel.cs</DependentUpon>
+    <Compile Include="NewControls\GrowingLabel.Designer.cs">
+      <DependentUpon>GrowingLabel.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\BTree.cs" />
     <Compile Include="Helpers\DeviceUpdates.cs" />
@@ -149,11 +152,11 @@
     <Compile Include="Helpers\EmbeddedResources.cs" />
     <Compile Include="ClassExtras\FileExtras.cs" />
     <Compile Include="Helpers\FormConfigRestore.cs" />
-    <Compile Include="NewControls\getStringBox.cs">
+    <Compile Include="NewControls\GetStringBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewControls\getStringBox.designer.cs">
-      <DependentUpon>getStringBox.cs</DependentUpon>
+    <Compile Include="NewControls\GetStringBox.designer.cs">
+      <DependentUpon>GetStringBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Licensing\aboutScreen.cs">
       <SubType>Form</SubType>
@@ -183,11 +186,11 @@
     <Compile Include="NewControls\MassVariableEdit.Designer.cs">
       <DependentUpon>MassVariableEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewControls\multipleMessageBox.cs">
+    <Compile Include="NewControls\MultipleMessageBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewControls\multipleMessageBox.Designer.cs">
-      <DependentUpon>multipleMessageBox.cs</DependentUpon>
+    <Compile Include="NewControls\MultipleMessageBox.Designer.cs">
+      <DependentUpon>MultipleMessageBox.cs</DependentUpon>
     </Compile>
     <Compile Include="ClassReplacements\PanelReplacement.cs">
       <SubType>Component</SubType>
@@ -199,7 +202,7 @@
       <DependentUpon>SelectItemsFromCheckBox.cs</DependentUpon>
     </Compile>
     <Compile Include="NewControls\SerializableDictionary.cs" />
-    <Compile Include="ClassExtras\ExpandoObjectHelpers.cs" />
+    <Compile Include="ClassExtras\ExpandoObjectExtras.cs" />
     <Compile Include="Helpers\LocalJSONCache.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -256,8 +259,8 @@
     <EmbeddedResource Include="NewControls\DragBar.resx">
       <DependentUpon>DragBar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewControls\getStringBox.resx">
-      <DependentUpon>getStringBox.cs</DependentUpon>
+    <EmbeddedResource Include="NewControls\GetStringBox.resx">
+      <DependentUpon>GetStringBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licensing\aboutScreen.resx">
       <DependentUpon>aboutScreen.cs</DependentUpon>
@@ -275,8 +278,8 @@
     <EmbeddedResource Include="NewControls\MassVariableEdit.resx">
       <DependentUpon>MassVariableEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewControls\multipleMessageBox.resx">
-      <DependentUpon>multipleMessageBox.cs</DependentUpon>
+    <EmbeddedResource Include="NewControls\MultipleMessageBox.resx">
+      <DependentUpon>MultipleMessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewControls\selectItemFromListBox.resx">
       <DependentUpon>selectItemFromListBox.cs</DependentUpon>
@@ -286,7 +289,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

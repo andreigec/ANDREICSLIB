@@ -1,16 +1,27 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 
 namespace ANDREICSLIB.NewControls
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.RichTextBox" />
     public class UnselectableRichTextBox : RichTextBox
     {
+        /// <summary>
+        /// Unselectables the text box.
+        /// </summary>
         public void UnselectableTextBox()
         {
             //Set it to read only by default
             ReadOnly = true;
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:GotFocus" /> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnGotFocus(EventArgs e)
         {
             base.OnGotFocus(e);
@@ -19,6 +30,10 @@ namespace ANDREICSLIB.NewControls
             DeselectAll();
         }
 
+        /// <summary>
+        /// WNDs the proc.
+        /// </summary>
+        /// <param name="m">The m.</param>
         protected override void WndProc(ref Message m)
         {
             const int WM_KEYDOWN = 0x100;

@@ -1,56 +1,87 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace ANDREICSLIB.ClassExtras
 {
     /// <summary>
-    /// example usage: https://github.com/andreigec/Crossword-Puzzle-Solver
+    ///     example usage: https://github.com/andreigec/Crossword-Puzzle-Solver
     /// </summary>
     public class ArrayExtras
     {
-        public static void AddItemToArray<T>(ref T[] inarr, T item)
+
+        /// <summary>
+        /// Adds the item to array.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="array">The array.</param>
+        /// <param name="item">The item.</param>
+        public static void AddItemToArray<T>(ref T[] array, T item)
         {
-            var arr = inarr.ToList();
+            var arr = array.ToList();
             arr.Add(item);
-            
-            inarr = arr.ToArray();
+
+            array = arr.ToArray();
         }
+
+
+        /// <summary>
+        /// Instantiates the array.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="width">The width.</param>
+        /// <param name="height">The height.</param>
+        /// <returns></returns>
         public static T[][] InstantiateArray<T>(int width, int height) where T : new()
         {
             var ret = new T[height][];
-            for (int y = 0; y < height; y++)
+            for (var y = 0; y < height; y++)
             {
                 ret[y] = new T[width];
             }
             return ret;
         }
 
-        public static T[][] RotateArray<T>(T[][] inarr, int width, int height) where T : new()
+
+        /// <summary>
+        /// Rotates the array.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="array">The array.</param>
+        /// <param name="width">The width.</param>
+        /// <param name="height">The height.</param>
+        /// <returns></returns>
+        public static T[][] RotateArray<T>(T[][] array, int width, int height) where T : new()
         {
             var newArray = InstantiateArray<T>(width, height);
 
-            for (int y = 0; y < height; y++)
+            for (var y = 0; y < height; y++)
             {
-                for (int x = 0; x < width; x++)
+                for (var x = 0; x < width; x++)
                 {
-                    newArray[x][y] = inarr[y][x];
+                    newArray[x][y] = array[y][x];
                 }
             }
 
             return newArray;
         }
 
-        public static T[][] Clone<T>(T[][] inarr, int width, int height) where T : new()
+
+        /// <summary>
+        /// Clones the specified array.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="array">The array.</param>
+        /// <param name="width">The width.</param>
+        /// <param name="height">The height.</param>
+        /// <returns></returns>
+        public static T[][] Clone<T>(T[][] array, int width, int height) where T : new()
         {
             var newArray = InstantiateArray<T>(width, height);
 
-            for (int y = 0; y < height; y++)
+            for (var y = 0; y < height; y++)
             {
-                for (int x = 0; x < width; x++)
+                for (var x = 0; x < width; x++)
                 {
-                    newArray[x][y] = inarr[x][y];
+                    newArray[x][y] = array[x][y];
                 }
             }
 
