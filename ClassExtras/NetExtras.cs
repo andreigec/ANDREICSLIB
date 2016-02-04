@@ -39,12 +39,6 @@ namespace ANDREICSLIB.ClassExtras
                     clientWithHeader.HeadOnly = false;
                     return (type.StartsWith(@"text/"));
                 }
-                //probably a 404
-                catch (WebException ex)
-                {
-                    return (ex.Response is HttpWebResponse &&
-                            ((HttpWebResponse)ex.Response).StatusCode == HttpStatusCode.NotFound);
-                }
                 //dont care
                 catch
                 {
