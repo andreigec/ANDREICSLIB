@@ -17,6 +17,36 @@ namespace ANDREICSLIB.ClassExtras
     /// </summary>
     public static class NetExtras
     {
+        private class WebClientWithHeader : WebClient
+        {
+            public bool HeadOnly { get; set; }
+            protected override WebRequest GetWebRequest(Uri address)
+            {
+                WebRequest req = base.GetWebRequest(address);
+                req.Method = "HEAD";
+                return req;
+            }
+        }
+
+        public static bool UrlExists(string url)
+        {
+            using (WebClientWithHeader clientWithHeader = new WebClientWithHeader())
+            {
+                try
+                {
+                    clientWithHeader.DownloadData(url); // note should be 0-length
+                    string type = clientWithHeader.ResponseHeaders["content-type"];
+                    clientWithHeader.HeadOnly = false;
+                    return (type.StartsWith(@"text/"));
+                }
+                //dont care
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+
         /// <summary>
         /// Makes the string URL safe.
         /// </summary>

@@ -633,6 +633,12 @@ namespace ANDREICSLIB.ClassExtras
             return new Tuple<int, int, int>(count, firstpos, lastpos);
         }
 
+        public static bool ContainsInsensitive(this string paragraph, string word)
+        {
+            var c = DateTimeExtras.MyCulture;
+            return c.CompareInfo.IndexOf(paragraph, word, CompareOptions.IgnoreCase) >= 0;
+        }
+
         /// <summary>
         /// Trims the specified refstr.
         /// </summary>

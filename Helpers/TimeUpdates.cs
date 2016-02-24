@@ -1,76 +1,51 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
 using ANDREICSLIB.ClassExtras;
 
 namespace ANDREICSLIB.Helpers
 {
     /// <summary>
-    ///     example usage: https://github.com/andreigec/Consultant-Plus
+    /// example usage: https://github.com/andreigec/Consultant-Plus
     /// </summary>
     public static class TimeUpdates
     {
-        /// <summary>
-        /// Gets the hours.
-        /// </summary>
-        /// <param name="totalsecondsin">The totalsecondsin.</param>
-        /// <returns></returns>
-        public static double GetHours(double totalsecondsin)
+        public class TimeR
         {
-            return (totalsecondsin/3600.0)%24;
+            public TimeR(string name, Func<TimeSpan, double> get, double limit)
+            {
+                Name = name;
+                Get = get;
+                Limit = limit;
+            }
+
+            public string Name { get; set; }
+            public Func<TimeSpan, double> Get { get; }
+            public double Limit { get; }
+
+            public static TimeR Ms = new TimeR("Millisecond", s => s.TotalMilliseconds, 2001);
+            public static TimeR S = new TimeR("Second", s => s.TotalSeconds, 121);
+            public static TimeR M = new TimeR("Minute", s => s.TotalMinutes, 61);
+            public static TimeR H = new TimeR("Hour", s => s.TotalHours, 24);
+            public static TimeR D = new TimeR("Day", s => s.TotalDays, 265);
+
+            public static List<TimeR> Times = new List<TimeR>() { Ms, S, M, H, D };
         }
 
-        /// <summary>
-        /// Gets the minutes.
-        /// </summary>
-        /// <param name="totalsecondsin">The totalsecondsin.</param>
-        /// <returns></returns>
-        public static double GetMinutes(double totalsecondsin)
+        public static string TimeInWords(TimeSpan ts)
         {
-            return (totalsecondsin/60.0)%60;
+            foreach (var l in TimeR.Times)
+            {
+                var val = l.Get(ts);
+                if (val <= l.Limit)
+                    return Pluralise(l.Name, val);
+            }
+
+            return Pluralise(TimeR.Ms.Name, TimeR.Ms.Get(ts));
         }
 
-        /// <summary>
-        /// Gets the days.
-        /// </summary>
-        /// <param name="totalsecondsin">The totalsecondsin.</param>
-        /// <returns></returns>
-        public static double GetDays(double totalsecondsin)
+        public static string Pluralise(string word, double val)
         {
-            return ((totalsecondsin/3600.0)/24.0);
-        }
-
-        /// <summary>
-        /// Times the in words.
-        /// </summary>
-        /// <param name="totalsecondsin">The totalsecondsin.</param>
-        /// <returns></returns>
-        public static string TimeInWords(double totalsecondsin)
-        {
-            var seconds = (int) (totalsecondsin%60);
-            var minutes = (int) Math.Floor(GetMinutes(totalsecondsin));
-            var hours = (int) Math.Floor(GetHours(totalsecondsin));
-            var days = (int) Math.Floor(GetDays(totalsecondsin));
-
-            var ret = "";
-            if (days != 0)
-                ret += "\t" + days + " " + Pluralise("Day", days);
-            if (hours != 0)
-                ret += "\t" + hours + " " + Pluralise("Hour", hours);
-            if (minutes != 0)
-                ret += "\t" + minutes + " " + Pluralise("Minute", minutes);
-            ret += "\t" + seconds + " " + Pluralise("Second", seconds);
-
-            return ret;
-        }
-
-        /// <summary>
-        /// Pluralises the specified word.
-        /// </summary>
-        /// <param name="word">The word.</param>
-        /// <param name="val">The value.</param>
-        /// <returns></returns>
-        public static string Pluralise(string word, int val)
-        {
-            var ret = word;
+            string ret = val.ToString("N") + " " + word;
             if (val != 1)
             {
                 if (ret.EndsWith("s") == false)
