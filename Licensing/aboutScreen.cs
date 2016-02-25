@@ -55,7 +55,7 @@ namespace ANDREICSLIB.Licensing
         /// <param name="e">The <see cref="FormClosingEventArgs"/> instance containing the event data.</param>
         private void aboutScreen_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Licensing.ShowingAbout = false;
+            LicensingHelpers.ShowingAbout = false;
         }
     }
 }
