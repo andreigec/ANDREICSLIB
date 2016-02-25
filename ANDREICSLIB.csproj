@@ -116,6 +116,7 @@
     <Compile Include="Licensing\GitHubLicensing.cs" />
     <Compile Include="Licensing\Licensing.cs" />
     <Compile Include="Licensing\LicensingDetails.cs" />
+    <Compile Include="Licensing\SolutionDetails.cs" />
     <Compile Include="Models\FileSizes.cs" />
     <Compile Include="ClassExtras\ListExtras.cs" />
     <Compile Include="ClassExtras\TabPageExtras.cs" />

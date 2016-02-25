@@ -65,7 +65,7 @@ namespace ANDREICSLIB.Licensing
         /// </summary>
         /// <param name="appRepo">The application repo.</param>
         /// <returns></returns>
-        public static async Task<LicensingDetails> GetGitHubReleaseDetails(string appRepo)
+        public static async Task<LicensingDetails> GetGitHubReleaseDetails(LicensingDetails ld, string appRepo)
         {
             try
             {
@@ -74,11 +74,11 @@ namespace ANDREICSLIB.Licensing
                     return null;
                 var htmlText = await det;
 
-                var ret = new LicensingDetails();
-                ret.CurrentVersion = GetVersion(htmlText);
-                ret.FileLocation = GetDownloadPath(htmlText);
-                ret.ChangeLog = GetChangeLog(htmlText);
-                return ret;
+                ld.OnlineVersion = GetVersion(htmlText);
+                ld.FileLocation = GetDownloadPath(htmlText);
+                ld.ChangeLog = GetChangeLog(htmlText);
+
+                return ld;
             }
             catch
             {

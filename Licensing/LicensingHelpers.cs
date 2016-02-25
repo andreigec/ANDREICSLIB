@@ -72,7 +72,7 @@ namespace ANDREICSLIB.Licensing
         {
             InitLicensing(newsd);
 
-            baseform.Text = _sd.AppName + " Version:" + _sd.AppVersion;
+            baseform.Text = _sd.AppName + " Version:" + _sd.Ld.CurrentVersion;
 
             var existed = false;
             const string help = "&Help";
@@ -121,7 +121,7 @@ namespace ANDREICSLIB.Licensing
             var AS = new AboutScreen
             {
                 Text = "About " + _sd.AppName,
-                appversionlabel = { Text = "Version " + _sd.AppVersion },
+                appversionlabel = { Text = "Version " + _sd.Ld.CurrentVersion },
                 apptitlelabel = { Text = _sd.AppName },
                 otherapptext = { Text = _sd.AboutScreenOtherText }
             };
@@ -151,12 +151,12 @@ namespace ANDREICSLIB.Licensing
 
         private static async Task<LicensingDetails> GetUpdateDetails()
         {
-            LicensingDetails ret = null;
             bool error = false;
             string errormsg = null;
+            var ld = _sd.Ld;
             try
             {
-                ret = await _sd.Callback();
+                await _sd.Callback();
             }
             catch (Exception ex)
             {
@@ -164,32 +164,30 @@ namespace ANDREICSLIB.Licensing
                 errormsg = "Error while getting new version:" + ex;
             }
 
-            if (ret?.OnlineVersion == null || error)
+            if (ld?.OnlineVersion == null || error)
             {
-                if (ret == null)
-                    ret = new LicensingDetails();
+                if (ld == null)
+                    ld = new LicensingDetails();
 
-                ret.Response = LicensingDetails.LicenseResponse.Error;
-                ret.ResponseMessage = errormsg ?? "Error while getting new version";
+                ld.Response = LicensingDetails.LicenseResponse.Error;
+                ld.ResponseMessage = errormsg ?? "Error while getting new version";
             }
             else
             {
-                ret.OnlineVersion = ret.CurrentVersion;
-
-                if (_sd.AppVersion >= ret.CurrentVersion)
+                if (_sd.Ld.CurrentVersion >= ld.OnlineVersion)
                 {
-                    ret.Response = LicensingDetails.LicenseResponse.UpToDate;
-                    ret.ResponseMessage = "No update required, you already have an up to date version of " + _sd.AppName;
+                    ld.Response = LicensingDetails.LicenseResponse.UpToDate;
+                    ld.ResponseMessage = "No update required, you already have an up to date version of " + _sd.AppName;
                 }
 
-                ret.ChangeLog = ret.ChangeLog;
-                ret.Response = LicensingDetails.LicenseResponse.NewVersion;
-                ret.ResponseMessage = "New update available.\r\n" + "Your version of " + _sd.AppName + ":" + _sd.AppVersion +
+                ld.ChangeLog = ld.ChangeLog;
+                ld.Response = LicensingDetails.LicenseResponse.NewVersion;
+                ld.ResponseMessage = "New update available.\r\n" + "Your version of " + _sd.AppName + ":" + _sd.Ld.CurrentVersion +
                            "\nNewest version online:" +
-                           ret.CurrentVersion;
+                           ld.OnlineVersion;
             }
 
-            return ret;
+            return ld;
         }
 
         private static async Task UpdateEvent(object sender, EventArgs e)
@@ -201,7 +199,7 @@ namespace ANDREICSLIB.Licensing
         /// update process via console
         /// </summary>
         /// <returns></returns>
-        public static async Task UpdateEventConsole()
+        public static async Task<bool> IsUpdateConsoleRequired()
         {
             Console.WriteLine("--------------\r\nUPDATE PROCESS\r\n--------------");
             Console.WriteLine("This app will now connect to the internet to find  the newest version.\nDo you wish to continue? y/[n]");
@@ -209,14 +207,14 @@ namespace ANDREICSLIB.Licensing
             var ok = Console.ReadKey().Key.ToString();
             if (ok.ToLower() != "y")
             {
-                return;
+                return false;
             }
 
             var det = await GetUpdateDetails();
-            Console.WriteLine("\r\n" + det.ResponseMessage);
+            Console.WriteLine("\r\n>>" + det.ResponseMessage);
 
             if (det.Response != LicensingDetails.LicenseResponse.NewVersion)
-                return;
+                return false;
 
             Console.WriteLine(
                 det.OnlineVersion +
@@ -225,10 +223,11 @@ namespace ANDREICSLIB.Licensing
             ok = Console.ReadKey().Key.ToString();
             if (ok.ToLower() != "y")
             {
-                return;
+                return false;
             }
 
             UpdateApplication(det);
+            return true;
         }
 
         /// <summary>
@@ -341,20 +340,28 @@ namespace ANDREICSLIB.Licensing
                 return;
             }
 
+            //move folder/* to the local dir
+            //delete the zip file
+            //delete folder remnants
+            //start the exefile we found before
+
+            var operations = "move /Y \"" + exefolder + "\"\\* . " +
+                             "& del /Q \"" + localfile + "\" " +
+                             "& rmdir /Q /S \"" + folder + "\" " +
+                             "& start \"\" \"" + exefile + "\" ";
+
+            RunCommands(operations);
+
+            //4: Kill process			
+            Application.Exit();
+        }
+        
+        private static void RunCommands(string operations)
+        {
             //3: Run async cmd prompt to move unpacked files and remove the folder in a second, and rerun the exe
             var osInfo = Environment.OSVersion;
             try
             {
-                //move folder/* to the local dir
-                //delete the zip file
-                //delete folder remnants
-                //start the exefile we found before
-
-                var operations = "move /Y \"" + exefolder + "\"\\* . " +
-                                 "& del /Q \"" + localfile + "\" " +
-                                 "& rmdir /Q /S \"" + folder + "\" " +
-                                 "& start \"\" \"" + exefile + "\" ";
-
                 if (osInfo.Platform == PlatformID.Win32NT && osInfo.Version.Major > 5)
                 {
                     //vista+
@@ -398,63 +405,6 @@ namespace ANDREICSLIB.Licensing
                 MessageBox.Show("Error during final stages of update\n:" + ex);
                 return;
             }
-            //4: Kill process			
-            Application.Exit();
         }
-
-        #region Nested type: SolutionDetails
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="appRepo">The application repo.</param>
-        /// <returns></returns>
-        public delegate Task<LicensingDetails> LicenseCallback(string appRepo);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public class SolutionDetails
-        {
-            private readonly LicenseCallback _callback;
-            internal string AboutScreenOtherText;
-            internal string AppName;
-            internal string AppRepo;
-            internal Version AppVersion;
-            internal string HelpText;
-
-            /// <summary>
-            /// Initializes a new instance of the <see cref="SolutionDetails"/> class.
-            /// </summary>
-            /// <param name="dsd">The DSD.</param>
-            /// <param name="helpText">The help text.</param>
-            /// <param name="AppName">Name of the application.</param>
-            /// <param name="AppRepoName">Name of the application repo.</param>
-            /// <param name="version">The version.</param>
-            /// <param name="aboutScreenOtherText">The about screen other text.</param>
-            public SolutionDetails(LicenseCallback dsd, string helpText = null, string AppName = null,
-                string AppRepoName = null, Version version = null, string aboutScreenOtherText = null)
-            {
-                _callback = dsd;
-                AppRepo = AppRepoName;
-                AppVersion = version;
-                HelpText = helpText;
-                this.AppName = AppName;
-                AboutScreenOtherText = aboutScreenOtherText;
-            }
-
-            /// <summary>
-            /// Callbacks this instance.
-            /// </summary>
-            /// <returns></returns>
-            public async Task<LicensingDetails> Callback()
-            {
-                if (_callback != null)
-                    return await _callback(AppRepo);
-                return null;
-            }
-        }
-
-        #endregion
     }
 }

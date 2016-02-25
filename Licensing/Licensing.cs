@@ -19,17 +19,17 @@ namespace ANDREICSLIB.Licensing
         /// <param name="helpString">The help string.</param>
         /// <param name="otherText">The other text.</param>
         /// <returns></returns>
-        public static async Task UpdateConsole(string helpString, string otherText)
+        public static async Task<bool> IsUpdateConsoleRequired(string helpString, string otherText)
         {
-            var a = AssemblyExtras.GetCallingAssemblyInfo();
+            var a = AssemblyExtras.GetEntryAssemblyInfo();
             LicensingHelpers.InitLicensing(
-                new LicensingHelpers.SolutionDetails(
+                new SolutionDetails(
                     GitHubLicensing.GetGitHubReleaseDetails,
                     helpString,
                     a.AppName, a.RepoName, a.CurrentVersion,
                     otherText));
 
-            await LicensingHelpers.UpdateEventConsole();
+            return await LicensingHelpers.IsUpdateConsoleRequired();
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace ANDREICSLIB.Licensing
         /// <param name="newsd">The newsd.</param>
         /// <returns></returns>
         public static void InitialiseForm(Form baseform, MenuStrip existingMenuStrip,
-            LicensingHelpers.SolutionDetails newsd)
+            SolutionDetails newsd)
         {
             LicensingHelpers.InitLicensing(baseform, existingMenuStrip, newsd);
         }

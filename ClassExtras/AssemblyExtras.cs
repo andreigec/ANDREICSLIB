@@ -40,9 +40,9 @@ namespace ANDREICSLIB.ClassExtras
         /// get assembly info
         /// </summary>
         /// <returns></returns>
-        public static AssemblyValues GetCallingAssemblyInfo()
+        public static AssemblyValues GetEntryAssemblyInfo()
         {
-            var assembly = Assembly.GetCallingAssembly();
+            var assembly = Assembly.GetEntryAssembly();
             var fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
             var v = Version.Parse(fvi.FileVersion);
             var ret = new AssemblyValues() { CurrentVersion = v, AppName = fvi.FileDescription, RepoName = fvi.InternalName.Substring(0, fvi.InternalName.IndexOf(".", StringComparison.Ordinal)) };
