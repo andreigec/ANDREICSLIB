@@ -15,11 +15,9 @@ namespace ANDREICSLIB.Licensing
     /// </summary>
     public class SolutionDetails
     {
-        //private readonly LicenseCallback _callback;
         internal string AboutScreenOtherText;
         internal string AppName;
         internal string AppRepo;
-        //internal Version AppVersion;
         internal string HelpText;
         internal LicensingDetails Ld;
 
@@ -28,16 +26,16 @@ namespace ANDREICSLIB.Licensing
         /// </summary>
         /// <param name="dsd">The DSD.</param>
         /// <param name="helpText">The help text.</param>
-        /// <param name="AppName">Name of the application.</param>
-        /// <param name="AppRepoName">Name of the application repo.</param>
+        /// <param name="appName">Name of the application.</param>
+        /// <param name="appRepoName">Name of the application repo.</param>
         /// <param name="version">The version.</param>
         /// <param name="aboutScreenOtherText">The about screen other text.</param>
-        public SolutionDetails(LicenseCallback dsd, string helpText = null, string AppName = null,
-            string AppRepoName = null, Version version = null, string aboutScreenOtherText = null)
+        public SolutionDetails(LicenseCallback dsd, string helpText = null, string appName = null,
+            string appRepoName = null, Version version = null, string aboutScreenOtherText = null)
         {
-            AppRepo = AppRepoName;
+            AppRepo = appRepoName;
             HelpText = helpText;
-            this.AppName = AppName;
+            this.AppName = appName;
             AboutScreenOtherText = aboutScreenOtherText;
             Ld = new LicensingDetails() {Callback = dsd, CurrentVersion = version};
         }

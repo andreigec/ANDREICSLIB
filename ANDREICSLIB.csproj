@@ -114,7 +114,6 @@
     <Compile Include="ClassExtras\DirectoryExtras.cs" />
     <Compile Include="Helpers\ICache.cs" />
     <Compile Include="Licensing\GitHubLicensing.cs" />
-    <Compile Include="Licensing\Licensing.cs" />
     <Compile Include="Licensing\LicensingDetails.cs" />
     <Compile Include="Licensing\SolutionDetails.cs" />
     <Compile Include="Models\FileSizes.cs" />
@@ -175,7 +174,7 @@
     <Compile Include="Licensing\helpScreen.Designer.cs">
       <DependentUpon>helpScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Licensing\LicensingHelpers.cs">
+    <Compile Include="Licensing\Licensing.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helpers\MatrixOps.cs" />
