@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -13,6 +14,22 @@ namespace ANDREICSLIB.ClassExtras
     /// </summary>
     public static class StringExtras
     {
+
+        /// <summary>
+        /// convert a string to a stream
+        /// </summary>
+        /// <param name="s">The s.</param>
+        /// <returns></returns>
+        public static Stream ToStream(this string s)
+        {
+            var stream = new MemoryStream();
+            var writer = new StreamWriter(stream);
+            writer.Write(s);
+            writer.Flush();
+            stream.Position = 0;
+            return stream;
+        }
+
         /// <summary>
         /// Gets the md5 of string.
         /// </summary>
