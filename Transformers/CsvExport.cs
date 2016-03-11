@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
+using System.IO;
 using System.Linq;
 using ANDREICSLIB.ClassExtras;
 
@@ -125,13 +126,16 @@ namespace ANDREICSLIB.Transformers
             //check unique
             if (uniqueColumn != null)
             {
-                var f = CSVTransform.Load(path);
-                if (f != null)
+                if (File.Exists(path))
                 {
-                    var exist = f.Select(s => s[(int)uniqueColumn]).ToList();
-                    var toadd = e.Select(s => s[(int)uniqueColumn]).ToList();
-                    if (exist.Any(s => toadd.Any(s2 => s2 == s)))
-                        return;
+                    var f = CSVTransform.Load(path);
+                    if (f != null)
+                    {
+                        var exist = f.Select(s => s[(int)uniqueColumn]).ToList();
+                        var toadd = e.Select(s => s[(int)uniqueColumn]).ToList();
+                        if (exist.Any(s => toadd.Any(s2 => s2 == s)))
+                            return;
+                    }
                 }
             }
             var c = string.Join("\r\n", e.Select(s1 => string.Join(",", s1)));
