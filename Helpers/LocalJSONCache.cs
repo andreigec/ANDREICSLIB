@@ -56,7 +56,7 @@ namespace ANDREICSLIB.Helpers
         /// <param name="key"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        public Task<bool> Set<T>(string key, T value)
+        public async Task<bool> Set<T>(string key, T value)
         {
             Storage[key] = value;
 
@@ -65,7 +65,7 @@ namespace ANDREICSLIB.Helpers
                 using (var fs = new FileStream(filename, FileMode.Create))
                 {
                     Storage.Serialise(js, fs);
-                    return new Task<bool>(() => true);
+                    return true;
                 }
             }
         }
@@ -76,16 +76,16 @@ namespace ANDREICSLIB.Helpers
         /// <typeparam name="T"></typeparam>
         /// <param name="cacheKey"></param>
         /// <returns></returns>
-        public Task<T> Get<T>(string cacheKey) where T : class
+        public async Task<T> Get<T>(string cacheKey) where T : class
         {
             if (!Storage.ContainsKey(cacheKey))
                 return null;
 
             //its either the object on current session
             if (Storage[cacheKey] is T)
-                return new Task<T>(() => (T)Storage[cacheKey]);
+                return (T)Storage[cacheKey];
 
-            return new Task<T>(() => ReturnType<T>(Storage[cacheKey]));
+            return ReturnType<T>(Storage[cacheKey]);
         }
 
         /// <summary>
