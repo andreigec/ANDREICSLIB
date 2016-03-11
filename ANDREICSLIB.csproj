@@ -119,7 +119,6 @@
     <Compile Include="Models\FileSizes.cs" />
     <Compile Include="ClassExtras\ListExtras.cs" />
     <Compile Include="ClassExtras\TabPageExtras.cs" />
-    <Compile Include="Helpers\HistogramOCR.cs" />
     <Compile Include="Helpers\ListViewSorter.cs" />
     <Compile Include="Helpers\Networking.cs" />
     <Compile Include="NewControls\ColorListBox.cs">

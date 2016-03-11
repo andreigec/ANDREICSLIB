@@ -60,8 +60,7 @@ namespace ANDREICSLIB.NewControls
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void okbutton_Click(object sender, EventArgs e)
         {
-            returnvalue = textbox.Text.Split(new[] {"\r\n"}, StringSplitOptions.RemoveEmptyEntries);
-            Close();
+            OK();
         }
 
         /// <summary>
@@ -71,6 +70,18 @@ namespace ANDREICSLIB.NewControls
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void cancelbutton_Click(object sender, EventArgs e)
         {
+            Close();
+        }
+
+        private void textbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                OK();
+        }
+
+        private void OK()
+        {
+            returnvalue = textbox.Text.Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
             Close();
         }
     }
