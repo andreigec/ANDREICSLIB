@@ -7,8 +7,10 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace ANDREICSLIB.ClassExtras
 {
@@ -83,10 +85,11 @@ namespace ANDREICSLIB.ClassExtras
         /// Downloads the web page.
         /// </summary>
         /// <param name="url">The URL.</param>
+        /// <param name="cookies"></param>
         /// <returns></returns>
-        public static async Task<string> DownloadWebPage(string url)
+        public static async Task<string> DownloadWebPage(string url, List<KeyValuePair<string, string>> cookies = null)
         {
-            var t = GetWebPageStream(url);
+            var t = GetWebPageStream(url, cookies);
             var webStream = t.Item1;
             var response = t.Item2;
 
@@ -113,7 +116,7 @@ namespace ANDREICSLIB.ClassExtras
         /// </summary>
         /// <param name="url">The URL.</param>
         /// <returns></returns>
-        public static Tuple<Stream, WebResponse> GetWebPageStream(string url)
+        public static Tuple<Stream, WebResponse> GetWebPageStream(string url, List<KeyValuePair<string, string>> Cookies = null)
         {
             // Open a connection
             var webRequestObject = (HttpWebRequest)WebRequest.Create(url);
@@ -122,6 +125,17 @@ namespace ANDREICSLIB.ClassExtras
             // the user agent or the referer:
             webRequestObject.UserAgent = ".NET Framework/2.0";
             webRequestObject.Referer = "http://www.example.com/";
+
+            if (Cookies != null)
+            {
+                webRequestObject.CookieContainer = new CookieContainer();
+                foreach (var kvp in Cookies)
+                {
+                    var v = HttpUtility.UrlEncode(kvp.Value);
+                    var c = new Cookie(kvp.Key,v) { Domain = webRequestObject.RequestUri.Host.ToLower() };
+                    webRequestObject.CookieContainer.Add(c);
+                }
+            }
 
             // Request response:
             WebResponse response;
