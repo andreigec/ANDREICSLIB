@@ -103,6 +103,7 @@
     <Compile Include="ClassExtras\ArrayExtras.cs" />
     <Compile Include="ClassExtras\AssemblyExtras.cs" />
     <Compile Include="ClassExtras\DateTimeExtras.cs" />
+    <Compile Include="ClassExtras\EnumExtras.cs" />
     <Compile Include="Extracters\DynamicJSONConverter.cs" />
     <Compile Include="Extracters\IExtract.cs" />
     <Compile Include="Extracters\JSONExtract.cs" />
