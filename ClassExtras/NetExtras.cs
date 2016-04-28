@@ -131,8 +131,8 @@ namespace ANDREICSLIB.ClassExtras
                 webRequestObject.CookieContainer = new CookieContainer();
                 foreach (var kvp in Cookies)
                 {
-                    var v = HttpUtility.UrlEncode(kvp.Value);
-                    var c = new Cookie(kvp.Key,v) { Domain = webRequestObject.RequestUri.Host.ToLower() };
+                    // var v = HttpUtility.UrlEncode(kvp.Value);
+                    var c = new Cookie(kvp.Key, kvp.Value) { Domain = webRequestObject.RequestUri.Host.ToLower() };
                     webRequestObject.CookieContainer.Add(c);
                 }
             }
