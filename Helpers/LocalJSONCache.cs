@@ -21,6 +21,7 @@ namespace ANDREICSLIB.Helpers
     {
         private readonly string filename;
         private readonly JsonSerializer js;
+        private readonly JsonSerializer privatejson = JsonSerializerExtras.CreateWithNoPrivateItemsResolver();
         private readonly object @lock = new object();
 
         /// <summary>
@@ -247,13 +248,13 @@ namespace ANDREICSLIB.Helpers
             {
                 //or jobject when loaded from disk
                 var ob = (JObject)o;
-                var ty = ob.ToObject<T>();
+                var ty = ob.ToObject<T>(privatejson);
                 return ty;
             }
             // its a list
             if (o is JArray)
             {
-                var oba = (o as JArray).ToObject<T>();
+                var oba = (o as JArray).ToObject<T>(privatejson);
                 return oba;
             }
 

@@ -129,7 +129,7 @@ namespace ANDREICSLIB.ClassExtras
             {
                 using (var jsonReader = new JsonTextReader(reader))
                 {
-                    var ser = JsonSerializerExtras.CreateWithStandardResolver();
+                    var ser = JsonSerializerExtras.CreateWithNoPrivateItemsResolver();
                     var ret = ser.Deserialize<Dictionary<string, object>>(jsonReader);
                     return ret;
                 }
