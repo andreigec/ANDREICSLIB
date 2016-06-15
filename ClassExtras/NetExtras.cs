@@ -81,6 +81,35 @@ namespace ANDREICSLIB.ClassExtras
             }
         }
 
+        public static async Task<string> PostForm(string url, string formValues)
+        {
+            String result = "";
+            StreamWriter myWriter = null;
+
+            HttpWebRequest objRequest = (HttpWebRequest)WebRequest.Create(url);
+            objRequest.Method = "POST";
+            objRequest.ContentLength = formValues.Length;
+            objRequest.ContentType = "application/x-www-form-urlencoded";
+
+            try
+            {
+                myWriter = new StreamWriter(objRequest.GetRequestStream());
+                await myWriter.WriteAsync(formValues);
+            }
+            finally
+            {
+                myWriter.Close();
+            }
+            HttpWebResponse objResponse = (HttpWebResponse)objRequest.GetResponse();
+            var rs = objResponse.GetResponseStream();
+
+            using (StreamReader sr = new StreamReader(rs))
+            {
+                result = await sr.ReadToEndAsync();
+                return result;
+            }
+        }
+
         /// <summary>
         /// Downloads the web page.
         /// </summary>

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using ANDREICSLIB.ClassExtras;
 
 namespace ANDREICSLIB.Helpers
@@ -13,6 +14,34 @@ namespace ANDREICSLIB.Helpers
     /// </summary>
     public static class Reflection
     {
+        /// <summary>
+        /// convert a string into a enum row for copy pasting into c#
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string StringToCSHARPFriendlyEnum(string s)
+        {
+            var s1 = s.ToLower();
+            //no symbols
+            s1 = Regex.Replace(s1, "[^a-z0-9]", " ");
+            //white space
+            s1 = s1.Replace("  ", " ");
+            s1 = s1.Replace("  ", " ");
+            s1 = s1.Replace("  ", " ");
+
+            //camel case
+            s1 = Regex.Replace(s1, @"\s([a-z])", s2 => s2.ToString().ToUpper());
+            //no space
+            s1 = s1.Replace(" ", "");
+            //first char cap
+            s1 = s1[0].ToString().ToUpper() + new string(s1.Skip(1).ToArray());
+            //no non alpha start char
+            s1 = Regex.Replace(s1, "^[^A-Z]", s2 => "_" + s2);
+
+            var ret = $"[Description(\"{s}\")]\n{s1}";
+            return ret;
+        }
+
         private static char Separator = '\f';
         private static string Newline = "\r\n";
 

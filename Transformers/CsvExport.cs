@@ -128,7 +128,7 @@ namespace ANDREICSLIB.Transformers
             {
                 if (File.Exists(path))
                 {
-                    var f = CSVTransform.Load(path);
+                    var f = CSVTransform.LoadFile(path);
                     if (f != null)
                     {
                         var exist = f.Select(s => s[(int)uniqueColumn]).ToList();

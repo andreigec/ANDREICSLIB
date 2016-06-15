@@ -37,7 +37,7 @@ namespace ANDREICSLIB.Transformers
                     var str = kvp.Value;
                     if (IsSimple(kvp.Value) == false)
                     {
-                        str = PullOut((IEnumerable) kvp.Value);
+                        str = PullOut((IEnumerable)kvp.Value);
                     }
 
                     c[key] = str;
@@ -66,7 +66,7 @@ namespace ANDREICSLIB.Transformers
             if (o == null)
                 return true;
             var t = o.GetType();
-            return (t == typeof (string) || t == typeof (int) || t == typeof (long));
+            return (t == typeof(string) || t == typeof(int) || t == typeof(long));
         }
 
         /// <summary>
@@ -80,7 +80,7 @@ namespace ANDREICSLIB.Transformers
             var res = "";
             foreach (var aa in a)
             {
-                if (aa.GetType() == typeof (Dictionary<string, object>))
+                if (aa.GetType() == typeof(Dictionary<string, object>))
                 {
                     var aaa = aa as Dictionary<string, object>;
                     res += "{";
@@ -90,13 +90,13 @@ namespace ANDREICSLIB.Transformers
                         if (IsSimple(k.Value))
                             res += k.Key + ":" + k.Value;
                         else
-                            res += PullOut((IEnumerable) k.Value);
+                            res += PullOut((IEnumerable)k.Value);
                     }
                     res += "}";
                 }
                 else if (aa is IEnumerable && IsSimple(aa) == false)
                 {
-                    res += "[" + PullOut((IEnumerable) aa) + "]";
+                    res += "[" + PullOut((IEnumerable)aa) + "]";
                 }
                 else
                     res += "-" + aa;
@@ -109,15 +109,20 @@ namespace ANDREICSLIB.Transformers
         /// </summary>
         /// <param name="filename">The filename.</param>
         /// <returns></returns>
-        public static string[][] Load(string filename)
+        public static string[][] LoadFile(string filename)
         {
-            var ret = new List<string[]>();
-
             var str = FileExtras.LoadFile(filename);
             if (str == null)
                 return null;
+
+            return LoadContent(str);
+        }
+
+        public static string[][] LoadContent(string content)
+        {
+            var ret = new List<string[]>();
             //split by new line
-            var rows = str.Split(new[] {"\r\n", "\n"}, StringSplitOptions.RemoveEmptyEntries);
+            var rows = content.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
             //split by ,
             foreach (var r in rows)
             {
@@ -140,7 +145,7 @@ namespace ANDREICSLIB.Transformers
             var matchResults = regexObj.Match(s);
             while (matchResults.Success)
             {
-                ret.Add(matchResults.Value);
+                ret.Add(matchResults.Value.Trim());
                 matchResults = matchResults.NextMatch();
             }
 
