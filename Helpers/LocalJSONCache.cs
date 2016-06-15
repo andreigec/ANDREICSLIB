@@ -56,7 +56,7 @@ namespace ANDREICSLIB.Helpers
         /// <param name="key"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        public async Task<bool> Set<T>(string key, T value)
+        public async Task<bool> Set<T>(string key, T value, bool obeyDataContracts)
         {
             Storage[key] = value;
 
@@ -64,7 +64,7 @@ namespace ANDREICSLIB.Helpers
             {
                 using (var fs = new FileStream(filename, FileMode.Create))
                 {
-                    Storage.Serialise(js, fs);
+                    Storage.Serialise(js, fs, obeyDataContracts);
                     return true;
                 }
             }
@@ -98,7 +98,7 @@ namespace ANDREICSLIB.Helpers
         /// <exception cref="Exception">Error on cache read:
         /// or
         /// Error on cache write:</exception>
-        public async Task<T> Cache<T>(Expression<Func<T>> action, [CallerMemberName] string memberName = "")
+        public async Task<T> Cache<T>(Expression<Func<T>> action, [CallerMemberName] string memberName = "", bool obeyDataContracts = true)
             where T : class
         {
             var cacheKey = GetKey<T>(memberName, ((MethodCallExpression)action.Body));
@@ -121,7 +121,7 @@ namespace ANDREICSLIB.Helpers
             {
                 try
                 {
-                    AsyncHelpers.RunSync(() => Set(cacheKey, res));
+                    AsyncHelpers.RunSync(() => Set(cacheKey, res, obeyDataContracts));
                 }
                 catch (Exception ex)
                 {
@@ -145,7 +145,7 @@ namespace ANDREICSLIB.Helpers
         /// Error on cache write:
         /// </exception>
         public async Task<string> Cache(Expression<Func<Task<string>>> action, bool compress = false,
-            [CallerMemberName] string memberName = "")
+            [CallerMemberName] string memberName = "", bool obeyDataContracts = true)
         {
             var cacheKey = GetKey<string>(memberName, ((MethodCallExpression)action.Body));
 
@@ -173,7 +173,7 @@ namespace ANDREICSLIB.Helpers
                 try
                 {
                     var zipped = res.CompressString();
-                    AsyncHelpers.RunSync(() => Set(cacheKey, zipped));
+                    AsyncHelpers.RunSync(() => Set(cacheKey, zipped, obeyDataContracts));
                 }
                 catch (Exception ex)
                 {
@@ -196,7 +196,7 @@ namespace ANDREICSLIB.Helpers
         /// or
         /// Error on cache write:
         /// </exception>
-        public async Task<T> Cache<T>(Expression<Func<Task<T>>> action, [CallerMemberName] string memberName = "")
+        public async Task<T> Cache<T>(Expression<Func<Task<T>>> action, [CallerMemberName] string memberName = "", bool obeyDataContracts = true)
             where T : class
         {
             var cacheKey = GetKey<T>(memberName, ((MethodCallExpression)action.Body));
@@ -219,7 +219,7 @@ namespace ANDREICSLIB.Helpers
             {
                 try
                 {
-                    AsyncHelpers.RunSync(() => Set(cacheKey, res));
+                    AsyncHelpers.RunSync(() => Set(cacheKey, res, obeyDataContracts));
                 }
                 catch (Exception ex)
                 {

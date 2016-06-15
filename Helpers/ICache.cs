@@ -18,7 +18,7 @@ namespace ANDREICSLIB.Helpers
         /// <param name="memberName"></param>
         /// <returns></returns>
         Task<string> Cache(Expression<Func<Task<string>>> action, bool compress = false,
-            [CallerMemberName] string memberName = "");
+            [CallerMemberName] string memberName = "", bool obeyDataContracts = true);
 
         /// <summary>
         ///     pass in an async function that takes T
@@ -27,7 +27,7 @@ namespace ANDREICSLIB.Helpers
         /// <param name="action"></param>
         /// <param name="memberName"></param>
         /// <returns></returns>
-        Task<T> Cache<T>(Expression<Func<Task<T>>> action, [CallerMemberName] string memberName = "") where T : class;
+        Task<T> Cache<T>(Expression<Func<Task<T>>> action, [CallerMemberName] string memberName = "", bool obeyDataContracts = true) where T : class;
 
         /// <summary>
         ///     pass in a sync function
@@ -36,7 +36,7 @@ namespace ANDREICSLIB.Helpers
         /// <param name="action"></param>
         /// <param name="memberName"></param>
         /// <returns></returns>
-        Task<T> Cache<T>(Expression<Func<T>> action, [CallerMemberName] string memberName = "") where T : class;
+        Task<T> Cache<T>(Expression<Func<T>> action, [CallerMemberName] string memberName = "", bool obeyDataContracts = true) where T : class;
 
         /// <summary>
         ///     return a value using a key
@@ -52,6 +52,6 @@ namespace ANDREICSLIB.Helpers
         /// <param name="key"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        Task<bool> Set<T>(string key, T value);
+        Task<bool> Set<T>(string key, T value, bool obeyDataContracts = true);
     }
 }

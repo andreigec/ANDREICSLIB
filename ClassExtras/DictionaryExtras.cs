@@ -103,7 +103,7 @@ namespace ANDREICSLIB.ClassExtras
         /// <param name="dictionary">The dictionary.</param>
         /// <param name="json">The json.</param>
         /// <param name="fs">The fs.</param>
-        public static void Serialise(this Dictionary<string, object> dictionary, JsonSerializer json, FileStream fs)
+        public static void Serialise(this Dictionary<string, object> dictionary, JsonSerializer json, FileStream fs, bool obeyDataContracts)
         {
             //erase
             fs.SetLength(0);
@@ -111,7 +111,7 @@ namespace ANDREICSLIB.ClassExtras
             {
                 using (var jsonWriter = new JsonTextWriter(writer))
                 {
-                    var ser = new JsonSerializer();
+                    var ser = obeyDataContracts ? new JsonSerializer() : JsonSerializerExtras.CreateWithNoPrivateItemsResolver();
                     ser.Serialize(jsonWriter, dictionary);
                     jsonWriter.Flush();
                 }
@@ -129,7 +129,7 @@ namespace ANDREICSLIB.ClassExtras
             {
                 using (var jsonReader = new JsonTextReader(reader))
                 {
-                    var ser = new JsonSerializer();
+                    var ser = JsonSerializerExtras.CreateWithStandardResolver();
                     var ret = ser.Deserialize<Dictionary<string, object>>(jsonReader);
                     return ret;
                 }

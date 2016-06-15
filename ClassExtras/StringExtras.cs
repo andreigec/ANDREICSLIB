@@ -14,6 +14,28 @@ namespace ANDREICSLIB.ClassExtras
     /// </summary>
     public static class StringExtras
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        public static decimal ParseCurrency(this string c)
+        {
+            if (String.IsNullOrEmpty(c))
+                return 0;
+            //(?=.)^\$?(([1-9][0-9]{0,2}(,[0-9]{3})*)|0)?(\.[0-9]{1,2})?$
+            var r = new Regex(@"\$?((([1-9][0-9]{0,2}(,[0-9]{3})*)|0)?(\.[0-9]{1,2})?)?");
+            var res = r.Match(c);
+            if (!res.Success || res.Groups.Count < 2)
+                return 0;
+
+            decimal retd;
+            if (Decimal.TryParse(res.Groups[1].Value,
+                NumberStyles.AllowCurrencySymbol | NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands,
+                CultureInfo.CurrentCulture, out retd))
+                return retd;
+            return 0;
+        }
 
         /// <summary>
         /// convert a string to a stream
@@ -109,7 +131,7 @@ namespace ANDREICSLIB.ClassExtras
         public static Tuple<int, int> SplitTwoInt(string instr, char sep)
         {
             var x = SplitTwo(instr, sep);
-            return new Tuple<int, int>(int.Parse(x.Item1), int.Parse(x.Item2));
+            return new Tuple<int, int>(Int32.Parse(x.Item1), Int32.Parse(x.Item2));
         }
 
         /// <summary>
@@ -152,7 +174,7 @@ namespace ANDREICSLIB.ClassExtras
             var splitspace = instr.Split(splitchar);
             foreach (var s in splitspace)
             {
-                if (string.IsNullOrEmpty(s))
+                if (String.IsNullOrEmpty(s))
                     continue;
 
                 if ((count + s.Length) > max)
@@ -223,7 +245,7 @@ namespace ANDREICSLIB.ClassExtras
             if (position < 0)
                 return;
 
-            if (string.IsNullOrEmpty(str))
+            if (String.IsNullOrEmpty(str))
                 return;
 
             var bef = str.Substring(0, position);
@@ -244,7 +266,7 @@ namespace ANDREICSLIB.ClassExtras
             if (startpos < 0 || endpos < 0)
                 return str;
 
-            if (string.IsNullOrEmpty(str))
+            if (String.IsNullOrEmpty(str))
                 return str;
 
             var bef = str.Substring(0, startpos);
@@ -262,7 +284,7 @@ namespace ANDREICSLIB.ClassExtras
         /// <returns></returns>
         public static string ReplaceAllChars(string origString, char replaceThis, char withThis)
         {
-            if (string.IsNullOrEmpty(origString))
+            if (String.IsNullOrEmpty(origString))
                 return origString;
 
             return origString.Replace(replaceThis, withThis);
@@ -277,7 +299,7 @@ namespace ANDREICSLIB.ClassExtras
         /// <returns></returns>
         public static string ReplaceAllChars(string origString, string replaceThis, string withThis)
         {
-            if (string.IsNullOrEmpty(origString))
+            if (String.IsNullOrEmpty(origString))
                 return origString;
 
             return origString.Replace(replaceThis, withThis);
@@ -295,7 +317,7 @@ namespace ANDREICSLIB.ClassExtras
             {
                 var c = origString[a];
 
-                if (char.IsLetter(c) == false && char.IsWhiteSpace(c) == false)
+                if (Char.IsLetter(c) == false && Char.IsWhiteSpace(c) == false)
                     continue;
 
                 outstr += c;
@@ -352,22 +374,16 @@ namespace ANDREICSLIB.ClassExtras
         /// <param name="origString">The original string.</param>
         /// <param name="mergeTo">The merge to.</param>
         /// <returns></returns>
-        public static string MergeWhiteSpace(string origString, char mergeTo = ' ')
+        public static string MergeWhiteSpace(this string origString)
         {
-            var mstr = mergeTo.ToString();
-            var str = origString;
-            str = str.Replace("\r\n", mstr);
-            str = str.Replace('\n', mergeTo);
-            str = str.Replace('\r', mergeTo);
-            str = str.Replace('\t', mergeTo);
-
-            str = str.Replace("  ", " ");
-            str = str.Replace("  ", " ");
-            str = str.Replace("  ", " ");
-            str = str.Replace("  ", " ");
-
-            str = str.Replace(' ', mergeTo);
-            return str;
+            var s = Regex.Replace(origString, @"\s+", " ");
+            var s2 = "";
+            while (s2.Length != s.Length)
+            {
+                s2 = s;
+                s = s.Replace("  ", " ");
+            }
+            return s;
         }
 
         /// <summary>
@@ -379,7 +395,7 @@ namespace ANDREICSLIB.ClassExtras
         /// </returns>
         public static string CleanString(string origString)
         {
-            if (string.IsNullOrEmpty(origString))
+            if (String.IsNullOrEmpty(origString))
                 return origString;
 
             char[] bad = { '\n', '\r', '\0', ' ' };
@@ -453,7 +469,7 @@ namespace ANDREICSLIB.ClassExtras
         public static string ToCamelCase(string origString, bool capitaliseInitial,
             List<string> capitaliseWordString = null, bool spaceAfter = true)
         {
-            if (string.IsNullOrEmpty(origString))
+            if (String.IsNullOrEmpty(origString))
                 return null;
 
             try
@@ -485,7 +501,7 @@ namespace ANDREICSLIB.ClassExtras
                 {
                     var x = outstr[a];
 
-                    if (char.IsLetter(x))
+                    if (Char.IsLetter(x))
                     {
                         //capitalised words
                         foreach (var CWS in capitaliseWordString)
@@ -494,13 +510,13 @@ namespace ANDREICSLIB.ClassExtras
                             {
                                 //only if the following char is blank or end of line, or a special char is after
 
-                                if (((a + CWS.Length) > outstr.Length) || (char.IsWhiteSpace(outstr[a + CWS.Length])) ||
+                                if (((a + CWS.Length) > outstr.Length) || (Char.IsWhiteSpace(outstr[a + CWS.Length])) ||
                                     (capitalAfter.Contains(outstr[a + CWS.Length])))
                                 {
                                     for (var a1 = a; a1 < a + CWS.Length; a1++)
                                     {
                                         var x1 = outstr[a1];
-                                        x1 = char.ToUpper(x1);
+                                        x1 = Char.ToUpper(x1);
                                         ReplaceCharAtPosition(ref outstr, x1, a1);
                                     }
                                 }
@@ -508,9 +524,9 @@ namespace ANDREICSLIB.ClassExtras
                         }
 
                         //cap if first, or after space (camel case), or bracket
-                        if ((a == 0 && capitaliseInitial) || char.IsWhiteSpace(outstr[a - 1]) ||
+                        if ((a == 0 && capitaliseInitial) || Char.IsWhiteSpace(outstr[a - 1]) ||
                             capitalAfter.Contains(outstr[a - 1]))
-                            ReplaceCharAtPosition(ref outstr, char.ToUpper(x), a);
+                            ReplaceCharAtPosition(ref outstr, Char.ToUpper(x), a);
                     }
 
                     //space after comma and close bracket
@@ -518,14 +534,14 @@ namespace ANDREICSLIB.ClassExtras
                     {
                         if (((a + 1) < outstr.Length) &&
                             ((outstr[a] == ',' || closebracket.Contains(outstr[a])) &&
-                             char.IsWhiteSpace(outstr[a + 1]) == false))
+                             Char.IsWhiteSpace(outstr[a + 1]) == false))
                         {
                             outstr = outstr.Insert(a + 1, " ");
                         }
 
                         //space before openbracket
                         if (((a - 1) > 0) && (openbracket.Contains(outstr[a])) &&
-                            (char.IsWhiteSpace(outstr[a - 1]) == false))
+                            (Char.IsWhiteSpace(outstr[a - 1]) == false))
                         {
                             outstr = outstr.Insert(a, " ");
                         }
@@ -549,7 +565,7 @@ namespace ANDREICSLIB.ClassExtras
         {
             try
             {
-                double.Parse(s);
+                Double.Parse(s);
                 return true;
             }
             catch (Exception)
@@ -688,7 +704,7 @@ namespace ANDREICSLIB.ClassExtras
         /// <returns></returns>
         public static bool IsNullOrEmpty(this string s)
         {
-            return string.IsNullOrEmpty(s);
+            return String.IsNullOrEmpty(s);
         }
     }
 }

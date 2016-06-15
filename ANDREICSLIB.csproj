@@ -104,6 +104,7 @@
     <Compile Include="ClassExtras\AssemblyExtras.cs" />
     <Compile Include="ClassExtras\DateTimeExtras.cs" />
     <Compile Include="ClassExtras\EnumExtras.cs" />
+    <Compile Include="ClassExtras\JsonSerializerExtras.cs" />
     <Compile Include="Extracters\DynamicJSONConverter.cs" />
     <Compile Include="Extracters\IExtract.cs" />
     <Compile Include="Extracters\JSONExtract.cs" />
@@ -114,6 +115,7 @@
     <Compile Include="ClassExtras\ContextMenuStripExtras.cs" />
     <Compile Include="ClassExtras\DirectoryExtras.cs" />
     <Compile Include="Helpers\ICache.cs" />
+    <Compile Include="Helpers\NoPrivateItemsResolver.cs" />
     <Compile Include="Licensing\GitHubLicensing.cs" />
     <Compile Include="Licensing\LicensingDetails.cs" />
     <Compile Include="Licensing\SolutionDetails.cs" />

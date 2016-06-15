@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Timers;
 using ANDREICSLIB.ClassExtras;
 
 namespace ANDREICSLIB.Helpers
@@ -31,7 +33,12 @@ namespace ANDREICSLIB.Helpers
             public static List<TimeR> Times = new List<TimeR>() { Ms, S, M, H, D };
         }
 
-        public static string TimeInWords(TimeSpan ts)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ts"></param>
+        /// <returns></returns>
+        public static string TimeInWords(this TimeSpan ts)
         {
             foreach (var l in TimeR.Times)
             {
@@ -43,7 +50,13 @@ namespace ANDREICSLIB.Helpers
             return Pluralise(TimeR.Ms.Name, TimeR.Ms.Get(ts));
         }
 
-        public static string Pluralise(string word, double val)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="word"></param>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        public static string Pluralise(this string word, double val)
         {
             string ret = val.ToString("N") + " " + word;
             if (val != 1)
@@ -57,6 +70,26 @@ namespace ANDREICSLIB.Helpers
                     ret = StringExtras.ApplyTrim(ret, false, 1);
             }
             return ret;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        public static string ElapsedInWords(this Stopwatch t)
+        {
+            return TimeInWords(TimeSpan.FromMilliseconds(t.ElapsedMilliseconds));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        public static string IntervalInWords(this Timer t)
+        {
+            return TimeInWords(TimeSpan.FromMilliseconds(t.Interval));
         }
     }
 }
