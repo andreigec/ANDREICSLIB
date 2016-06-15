@@ -369,7 +369,7 @@ namespace ANDREICSLIB.ClassExtras
         }
 
         /// <summary>
-        /// merges all consecutive whitespace into one character
+        /// merges all consecutive whitespace into one character, and trim
         /// </summary>
         /// <param name="origString">The original string.</param>
         /// <param name="mergeTo">The merge to.</param>
@@ -383,65 +383,9 @@ namespace ANDREICSLIB.ClassExtras
                 s2 = s;
                 s = s.Replace("  ", " ");
             }
-            return s;
+            return s.Trim();
         }
-
-        /// <summary>
-        /// removes \n \r and \0 from the start and end of a string
-        /// </summary>
-        /// <param name="origString">The original string.</param>
-        /// <returns>
-        /// the 'cleaned' string
-        /// </returns>
-        public static string CleanString(string origString)
-        {
-            if (String.IsNullOrEmpty(origString))
-                return origString;
-
-            char[] bad = { '\n', '\r', '\0', ' ' };
-
-            //keep going while changes have been made
-            var change = true;
-            while (change)
-            {
-                change = false;
-                if (origString.Length == 0)
-                    return "";
-                var start = origString[0];
-                var end = origString[origString.Length - 1];
-
-
-                foreach (var b in bad)
-                {
-                    if (start == b)
-                    {
-                        origString = origString.Remove(0, 1);
-                        change = true;
-                    }
-                    if (end == b)
-                    {
-                        origString = origString.Remove(origString.Length - 1, 1);
-                        change = true;
-                    }
-
-                    if (change)
-                        break;
-                }
-            }
-
-            //remove duplicate whitespace
-            change = true;
-            while (change)
-            {
-                var len = origString.Length;
-                origString = origString.Replace("  ", " ");
-                if (origString.Length == len)
-                    change = false;
-            }
-
-            return origString;
-        }
-
+        
         /// <summary>
         /// append/prepend text to a string
         /// </summary>
