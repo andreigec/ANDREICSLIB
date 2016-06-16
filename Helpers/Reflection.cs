@@ -16,6 +16,8 @@ namespace ANDREICSLIB.Helpers
     {
         /// <summary>
         /// convert a string into a enum row for copy pasting into c#
+        /// eg test one two three = 
+        /// [Description('test one two three')] TestOneTwoThree
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
@@ -42,6 +44,24 @@ namespace ANDREICSLIB.Helpers
             return ret;
         }
 
+#pragma warning disable 1570
+        /// <summary>
+        /// generate new enum rows of a type ordered by name
+        /// eg var str = OrderCSHARPEnum<Enum Type>();
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static string OrderCSHARPEnum<T>()
+        {
+            var t = typeof(T);
+            var v1 = Enum.GetValues(t).Cast<T>();
+
+            var v2 = v1.OrderBy(s => s.ToString()).Cast<Enum>().Select(s => $"[Description(\"{s.GetDescription()}\")] {s.ToString()}").ToList();
+
+            var v3 = string.Join(",\n", v2);
+            return v3;
+        }
+
         private static char Separator = '\f';
         private static string Newline = "\r\n";
 
@@ -56,10 +76,10 @@ namespace ANDREICSLIB.Helpers
         {
             MemberExpression me = null;
             if (memberExpression.Body is MemberExpression)
-                me = ((MemberExpression) memberExpression.Body);
+                me = ((MemberExpression)memberExpression.Body);
             else if (memberExpression.Body is UnaryExpression)
             {
-                var ue = ((UnaryExpression) memberExpression.Body);
+                var ue = ((UnaryExpression)memberExpression.Body);
                 me = ue.Operand as MemberExpression;
             }
 
