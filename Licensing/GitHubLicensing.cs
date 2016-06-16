@@ -63,6 +63,7 @@ namespace ANDREICSLIB.Licensing
         /// <summary>
         /// Gets the git hub release details.
         /// </summary>
+        /// <param name="ld">The ld.</param>
         /// <param name="appRepo">The application repo.</param>
         /// <returns></returns>
         public static async Task<LicensingDetails> GetGitHubReleaseDetails(LicensingDetails ld, string appRepo)

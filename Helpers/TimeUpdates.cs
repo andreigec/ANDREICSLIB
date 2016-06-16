@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Timers;
@@ -11,8 +11,17 @@ namespace ANDREICSLIB.Helpers
     /// </summary>
     public static class TimeUpdates
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public class TimeR
         {
+            /// <summary>
+            /// Initializes a new instance of the <see cref="TimeR"/> class.
+            /// </summary>
+            /// <param name="name">The name.</param>
+            /// <param name="get">The get.</param>
+            /// <param name="limit">The limit.</param>
             public TimeR(string name, Func<TimeSpan, double> get, double limit)
             {
                 Name = name;
@@ -20,16 +29,47 @@ namespace ANDREICSLIB.Helpers
                 Limit = limit;
             }
 
+            /// <summary>
+            /// Gets or sets the name.
+            /// </summary>
+            /// <value>
+            /// The name.
+            /// </value>
             public string Name { get; set; }
+            /// <summary>
+            /// Gets the get.
+            /// </summary>
+            /// <value>
+            /// The get.
+            /// </value>
             public Func<TimeSpan, double> Get { get; }
+            /// <summary>
+            /// Gets the limit.
+            /// </summary>
+            /// <value>
+            /// The limit.
+            /// </value>
             public double Limit { get; }
 
+            /// <summary>
+            /// </summary>
             public static TimeR Ms = new TimeR("Millisecond", s => s.TotalMilliseconds, 2001);
+            /// <summary>
+            /// </summary>
             public static TimeR S = new TimeR("Second", s => s.TotalSeconds, 121);
+            /// <summary>
+            /// </summary>
             public static TimeR M = new TimeR("Minute", s => s.TotalMinutes, 61);
+            /// <summary>
+            /// </summary>
             public static TimeR H = new TimeR("Hour", s => s.TotalHours, 24);
+            /// <summary>
+            /// </summary>
             public static TimeR D = new TimeR("Day", s => s.TotalDays, 265);
 
+            /// <summary>
+            /// The times
+            /// </summary>
             public static List<TimeR> Times = new List<TimeR>() { Ms, S, M, H, D };
         }
 

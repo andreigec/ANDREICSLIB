@@ -118,6 +118,11 @@ namespace ANDREICSLIB.Transformers
             return LoadContent(str);
         }
 
+        /// <summary>
+        /// Loads the content.
+        /// </summary>
+        /// <param name="content">The content.</param>
+        /// <returns></returns>
         public static string[][] LoadContent(string content)
         {
             var ret = new List<string[]>();

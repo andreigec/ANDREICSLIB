@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,11 +14,19 @@ namespace ANDREICSLIB.ClassExtras
     /// </summary>
     public static class JsonSerializerExtras
     {
+        /// <summary>
+        /// Creates the with standard resolver.
+        /// </summary>
+        /// <returns></returns>
         public static JsonSerializer CreateWithStandardResolver()
         {
             return new JsonSerializer();
         }
-        
+
+        /// <summary>
+        /// Creates the with no private items resolver.
+        /// </summary>
+        /// <returns></returns>
         public static JsonSerializer CreateWithNoPrivateItemsResolver()
         {
             var ret = new JsonSerializer
@@ -32,11 +40,11 @@ namespace ANDREICSLIB.ClassExtras
             return ret;
         }
         /// <summary>
-        /// 
+        /// Deserializes the json.
         /// </summary>
-        /// <param name="_serializer"></param>
-        /// <param name="json"></param>
         /// <typeparam name="T"></typeparam>
+        /// <param name="_serializer">The _serializer.</param>
+        /// <param name="json">The json.</param>
         /// <returns></returns>
         public static T DeserializeJson<T>(this JsonSerializer _serializer, string json)
         {
@@ -48,6 +56,7 @@ namespace ANDREICSLIB.ClassExtras
         /// <summary>
         /// Serializes the json.
         /// </summary>
+        /// <param name="_serializer"></param>
         /// <param name="obj">The object.</param>
         /// <returns></returns>
         public static string SerializeJson(this JsonSerializer _serializer, object obj)

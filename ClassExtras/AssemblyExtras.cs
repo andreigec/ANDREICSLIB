@@ -4,8 +4,17 @@ using System.Reflection;
 
 namespace ANDREICSLIB.ClassExtras
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class AssemblyValues
     {
+        /// <summary>
+        /// Gets or sets the current version.
+        /// </summary>
+        /// <value>
+        /// The current version.
+        /// </value>
         public Version CurrentVersion { get; set; }
         /// <summary>
         /// Gets or sets the name of the repo. assembly name/ repo name

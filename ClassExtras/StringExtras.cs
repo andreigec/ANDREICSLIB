@@ -372,7 +372,6 @@ namespace ANDREICSLIB.ClassExtras
         /// merges all consecutive whitespace into one character, and trim
         /// </summary>
         /// <param name="origString">The original string.</param>
-        /// <param name="mergeTo">The merge to.</param>
         /// <returns></returns>
         public static string MergeWhiteSpace(this string origString)
         {
@@ -610,6 +609,12 @@ namespace ANDREICSLIB.ClassExtras
             return new Tuple<int, int, int>(count, firstpos, lastpos);
         }
 
+        /// <summary>
+        /// Determines whether the specified word contains insensitive.
+        /// </summary>
+        /// <param name="paragraph">The paragraph.</param>
+        /// <param name="word">The word.</param>
+        /// <returns></returns>
         public static bool ContainsInsensitive(this string paragraph, string word)
         {
             var c = DateTimeExtras.MyCulture;

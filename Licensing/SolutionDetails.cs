@@ -6,6 +6,7 @@ namespace ANDREICSLIB.Licensing
     /// <summary>
     /// 
     /// </summary>
+    /// <param name="ld">The ld.</param>
     /// <param name="appRepo">The application repo.</param>
     /// <returns></returns>
     public delegate Task<LicensingDetails> LicenseCallback(LicensingDetails ld, string appRepo);
@@ -16,13 +17,18 @@ namespace ANDREICSLIB.Licensing
     public class SolutionDetails
     {
         internal string AboutScreenOtherText;
+        /// <summary>
+        /// The application name
+        /// </summary>
         internal string AppName;
         internal string AppRepo;
         internal string HelpText;
+        /// <summary>
+        /// </summary>
         internal LicensingDetails Ld;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SolutionDetails"/> class.
+        /// Initializes a new instance of the <see cref="SolutionDetails" /> class.
         /// </summary>
         /// <param name="dsd">The DSD.</param>
         /// <param name="helpText">The help text.</param>

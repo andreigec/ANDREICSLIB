@@ -74,7 +74,8 @@ namespace ANDREICSLIB.Licensing
         /// </summary>
         /// <param name="baseform">The baseform.</param>
         /// <param name="existingMenuStrip">The existing menu strip.</param>
-        /// <param name="newsd">The newsd.</param>
+        /// <param name="helpString"></param>
+        /// <param name="otherText"></param>
         public static void LicensingForm(Form baseform, MenuStrip existingMenuStrip, string helpString, string otherText)
         {
             var a = AssemblyExtras.GetEntryAssemblyInfo();

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 
@@ -103,6 +104,7 @@ namespace ANDREICSLIB.ClassExtras
         /// <param name="dictionary">The dictionary.</param>
         /// <param name="json">The json.</param>
         /// <param name="fs">The fs.</param>
+        /// <param name="obeyDataContracts">if set to <c>true</c> [obey data contracts].</param>
         public static void Serialise(this Dictionary<string, object> dictionary, JsonSerializer json, FileStream fs, bool obeyDataContracts)
         {
             //erase
@@ -141,9 +143,9 @@ namespace ANDREICSLIB.ClassExtras
         /// </summary>
         /// <param name="url">The URL.</param>
         /// <returns></returns>
-        public static Dictionary<string, object> Deserialize(string url)
+        public static async Task<Dictionary<string, object>> Deserialize(string url)
         {
-            var res = NetExtras.GetWebPageStream(url);
+            var res = await NetExtras.GetWebPageStream(url);
             var ret = Deserialize(res.Item1);
             return ret;
         }

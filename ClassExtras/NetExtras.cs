@@ -15,13 +15,24 @@ using System.Web;
 namespace ANDREICSLIB.ClassExtras
 {
     /// <summary>
-    ///     example usage: https://github.com/andreigec/ExtractTransform
+    /// example usage: https://github.com/andreigec/ExtractTransform
     /// </summary>
     public static class NetExtras
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <seealso cref="System.Net.WebClient" />
         private class WebClientWithHeader : WebClient
         {
             public bool HeadOnly { get; set; }
+            /// <summary>
+            /// Returns a <see cref="T:System.Net.WebRequest" /> object for the specified resource.
+            /// </summary>
+            /// <param name="address">A <see cref="T:System.Uri" /> that identifies the resource to request.</param>
+            /// <returns>
+            /// A new <see cref="T:System.Net.WebRequest" /> object for the specified resource.
+            /// </returns>
             protected override WebRequest GetWebRequest(Uri address)
             {
                 WebRequest req = base.GetWebRequest(address);
@@ -30,6 +41,11 @@ namespace ANDREICSLIB.ClassExtras
             }
         }
 
+        /// <summary>
+        /// URLs the exists.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <returns></returns>
         public static bool UrlExists(string url)
         {
             using (WebClientWithHeader clientWithHeader = new WebClientWithHeader())
@@ -81,6 +97,12 @@ namespace ANDREICSLIB.ClassExtras
             }
         }
 
+        /// <summary>
+        /// Posts the form.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <param name="formValues">The form values.</param>
+        /// <returns></returns>
         public static async Task<string> PostForm(string url, string formValues)
         {
             String result = "";
@@ -118,7 +140,7 @@ namespace ANDREICSLIB.ClassExtras
         /// <returns></returns>
         public static async Task<string> DownloadWebPage(string url, List<KeyValuePair<string, string>> cookies = null)
         {
-            var t = GetWebPageStream(url, cookies);
+            var t = await GetWebPageStream(url, cookies);
             var webStream = t.Item1;
             var response = t.Item2;
 
@@ -144,8 +166,9 @@ namespace ANDREICSLIB.ClassExtras
         /// Gets the web page stream.
         /// </summary>
         /// <param name="url">The URL.</param>
+        /// <param name="Cookies">The cookies.</param>
         /// <returns></returns>
-        public static Tuple<Stream, WebResponse> GetWebPageStream(string url, List<KeyValuePair<string, string>> Cookies = null)
+        public static async Task<Tuple<Stream, WebResponse>> GetWebPageStream(string url, List<KeyValuePair<string, string>> Cookies = null)
         {
             // Open a connection
             var webRequestObject = (HttpWebRequest)WebRequest.Create(url);
@@ -167,9 +190,7 @@ namespace ANDREICSLIB.ClassExtras
             }
 
             // Request response:
-            WebResponse response;
-            response = webRequestObject.GetResponse();
-
+            var response = await webRequestObject.GetResponseAsync();
 
             // Open data stream:
             var webStream = response.GetResponseStream();

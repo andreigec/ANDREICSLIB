@@ -37,12 +37,24 @@ namespace ANDREICSLIB.Helpers
 
             lock (@lock)
             {
-                FileExtras.CreateFile(filename);
-
-                using (var fs = new FileStream(filename, FileMode.Open))
+                bool ok;
+                do
                 {
-                    Storage = DictionaryExtras.Deserialize(fs) ?? new Dictionary<string, object>();
-                }
+                    FileExtras.CreateFile(filename);
+                    using (var fs = new FileStream(filename, FileMode.Open))
+                    {
+                        try
+                        {
+                            Storage = DictionaryExtras.Deserialize(fs) ?? new Dictionary<string, object>();
+                            ok = true;
+                        }
+                        catch (Exception)
+                        {
+                            ok = false;
+                            File.Delete(filename);
+                        }
+                    }
+                } while (ok == false);
             }
 
             js = new JsonSerializer();
@@ -56,7 +68,9 @@ namespace ANDREICSLIB.Helpers
         /// <typeparam name="T"></typeparam>
         /// <param name="key"></param>
         /// <param name="value"></param>
+        /// <param name="obeyDataContracts"></param>
         /// <returns></returns>
+#pragma warning disable 1998
         public async Task<bool> Set<T>(string key, T value, bool obeyDataContracts)
         {
             Storage[key] = value;
@@ -95,7 +109,13 @@ namespace ANDREICSLIB.Helpers
         /// <typeparam name="T"></typeparam>
         /// <param name="action"></param>
         /// <param name="memberName"></param>
+        /// <param name="obeyDataContracts"></param>
         /// <returns></returns>
+        /// <exception cref="System.Exception">
+        /// Error on cache read:
+        /// or
+        /// Error on cache write:
+        /// </exception>
         /// <exception cref="Exception">Error on cache read:
         /// or
         /// Error on cache write:</exception>
@@ -139,12 +159,16 @@ namespace ANDREICSLIB.Helpers
         /// <param name="action"></param>
         /// <param name="compress"></param>
         /// <param name="memberName"></param>
+        /// <param name="obeyDataContracts"></param>
         /// <returns></returns>
-        /// <exception cref="Exception">
+        /// <exception cref="System.Exception">
         /// Error on cache read:
         /// or
         /// Error on cache write:
         /// </exception>
+        /// <exception cref="Exception">Error on cache read:
+        /// or
+        /// Error on cache write:</exception>
         public async Task<string> Cache(Expression<Func<Task<string>>> action, bool compress = false,
             [CallerMemberName] string memberName = "", bool obeyDataContracts = true)
         {
@@ -191,12 +215,16 @@ namespace ANDREICSLIB.Helpers
         /// <typeparam name="T"></typeparam>
         /// <param name="action"></param>
         /// <param name="memberName"></param>
+        /// <param name="obeyDataContracts"></param>
         /// <returns></returns>
-        /// <exception cref="Exception">
+        /// <exception cref="System.Exception">
         /// Error on cache read:
         /// or
         /// Error on cache write:
         /// </exception>
+        /// <exception cref="Exception">Error on cache read:
+        /// or
+        /// Error on cache write:</exception>
         public async Task<T> Cache<T>(Expression<Func<Task<T>>> action, [CallerMemberName] string memberName = "", bool obeyDataContracts = true)
             where T : class
         {
