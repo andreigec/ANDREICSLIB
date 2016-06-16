@@ -44,22 +44,37 @@ namespace ANDREICSLIB.Helpers
             return ret;
         }
 
-#pragma warning disable 1570
         /// <summary>
         /// generate new enum rows of a type ordered by name
-        /// eg var str = OrderCSHARPEnum<Enum Type>();
+        /// eg  var str = OrderCSHARPEnum Enum ();
         /// </summary>
         /// <typeparam name="T"></typeparam>
+        /// <param name="first">The first.</param>
+        /// <param name="orderWithInts">if set to <c>true</c> then put this enum first</param>
         /// <returns></returns>
-        public static string OrderCSHARPEnum<T>()
+        public static string OrderCSHARPEnum<T>(Enum first = null, bool orderWithInts = false)
         {
             var t = typeof(T);
-            var v1 = Enum.GetValues(t).Cast<T>();
+            var v1 = Enum.GetValues(t).Cast<Enum>();
 
-            var v2 = v1.OrderBy(s => s.ToString()).Cast<Enum>().Select(s => $"[Description(\"{s.GetDescription()}\")] {s.ToString()}").ToList();
+            var v2 = new List<Enum>();
+            if (first != null)
+                v2 = v1.OrderByDescending(s => Equals(s, first)).ThenBy(s => s.ToString()).ToList();
+            else
+                v2 = v1.OrderBy(s => s.ToString()).ToList();
 
-            var v3 = string.Join(",\n", v2);
-            return v3;
+            var v3 = new List<string>();
+            for (int i = 0; i < v2.Count; i++)
+            {
+                var s = v2[i];
+                var str = $"[Description(\"{s.GetDescription()}\")] {s}";
+                if (orderWithInts)
+                    str += $" = {i}";
+                v3.Add(str);
+            }
+
+            var v4 = string.Join(",\n", v3);
+            return v4;
         }
 
         private static char Separator = '\f';
