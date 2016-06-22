@@ -15,32 +15,50 @@ namespace ANDREICSLIB.ClassExtras
     public static class StringExtras
     {
         /// <summary>
-        /// 
+        /// Parses the currency.
         /// </summary>
-        /// <param name="c"></param>
-        /// <param name="decimalPlaces"></param>
+        /// <param name="c">The c.</param>
+        /// <param name="truncateToDecimalPlace">truncate to this number.</param>
+        /// <param name="truncateEndingZeros">if set to <c>true</c> will remove all ending 0s.</param>
+        /// <param name="minDecimalPlaces">if set, will pad ending with 0s</param>
         /// <returns></returns>
-        public static decimal ParseCurrency(this string c, int? decimalPlaces = null, bool truncate0s = true)
+        public static decimal ParseCurrency(this string c, int? truncateToDecimalPlace = null,
+            bool truncateEndingZeros = true, int? minDecimalPlaces = 1)
         {
             var ret = 0m;
-            if (String.IsNullOrEmpty(c))
+            if (string.IsNullOrEmpty(c))
                 return 0;
-            //(?=.)^\$?(([1-9][0-9]{0,2}(,[0-9]{3})*)|0)?(\.[0-9]{1,2})?$
+
             var r = new Regex(@"\$?((([1-9][0-9]{0,2}(,[0-9]{3})*)|0)?(\.[0-9]{1,2})?)?");
             var res = r.Match(c);
             if (!res.Success || res.Groups.Count < 2)
                 return ret;
 
-            if (Decimal.TryParse(res.Groups[1].Value,
+            if (!decimal.TryParse(res.Groups[1].Value,
                 NumberStyles.AllowCurrencySymbol | NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands,
                 CultureInfo.CurrentCulture, out ret))
-            {
-                if (decimalPlaces.HasValue)
-                    ret = decimal.Round(ret, decimalPlaces.Value, MidpointRounding.AwayFromZero);
-
-                if (truncate0s)
-                    ret = ret / 1.000000000000000000000000000000000m;
                 return ret;
+
+            if (truncateToDecimalPlace.HasValue)
+                ret = decimal.Round(ret, truncateToDecimalPlace.Value, MidpointRounding.AwayFromZero);
+
+            if (truncateEndingZeros)
+                ret = ret / 1.000000000000000000000000000000000m;
+
+            if (minDecimalPlaces.HasValue)
+            {
+                int count = BitConverter.GetBytes(decimal.GetBits(ret)[3])[2];
+                if (count != 0)
+                    return ret;
+
+                var retstr = ret.ToString(CultureInfo.InvariantCulture);
+                if (!retstr.Contains("."))
+                    retstr += ".";
+
+                for (var a = 0; a < minDecimalPlaces.Value; a++)
+                    retstr += "0";
+
+                ret = decimal.Parse(retstr);
             }
             return ret;
         }
