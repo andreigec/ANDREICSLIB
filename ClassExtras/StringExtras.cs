@@ -20,9 +20,9 @@ namespace ANDREICSLIB.ClassExtras
         /// <param name="c"></param>
         /// <param name="decimalPlaces"></param>
         /// <returns></returns>
-        public static decimal ParseCurrency(this string c, int decimalPlaces = 2)
+        public static decimal ParseCurrency(this string c, int? decimalPlaces = null, bool truncate0s = true)
         {
-            var ret = decimal.Round(0, decimalPlaces, MidpointRounding.AwayFromZero);
+            var ret = 0m;
             if (String.IsNullOrEmpty(c))
                 return 0;
             //(?=.)^\$?(([1-9][0-9]{0,2}(,[0-9]{3})*)|0)?(\.[0-9]{1,2})?$
@@ -35,8 +35,12 @@ namespace ANDREICSLIB.ClassExtras
                 NumberStyles.AllowCurrencySymbol | NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands,
                 CultureInfo.CurrentCulture, out ret))
             {
-                var ret1 = decimal.Round(ret, decimalPlaces, MidpointRounding.AwayFromZero);
-                return ret1;
+                if (decimalPlaces.HasValue)
+                    ret = decimal.Round(ret, decimalPlaces.Value, MidpointRounding.AwayFromZero);
+
+                if (truncate0s)
+                    ret = ret / 1.000000000000000000000000000000000m;
+                return ret;
             }
             return ret;
         }
