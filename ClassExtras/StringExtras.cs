@@ -18,23 +18,27 @@ namespace ANDREICSLIB.ClassExtras
         /// 
         /// </summary>
         /// <param name="c"></param>
+        /// <param name="decimalPlaces"></param>
         /// <returns></returns>
-        public static decimal ParseCurrency(this string c)
+        public static decimal ParseCurrency(this string c, int decimalPlaces = 2)
         {
+            var ret = decimal.Round(0, decimalPlaces, MidpointRounding.AwayFromZero);
             if (String.IsNullOrEmpty(c))
                 return 0;
             //(?=.)^\$?(([1-9][0-9]{0,2}(,[0-9]{3})*)|0)?(\.[0-9]{1,2})?$
             var r = new Regex(@"\$?((([1-9][0-9]{0,2}(,[0-9]{3})*)|0)?(\.[0-9]{1,2})?)?");
             var res = r.Match(c);
             if (!res.Success || res.Groups.Count < 2)
-                return 0;
+                return ret;
 
-            decimal retd;
             if (Decimal.TryParse(res.Groups[1].Value,
                 NumberStyles.AllowCurrencySymbol | NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands,
-                CultureInfo.CurrentCulture, out retd))
-                return retd;
-            return 0;
+                CultureInfo.CurrentCulture, out ret))
+            {
+                var ret1 = decimal.Round(ret, decimalPlaces, MidpointRounding.AwayFromZero);
+                return ret1;
+            }
+            return ret;
         }
 
         /// <summary>
@@ -384,7 +388,7 @@ namespace ANDREICSLIB.ClassExtras
             }
             return s.Trim();
         }
-        
+
         /// <summary>
         /// append/prepend text to a string
         /// </summary>
