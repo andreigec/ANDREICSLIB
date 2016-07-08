@@ -29,15 +29,13 @@ namespace ANDREICSLIB.ClassExtras
             if (string.IsNullOrEmpty(c))
                 return 0;
 
-            string p = "";
+            string p = c;
             if (c.Contains(","))
             {
                 var r = new Regex(@"\$?((([1-9][0-9]{0,2}(,[0-9]{3})*)|0)?(\.[0-9]{1,2})?)?");
                 var res = r.Match(c);
                 if (res.Success && res.Groups.Count >= 2)
                     p = res.Groups[1].Value;
-                else
-                    p = c;
             }
 
             if (!decimal.TryParse(p,
