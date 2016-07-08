@@ -22,19 +22,25 @@ namespace ANDREICSLIB.ClassExtras
         /// <param name="truncateEndingZeros">if set to <c>true</c> will remove all ending 0s.</param>
         /// <param name="minDecimalPlaces">if set, will pad ending with 0s</param>
         /// <returns></returns>
-        public static decimal ParseCurrency(this string c, int? truncateToDecimalPlace = null,
-            bool truncateEndingZeros = true, int? minDecimalPlaces = 1)
+      public static decimal ParseCurrency2(string c, int? truncateToDecimalPlace = null,
+          bool truncateEndingZeros = true, int? minDecimalPlaces = 1)
         {
             var ret = 0m;
             if (string.IsNullOrEmpty(c))
                 return 0;
 
-            var r = new Regex(@"\$?((([1-9][0-9]{0,2}(,[0-9]{3})*)|0)?(\.[0-9]{1,2})?)?");
-            var res = r.Match(c);
-            if (!res.Success || res.Groups.Count < 2)
-                return ret;
+            string p = "";
+            if (c.Contains(","))
+            {
+                var r = new Regex(@"\$?((([1-9][0-9]{0,2}(,[0-9]{3})*)|0)?(\.[0-9]{1,2})?)?");
+                var res = r.Match(c);
+                if (res.Success && res.Groups.Count >= 2)
+                    p = res.Groups[1].Value;
+                else
+                    p = c;
+            }
 
-            if (!decimal.TryParse(res.Groups[1].Value,
+            if (!decimal.TryParse(p,
                 NumberStyles.AllowCurrencySymbol | NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands,
                 CultureInfo.CurrentCulture, out ret))
                 return ret;
