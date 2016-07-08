@@ -23,13 +23,18 @@ namespace ANDREICSLIB.Helpers
         private readonly JsonSerializer js;
         private readonly JsonSerializer privatejson = JsonSerializerExtras.CreateWithNoPrivateItemsResolver();
         private readonly object @lock = new object();
+        public bool Enabled { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LocalJSONCache"/> class.
         /// </summary>
         /// <param name="filename">The filename.</param>
-        public LocalJSONCache(string filename)
+        public LocalJSONCache(string filename, bool enabled = true)
         {
+            Enabled = enabled;
+            if (!enabled)
+                return;
+
             if (filename.EndsWith(".json") == false)
                 filename += ".json";
 
@@ -73,6 +78,9 @@ namespace ANDREICSLIB.Helpers
 #pragma warning disable 1998
         public async Task<bool> Set<T>(string key, T value, bool obeyDataContracts)
         {
+            if (!Enabled)
+                return true;
+
             Storage[key] = value;
 
             lock (@lock)
@@ -93,6 +101,9 @@ namespace ANDREICSLIB.Helpers
         /// <returns></returns>
         public async Task<T> Get<T>(string cacheKey) where T : class
         {
+            if (!Enabled)
+                return default(T);
+
             if (!Storage.ContainsKey(cacheKey))
                 return null;
 
@@ -123,13 +134,10 @@ namespace ANDREICSLIB.Helpers
             where T : class
         {
             var cacheKey = GetKey<T>(memberName, ((MethodCallExpression)action.Body));
-
             try
             {
-                if (Storage.ContainsKey(cacheKey))
-                {
+                if (Enabled && Storage.ContainsKey(cacheKey))
                     return await Get<T>(cacheKey);
-                }
             }
             catch (Exception ex)
             {
@@ -137,6 +145,8 @@ namespace ANDREICSLIB.Helpers
             }
 
             var res = action.Compile().Invoke();
+            if (!Enabled)
+                return res;
 
             lock (@lock)
             {
@@ -172,11 +182,14 @@ namespace ANDREICSLIB.Helpers
         public async Task<string> Cache(Expression<Func<Task<string>>> action, bool compress = false,
             [CallerMemberName] string memberName = "", bool obeyDataContracts = true)
         {
+            if (!Enabled)
+                return null;
+
             var cacheKey = GetKey<string>(memberName, ((MethodCallExpression)action.Body));
 
             try
             {
-                if (Storage.ContainsKey(cacheKey))
+                if (Enabled && Storage.ContainsKey(cacheKey))
                 {
                     var val = await Get<string>(cacheKey);
                     if (compress == false)
@@ -192,6 +205,9 @@ namespace ANDREICSLIB.Helpers
             }
 
             var res = await action.Compile().Invoke();
+
+            if (!Enabled)
+                return res;
 
             lock (@lock)
             {
@@ -232,7 +248,7 @@ namespace ANDREICSLIB.Helpers
 
             try
             {
-                if (Storage.ContainsKey(cacheKey))
+                if (Enabled && Storage.ContainsKey(cacheKey))
                 {
                     return await Get<T>(cacheKey);
                 }
@@ -243,6 +259,8 @@ namespace ANDREICSLIB.Helpers
             }
 
             var res = await action.Compile().Invoke();
+            if (!Enabled)
+                return res;
 
             lock (@lock)
             {

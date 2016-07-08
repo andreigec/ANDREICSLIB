@@ -58,5 +58,7 @@ namespace ANDREICSLIB.Helpers
         /// <param name="obeyDataContracts">if set to <c>true</c> [obey data contracts].</param>
         /// <returns></returns>
         Task<bool> Set<T>(string key, T value, bool obeyDataContracts = true);
+
+        bool Enabled { get; set; }
     }
 }
