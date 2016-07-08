@@ -22,7 +22,7 @@ namespace ANDREICSLIB.ClassExtras
         /// <param name="truncateEndingZeros">if set to <c>true</c> will remove all ending 0s.</param>
         /// <param name="minDecimalPlaces">if set, will pad ending with 0s</param>
         /// <returns></returns>
-      public static decimal ParseCurrency2(string c, int? truncateToDecimalPlace = null,
+      public static decimal ParseCurrency(this string c, int? truncateToDecimalPlace = null,
           bool truncateEndingZeros = true, int? minDecimalPlaces = 1)
         {
             var ret = 0m;
