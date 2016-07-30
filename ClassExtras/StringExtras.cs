@@ -22,8 +22,8 @@ namespace ANDREICSLIB.ClassExtras
         /// <param name="truncateEndingZeros">if set to <c>true</c> will remove all ending 0s.</param>
         /// <param name="minDecimalPlaces">if set, will pad ending with 0s</param>
         /// <returns></returns>
-      public static decimal ParseCurrency(this string c, int? truncateToDecimalPlace = null,
-          bool truncateEndingZeros = true, int? minDecimalPlaces = 1)
+        public static decimal ParseCurrency(this string c, int? truncateToDecimalPlace = null,
+            bool truncateEndingZeros = true, int? minDecimalPlaces = 1)
         {
             var ret = 0m;
             if (string.IsNullOrEmpty(c))
@@ -402,17 +402,22 @@ namespace ANDREICSLIB.ClassExtras
         /// merges all consecutive whitespace into one character, and trim
         /// </summary>
         /// <param name="origString">The original string.</param>
+        /// <param name="maintainNewLines"></param>
         /// <returns></returns>
-        public static string MergeWhiteSpace(this string origString)
+        public static string MergeWhiteSpace(this string origString, bool maintainNewLines = true)
         {
-            var s = Regex.Replace(origString, @"\s+", " ");
-            var s2 = "";
-            while (s2.Length != s.Length)
-            {
-                s2 = s;
-                s = s.Replace("  ", " ");
-            }
-            return s.Trim();
+            if (string.IsNullOrEmpty(origString))
+                return null;
+
+            string str1 = "";
+            if (maintainNewLines)
+                str1 = Regex.Replace(origString, "[ \t\r]", " ");
+            else
+                str1 = Regex.Replace(origString, "\\s+", " ");
+
+            for (string str2 = ""; str2.Length != str1.Length; str1 = str1.Replace("  ", " "))
+                str2 = str1;
+            return str1.Trim();
         }
 
         /// <summary>
