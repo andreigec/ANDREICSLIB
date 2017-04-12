@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
   <PropertyGroup>
+  <TargetFramework>net461</TargetFramework>    
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
@@ -9,14 +9,13 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ANDREICSLIB</RootNamespace>
-    <AssemblyName>ANDREICSLIB</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <AssemblyName>ANDREICSLIB</AssemblyName>    
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>2.0</OldToolsVersion>
-    <UpgradeBackupLocation />
-    <TargetFrameworkProfile />
-    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+        <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -78,6 +77,9 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
@@ -100,221 +102,87 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClassExtras\ArrayExtras.cs" />
-    <Compile Include="ClassExtras\AssemblyExtras.cs" />
-    <Compile Include="ClassExtras\DateTimeExtras.cs" />
-    <Compile Include="ClassExtras\EnumExtras.cs" />
-    <Compile Include="ClassExtras\JsonSerializerExtras.cs" />
-    <Compile Include="Extracters\DynamicJSONConverter.cs" />
-    <Compile Include="Extracters\IExtract.cs" />
-    <Compile Include="Extracters\JSONExtract.cs" />
-    <Compile Include="Extracters\JsonRequest.cs" />
-    <Compile Include="Helpers\AsyncHelpers.cs" />
-    <Compile Include="ClassExtras\BitmapExtras.cs" />
-    <Compile Include="ClassExtras\CheckedListBoxExtras.cs" />
-    <Compile Include="ClassExtras\ContextMenuStripExtras.cs" />
-    <Compile Include="ClassExtras\DirectoryExtras.cs" />
-    <Compile Include="Helpers\EnumExtras.cs" />
-    <Compile Include="Helpers\ICache.cs" />
-    <Compile Include="Helpers\NoPrivateItemsResolver.cs" />
-    <Compile Include="Licensing\GitHubLicensing.cs" />
-    <Compile Include="Licensing\LicensingDetails.cs" />
-    <Compile Include="Licensing\SolutionDetails.cs" />
-    <Compile Include="Models\FileSizes.cs" />
-    <Compile Include="ClassExtras\ListExtras.cs" />
-    <Compile Include="ClassExtras\TabPageExtras.cs" />
-    <Compile Include="Helpers\ListViewSorter.cs" />
-    <Compile Include="Helpers\Networking.cs" />
-    <Compile Include="NewControls\ColorListBox.cs">
+    <Compile Update="ClassReplacements\PanelReplacement.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ClassExtras\ColorExtras.cs" />
-    <Compile Include="NewControls\selectItemFromListView.cs">
+    <Compile Update="Licensing\aboutScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewControls\selectItemFromListView.Designer.cs">
-      <DependentUpon>selectItemFromListView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NewControls\GetStringImageCompare.cs">
+    <Compile Update="Licensing\aboutScreen.Designer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewControls\GetStringImageCompare.Designer.cs">
-      <DependentUpon>GetStringImageCompare.cs</DependentUpon>
+    <Compile Update="Licensing\helpScreen.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewControls\GrowingLabel.cs">
+    <Compile Update="Licensing\helpScreen.Designer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NewControls\ColorListBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="NewControls\GrowingLabel.Designer.cs">
-      <DependentUpon>GrowingLabel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Helpers\BTree.cs" />
-    <Compile Include="Helpers\DeviceUpdates.cs" />
-    <Compile Include="ClassExtras\DictionaryExtras.cs" />
-    <Compile Include="NewControls\DragBar.cs">
+    <Compile Update="NewControls\DragBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="NewControls\DragBar.Designer.cs">
-      <DependentUpon>DragBar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Helpers\EmbeddedResources.cs" />
-    <Compile Include="ClassExtras\FileExtras.cs" />
-    <Compile Include="Helpers\FormConfigRestore.cs" />
-    <Compile Include="NewControls\GetStringBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NewControls\GetStringBox.designer.cs">
-      <DependentUpon>GetStringBox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Licensing\aboutScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Licensing\aboutScreen.Designer.cs">
-      <DependentUpon>aboutScreen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Licensing\helpScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Licensing\helpScreen.Designer.cs">
-      <DependentUpon>helpScreen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Licensing\Licensing.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Helpers\MatrixOps.cs" />
-    <Compile Include="NewControls\ImageDraw.cs">
+    <Compile Update="NewControls\DragBar.Designer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="NewControls\ImageDraw.Designer.cs">
-      <DependentUpon>ImageDraw.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NewControls\MassVariableEdit.cs">
+    <Compile Update="NewControls\getStringBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewControls\MassVariableEdit.Designer.cs">
-      <DependentUpon>MassVariableEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NewControls\MultipleMessageBox.cs">
+    <Compile Update="NewControls\getStringBox.designer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewControls\MultipleMessageBox.Designer.cs">
-      <DependentUpon>MultipleMessageBox.cs</DependentUpon>
+    <Compile Update="NewControls\GetStringImageCompare.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClassReplacements\PanelReplacement.cs">
+    <Compile Update="NewControls\GetStringImageCompare.Designer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NewControls\growingLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="NewControls\SelectItemsFromCheckBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NewControls\SelectItemsFromCheckBox.Designer.cs">
-      <DependentUpon>SelectItemsFromCheckBox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NewControls\SerializableDictionary.cs" />
-    <Compile Include="ClassExtras\ExpandoObjectExtras.cs" />
-    <Compile Include="Helpers\LocalJSONCache.cs" />
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="ClassExtras\SaveFileDialogExtras.cs" />
-    <Compile Include="NewControls\selectItemFromListBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NewControls\selectItemFromListBox.Designer.cs">
-      <DependentUpon>selectItemFromListBox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ClassExtras\TextboxExtras.cs" />
-    <Compile Include="Helpers\CustomTimeZones.cs" />
-    <Compile Include="NewControls\UnselectableRichTextBox.cs">
+    <Compile Update="NewControls\growingLabel.Designer.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ClassExtras\ListViewExtras.cs" />
-    <Compile Include="ClassExtras\ObjectExtras.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ClassExtras\MathExtras.cs" />
-    <Compile Include="ClassExtras\StringExtras.cs" />
-    <Compile Include="ClassExtras\NetExtras.cs" />
-    <Compile Include="ClassExtras\ZipExtras.cs" />
-    <Compile Include="Helpers\Reflection.cs" />
-    <Compile Include="Helpers\TimeUpdates.cs" />
-    <Compile Include="Transformers\CsvExport.cs" />
-    <Compile Include="Transformers\CSVTransform.cs" />
-    <Compile Include="Transformers\Result.cs" />
-    <Compile Include="Transformers\ITransform.cs" />
+    <Compile Update="NewControls\ImageDraw.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="NewControls\ImageDraw.Designer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="NewControls\MassVariableEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NewControls\MassVariableEdit.Designer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NewControls\multipleMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NewControls\multipleMessageBox.Designer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NewControls\selectItemFromListBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NewControls\selectItemFromListBox.Designer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NewControls\selectItemFromListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NewControls\selectItemFromListView.Designer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NewControls\SelectItemsFromCheckBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NewControls\SelectItemsFromCheckBox.Designer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NewControls\UnselectableRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 3.1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="NewControls\selectItemFromListView.resx">
-      <DependentUpon>selectItemFromListView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NewControls\DragBar.resx">
-      <DependentUpon>DragBar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NewControls\GetStringBox.resx">
-      <DependentUpon>GetStringBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Licensing\aboutScreen.resx">
-      <DependentUpon>aboutScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Licensing\helpScreen.resx">
-      <DependentUpon>helpScreen.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NewControls\GetStringImageCompare.resx">
-      <DependentUpon>GetStringImageCompare.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NewControls\ImageDraw.resx">
-      <DependentUpon>ImageDraw.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NewControls\MassVariableEdit.resx">
-      <DependentUpon>MassVariableEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NewControls\MultipleMessageBox.resx">
-      <DependentUpon>MultipleMessageBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NewControls\selectItemFromListBox.resx">
-      <DependentUpon>selectItemFromListBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NewControls\SelectItemsFromCheckBox.resx">
-      <DependentUpon>SelectItemsFromCheckBox.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-  </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>

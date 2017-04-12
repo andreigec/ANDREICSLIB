@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using ICSharpCode.SharpZipLib.Core;
 using ICSharpCode.SharpZipLib.Zip;
+using ZipFile = ICSharpCode.SharpZipLib.Zip.ZipFile;
 
 namespace ANDREICSLIB.ClassExtras
 {
