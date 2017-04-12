@@ -114,6 +114,7 @@
     <Compile Include="ClassExtras\CheckedListBoxExtras.cs" />
     <Compile Include="ClassExtras\ContextMenuStripExtras.cs" />
     <Compile Include="ClassExtras\DirectoryExtras.cs" />
+    <Compile Include="Helpers\EnumExtras.cs" />
     <Compile Include="Helpers\ICache.cs" />
     <Compile Include="Helpers\NoPrivateItemsResolver.cs" />
     <Compile Include="Licensing\GitHubLicensing.cs" />
